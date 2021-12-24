@@ -35,7 +35,7 @@ if (isset($_POST['login'])) {
 <?php
     }
 }
-include "server/login.html";
+include "client/login.html";
 ?>
 
 
