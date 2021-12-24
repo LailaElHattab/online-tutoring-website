@@ -5,7 +5,6 @@ session_start();
 <script src="validations.js"></script>
 <?php
 include 'database.php';
-
 if (isset($_POST['login'])) {
     if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL) === false) {
         for ($i = 0; $i < 4; $i++) {
@@ -13,7 +12,7 @@ if (isset($_POST['login'])) {
             $result = $conn->query($sql);
             if ($result->num_rows > 0) {
                 $_SESSION["id"] = $row["id"];
-                $_SESSION["name"] = $row["name"];
+                $_SESSION["name"] = $row["fname"];
                 $_SESSION["email"] = $row["email"];
                 $_SESSION["password"] = $row["password"];
                 if (isset($_POST['remember'])) {
@@ -35,7 +34,8 @@ if (isset($_POST['login'])) {
 <?php
     }
 }
-include "client/login.html";
+include($_SERVER['DOCUMENT_ROOT'] . "/online-tutoring-website/client/login.html");
+
 ?>
 
 
