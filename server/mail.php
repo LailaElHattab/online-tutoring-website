@@ -15,7 +15,7 @@ function generatePwd()
 function emailPwd($email, $type)
 {
     //update the password
-    include 'database.php';
+    include_once 'database.php';
     $pwd = generatePwd();
     $sql = "update " . $type . " set password='" . $pwd . "' where email ='" . $email . "'";
     $conn->query($sql);
