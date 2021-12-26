@@ -1,6 +1,6 @@
 <html>
 <?php
-include($_SERVER['DOCUMENT_ROOT'] . "/online-tutoring-website/client/Home.html");
+include($_SERVER['DOCUMENT_ROOT'] . "/online-tutoring-website/client/home.html");
 ?>
 
 </html>
