@@ -1,10 +1,10 @@
 <html>
 <?php
-$user = array("learner", "administrator", "auditor", "tutor");
+$user = array("learner", "admin", "auditor", "tutor");
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "dummy";
+$dbname = "IS3";
 $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn === false) {
     die("ERROR: could not connect. " . mysqli_connect_error());
