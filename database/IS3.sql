@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Dec 24, 2021 at 09:01 PM
+-- Generation Time: Dec 26, 2021 at 10:10 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.11
 
@@ -33,22 +33,23 @@ CREATE TABLE `admin` (
   `password` varchar(255) NOT NULL,
   `fname` varchar(255) NOT NULL,
   `pricture` varchar(255) NOT NULL,
-  `rank` int(11) NOT NULL
+  `rank` int(11) NOT NULL,
+  `security_ans` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `admin`
 --
 
-INSERT INTO `admin` (`id`, `email`, `password`, `fname`, `pricture`, `rank`) VALUES
-(1, 'salma@gmail.com', '123', 'Salma', 'images/salma.jpg', 1),
-(2, 'basma@gmail.com', '234', 'Basma', 'images/basma.jpg', 1),
-(3, 'yosr@gmail.com', '345', 'Yosr', 'images/yosr.jpg', 1),
-(4, 'hagar@gmail.com', '456', 'Hagar', 'images/hagar.jpg', 1),
-(5, 'laila@gmail.com', '567', 'Laila', 'images/laila.jpg', 1),
-(6, 'mohamed@gmail.com', '678', 'Mohamed', 'images/mohamed.jpeg', 2),
-(7, 'mostafa@gmail.com', '789', 'Mostafa', 'images/mostafa.jpeg', 2),
-(8, 'kamal@gmail.com', '342', 'kamal', 'images/kamal.png', 2);
+INSERT INTO `admin` (`id`, `email`, `password`, `fname`, `pricture`, `rank`, `security_ans`) VALUES
+(1, 'salma@gmail.com', '123', 'Salma', 'images/salma.jpg', 1, 'Rusty'),
+(2, 'basma@gmail.com', '234', 'Basma', 'images/basma.jpg', 1, 'King'),
+(3, 'yosr@gmail.com', '345', 'Yosr', 'images/yosr.jpg', 1, 'Oreo'),
+(4, 'hagar@gmail.com', '456', 'Hagar', 'images/hagar.jpg', 1, 'Koky'),
+(5, 'laila@gmail.com', '567', 'Laila', 'images/laila.jpg', 1, 'Caramel'),
+(6, 'mohamed@gmail.com', '678', 'Mohamed', 'images/mohamed.jpeg', 2, 'Copper'),
+(7, 'mostafa@gmail.com', '789', 'Mostafa', 'images/mostafa.jpeg', 2, 'Max'),
+(8, 'kamal@gmail.com', '342', 'kamal', 'images/kamal.png', 2, 'simba');
 
 -- --------------------------------------------------------
 
@@ -70,7 +71,7 @@ CREATE TABLE `auditor` (
 --
 
 INSERT INTO `auditor` (`id`, `email`, `password`, `fname`, `picture`, `security_ans`) VALUES
-(1, 'nada@gmail.com', '244', 'Nada', '', '');
+(1, 'nada@gmail.com', '244', 'Nada', '', 'Milo');
 
 -- --------------------------------------------------------
 
@@ -169,17 +170,17 @@ CREATE TABLE `learner` (
   `password` varchar(255) NOT NULL,
   `fname` varchar(255) NOT NULL,
   `picture` varchar(255) NOT NULL,
-  `security_answer` varchar(255) NOT NULL
+  `security_ans` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `learner`
 --
 
-INSERT INTO `learner` (`id`, `email`, `password`, `fname`, `picture`, `security_answer`) VALUES
-(1, 'salman@gmail.com', '123', 'Salman', '', 'france'),
-(2, 'Doha@gmail.com', '345', 'Doha', '', 'japan'),
-(3, 'amiina@gmail.com', '345', 'Amiina', '', 'saudi');
+INSERT INTO `learner` (`id`, `email`, `password`, `fname`, `picture`, `security_ans`) VALUES
+(1, 'salman@gmail.com', '123', 'Salman', '', 'Leo'),
+(2, 'Doha@gmail.com', '345', 'Doha', '', 'Theo'),
+(3, 'amiina@gmail.com', 'YC84uIRW', 'Amiina', '', 'soti');
 
 -- --------------------------------------------------------
 
@@ -270,7 +271,7 @@ CREATE TABLE `tutor` (
 --
 
 INSERT INTO `tutor` (`id`, `email`, `password`, `fname`, `cv`, `bdate`, `status`, `picture`, `security_ans`) VALUES
-(1, 'ghada@gmail.com', '234', 'Ghada', '', '1981-12-17', 1, '', 'dubai');
+(1, 'ghada@gmail.com', '234', 'Ghada', '', '1981-12-17', 1, '', 'soty');
 
 --
 -- Indexes for dumped tables
