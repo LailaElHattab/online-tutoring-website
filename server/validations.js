@@ -18,7 +18,10 @@ function validateLog(form) {
 function validateEdit(form) {
     var fail = "";
     if (form.email.value == "") {
-        fail += "Please Enter your email";
+        fail += "Please Enter your email ";
+    }
+    if (form.security.value == "") {
+        fail += "Please Enter your security answer";
     }
     if (fail == "") {
         return true;
