@@ -1,6 +1,3 @@
-<html>
-<?php
-include($_SERVER['DOCUMENT_ROOT'] . "/online-tutoring-website/client/home.html");
+<?php 
+session_start();
 ?>
-
-</html>
