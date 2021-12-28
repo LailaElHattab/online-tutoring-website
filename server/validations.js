@@ -59,21 +59,22 @@ function validateCourse(form) {
 }
 function validateSignup(form) {
     var fail = "";
-    if (form.name.value == "") {
-        fail += 1;
+    if (form.fname.value == "") {
+        fail += "Please Enter your first ";
     }
-    if (form.price.value == "") {
-        fail += 2;
+    if (form.email.value == "") {
+        fail += "Please Enter your email ";
     }
-    if (form.des.value == "") {
+    if (form.password.value == "") {
+        fail += "Please Enter your password ";
+    }
+    if (form.passConf.value == "") {
+        fail += "Please confirm your password ";
+    }
+    if (form.security.value == "") {
+        fail += "Please Enter your security answer ";
+    }
 
-    }
-    if (form.imageToUpload.value == "") {
-        fail += 3;
-    }
-    if (form.contentToUpload.value == "") {
-        fail += 4;
-    }
     if (fail == "") {
         return true;
     }
