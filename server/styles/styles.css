@@ -1,0 +1,31 @@
+
+/*Login Page*/
+.login{
+    color:rgb(58, 99, 151);
+    font-family: "Open Sans", sans-serif;
+    font-size: 30px;
+    padding-left: 40%;
+    padding-bottom: 3%;
+}
+#loginbtn {
+    color:whitesmoke;
+    background-color: rgb(58, 99, 151);
+    box-shadow: 2px 3px 5px grey
+}
+#label{
+    color:rgb(33, 44, 58);
+    padding-top: 10px;
+}
+#remember{
+    color:rgb(58, 99, 151);
+    padding-top: 10px;
+}
+#checkLabel{
+    color:rgb(33, 44, 58);
+    padding-top: 10px;
+}
+#loginContainer{
+    padding-top: 130px;
+}
+
+/*Home Page*/
