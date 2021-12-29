@@ -101,7 +101,7 @@ if (isset($_POST["add"])) {
         $category_id = $row1['id'];
 
         $sql4 = "INSERT INTO course (name,image,content,description,price,rating,status,category,level,tutor_id,admin_id) VALUES ('$name','$image','$content','$des','$price','0','1','$category_id','$level','$tutor_id','$admin_id')";
-        echo $sql4;
+        //echo $sql4;
 
         $conn->query($sql4);
     }
