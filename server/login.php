@@ -11,6 +11,7 @@ if (isset($_POST['login'])) {
             $sql = "Select * from " . $user[$i] . " where email ='" . $_POST["email"] . "' and password='" . $_POST["password"] . "'";
             $result = $conn->query($sql);
             if ($result->num_rows > 0) {
+                $row = $result->fetch_assoc();
                 $_SESSION["id"] = $row["id"];
                 $_SESSION["name"] = $row["fname"];
                 $_SESSION["email"] = $row["email"];
