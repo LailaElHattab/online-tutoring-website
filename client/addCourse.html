@@ -1,0 +1,38 @@
+<html>
+<form method="POST" action="" enctype="multipart/form-data" onsubmit="return validateCourse(this)">
+    <label for="name">Course Name</label><br>
+    <input type="text" name="name" placeholder="name"><br><br>
+    <label for="price">Course Price</label><br>
+    <input type="text" name="price" placeholder="price"><br><br>
+    <label for="category">Course Category</label>
+    <select name="category" id="category">
+        <option value="development">Development</option>
+        <option value="business">Business</option>
+        <option value="desgin">Desgin</option>
+        <option value="health">Health and Fitness</option>
+        <option value="teaching">Teaching</option>
+    </select>
+
+    <p>Please select the course's level:</p>
+      <input type="radio" id="beginner" name="level" value="Beginner">
+      <label for="beginner">Beginner</label><br>
+      <input type="radio" id="intermediate" name="level" value="Intermediate">
+      <label for="intermediate">Intermediate</label><br>
+      <input type="radio" id="advanced" name="level" value="Advanced">
+      <label for="advanced">Advanced</label><br><br>
+
+    <label for="tutor">Tutor Email</label><br>
+    <input type="text" name="tutor" placeholder="email"><br>
+    <p>Course image:
+        <input type="file" name="imageToUpload" id="imageToUpload">
+    <p>
+    <p>Course Description:
+        <input type="file" name="desToUpload" id="desToUpload">
+    <p>
+    <p>Course Content file:
+        <input type="file" name="contentToUpload" id="contentToUpload">
+    <p>
+        <input type="submit" value="add course" name="add">
+</form>
+
+</html>
