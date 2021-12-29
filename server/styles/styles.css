@@ -28,6 +28,9 @@
 }
 
 /*Sign up page*/
+#signupContainer{
+    padding-top: 100px;
+}
 .signup{
     color:rgb(58, 99, 151);
     font-family: "Open Sans", sans-serif;
@@ -35,17 +38,17 @@
     padding-left: 40%;
     padding-bottom: 3%;
 }
-.button{
+#signupbtn{
     color:whitesmoke;
     background-color: rgb(58, 99, 151);
     box-shadow: 2px 3px 5px grey
 }
 
-.button:hover{
-    background-color: #5cf05cce;
+#signupbtn:hover{
+    background-color: #14314dce;
 }
 /* rgb(60,179,113) */
-.button:active{
+#signupbtn:active{
     background-color: rgb(119,136,153);
 }
 
@@ -54,8 +57,11 @@
     background-color: transparent !important ;
 }
 .navbar .navbar-brand{
-    color: chocolate;
+    color:rgb(0, 177, 24) !important ;
     font-weight: bolder;
+    padding-right: 500px;
+    
+    
 }
 #welcome{
     color: #313855;
