@@ -16,6 +16,7 @@ if (isset($_POST['login'])) {
                 $_SESSION["name"] = $row["fname"];
                 $_SESSION["email"] = $row["email"];
                 $_SESSION["password"] = $row["password"];
+                $_SESSION["user"] = $user[$i];
                 if (isset($_POST['remember'])) {
                     $_SESSION['start'] = time();
                     $_SESSION['expire'] = $_SESSION['start'] + (3 * 24 * 60 * 60);
