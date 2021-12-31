@@ -54,6 +54,7 @@
 /*Home Page*/
 .navbar{
     background-color: transparent !important ;
+    background-image: url("images/wave.png");
 }
 .navbar .navbar-brand{
     color:#5B25FF !important;
@@ -75,3 +76,4 @@
 #wave{
     padding-bottom: 100px;
 }
+
