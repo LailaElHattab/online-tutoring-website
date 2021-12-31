@@ -52,28 +52,53 @@
 }
 
 /*Home Page*/
-.navbar{
-    background-color: transparent !important ;
-    background-image: url("images/wave.png");
+
+
+:root{
+    --primary: #5B25FF;
+    --dark: rgb(17, 16, 16);
+    --body: #363EE0;
+    --box-shadow: 0 8px 22px rgba(0,0,0,0,1);
+    --active:#FFA700;
 }
+#body{
+    font-family: "Open Sans", sans-serif;
+    line-height: 1.7;
+    color: var(--body);
+}
+#intro{
+    
+}
+#illustration{
+    height: 300px;
+    width: 800px;
+
+}
+#loginhomebtn{
+    background-color: transparent;
+    color: var(--primary);
+}
+#signuphomebtn{
+    background-color: transparent;
+    color: var(--primary);
+}
+#signuphomebtn:hover{
+    background-color: var(--dark);
+}
+#signuphomebtn:active{
+    background-color: var(--active);
+}
+
+#loginhomebtn:hover{
+    background-color: var(--dark);
+}
+#loginhomebtn:active{
+    background-color: var(--active);
+}
+
 .navbar .navbar-brand{
     color:#5B25FF !important;
     font-weight: bolder;
 }
-#welcome{
-    color:#363EE0;
-    font-family: "Open Sans", sans-serif;
-    font-size: 50px;
-    padding-top: 150px;
-    padding-left: 40px;
-}
-#edupedia{
-    color:#363EE0;
-    font-family: "Open Sans", sans-serif;
-    font-size: 50px;
-    padding-left: 40px;
-}
-#wave{
-    padding-bottom: 100px;
-}
+
 
