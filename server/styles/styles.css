@@ -66,9 +66,6 @@
     line-height: 1.7;
     color: var(--body);
 }
-#intro{
-    
-}
 #illustration{
     height: 300px;
     width: 800px;
@@ -100,5 +97,4 @@
     color:#5B25FF !important;
     font-weight: bolder;
 }
-
 
