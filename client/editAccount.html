@@ -1,6 +1,8 @@
 <html>
 
 <head>
+    <meta name="viewport" content="width=device-width , initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="styles/styles.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -14,49 +16,50 @@
     <div class="container" id="accountContainer">
         <div class="col-md-4 col-md-offset-4">
             <div class="row">
-    <div class="form-outline mb-4">
-        <h2 class="account">Account</h2>
-    </div>
-     </div> 
-    <ul class="nav nav-tabs" id="myTab" role="tablist">
-        <li class="nav-item" role="presentation">
-            <button class="nav-link active" id="security-tab" data-bs-toggle="tab" data-bs-target="#security"
-                type="button" role="tab" aria-controls="security" aria-selected="true">Account Security</button>
-        </li>
-        <li class="nav-item" role="presentation">
-            <button class="nav-link" id="close-tab" data-bs-toggle="tab" data-bs-target="#close" type="button"
-                role="tab" aria-controls="close" aria-selected="false">Close Account</button>
-        </li>
-
-    </ul>
-    <div class="tab-content" id="myTabContent">
-        <div class="tab-pane fade show active" id="security" role="tabpanel" aria-labelledby="security-tab">
-            <br>
-            <div class="row">
                 <div class="form-outline mb-4">
-                    <label for="email" class="form-label" id="label">Email address: </label>
-                    <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+                    <h2 class="account">Account</h2>
                 </div>
             </div>
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="security-tab" data-bs-toggle="tab" data-bs-target="#security"
+                        type="button" role="tab" aria-controls="security" aria-selected="true">Account Security</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="close-tab" data-bs-toggle="tab" data-bs-target="#close" type="button"
+                        role="tab" aria-controls="close" aria-selected="false">Close Account</button>
+                </li>
 
-            <!-- Password input -->
-            <div class="row">
-                <div class="form-outline mb-4">
-                    <label for="password" class="form-label" id="label">Password: </label>
-                    <input type="password" class="form-control" id="pw" placeholder="Enter password"
-                        name="password">
+            </ul>
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="security" role="tabpanel" aria-labelledby="security-tab">
+                    <br>
+                    <div class="row">
+                        <div class="form-outline mb-4">
+                            <label for="email" class="form-label" id="label">Email address: </label>
+                            <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+                        </div>
+                    </div>
+
+                    <!-- Password input -->
+                    <div class="row">
+                        <div class="form-outline mb-4">
+                            <label for="password" class="form-label" id="label">Password: </label>
+                            <input type="password" class="form-control" id="pw" placeholder="Enter password"
+                                name="password">
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
 
-        <div class="tab-pane fade" id="close" role="tabpanel" aria-labelledby="close-tab">
-            <h3>This step is irreversible</h3>
-            <p>
-                Deleting your account will erase all your data. You will be unsubscribed from all your purchased
-                courses.
-            </p>
-            <button type="button" class="delete" id="deletebtn" onclick="location.href='deleteAccount.php'">Delete account</button>
-        </div>
+                <div class="tab-pane fade" id="close" role="tabpanel" aria-labelledby="close-tab">
+                    <h3>This step is irreversible</h3>
+                    <p>
+                        Deleting your account will erase all your data. You will be unsubscribed from all your purchased
+                        courses.
+                    </p>
+                    <button type="button" class="delete" id="deletebtn"
+                        onclick="location.href='deleteAccount.php'">Delete account</button>
+                </div>
 
 </body>
 
