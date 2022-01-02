@@ -19,12 +19,12 @@
 
     color:rgb(58, 99, 151);
     font-family: "Open Sans", sans-serif;
-    font-size: 30px;
+    
     text-align: center;
     font-size: 15px;
 }
 #deletebtn {
     color:whitesmoke;
-    background-color: var(--primary);
-  
+    background-color: rgb(58, 99, 151);
+    box-shadow: 2px 3px 5px grey
 }
