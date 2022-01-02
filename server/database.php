@@ -1,6 +1,6 @@
 <html>
 <?php
-$user = array("learner", "admin", "auditor", "tutor");
+
 $servername = "localhost";
 $username = "root";
 $password = "";
