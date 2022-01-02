@@ -7,28 +7,24 @@ session_start();
 include_once 'database.php';
 if (isset($_POST['login'])) {
     if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL) === false) {
-        for ($i = 0; $i < 4; $i++) {
-            $sql = "Select * from " . $user[$i] . " where email ='" . $_POST["email"] . "' and password='" . $_POST["password"] . "'";
-            $result = $conn->query($sql);
-            if ($result->num_rows > 0) {
-                $row = $result->fetch_assoc();
-                $_SESSION["id"] = $row["id"];
-                $_SESSION["name"] = $row["fname"];
-                $_SESSION["email"] = $row["email"];
-                $_SESSION["password"] = $row["password"];
-                $_SESSION["user"] = $user[$i];
-                if (isset($_POST['remember'])) {
-                    $_SESSION['start'] = time();
-                    $_SESSION['expire'] = $_SESSION['start'] + (3 * 24 * 60 * 60);
-                }
-                header("Location:home.php");
-                break;
+        $sql = "Select * from user where email ='" . $_POST["email"] . "' and password='" . $_POST["password"] . "'";
+        $result = $conn->query($sql);
+        if ($result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+            $_SESSION["id"] = $row["id"];
+            $_SESSION["name"] = $row["fname"];
+            $_SESSION["email"] = $row["email"];
+            $_SESSION["user"] = $row["type"];
+            if (isset($_POST['remember'])) {
+                $_SESSION['start'] = time();
+                $_SESSION['expire'] = $_SESSION['start'] + (3 * 24 * 60 * 60);
             }
-            if ($i == 3) {
+            header("Location:home.php");
+        }
+        if ($i == 3) {
 ?>
-                <label>Invalid Login, please try again</label><br><br>
+            <label>Invalid Login, please try again</label><br><br>
         <?php
-            }
         }
     } else {
         ?>
