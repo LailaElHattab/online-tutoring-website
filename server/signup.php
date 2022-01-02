@@ -46,7 +46,7 @@ if (isset($_POST['signup'])) {
         }
     }
 }
-include_once($_SERVER['DOCUMENT_ROOT'] . "/online-tutoring-website copy/client/signup.html");
+include_once($_SERVER['DOCUMENT_ROOT'] . "/online-tutoring-website/client/signup.html");
 
 ?>
 
