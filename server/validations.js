@@ -43,7 +43,7 @@ function validateCourse(form) {
     if (form.category.value == "") {
         fail += "Please specify the course category ";
     }
-    if (form.tutor.value == "") {
+    if (form.email.value == "") {
         fail += "Please Enter the tutor email ";
     }
     if (form.imageToUpload.value == "") {

@@ -7,74 +7,63 @@ session_start();
 <?php
 include 'database.php';
 if (isset($_POST["add"])) {
-    $sql = "select name from course";
+    $sql = "select name from course where name='" . $_POST['name'] . "'";
     $result = $conn->query($sql);
-    $sql1 = "select email from tutor";
+
+    $sql1 = "select email from user where email='" . $_POST['email'] . "'";
     $result1 = $conn->query($sql1);
+
     $answer = true;
     $found = false;
-    while ($row = $result->fetch_assoc()) {
-        $comparison = strcasecmp($_POST['name'], $row["name"]);
-        if ($comparison == 0) {
+    if ($result->num_rows > 0) {
 ?>
-            <label>Oops, another course has the same name</label><br><br>
+        <label>Oops, another course has the same name</label><br><br>
         <?php
-            break;
-        }
-    }
-    if ($comparison != 0) {
+    } else {
         if ($_POST["price"] <= 0 || is_numeric($_POST["price"]) == false) {
             $answer = false;
         ?>
             <label>Price should be a number above 0</label><br><br>
         <?php
         }
-        while ($row1 = $result1->fetch_assoc()) {
-            if ($_POST['tutor'] == $row1['email']) {
-
-                $found = true;
-            }
-        }
-        if ($found == false) {
-
-
+        if ($result1->num_rows > 0) {
+            $found = true;
+        } else {
         ?>
 
             <label>Oops, This tutor is not registered </label><br><br>
         <?php
-
-            $answer = false;
-        }
-        $target_dir = "images/";
-        $target_file = $target_dir . basename($_FILES["imageToUpload"]["name"]);
-        $allowed = array('image/gif', 'image/png', 'image/jpg', 'image/jpeg');
-        if (!in_array($_FILES["imageToUpload"]["type"], $allowed)) {
-        ?>
-            <label>please upload a file of image type e.g jpeg,png </label>
-        <?php
-            $answer = false;
-        }
-        $target_dir1 = "courseInfo/";
-        $target_file1 = $target_dir1 . basename($_FILES["contentToUpload"]["name"]);
-        $allowed1 = array('text/plain', 'text/rtf');
-        if (!in_array($_FILES["contentToUpload"]["type"], $allowed1)) {
-        ?>
-            <label>please upload a file of text type e.g plain,rtf </label>
-        <?php
-            $answer = false;
-        }
-        $target_file2 = $target_dir1 . basename($_FILES["desToUpload"]["name"]);
-
-        if (!in_array($_FILES["desToUpload"]["type"], $allowed1)) {
-        ?>
-            <label>please upload a file of text type e.g plain,rtf </label>
-<?php
-            $answer = false;
+            $found = false;
         }
     }
+    $target_dir = "images/";
+    $target_file = $target_dir . basename($_FILES["imageToUpload"]["name"]);
+    $allowed = array('image/gif', 'image/png', 'image/jpg', 'image/jpeg');
+    if (!in_array($_FILES["imageToUpload"]["type"], $allowed)) {
+        ?>
+        <label>please upload a file of image type e.g jpeg,png </label>
+    <?php
+        $answer = false;
+    }
 
+    $target_dir1 = "courseInfo/";
+    $target_file1 = $target_dir1 . basename($_FILES["contentToUpload"]["name"]);
+    $allowed1 = array('text/plain', 'text/rtf');
+    if (!in_array($_FILES["contentToUpload"]["type"], $allowed1)) {
+    ?>
+        <label>please upload a file of text type e.g plain,rtf </label>
+    <?php
+        $answer = false;
+    }
 
+    $target_file2 = $target_dir1 . basename($_FILES["desToUpload"]["name"]);
 
+    if (!in_array($_FILES["desToUpload"]["type"], $allowed1)) {
+    ?>
+        <label>please upload a file of text type e.g plain,rtf </label>
+    <?php
+        $answer = false;
+    }
 
     if ($answer == true && $found == true) {
         move_uploaded_file($_FILES["imageToUpload"]["tmp_name"], $target_file);
@@ -87,23 +76,25 @@ if (isset($_POST["add"])) {
         $price = $_POST['price'];
         $category = $_POST['category'];
         $level = $_POST['level'];
-        $tutor = $_POST['tutor'];
+        $tutor = $_POST['email'];
         //Line 92 will be removed after some updates and 93 will be used instead
-        $admin_id = 5;
-        // $admin = $_SESSION["id"];
-        $sql2 = "SELECT id FROM tutor WHERE email='" . $tutor . "'";
-        $result = $conn->query($sql2);
-        $row = $result->fetch_assoc();
-        $tutor_id = $row['id'];
+        //$admin_id = 5;
+        $admin_id = $_SESSION["id"];
+        $sql2 = "SELECT id FROM user WHERE email='" . $tutor . "'";
+        $result2 = $conn->query($sql2);
+        $row2 = $result2->fetch_assoc();
+        $tutor_id = $row2['id'];
+
         $sql3 = "SELECT id FROM category WHERE name='" . $category . "'";
-        $result1 = $conn->query($sql3);
-        $row1 = $result1->fetch_assoc();
-        $category_id = $row1['id'];
+        $result3 = $conn->query($sql3);
+        $row3 = $result3->fetch_assoc();
+        $category_id = $row3['id'];
 
-        $sql4 = "INSERT INTO course (name,image,content,description,price,rating,status,category,level,tutor_id,admin_id) VALUES ('$name','$image','$content','$des','$price','0','1','$category_id','$level','$tutor_id','$admin_id')";
-        //echo $sql4;
-
+        $sql4 = "INSERT INTO course (name,image,content,description,level,price,rating,status,category,tutor_id,admin_id) VALUES ('$name','$image','$content','$des','$level','$price','0','1','$category_id','$tutor_id','$admin_id')";
         $conn->query($sql4);
+    ?>
+        <label>The course has been added successfully</label>
+<?php
     }
 }
 
