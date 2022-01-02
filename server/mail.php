@@ -12,14 +12,14 @@ function generatePwd()
     }
     return implode($pass);
 }
-function emailPwd($email, $type)
+// Remember the mail function will not work on a local server.There is phpmailer 
+function emailPwd($id)
 {
-    //update the password
-    include_once 'database.php';
+    include 'database.php';
     $pwd = generatePwd();
-    $sql = "update " . $type . " set password='" . $pwd . "' where email ='" . $email . "'";
-    $conn->query($sql);
+    $sql1 = "update user set password='" . $pwd . "' where id ='" . $id . "'";
 
+    $conn->query($sql1);
     //The message
     $msg = "Your new password is " . $pwd . "<br> You can change it after you login";
 
