@@ -23,7 +23,7 @@
 
                 <div class=" row">
                     <div class="form-outline mb-4">
-                        <label for="fname" class="form-label" id="label">First name: </label>
+                        <label for="fname" class="form-label" id="label1">First name: </label>
                         <input type="text" class="form-control" placeholder="Enter First Name" name="fname" />
                     </div>
                 </div>
@@ -32,7 +32,7 @@
 
                 <div class="row">
                     <div class="form-outline mb-4">
-                        <label for="email" class="form-label" id="label">Email address: </label>
+                        <label for="email" class="form-label" id="label2">Email address: </label>
                         <input type="text" class="form-control" id="email" placeholder="Enter email" name="email" />
                     </div>
                 </div>
@@ -40,7 +40,7 @@
                 <!-- Password input -->
                 <div class="row">
                     <div class="form-outline mb-4">
-                        <label for="password" class="form-label" id="label"> Password: </label>
+                        <label for="password" class="form-label" id="label3"> Password: </label>
                         <input type="password" class="form-control" id="pw" placeholder="Enter password"
                             name="password" />
                     </div>
@@ -49,7 +49,7 @@
                 <!-- Confirm Password input -->
                 <div class="row">
                     <div class="form-outline mb-4">
-                        <label for="passConf" class="form-label" id="label">Confirm Password: </label>
+                        <label for="passConf" class="form-label" id="label4">Confirm Password: </label>
                         <input type="password" class="form-control" placeholder="Confirm password" name="passConf"><br>
                     </div>
                 </div>
@@ -57,22 +57,20 @@
                 <!-- Security Question -->
                 <div class="row">
                     <div class="form-outline mb-4">
-                        <label for="security" class="form-label" id="label">Security question: </label>
+                        <label for="security" class="form-label" id="label5">Security question: </label>
                         <h4> what is your first pet's name? </h4>
                         <input type="text" class="form-control" placeholder="Enter security question"
                             name="security"><br>
                     </div>
                 </div>
+                <p>Please select your role:</p>
 
-                <!-- Adding profile picture -->
-                <div class="row">
-                    <div class="form-outline mb-4">
-                        <label for="picture" class="form-label" id="label">Select image to upload:</label>
-                        <input type="file" name="fileToUpload" id="fileToUpload"><br>
-                    </div>
-                </div>
+                  <input type="radio" name="type" value="2">
+                <label>Learner</label><br>
+                  <input type="radio" name="type" value="4">
+                <label>Tutor</label><br>
 
-
+                <br>
                 <div class="row">
                     <div class="col ">
                         <div>
@@ -83,7 +81,7 @@
 
                         <!--signup and cancel buttons-->
                         <input type="submit" class="btn" id="signupbtn" name="signup" value="Sign Up">
-                        <input type="submit" class="btn" id="signupbtn" name="cancel" value="Cancel"
+                        <input type="submit" class="btn" id="cancelbtn" name="cancel" value="Cancel"
                             onclick="location.href='home.php'"></input><br><br>
 
                         <p>Already have an account? <a href="login.php">Log In</a></p>
