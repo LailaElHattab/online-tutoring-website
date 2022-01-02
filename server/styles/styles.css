@@ -46,7 +46,7 @@
 #signupbtn:hover{
     background-color: #14314dce;
 }
-/* rgb(60,179,113) */
+
 #signupbtn:active{
     background-color: rgb(119,136,153);
 }
