@@ -14,39 +14,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.slim.js"
         integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>
 
-    <script>
-        var multipleCardCarousel = document.querySelector(
-            "#carouselExampleControls"
-        );
-        if (window.matchMedia("(min-width: 768px)").matches) {
-            var carousel = new bootstrap.Carousel(multipleCardCarousel, {
-                interval: false,
-            });
-            var carouselWidth = $(".carousel-inner")[0].scrollWidth;
-            var cardWidth = $(".carousel-item").width();
-            var scrollPosition = 0;
-            $("#carouselExampleControls .carousel-control-next").on("click", function () {
-                if (scrollPosition < carouselWidth - cardWidth * 4) {
-                    scrollPosition += cardWidth;
-                    $("#carouselExampleControls .carousel-inner").animate(
-                        { scrollLeft: scrollPosition },
-                        600
-                    );
-                }
-            });
-            $("#carouselExampleControls .carousel-control-prev").on("click", function () {
-                if (scrollPosition > 0) {
-                    scrollPosition -= cardWidth;
-                    $("#carouselExampleControls .carousel-inner").animate(
-                        { scrollLeft: scrollPosition },
-                        600
-                    );
-                }
-            });
-        } else {
-            $(multipleCardCarousel).addClass("slide");
-        }
-    </script>
+
 </head>
 
 <body id="body">
@@ -71,44 +39,44 @@
 
     <!--Slideshow for courses-->
 
-    <div id="carouselExampleControls" class="carousel" data-bs-ride="carousel">
+    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
                 <div class="card">
                     <div class="img-wrapper"><img src="../database/images/web-development.png" class="d-block w-100"
-                            alt="..."> </div>
+                            alt="Card image"> </div>
                     <div class="card-body">
                         <h5 class="card-title">Web Development for beginners</h5>
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of
                             the
                             card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                        <a href="#" class="btn btn-primary">Go to course</a>
                     </div>
                 </div>
             </div>
             <div class="carousel-item">
                 <div class="card">
                     <div class="img-wrapper"><img src="../database/images/mobile-dev-course.png" class="d-block w-100"
-                            alt="..."> </div>
+                            alt="Card image"> </div>
                     <div class="card-body">
                         <h5 class="card-title">Android app Development</h5>
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of
                             the
                             card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                        <a href="#" class="btn btn-primary">Go to course</a>
                     </div>
                 </div>
             </div>
             <div class="carousel-item">
                 <div class="card">
                     <div class="img-wrapper"><img src="../database/images/python-course.jpg" class="d-block w-100"
-                            alt="..."> </div>
+                            alt="Card image"> </div>
                     <div class="card-body">
                         <h5 class="card-title">Python Programming</h5>
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of
                             the
                             card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                        <a href="#" class="btn btn-primary">Go to course</a>
                     </div>
                 </div>
             </div>
