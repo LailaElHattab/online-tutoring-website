@@ -37,10 +37,7 @@
     background-color: var(--active);
 }
 
-.navbar .navbar-brand{
-    color:#5B25FF !important;
-    font-weight: bolder;
-}
+
 
 /*slideshow*/
 .carousel-inner {
