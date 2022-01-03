@@ -17,6 +17,7 @@ session_start();
     <?php
     include_once 'database.php';
     include_once 'mail.php';
+    include_once $_SERVER['DOCUMENT_ROOT'] . "/online-tutoring-website/client/editpwd.html";
 
 
     if (isset($_POST['reset'])) {
@@ -29,36 +30,49 @@ session_start();
 
                     emailPwd($row['id'], $_POST['email']);
     ?>
-                    <div class="alert alert-success col-md-4 col-md-offset-4" id="success" align="center" style="left:35%;top:30%">
-                        <strong>Success!</strong> your new password has been sent to you via mail.
-                    </div>
+
+                    <script>
+                        el1 = document.createElement("div");
+                        el1.setAttribute("class", "alert alert-success col-md-4 col-md-offset-4 ");
+                        el1.setAttribute("style", "width:500px;right:20%;top:15%");
+                        el1.innerHTML = "<strong>Success!</strong> your new password has been sent to you via mail.";
+                        document.getElementById("heading").append(el1);
+                    </script>
 
 
                 <?php
                     return;
                 } else {
                 ?>
-                    <div class="alert alert-danger col-md-4 col-md-offset-4" id="warning" align="center" style="left:35%;top:35%">
-                        <strong>Warning!</strong> Your security answer is incorrect.
-
-                    </div>
+                    <script>
+                        el1 = document.createElement("div");
+                        el1.setAttribute("class", "alert alert-danger col-md-4 col-md-offset-4 ");
+                        el1.setAttribute("style", "width:500px;right:20%;top:15%");
+                        el1.setAttribute("align", "center");
+                        el1.innerHTML = "<strong>Warning!</strong> Your security answer is incorrect.";
+                        document.getElementById("heading").append(el1);
+                    </script>
 
                 <?php
 
                 }
             } else {
                 ?>
-                <div class="alert alert-danger col-md-4 col-md-offset-4" id="warning" align="center" style="left:35%;top:35%">
-                    <strong>Warning!</strong> <label>Invalid Email, please try again</label><br>
 
-                </div>
-
+                <script>
+                    el1 = document.createElement("div");
+                    el1.setAttribute("class", "alert alert-danger col-md-4 col-md-offset-4 ");
+                    el1.setAttribute("style", "width:500px;right:20%;top:15%");
+                    el1.setAttribute("align", "center");
+                    el1.innerHTML = "<strong>Warning!</strong> Invalid Email, please try again";
+                    document.getElementById("heading").append(el1);
+                </script>
     <?php
 
             }
         }
     }
-    include_once $_SERVER['DOCUMENT_ROOT'] . "/online-tutoring-website/client/editpwd.html";
+
     ?>
 </body>
 
