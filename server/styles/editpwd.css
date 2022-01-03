@@ -14,7 +14,8 @@
     text-align: center;
 }
 #forgotpassContainer{
-    padding-top: 30px;
+    padding-top: 10%;
+    padding-left: 35%;
 }
 .fpass{
 
@@ -36,7 +37,7 @@
     text-align: center;
     
 }
-.sucessa{
+.success{
     padding-bottom: 70px;
     
     text-align: center;
