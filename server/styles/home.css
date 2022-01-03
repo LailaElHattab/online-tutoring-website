@@ -37,11 +37,11 @@
     background-color: var(--active);
 }
 .card{
-    width:260px;
+    width:270px;
 }
-.img-fluid{
+#img{
     height:145px;
-    width:260px;
+    width:270px;
 }
 .card-text{
     font-size:0.9rem;
