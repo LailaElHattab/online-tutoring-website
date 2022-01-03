@@ -15,27 +15,7 @@
     width: 800px;
 
 }
-#loginhomebtn{
-    background-color: transparent;
-    color: var(--primary);
-}
-#signuphomebtn{
-    background-color: transparent;
-    color: var(--primary);
-}
-#signuphomebtn:hover{
-    background-color: var(--dark);
-}
-#signuphomebtn:active{
-    background-color: var(--active);
-}
 
-#loginhomebtn:hover{
-    background-color: var(--dark);
-}
-#loginhomebtn:active{
-    background-color: var(--active);
-}
 .card{
     width:270px;
 }
