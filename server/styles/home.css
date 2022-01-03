@@ -15,6 +15,9 @@
     width: 800px;
 
 }
+#arrows{
+    color: var(--primary)
+}
 
 .card{
     width:270px;
