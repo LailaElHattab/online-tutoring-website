@@ -36,6 +36,20 @@
 #loginhomebtn:active{
     background-color: var(--active);
 }
-
-
+.card{
+    width:260px;
+}
+.img-fluid{
+    height:145px;
+    width:260px;
+}
+.card-text{
+    font-size:0.9rem;
+}
+@media (min-width: 768px) {
+    .carousel-inner {
+      display: flex;
+    }
+    
+    }
 
