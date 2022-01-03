@@ -13,7 +13,7 @@ function generatePwd()
     return implode($pass);
 }
 // Remember the mail function will not work on a local server.There is phpmailer 
-function emailPwd($id)
+function emailPwd($id,$email)
 {
     include 'database.php';
     $pwd = generatePwd();
