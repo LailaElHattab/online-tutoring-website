@@ -13,6 +13,13 @@
         crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.slim.js"
         integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>
+    <link href='https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css' rel='stylesheet'>
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css' rel='stylesheet'>
+    <style></style>
+    <script type='text/javascript' src=''></script>
+    <script type='text/javascript' src='https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js'></script>
+    <script type='text/javascript'
+        src='https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js'></script>
 
 
 </head>
@@ -39,59 +46,179 @@
 
     <!--Slideshow for courses-->
 
-    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <div class="card">
-                    <div class="img-wrapper"><img src="../database/images/web-development.png" class="d-block w-100"
-                            alt="Card image"> </div>
-                    <div class="card-body">
-                        <h5 class="card-title">Web Development for beginners</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the
-                            card's content.</p>
-                        <a href="#" class="btn btn-primary">Go to course</a>
-                    </div>
-                </div>
+    <div class="container mb-3">
+        <div class="row gx-2 justify-content-center">
+            <div class="col-6">
+                <h3 class="mb-3">Popular Courses</h3>
             </div>
-            <div class="carousel-item">
-                <div class="card">
-                    <div class="img-wrapper"><img src="../database/images/mobile-dev-course.png" class="d-block w-100"
-                            alt="Card image"> </div>
-                    <div class="card-body">
-                        <h5 class="card-title">Android app Development</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the
-                            card's content.</p>
-                        <a href="#" class="btn btn-primary">Go to course</a>
-                    </div>
-                </div>
+            <div class="col-6 text-right">
+                <a class="btn btn-primary mb-3 mr-1" href="#car" role="button" data-slide="prev">
+                    <i class="fa fa-arrow-left"></i>
+                </a>
+                <a class="btn btn-primary mb-3 " href="#car" role="button" data-slide="next">
+                    <i class="fa fa-arrow-right"></i>
+                </a>
             </div>
-            <div class="carousel-item">
-                <div class="card">
-                    <div class="img-wrapper"><img src="../database/images/python-course.jpg" class="d-block w-100"
-                            alt="Card image"> </div>
-                    <div class="card-body">
-                        <h5 class="card-title">Python Programming</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the
-                            card's content.</p>
-                        <a href="#" class="btn btn-primary">Go to course</a>
-                    </div>
-                </div>
-            </div>
+            <div id="car" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="row gx-2 justify-content-center">
+                            <div class="col-lg-3 col-md-6">
+                                <div class="card" style="width:250;">
+                                    <div class=" img-fluid">
+                                        <img src="../database/images/web-development.png" class="img-fluid"
+                                            style="width:250; height:145">
+                                    </div>
+                                    <div class=" card-body">
+                                        <h5 class="card-title" style=>Web Development</h5>
+                                        <p class="card-text" style="font-size:0.9rem;">
+                                            Some quick example text to build on the card title and make up the bulk of
+                                            the
+                                            card's content.
+                                        </p>
+                                        <a href="#" class="btn btn-primary">Go to course</a>
+                                    </div>
+                                </div>
+                            </div>
 
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
-                data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
-                data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
+                            <div class="col-lg-3 col-md-6">
+                                <div class="card" style="width:250;">
+                                    <div class=" img-fluid">
+                                        <img src="../database/images/database-course.jpg" class="img-fluid"
+                                            style="width:250; height:145">
+                                    </div>
+                                    <div class=" card-body">
+                                        <h5 class="card-title" style=>Database Management</h5>
+                                        <p class="card-text" style="font-size:0.9rem;">
+                                            Some quick example text to build on the card title and make up the bulk of
+                                            the
+                                            card's content.
+                                        </p>
+                                        <a href="#" class="btn btn-primary">Go to course</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-6">
+                                <div class="card" style="width:250;">
+                                    <div class=" img-fluid">
+                                        <img src="../database/images/python-course.jpg" class="img-fluid"
+                                            style="width:250; height:145">
+                                    </div>
+                                    <div class=" card-body">
+                                        <h5 class="card-title" style=>Python for Beginners</h5>
+                                        <p class="card-text" style="font-size:0.9rem;">
+                                            Some quick example text to build on the card title and make up the bulk of
+                                            the
+                                            card's content.
+                                        </p>
+                                        <a href="#" class="btn btn-primary">Go to course</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-6">
+                                <div class="card" style="width:250;">
+                                    <div class=" img-fluid">
+                                        <img src="../database/images/mobile-dev-course.png" class="img-fluid"
+                                            style="width:250; height:145">
+                                    </div>
+                                    <div class=" card-body">
+                                        <h5 class="card-title" style=>Android Development</h5>
+                                        <p class="card-text" style="font-size:0.9rem;">
+                                            Some quick example text to build on the card title and make up the bulk of
+                                            the
+                                            card's content.
+                                        </p>
+                                        <a href="#" class="btn btn-primary">Go to course</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="row gx-2 justify-content-center">
+                            <div class="col-lg-3 col-md-6">
+                                <div class="card" style="width:250;">
+                                    <div class=" img-fluid">
+                                        <img src="../database/images/The Complete JavaScript Course 2022- From Zero to Expert.jpeg"
+                                            class="img-fluid" style="width:250; height:145">
+                                    </div>
+                                    <div class=" card-body">
+                                        <h5 class="card-title" style=>The Complete JavaScript</h5>
+                                        <p class="card-text" style="font-size:0.9rem;">
+                                            Some quick example text to build on the card title and make up the bulk of
+                                            the
+                                            card's content.
+                                        </p>
+                                        <a href="#" class="btn btn-primary">Go to course</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-3 col-md-6">
+                                <div class="card" style="width:250;">
+                                    <div class=" img-fluid">
+                                        <img src="../database/images/Learn Python Programming Masterclass.jpg"
+                                            class="img-fluid" style="width:250; height:145">
+                                    </div>
+                                    <div class=" card-body">
+                                        <h5 class="card-title" style=>Python Programming Masterclass</h5>
+                                        <p class="card-text" style="font-size:0.9rem;">
+                                            Some quick example text to build on the card title and make up the bulk of
+                                            the
+                                            card's content.
+                                        </p>
+                                        <a href="#" class="btn btn-primary">Go to course</a>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-6">
+                                <div class="card" style="width:250;">
+                                    <div class=" img-fluid">
+                                        <img src="../database/images/WordPress Development with Bootstrap- The Complete Course.jpeg"
+                                            class="img-fluid" style="width:250; height:145">
+                                    </div>
+                                    <div class=" card-body">
+                                        <h5 class="card-title" style=>WordPress with Bootstrap</h5>
+                                        <p class="card-text" style="font-size:0.9rem;">
+                                            Some quick example text to build on the card title and make up the bulk of
+                                            the
+                                            card's content.
+                                        </p>
+                                        <a href="#" class="btn btn-primary">Go to course</a>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-6">
+                                <div class="card" style="width:250;">
+                                    <div class=" img-fluid">
+                                        <img src="../database/images/Swift-Development-for-iOS.jpg" class="img-fluid"
+                                            style="width:250; height:145">
+                                    </div>
+                                    <div class=" card-body">
+                                        <h5 class="card-title" style=>Swift Development for IOS</h5>
+                                        <p class="card-text" style="font-size:0.9rem;">
+                                            Some quick example text to build on the card title and make up the bulk of
+                                            the
+                                            card's content.
+                                        </p>
+                                        <a href="#" class="btn btn-primary">Go to course</a>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+    </div>
+
+    </div>
+    </div>
+    </div>
 
 
 
