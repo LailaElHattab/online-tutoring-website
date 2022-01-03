@@ -34,33 +34,46 @@
             <div class="tab-content" id="myTabContent">
                 <div class="tab-pane fade show active" id="security" role="tabpanel" aria-labelledby="security-tab">
                     <br>
-                    <div class="row">
-                        <div class="form-outline mb-4">
-                            <label for="email" class="form-label" id="label">Email address: </label>
-                            <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
-                        </div>
-                    </div>
+                    <form method="post" action="">
+                        <div class="row">
+                            <div class="form-outline mb-4" id="emailPart">
+                                <label for="email" class="form-label" id="label">Email address: </label>
+                                <input type="email" class="form-control" id="email" placeholder="Enter email"
+                                    name="email"><br>
+                                <button class="btn btn-sm" id="emailbtn" name="emailbtn"
+                                    onclick="location.href='editAccount.php'">edit email</button>
 
-                    <!-- Password input -->
-                    <div class="row">
-                        <div class="form-outline mb-4">
-                            <label for="password" class="form-label" id="label">Password: </label>
-                            <input type="password" class="form-control" id="pw" placeholder="Enter password"
-                                name="password">
+                            </div>
+
                         </div>
-                    </div>
+
+                        <!-- Password input -->
+                        <div class="row">
+                            <div class="form-outline mb-4">
+                                <label for="password" class="form-label" id="label">Password: </label>
+                                <input type="password" class="form-control" id="pw" placeholder="Enter password"
+                                    name="password"><br>
+                                <button class="btn btn-sm" id="pwdbtn" name="pwdbtn"
+                                    onclick="location.href='editAccount.php'">edit
+                                    password</button>
+
+                            </div>
+
+                        </div>
+                    </form>
                 </div>
 
                 <div class="tab-pane fade" id="close" role="tabpanel" aria-labelledby="close-tab">
                     <div class="alert alert-warning">
                         <strong>Warning!</strong> this step is irreversible
-                      </div>
+                    </div>
                     <p>
                         Deleting your account will erase all your data. You will be unsubscribed from all your purchased
                         courses.
                     </p>
-                    <button type="button" class="btn" id="deletebtn"
-                        onclick="location.href='deleteAccount.php'">Delete account</button>
+                    <button type="button" class="btn btn-danger" id="deletebtn"
+                        onclick="location.href='deleteAccount.php'">Delete
+                        account</button>
                 </div>
 
 </body>
