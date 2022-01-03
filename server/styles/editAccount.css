@@ -24,7 +24,13 @@
     font-size: 15px;
 }
 #deletebtn {
+    background-color: rgb(187, 39, 64);
+}
+#emailbtn,#pwdbtn,#deletebtn {
     color:whitesmoke;
+    box-shadow: 2px 3px 5px grey;
+}
+#emailbtn,#pwdbtn{
+    margin-top: 0px;
     background-color: rgb(58, 99, 151);
-    box-shadow: 2px 3px 5px grey
 }
