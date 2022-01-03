@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Dec 26, 2021 at 10:10 PM
+-- Generation Time: Jan 03, 2022 at 02:15 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.11
 
@@ -24,54 +24,15 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `admin`
+-- Table structure for table `answer`
 --
 
-CREATE TABLE `admin` (
+CREATE TABLE `answer` (
   `id` int(11) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL,
-  `fname` varchar(255) NOT NULL,
-  `pricture` varchar(255) NOT NULL,
-  `rank` int(11) NOT NULL,
-  `security_ans` varchar(255) NOT NULL
+  `learner_id` int(11) NOT NULL,
+  `ques_id` int(11) NOT NULL,
+  `content` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `admin`
---
-
-INSERT INTO `admin` (`id`, `email`, `password`, `fname`, `pricture`, `rank`, `security_ans`) VALUES
-(1, 'salma@gmail.com', '123', 'Salma', 'images/salma.jpg', 1, 'Rusty'),
-(2, 'basma@gmail.com', '234', 'Basma', 'images/basma.jpg', 1, 'King'),
-(3, 'yosr@gmail.com', '345', 'Yosr', 'images/yosr.jpg', 1, 'Oreo'),
-(4, 'hagar@gmail.com', '456', 'Hagar', 'images/hagar.jpg', 1, 'Koky'),
-(5, 'laila@gmail.com', '567', 'Laila', 'images/laila.jpg', 1, 'Caramel'),
-(6, 'mohamed@gmail.com', '678', 'Mohamed', 'images/mohamed.jpeg', 2, 'Copper'),
-(7, 'mostafa@gmail.com', '789', 'Mostafa', 'images/mostafa.jpeg', 2, 'Max'),
-(8, 'kamal@gmail.com', '342', 'kamal', 'images/kamal.png', 2, 'simba');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `auditor`
---
-
-CREATE TABLE `auditor` (
-  `id` int(11) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL,
-  `fname` varchar(255) NOT NULL,
-  `picture` varchar(255) NOT NULL,
-  `security_ans` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `auditor`
---
-
-INSERT INTO `auditor` (`id`, `email`, `password`, `fname`, `picture`, `security_ans`) VALUES
-(1, 'nada@gmail.com', '244', 'Nada', '', 'Milo');
 
 -- --------------------------------------------------------
 
@@ -113,8 +74,8 @@ INSERT INTO `category` (`id`, `name`) VALUES
 --
 
 CREATE TABLE `comment` (
-  `auditor_id` int(11) NOT NULL,
   `msg_id` int(11) NOT NULL,
+  `auditor_id` int(11) NOT NULL,
   `content` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -130,11 +91,11 @@ CREATE TABLE `course` (
   `image` varchar(255) NOT NULL,
   `content` varchar(255) NOT NULL,
   `description` varchar(255) NOT NULL,
+  `level` varchar(50) NOT NULL,
   `price` int(11) NOT NULL,
   `rating` int(11) NOT NULL,
-  `status` tinyint(1) NOT NULL,
+  `status` int(11) NOT NULL,
   `category` int(11) NOT NULL,
-  `level` varchar(255) NOT NULL,
   `tutor_id` int(11) NOT NULL,
   `admin_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -143,8 +104,11 @@ CREATE TABLE `course` (
 -- Dumping data for table `course`
 --
 
-INSERT INTO `course` (`id`, `name`, `image`, `content`, `description`, `price`, `rating`, `status`, `category`, `level`, `tutor_id`, `admin_id`) VALUES
-(1, 'The Web Developer Bootcamp 2022', 'images/web.png', '', '', 500, 5, 1, 1, 'beginner', 1, 1);
+INSERT INTO `course` (`id`, `name`, `image`, `content`, `description`, `level`, `price`, `rating`, `status`, `category`, `tutor_id`, `admin_id`) VALUES
+(1, 'The Web Developer Bootcamp 2022', 'images/web.png', '', '', 'beginner', 500, 0, 1, 1, 11, 5),
+(2, 'iOS & Swift - The Complete iOS App Development Bootcamp', 'images/Swift-Development-for-iOS.jpg', 'courseInfo/iOS & Swift - The Complete iOS App Development Bootcamp(content).rtf', 'courseInfo/iOS & Swift - The Complete iOS App Development Bootcamp.rtf', 'Intermediate', 1500, 0, 1, 1, 11, 5),
+(3, 'Learn Python Programming Masterclass', 'images/Learn Python Programming Masterclass.jpg', 'courseInfo/Learn Python Programming Masterclass(content).rtf', 'courseInfo/Learn Python Programming Masterclass.rtf', 'beginner', 3000, 0, 1, 1, 11, 5),
+(4, 'WordPress Development with Bootstrap: The Complete Course', 'images/WordPress Development with Bootstrap- The Complete Course.jpeg', 'courseInfo/WordPress Development with Bootstrap- The Complete Course(content).rtf', 'courseInfo/WordPress Development with Bootstrap- The Complete Course.rtf', 'Beginner', 2500, 0, 1, 1, 11, 5);
 
 -- --------------------------------------------------------
 
@@ -155,32 +119,8 @@ INSERT INTO `course` (`id`, `name`, `image`, `content`, `description`, `price`, 
 CREATE TABLE `enroll` (
   `learner_id` int(11) NOT NULL,
   `course_id` int(11) NOT NULL,
-  `progress` int(255) NOT NULL
+  `progress` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `learner`
---
-
-CREATE TABLE `learner` (
-  `id` int(11) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL,
-  `fname` varchar(255) NOT NULL,
-  `picture` varchar(255) NOT NULL,
-  `security_ans` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `learner`
---
-
-INSERT INTO `learner` (`id`, `email`, `password`, `fname`, `picture`, `security_ans`) VALUES
-(1, 'salman@gmail.com', '123', 'Salman', '', 'Leo'),
-(2, 'Doha@gmail.com', '345', 'Doha', '', 'Theo'),
-(3, 'amiina@gmail.com', 'YC84uIRW', 'Amiina', '', 'soti');
 
 -- --------------------------------------------------------
 
@@ -189,9 +129,9 @@ INSERT INTO `learner` (`id`, `email`, `password`, `fname`, `picture`, `security_
 --
 
 CREATE TABLE `message` (
-  `id` int(11) NOT NULL,
-  `admin_id` int(11) NOT NULL,
-  `learner_id` int(11) NOT NULL,
+  `msg_id` int(11) NOT NULL,
+  `user1_id` int(11) NOT NULL,
+  `user2_id` int(11) NOT NULL,
   `content` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -202,7 +142,6 @@ CREATE TABLE `message` (
 --
 
 CREATE TABLE `purchase` (
-  `id` int(11) NOT NULL,
   `learner_id` int(11) NOT NULL,
   `course_id` int(11) NOT NULL,
   `details` varchar(255) NOT NULL
@@ -211,13 +150,13 @@ CREATE TABLE `purchase` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ques_ans`
+-- Table structure for table `question`
 --
 
-CREATE TABLE `ques_ans` (
+CREATE TABLE `question` (
   `id` int(11) NOT NULL,
-  `learner1_id` int(11) NOT NULL,
-  `learner2_id` int(11) NOT NULL,
+  `learner_id` int(11) NOT NULL,
+  `course_id` int(11) NOT NULL,
   `content` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -245,58 +184,81 @@ CREATE TABLE `suggestion` (
   `id` int(11) NOT NULL,
   `learner_id` int(11) NOT NULL,
   `course_id` int(11) NOT NULL,
-  `description` varchar(255) NOT NULL
+  `description` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tutor`
+-- Table structure for table `type`
 --
 
-CREATE TABLE `tutor` (
+CREATE TABLE `type` (
   `id` int(11) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL,
-  `fname` varchar(255) NOT NULL,
-  `cv` varchar(255) NOT NULL,
-  `bdate` date NOT NULL,
-  `status` tinyint(1) NOT NULL,
-  `picture` varchar(255) NOT NULL,
-  `security_ans` varchar(255) NOT NULL
+  `user_type` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tutor`
+-- Dumping data for table `type`
 --
 
-INSERT INTO `tutor` (`id`, `email`, `password`, `fname`, `cv`, `bdate`, `status`, `picture`, `security_ans`) VALUES
-(1, 'ghada@gmail.com', '234', 'Ghada', '', '1981-12-17', 1, '', 'soty');
+INSERT INTO `type` (`id`, `user_type`) VALUES
+(1, 'admin'),
+(2, 'learner'),
+(3, 'auditor'),
+(4, 'tutor');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user`
+--
+
+CREATE TABLE `user` (
+  `id` int(11) NOT NULL,
+  `type` int(11) NOT NULL,
+  `fname` varchar(50) NOT NULL,
+  `email` varchar(62) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `security_ans` varchar(255) NOT NULL,
+  `picture` varchar(255) DEFAULT NULL,
+  `tutor_status` int(11) DEFAULT NULL,
+  `admin_rank` int(11) DEFAULT NULL,
+  `tutor_cv` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`id`, `type`, `fname`, `email`, `password`, `security_ans`, `picture`, `tutor_status`, `admin_rank`, `tutor_cv`) VALUES
+(1, 1, 'Salma', 'salma@gmail.com', '123', 'Rusty', 'images/salma.jpg', NULL, 1, NULL),
+(2, 1, 'Basma', 'basma@gmail.com', '234', 'King', 'images/basma.jpg', NULL, 1, NULL),
+(3, 1, 'Yosr', 'yosr@gmail.com', '345', 'Oreo', 'images/yosr.jpg', NULL, 1, NULL),
+(4, 1, 'Hagar', 'hagar@gmail.com', '456', 'Koky', 'images/hagar.jpg', NULL, 1, NULL),
+(5, 1, 'Laila', 'laila@gmail.com', 'FQu3wC37', 'Caramel', 'images/laila.jpg', NULL, 1, NULL),
+(6, 1, 'Mohamed', 'mohamed@gmail.com', '678', 'Copper', 'images/mohamed.jpeg', NULL, 2, NULL),
+(7, 1, 'Mostafa', 'mostafa@gmail.com', '789', 'Max', 'images/mostafa.jpeg', NULL, 2, NULL),
+(8, 1, 'kamal', 'kamal@gmail.com', '342', 'simba', 'images/kamal.png', NULL, 2, NULL),
+(11, 4, 'Kawthar', 'Kawthar@gmail.com', '123', 'koko', NULL, NULL, NULL, NULL);
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `admin`
+-- Indexes for table `answer`
 --
-ALTER TABLE `admin`
+ALTER TABLE `answer`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `email` (`email`);
-
---
--- Indexes for table `auditor`
---
-ALTER TABLE `auditor`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `email` (`email`);
+  ADD KEY `learner_id` (`learner_id`),
+  ADD KEY `ques_id` (`ques_id`);
 
 --
 -- Indexes for table `cart`
 --
 ALTER TABLE `cart`
-  ADD PRIMARY KEY (`learner_id`),
-  ADD KEY `learner_id` (`learner_id`);
+  ADD PRIMARY KEY (`learner_id`);
 
 --
 -- Indexes for table `category`
@@ -309,9 +271,8 @@ ALTER TABLE `category`
 -- Indexes for table `comment`
 --
 ALTER TABLE `comment`
-  ADD PRIMARY KEY (`auditor_id`,`msg_id`),
-  ADD KEY `auditor_id` (`auditor_id`,`msg_id`),
-  ADD KEY `msg_id` (`msg_id`);
+  ADD PRIMARY KEY (`msg_id`,`auditor_id`),
+  ADD KEY `auditor_id` (`auditor_id`);
 
 --
 -- Indexes for table `course`
@@ -319,8 +280,6 @@ ALTER TABLE `comment`
 ALTER TABLE `course`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `name` (`name`),
-  ADD KEY `tutor_id` (`tutor_id`),
-  ADD KEY `admin_id` (`admin_id`),
   ADD KEY `category` (`category`);
 
 --
@@ -328,45 +287,37 @@ ALTER TABLE `course`
 --
 ALTER TABLE `enroll`
   ADD PRIMARY KEY (`learner_id`,`course_id`),
-  ADD KEY `learner_id` (`learner_id`,`course_id`),
   ADD KEY `course_id` (`course_id`);
-
---
--- Indexes for table `learner`
---
-ALTER TABLE `learner`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `email` (`email`);
 
 --
 -- Indexes for table `message`
 --
 ALTER TABLE `message`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `admin_id` (`admin_id`),
-  ADD KEY `learner_id` (`learner_id`);
+  ADD PRIMARY KEY (`msg_id`),
+  ADD KEY `user1_id` (`user1_id`),
+  ADD KEY `user2_id` (`user2_id`);
 
 --
 -- Indexes for table `purchase`
 --
 ALTER TABLE `purchase`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `learner_id` (`learner_id`,`course_id`);
+  ADD PRIMARY KEY (`learner_id`,`course_id`),
+  ADD KEY `course_id` (`course_id`);
 
 --
--- Indexes for table `ques_ans`
+-- Indexes for table `question`
 --
-ALTER TABLE `ques_ans`
+ALTER TABLE `question`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `learner1_id` (`learner1_id`,`learner2_id`),
-  ADD KEY `learner2_id` (`learner2_id`);
+  ADD KEY `learner_id` (`learner_id`),
+  ADD KEY `course_id` (`course_id`);
 
 --
 -- Indexes for table `review`
 --
 ALTER TABLE `review`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `learner_id` (`learner_id`,`course_id`),
+  ADD KEY `learner_id` (`learner_id`),
   ADD KEY `course_id` (`course_id`);
 
 --
@@ -374,36 +325,32 @@ ALTER TABLE `review`
 --
 ALTER TABLE `suggestion`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `learner_id` (`learner_id`,`course_id`);
+  ADD UNIQUE KEY `course_id` (`course_id`),
+  ADD KEY `learner_id` (`learner_id`);
 
 --
--- Indexes for table `tutor`
+-- Indexes for table `type`
 --
-ALTER TABLE `tutor`
+ALTER TABLE `type`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `user`
+--
+ALTER TABLE `user`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `email` (`email`);
+  ADD UNIQUE KEY `email` (`email`),
+  ADD KEY `type` (`type`);
 
 --
 -- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT for table `admin`
+-- AUTO_INCREMENT for table `answer`
 --
-ALTER TABLE `admin`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
-
---
--- AUTO_INCREMENT for table `auditor`
---
-ALTER TABLE `auditor`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT for table `cart`
---
-ALTER TABLE `cart`
-  MODIFY `learner_id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `answer`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `category`
@@ -415,36 +362,18 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT for table `course`
 --
 ALTER TABLE `course`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT for table `learner`
---
-ALTER TABLE `learner`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `message`
 --
 ALTER TABLE `message`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `msg_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `purchase`
+-- AUTO_INCREMENT for table `question`
 --
-ALTER TABLE `purchase`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `ques_ans`
---
-ALTER TABLE `ques_ans`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `review`
---
-ALTER TABLE `review`
+ALTER TABLE `question`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
@@ -454,56 +383,88 @@ ALTER TABLE `suggestion`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `tutor`
+-- AUTO_INCREMENT for table `user`
 --
-ALTER TABLE `tutor`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+ALTER TABLE `user`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- Constraints for dumped tables
 --
 
 --
+-- Constraints for table `answer`
+--
+ALTER TABLE `answer`
+  ADD CONSTRAINT `answer_ibfk_1` FOREIGN KEY (`learner_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `answer_ibfk_2` FOREIGN KEY (`ques_id`) REFERENCES `question` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
 -- Constraints for table `cart`
 --
 ALTER TABLE `cart`
-  ADD CONSTRAINT `cart_ibfk_1` FOREIGN KEY (`learner_id`) REFERENCES `learner` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `cart_ibfk_1` FOREIGN KEY (`learner_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `comment`
 --
 ALTER TABLE `comment`
-  ADD CONSTRAINT `comment_ibfk_1` FOREIGN KEY (`auditor_id`) REFERENCES `auditor` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `comment_ibfk_2` FOREIGN KEY (`msg_id`) REFERENCES `message` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `comment_ibfk_1` FOREIGN KEY (`msg_id`) REFERENCES `message` (`msg_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `comment_ibfk_2` FOREIGN KEY (`auditor_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `course`
 --
 ALTER TABLE `course`
-  ADD CONSTRAINT `course_ibfk_1` FOREIGN KEY (`tutor_id`) REFERENCES `tutor` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `course_ibfk_2` FOREIGN KEY (`admin_id`) REFERENCES `admin` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `course_ibfk_3` FOREIGN KEY (`category`) REFERENCES `category` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `course_ibfk_1` FOREIGN KEY (`category`) REFERENCES `category` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `enroll`
 --
 ALTER TABLE `enroll`
-  ADD CONSTRAINT `enroll_ibfk_1` FOREIGN KEY (`learner_id`) REFERENCES `learner` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `enroll_ibfk_1` FOREIGN KEY (`learner_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `enroll_ibfk_2` FOREIGN KEY (`course_id`) REFERENCES `course` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `ques_ans`
+-- Constraints for table `message`
 --
-ALTER TABLE `ques_ans`
-  ADD CONSTRAINT `ques_ans_ibfk_1` FOREIGN KEY (`learner1_id`) REFERENCES `learner` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `ques_ans_ibfk_2` FOREIGN KEY (`learner2_id`) REFERENCES `learner` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `message`
+  ADD CONSTRAINT `message_ibfk_1` FOREIGN KEY (`user1_id`) REFERENCES `course` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `message_ibfk_2` FOREIGN KEY (`user2_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `purchase`
+--
+ALTER TABLE `purchase`
+  ADD CONSTRAINT `purchase_ibfk_1` FOREIGN KEY (`course_id`) REFERENCES `course` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `purchase_ibfk_2` FOREIGN KEY (`learner_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `question`
+--
+ALTER TABLE `question`
+  ADD CONSTRAINT `question_ibfk_1` FOREIGN KEY (`learner_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `question_ibfk_2` FOREIGN KEY (`course_id`) REFERENCES `course` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `review`
 --
 ALTER TABLE `review`
-  ADD CONSTRAINT `review_ibfk_1` FOREIGN KEY (`learner_id`) REFERENCES `learner` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `review_ibfk_2` FOREIGN KEY (`course_id`) REFERENCES `course` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `review_ibfk_1` FOREIGN KEY (`course_id`) REFERENCES `course` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `review_ibfk_2` FOREIGN KEY (`learner_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `suggestion`
+--
+ALTER TABLE `suggestion`
+  ADD CONSTRAINT `suggestion_ibfk_1` FOREIGN KEY (`course_id`) REFERENCES `course` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `suggestion_ibfk_2` FOREIGN KEY (`learner_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `user`
+--
+ALTER TABLE `user`
+  ADD CONSTRAINT `user_ibfk_1` FOREIGN KEY (`type`) REFERENCES `type` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
