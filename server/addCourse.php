@@ -3,7 +3,7 @@ session_start();
 ?>
 <html>
 <script src="validations.js"></script>
-<h1>Add Course</h1>
+
 <?php
 include 'database.php';
 if (isset($_POST["add"])) {
