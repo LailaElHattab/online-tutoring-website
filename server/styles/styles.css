@@ -9,7 +9,31 @@
 #body{
     font-family: "Open Sans", sans-serif;
     line-height: 1.7;
-    color: var(--body);
+    color: var(--primary);
+    background-image: url(../images/Background.png);
+    background-repeat: no-repeat;
+    background-position-x: right;
+    background-position-y: top;
+    background-size: 260px;
+
+    
+}
+#link{
+    background-color: var(--active);
+    
+}
+#link:hover{
+    background-color: whitesmoke;
+}
+#title{
+  margin-bottom: 40px;
+}
+#intro{
+    background-image: url(../images/Background2.png);
+    background-repeat: no-repeat;
+    background-position-x: left;
+    background-position-y: bottom;
+    background-size: 260px;
 }
 #illustration{
     height: 300px;
@@ -36,6 +60,7 @@
 /* Navigationbar */
 
 #navbar {
+    background: transparent !important;
     background-color: #f3f3f3;
 }
 .navbar .navbar-brand{
