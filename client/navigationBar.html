@@ -29,43 +29,47 @@
 
 
             <!--navbar links-->
-            <div class="collapse navbar-collapse col-4 mx-5 mt-1" id="main-nav">
+            <div class="collapse navbar-collapse col-3 mx-5 mt-1" id="main-nav">
                 <!--Search bar -->
-                <div class="col-4 mx-5 mt-1">
+                <div class="col-3 mx-5 mt-1">
                     <form class="w-auto">
                         <input type="search" class="form-control" placeholder="Search" aria-label="Search" />
                     </form>
                 </div>
                 <!--dropdown list(Categories)-->
-                <ul class="navbar-nav">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Categories
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <h5 class="dropdown-header">Most Popular</h5>
-                            <a class="dropdown-item" href="#">Development</a>
-                            <a class="dropdown-item" href="#">Business</a>
-                            <a class="dropdown-item" href="#">Design</a>
-                            <a class="dropdown-item" href="#">Health and Fitness</a>
-                            <a class="dropdown-item" href="#">Teaching</a>
-                        </div>
-                    </li>
+                <div class="tabs col-5">
+                    <ul class="navbar-nav">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Categories
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <h5 class="dropdown-header">Most Popular</h5>
+                                <a class="dropdown-item" href="#">Development</a>
+                                <a class="dropdown-item" href="#">Business</a>
+                                <a class="dropdown-item" href="#">Design</a>
+                                <a class="dropdown-item" href="#">Health and Fitness</a>
+                                <a class="dropdown-item" href="#">Teaching</a>
+                            </div>
+                        </li>
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="courses.php">Courses</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="cart.php">Cart</a>
-                    </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="courses.php">Courses</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="cart.php">Cart</a>
+                        </li>
+                </div>
+
+                <div class="buttons col-6">
                     <li class="nav-item ms-2 d-none d-md-inline">
                         <a id="loginhomebtn" class="btn btn ms-lg-3" href="Login.php">Log in</a>
                     </li>
                     <li class="nav-item ms-2 d-none d-md-inline">
                         <a id="signuphomebtn" class="btn btn" href="signup.php">Sign up</a>
                     </li>
-
+                </div>
                 </ul>
             </div>
         </div>
