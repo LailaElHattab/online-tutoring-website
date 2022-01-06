@@ -31,7 +31,7 @@
 #intro{
     background-image: url(../images/Background2.png);
     background-repeat: no-repeat;
-    background-position-x: left;
+    background-position-x:30ch;
     background-position-y: bottom;
     background-size: 260px;
 }
