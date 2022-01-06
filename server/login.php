@@ -4,8 +4,11 @@ session_start();
 <html>
 <script src="validations.js"></script>
 <?php
+include_once($_SERVER['DOCUMENT_ROOT'] . "/online-tutoring-website/client/navigationBar.html");
 include_once 'database.php';
 include_once($_SERVER['DOCUMENT_ROOT'] . "/online-tutoring-website/client/login.html");
+
+
 if (isset($_POST['login'])) {
     if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL) === false) {
         $sql = "Select * from user where email ='" . $_POST["email"] . "' and password='" . $_POST["password"] . "'";
