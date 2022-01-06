@@ -1,5 +1,7 @@
 <?php
 session_start();
+//The header function didn't redirect - header is stored in buffer and afterwards the buffer is flushed
+ob_start();
 ?>
 <html>
 <script src="validations.js"></script>
@@ -25,6 +27,7 @@ if (isset($_POST['login'])) {
                 $_SESSION['expire'] = $_SESSION['start'] + (3 * 24 * 60 * 60);
             }
             header("Location:home.php");
+            ob_end_flush();
         } else {
 ?>
             <script>
@@ -48,9 +51,6 @@ if (isset($_POST['login'])) {
 <?php
     }
 }
-
-
-
 
 
 ?>
