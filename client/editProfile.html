@@ -1,4 +1,58 @@
 <html>
-hello efefjie
+
+<head>
+    <meta name="viewport" content="width=device-width , initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+</head>
+
+
+
+<body>
+    <div class="container">
+        <div class="col-md-4 col-md-offset-4">
+            <div class="row">
+                <div class="form-outline mb-4">
+                    <h2>Profile and settings</h2>
+                </div>
+            </div>
+            <ul class="nav nav-tabs" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="profile-tab" data-bs-toggle="tab" type="button" role="tab"
+                        aria-controls="profile" aria-selected="true">Profile</button>
+                </li>
+            </ul>
+
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                    <br>
+                    <form method="post" action="" enctype="multipart/form-data">
+                        <div class="row" id="pic">
+                            <button type="button" class="btn btn-sm" id="picturebtn">edit picture</button>
+                        </div>
+                        <div class="row">
+                            <div class="form-outline mb-4" id="namePart">
+                                <br><br>
+                                <label for="name" class="form-label" id="label">Full name: </label>
+                                <input type="text" class="form-control" id="name" placeholder="name" name="name"><br>
+                                <button class="btn btn-sm" id="edit" name="save"
+                                    onclick="location.href='editProfile.php'">Save</button>
+
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
 
 </html>
