@@ -26,7 +26,12 @@ if (isset($_POST['login'])) {
                 $_SESSION['start'] = time();
                 $_SESSION['expire'] = $_SESSION['start'] + (3 * 24 * 60 * 60);
             }
-            header("Location:home.php");
+            //more if conditions when other pages get added
+            if ($_SESSION["user"] == 2 || $_SESSION["user"] == 1 || $_SESSION["user"] == 3) {
+                header("Location:home.php");
+            } else if ($_SESSION["user"] == 4) {
+                header("Location:homeTutor.php");
+            }
             ob_end_flush();
         } else {
 ?>
