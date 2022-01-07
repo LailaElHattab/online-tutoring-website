@@ -1,18 +1,23 @@
 <html>
-    <head>
-        <title>Contact Us</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+        <meta name="viewport" content="width=device-width , initial-scale-1">
+        <link rel="stylesheet" type="text/css" href="styles/styles.css">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-        <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
-        <link href='style.css' rel='stylesheet' type='text/css'>
+            integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+            crossorigin="anonymous"></script>
     </head>
     <body>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2">
-                    <h1><center>Contact Us</h1>
+    <div class="container" id="accountContainer">
+            <div class="col-md-4 col-md-offset-4">
+                <div class="row">
+                    <div class="form-outline mb-4">
+                        <h2 class="account">Contact Us</h2>
+                    </div>
+                </div>
                     <p class="lead"></p>
                     <form id="contact-form" method="post" role="form">
                         <div class="messages"></div>
@@ -57,8 +62,9 @@
                                         <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
+                                <br>
                                 <div class="col-md-12">
-                                    <input type="submit" name="ok" class="btn btn-success btn-send" value="Send message">
+                                    <input type="submit" name="ok" class="btn" id="rpassbtn" value="Send message">
                                 </div>
                             </div>
                             <div class="row">
