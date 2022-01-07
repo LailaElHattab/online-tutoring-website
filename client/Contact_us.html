@@ -69,22 +69,6 @@
                         </div>
 
                     </form>
-            <?php 
-            if(isset($_POST['ok']))
-            {
-                include_once 'DBconnection.php';
-                $obj=new Contact();
-                $res=$obj->contact($_POST);
-                if($res==true)
-                {
-                    echo "<script>alert('Query successfully Submitted.Thank you')</script>";
-                }
-                else
-                {
-                    echo "<script>alert('Something Went wrong!!')</script>";
-                }
-            }
-            ?>
                 </div>
             </div> 
         </div> 
