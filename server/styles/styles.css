@@ -3,7 +3,7 @@
     --primary: #5B25FF;
     --dark: rgb(17, 16, 16);
     --body: #363EE0;
-    --box-shadow: 0 8px 22px rgba(0,0,0,0,1);
+    --box-shadow: 2px 3px 5px grey;
     --active:#FFA700;
 }
 #body{
@@ -94,20 +94,40 @@
 
 /*Login page*/
 
+#loginbody{
+
+    background-image: url(../images/loginbackground.png);
+    background-repeat: no-repeat;
+    background-position-x: left;
+    background-position-y: 150px;
+    background-size: 400px;
+
+}
+
 .login{
-    color:rgb(58, 99, 151);
+    color:var(--primary);
     font-family: "Open Sans", sans-serif;
     font-size: 30px;
     padding-left: 40%;
     padding-bottom: 3%;
 }
 #loginbtn {
-    color:whitesmoke;
-    background-color: rgb(58, 99, 151);
-    box-shadow: 2px 3px 5px grey
+    color:var(--dark);
+    background-color: var(--active);
+    box-shadow: var(--box-shadow);
 }
+
+#loginbtn:hover{
+    color: whitesmoke;
+    background-color: var(--primary);
+}
+
+#loginbtn:active{
+    background-color: var(--active);
+}
+
 #label{
-    color:rgb(33, 44, 58);
+    color:var(--dark);
     padding-top: 10px;
 }
 #remember{
@@ -115,7 +135,7 @@
     padding-top: 10px;
 }
 #checkLabel{
-    color:rgb(33, 44, 58);
+    color:var(--dark);
     padding-top: 10px;
 }
 #loginContainer{
@@ -128,23 +148,24 @@
     padding-top: 100px;
 }
 .signup{
-    color:rgb(58, 99, 151);
+    color:var(--primary);
     font-family: "Open Sans", sans-serif;
     font-size: 40px;
    
 }
 #signupbtn{
-    color:whitesmoke;
-    background-color: rgb(58, 99, 151);
-    box-shadow: 2px 3px 5px grey
+    color:var(--dark);
+    background-color:var(--active);
+    box-shadow: var(--box-shadow);
 }
 
 #signupbtn:hover{
-    background-color: #14314dce;
+    color: whitesmoke;
+    background-color: var(--primary);
 }
 
 #signupbtn:active{
-    background-color: rgb(119,136,153);
+    background-color: var(--active);
 }
 
 /*editpwd page css*/  
