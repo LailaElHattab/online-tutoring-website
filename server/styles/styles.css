@@ -212,17 +212,18 @@
     text-align: center;
     font-size: 15px;
 }
+/*editProfile page*/
 #deletebtn {
-    background-color: rgb(187, 39, 64);
+    background-color: var(--active);
 }
 #emailbtn,#pwdbtn,#deletebtn {
     color:whitesmoke;
-    box-shadow: 2px 3px 5px grey;
+    box-shadow: var(--box-shadow);
 }
 #emailbtn,#pwdbtn{
-    margin-top: 0px;
-    background-color: rgb(58, 99, 151);
+    background-color: var(--primary);
 }
+
 
 /*addCourse page css*/  
 .addcourse{
