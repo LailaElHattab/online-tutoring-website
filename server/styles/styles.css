@@ -282,9 +282,10 @@ label
     color: var(--dark);
 }
 
-@media (min-width: 900px) {
+@media (min-width:768px) {
     #card {
       display: flex;
+      width: 900px;
     }
     
 }
