@@ -21,7 +21,7 @@ if (!empty($_SESSION['id']) && $_SESSION["user"] == 1) {
     include_once($_SERVER['DOCUMENT_ROOT'] . "/online-tutoring-website/client/hometutor.html");
 } else {
     //if not logged in
-    include_once 'navigationBar.php';
+    include_once 'navbar.php';
     include_once($_SERVER['DOCUMENT_ROOT'] . "/online-tutoring-website/client/home.html");
 }
 ?>
