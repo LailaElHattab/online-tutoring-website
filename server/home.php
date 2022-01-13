@@ -26,7 +26,8 @@ if (!empty($_SESSION['id']) && $_SESSION["user"] == 1) {
 } else {
     //if not logged in
     include_once 'navbar.php';
-    include_once($_SERVER['DOCUMENT_ROOT'] . "/online-tutoring-website/client/home.html");
+    include_once 'slideshow.php';
+  // include_once($_SERVER['DOCUMENT_ROOT'] . "/online-tutoring-website/client/home.html");
 }
 ?>
 
