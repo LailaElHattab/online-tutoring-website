@@ -5,6 +5,7 @@
     --body: #363EE0;
     --box-shadow: 2px 3px 5px grey;
     --active:#FFA700;
+    --font:"Open Sans", sans-serif;
 }
 #body{
     font-family: "Open Sans", sans-serif;
@@ -272,4 +273,29 @@ label
     text-transform: uppercase;
     letter-spacing: 0.1em;
     margin-bottom: 20px;
+}
+
+/*cart page*/
+#cartTitle{
+    font-family: var(--font);
+    padding-top: 50px;
+    color: var(--dark);
+}
+
+#card{
+ width: 900px;
+}
+
+#checkout{
+    background-color: var(--active);
+    color: var(--dark);
+}
+
+#checkout:hover{
+    background-color: var(--primary); 
+    color: whitesmoke;
+}
+#checkout:active{
+    background-color: var(--active);
+   
 }
