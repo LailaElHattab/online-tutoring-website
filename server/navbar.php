@@ -56,10 +56,12 @@ include_once 'database.php';
 	        			        $query = $conn->query($sql);
 
 	        			        while($row = $query->fetch_assoc()){
-	        			     	echo "
-	        					<a class='dropdown-item' href='#'>".$row['name']."</a>
-	        			     	";
-	        			    }
+	        			     	echo "<a class='dropdown-item' href='category.php?id=<?php echo $row['id'] ?>'>".$row['name']."</a>";
+	        			        }
+                                              
+                                
+
+                                
 	        		         ?>
                             </div>
                         </li>
