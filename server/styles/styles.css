@@ -3,8 +3,9 @@
     --primary: #5B25FF;
     --dark: rgb(17, 16, 16);
     --body: #363EE0;
-    --box-shadow: 0 8px 22px rgba(0,0,0,0,1);
+    --box-shadow: 2px 3px 5px grey;
     --active:#FFA700;
+    --font:"Open Sans", sans-serif;
 }
 #body{
     font-family: "Open Sans", sans-serif;
@@ -94,20 +95,40 @@
 
 /*Login page*/
 
+#loginbody{
+
+    background-image: url(../images/loginbackground.png);
+    background-repeat: no-repeat;
+    background-position-x: left;
+    background-position-y: 150px;
+    background-size: 400px;
+
+}
+
 .login{
-    color:rgb(58, 99, 151);
+    color:var(--primary);
     font-family: "Open Sans", sans-serif;
     font-size: 30px;
     padding-left: 40%;
     padding-bottom: 3%;
 }
 #loginbtn {
-    color:whitesmoke;
-    background-color: rgb(58, 99, 151);
-    box-shadow: 2px 3px 5px grey
+    color:var(--dark);
+    background-color: var(--active);
+    box-shadow: var(--box-shadow);
 }
+
+#loginbtn:hover{
+    color: whitesmoke;
+    background-color: var(--primary);
+}
+
+#loginbtn:active{
+    background-color: var(--active);
+}
+
 #label{
-    color:rgb(33, 44, 58);
+    color:var(--dark);
     padding-top: 10px;
 }
 #remember{
@@ -115,7 +136,7 @@
     padding-top: 10px;
 }
 #checkLabel{
-    color:rgb(33, 44, 58);
+    color:var(--dark);
     padding-top: 10px;
 }
 #loginContainer{
@@ -128,23 +149,24 @@
     padding-top: 100px;
 }
 .signup{
-    color:rgb(58, 99, 151);
+    color:var(--primary);
     font-family: "Open Sans", sans-serif;
     font-size: 40px;
    
 }
 #signupbtn{
-    color:whitesmoke;
-    background-color: rgb(58, 99, 151);
-    box-shadow: 2px 3px 5px grey
+    color:var(--dark);
+    background-color:var(--active);
+    box-shadow: var(--box-shadow);
 }
 
 #signupbtn:hover{
-    background-color: #14314dce;
+    color: whitesmoke;
+    background-color: var(--primary);
 }
 
 #signupbtn:active{
-    background-color: rgb(119,136,153);
+    background-color: var(--active);
 }
 
 /*editpwd page css*/  
@@ -191,16 +213,31 @@
     text-align: center;
     font-size: 15px;
 }
+/*editProfile page*/
 #deletebtn {
-    background-color: rgb(187, 39, 64);
+    background-color: var(--active);
+}
+#deletebtn:hover{
+    color: whitesmoke;
+    background-color: var(--primary);
+}
+
+#deletebtn:active{
+    background-color: var(--active);
 }
 #emailbtn,#pwdbtn,#deletebtn {
     color:whitesmoke;
-    box-shadow: 2px 3px 5px grey;
+    box-shadow: var(--box-shadow);
 }
 #emailbtn,#pwdbtn{
-    margin-top: 0px;
-    background-color: rgb(58, 99, 151);
+    background-color: var(--primary);
+}
+#editpbtn{
+    color:whitesmoke;
+    box-shadow: var(--box-shadow);
+    background-color: var(--primary);
+    font-size: 15px;
+    
 }
 
 /*addCourse page css*/  
@@ -250,4 +287,34 @@ label
     text-transform: uppercase;
     letter-spacing: 0.1em;
     margin-bottom: 20px;
+}
+
+/*cart page*/
+#cartTitle{
+    font-family: var(--font);
+    padding-top: 50px;
+    color: var(--dark);
+}
+
+@media (min-width:768px) {
+    #card {
+      display: flex;
+      width: 900px;
+    }
+    
+}
+
+
+#checkout{
+    background-color: var(--active);
+    color: var(--dark);
+}
+
+#checkout:hover{
+    background-color: var(--primary); 
+    color: whitesmoke;
+}
+#checkout:active{
+    background-color: var(--active);
+   
 }

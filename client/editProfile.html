@@ -1,7 +1,7 @@
 <html>
 
 <head>
-    <meta name="viewport" content="width=device-width , initial-scale-1">
+    <meta name="viewport" content="width=device-width , initial-scale=1">
     <link rel="stylesheet" type="text/css" href="styles/styles.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -34,15 +34,15 @@
                 <div class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                     <br>
                     <form method="post" action="" enctype="multipart/form-data">
-                        <div class="row" id="pic">
-                            <button type="button" class="btn btn-sm" id="pwdbtn">edit picture</button>
+                        <div class="form-outline mb-5" id="pic">
+                            <button type="button" class="btn btn-primary" id="pwdbtn">edit picture</button>
                         </div>
                         <div class="row">
-                            <div class="form-outline mb-4" id="namePart">
+                            <div class="form-outline mb-5" id="namePart">
                                 <br><br>
-                                <label for="name" class="form-label" id="label"><b >Full name:</b></label>
+                                <label for="name" class="form-label" id="label"><b>Full name:</b></label>
                                 <input type="text" class="form-control" id="name" placeholder="name" name="name"><br>
-                                <button class="btn btn-sm"id="deletebtn" name="save"
+                                <button class="btn btn-sm" id="deletebtn" name="save"
                                     onclick="location.href='editProfile.php'">Save</button>
 
                             </div>

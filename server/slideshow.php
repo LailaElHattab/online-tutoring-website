@@ -1,7 +1,7 @@
 <html>
 
 <head>
-    <meta name="viewport" content="width=device-width , initial-scale=1">
+    <meta name="viewport" content="width=device-width , initial-scale-1">
     <link rel="stylesheet" type="text/css" href="styles/styles.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
@@ -27,65 +27,82 @@
 
 <body id="body">
 
-    <!--Heading-->
+    <!--Heading and picture-->
     <div class="intro vh-100 d-flex align-items-center" id="intro">
         <div class="container">
             <div class="row">
                 <div class="col-lg-5" id="title">
-                    <h2>Start your Teaching Journey</h2>
-                    <button onclick="location.href='addCourse.php'" id="link" class="btn ">Add Course</button>
+                    <h1 id="welcome"><b>Welcome</b> to </h1>
+                    <h1 id="edupedia"><b>Edupedia</b></h1>
+                    <button onclick="location.href='signup.php'" id="link" class="btn ">Get
+                        started</button>
+                </div>
+                <div class="col-md-6">
+                    <img id="illustration" src="../server/images/illustration.png" class="img-fluid"
+                        alt="Responsive image">
                 </div>
             </div>
         </div>
     </div>
-    <!--my courses tab-->
-    <ul class="nav nav-tabs" id="myTab" role="tablist">
-        <li class="nav-item" role="presentation">
-            <button class="nav-link active" id="courses-tab" data-bs-toggle="tab" data-bs-target="#courses"
-                type="button" role="tab" aria-controls="courses" aria-selected="true">My Courses</button>
-        </li>
-    </ul>
-    <div class="tab-content mb-5" id="myTabContent">
-        <div class="tab-pane fade show active" id="course" role="tabpanel" aria-labelledby="courses-tab">
-            <table class="table caption-top ms-3">
-                <caption>List of Courses</caption>
-                <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Select Course</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Web Development</td>
-                        <td><button type="button" class="btn btn-primary btn-sm px-3">
-                                <i class="bi bi-check"></i>
-                            </button></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Python</td>
-                        <td><button type="button" class="btn btn-primary btn-sm px-3">
-                                <i class="bi bi-check"></i>
-                            </button></td>
 
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>Android Development</td>
-                        <td><button type="button" class="btn btn-primary btn-sm px-3">
-                                <i class="bi bi-check"></i>
-                            </button></td>
+    <!--Slideshow for courses-->
 
-                    </tr>
-                </tbody>
-            </table>
+<?php
+
+    include_once 'database.php';
+
+    $sql1 = "SELECT * FROM course";
+    $query = $conn->query($sql1);
+?>
+
+
+    <div class="container mb-3">
+        <div class="row gx-1 justify-content-center">
+            <div class="col-6">
+                <h3 class="mb-3">Popular Courses</h3>
+            </div>
+
+            <div class="col-6 text-right">
+                <a class="btn btn-primary mb-3 mr-1" href="#car" role="button" data-slide="prev" id="arrows">
+                    <i class="fa fa-arrow-left"></i>
+                </a>
+                <a class="btn btn-primary mb-3" href="#car" role="button" data-slide="next" id="arrows">
+                    <i class="fa fa-arrow-right"></i>
+                </a>
+            </div>
+          
+            <div id="car" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="row gx-1 justify-content-center">
+
+                              <?php
+                              while($row = $query->fetch_assoc()){
+                              ?>
+                            <div class="col-lg-3 col-md-6">
+                                <div class="card">
+                                    <div class="img-fluid">
+                                        <img src=<?php echo $row['image']?> class="img-fluid" id="img">
+                                    </div>
+                                    <div class="card-body">
+                                        <h5 class="card-title"><?php echo $row['name']?></h5>
+                                        <p class="card-text"><b>
+                                        $<?php echo $row['price']?>
+                              </b>
+                                        </p>
+                                        <a href="#" class="btn btn-primary">Go to course</a>
+                                    </div>
+                                </div>
+                            </div>
+                                <?php
+                                }
+                                ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-
-
 
     <!--Footer-->
 

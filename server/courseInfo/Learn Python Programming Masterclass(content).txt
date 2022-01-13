@@ -1,0 +1,17 @@
+Course introduction
+As you learn Python throughout this course, there are a few things you should keep in mind.
+Python is case sensitive.
+Spacing is important.
+Use error messages to help you learn.
+
+
+List and Tuples
+Data structures are containers that organize and group data types together in different ways. A list is one of the most common and basic data structures in Python.
+You saw here that you can create a list with square brackets. Lists can contain any mix and match of the data types you have seen so far.
+You saw that we can pull more than one value from a list at a time by using slicing. When using slicing, it is important to remember that the lower index is inclusive and the upper index is exclusive.
+Mutability is about whether or not we can change an object once it has been created. If an object (like a list or string) can be changed (like a list can), then it is called mutable. However, if an object cannot be changed with creating a completely new object (like strings), then the object is considered immutable.
+
+However, you will see some data types in the next sections that will be unordered. For each of the upcoming data structures you see, it is useful to understand how you index, are they mutable, and are they ordered. Knowing this about the data structure is really useful!
+
+Additionally, you will see how these each have different methods, so why you would use one data structure vs. another is largely dependent on these properties, and what you can easily do with it!
+returns the greatest element of the list. How the greatest element is determined depends on what type objects are in the list. The maximum element in a list of numbers is the largest number. The maximum elements in a list of strings is element that would occur last if the list were sorted alphabetically. This works because the the max function is defined in terms of the greater than comparison operator. The max function is undefined for lists that contain elements from different, incomparable types.

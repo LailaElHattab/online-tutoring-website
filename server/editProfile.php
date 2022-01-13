@@ -77,8 +77,8 @@ if (isset($_POST['save'])) {
     el2.setAttribute("name", "imageToUpload");
 
     $(document).ready(function() {
-        $("#picturebtn").click(function() {
-            $("#picturebtn").before(el2);
+        $("#pwdbtn").click(function() {
+            $("#pwdbtn").before(el2);
         });
     });
 </script>
