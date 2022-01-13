@@ -9,7 +9,8 @@ if (!empty($_SESSION['id'])) {
 
 } else {
     //if not logged in
-    include_once($_SERVER['DOCUMENT_ROOT'] . "/online-tutoring-website/client/navigationBar.html");
+   // include_once($_SERVER['DOCUMENT_ROOT'] . "/online-tutoring-website/client/navigationBar.html");
+   include_once 'navbar.php';
 }
 ?>
 

@@ -1,5 +1,7 @@
 <html>
-
+<?php
+include_once 'database.php';
+?>
 <head>
     <meta name="viewport" content="width=device-width , initial-scale=1">
     <link rel="stylesheet" type="text/css" href="styles/styles.css">
@@ -47,12 +49,18 @@
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown" id="selector">
                                 <h5 class="dropdown-header">Most Popular</h5>
+                                <?php
+	        			        //connection
 
-                                <a class="dropdown-item" href="#">Development</a>
-                                <a class="dropdown-item" href="#">Business</a>
-                                <a class="dropdown-item" href="#">Design</a>
-                                <a class="dropdown-item" href="#">Health and Fitness</a>
-                                <a class="dropdown-item" href="#">Teaching</a>
+	        			        $sql = "SELECT * FROM category";
+	        			        $query = $conn->query($sql);
+
+	        			        while($row = $query->fetch_assoc()){
+	        			     	echo "
+	        					<a class='dropdown-item' href='#'>".$row['name']."</a>
+	        			     	";
+	        			    }
+	        		         ?>
                             </div>
                         </li>
 
