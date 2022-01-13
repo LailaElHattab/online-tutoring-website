@@ -12,6 +12,7 @@ $query = $conn->query($sql1);
 while($row = $query->fetch_assoc()){
 ?>
         <div class="card mb-4" id="card">
+           
             <div class="card-body">
                 <!-- Single item -->
                 <div class="row">
