@@ -282,9 +282,13 @@ label
     color: var(--dark);
 }
 
-#card{
- width: 900px;
+@media (min-width: 900px) {
+    #card {
+      display: flex;
+    }
+    
 }
+
 
 #checkout{
     background-color: var(--active);
