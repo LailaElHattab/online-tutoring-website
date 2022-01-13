@@ -1,0 +1,5 @@
+﻿JavaScript Fundamentals-part1
+JavaScript Fundamentals-part2
+Developer skills and Editor setup
+Data structures, Modern Operators and strings
+A Closer look at functions

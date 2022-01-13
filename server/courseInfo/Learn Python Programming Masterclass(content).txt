@@ -1,0 +1,4 @@
+﻿Course introduction
+Install and setup
+List and Tuples
+Dictionaries and Sets
