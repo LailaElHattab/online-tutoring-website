@@ -217,6 +217,14 @@
 #deletebtn {
     background-color: var(--active);
 }
+#deletebtn:hover{
+    color: whitesmoke;
+    background-color: var(--primary);
+}
+
+#deletebtn:active{
+    background-color: var(--active);
+}
 #emailbtn,#pwdbtn,#deletebtn {
     color:whitesmoke;
     box-shadow: var(--box-shadow);
@@ -224,7 +232,13 @@
 #emailbtn,#pwdbtn{
     background-color: var(--primary);
 }
-
+#editpbtn{
+    color:whitesmoke;
+    box-shadow: var(--box-shadow);
+    background-color: var(--primary);
+    font-size: 15px;
+    
+}
 
 /*addCourse page css*/  
 .addcourse{
