@@ -438,4 +438,30 @@ body{
 
 #deletecbtn:active{
     background-color: var(--active);
+}.approve{
+
+    color:rgb(58, 99, 151);
+    font-family: "Open Sans", sans-serif;
+    
+    text-align: center;
+    font-size: 15px;
+   
+   
+}
+
+#approvecbtn {
+    background-color: rgb(58, 99, 151);
+    color:whitesmoke;
+    box-shadow: var(--box-shadow);
+    margin-left: 20px;
+    margin-bottom: 30px;
+    margin-top: 20px;
+}
+#approvebtn:hover{
+    color: whitesmoke;
+    background-color: var(--primary);
+}
+
+#approvebtn:active{
+    background-color: var(--active);
 }
