@@ -40,6 +40,14 @@ if ($result1->num_rows > 0) {
     }
     ?>
     </table>
+    <br>
+    <?php
+    if ($row['status'] == 0) {
+    ?>
+        <button onclick="location.href='approveTutor.php?id=<?php echo $row['id'] ?>'">approve tutor</button>
+    <?php
+    }
+    ?>
     <button onclick="location.href='deleteTutor.php?id=<?php echo $row['id'] ?>'">delete tutor</button>
 
 </html>
