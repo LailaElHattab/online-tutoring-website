@@ -11,7 +11,6 @@ session_start();
 <?php
 //if no content -> coming soon
 include_once 'database.php';
-include_once 'functions.php';
 $sql = "SELECT * FROM course where id='" . $_GET['id'] . "'";
 $result = $conn->query($sql);
 $row = $result->fetch_assoc();
@@ -39,7 +38,7 @@ while (!feof($file)) {
     echo $line . "<br>";
 }
 fclose($file);
-if ($_SESSION['user'] == '2') {
+if ($_SESSION['user'] == '2' || $_SESSION['user'] = "") {
     $sql1 = "SELECT * FROM enroll WHERE learner_id='" . $_SESSION['id'] . "' and course_id='" . $row['id'] . "'";
     $result1 = $conn->query($sql1);
     $row1 = $result1->fetch_assoc();
