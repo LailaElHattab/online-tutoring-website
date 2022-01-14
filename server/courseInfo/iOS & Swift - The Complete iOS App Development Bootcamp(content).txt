@@ -1,4 +1,4 @@
-﻿Getting started with IOS Development Swift
+Getting started with IOS Development Swift
 Swift Programming Basics Challenge
 IOS App Design
 Advance ARkit
