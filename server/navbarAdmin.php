@@ -10,7 +10,7 @@
 
 <body>
     <?php
-    include_once 'database';
+    include_once 'database.php';
     ?>
     <!--navbar-->
     <nav class="navbar navbar-expand-md navbar-light bg-faded justify-content-center" id="navbar">
