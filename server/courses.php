@@ -27,6 +27,10 @@ for ($j = 0; $j < $unchecked; $j++) {
 }
 echo "<br>";
 echo "<img src='" . $row['image'] . "'>";
+$sql0 = "SELECT fname FROM user where id='" . $row['tutor_id'] . "'";
+$result0 = $conn->query($sql0);
+$row0 = $result0->fetch_assoc();
+echo "<p>Created by " . $row0['fname'] . "</p>";
 $path = $row['description'];
 echo "<h3>Course Description</h3>";
 $file = fopen($path, "r");
@@ -50,7 +54,7 @@ if ($_SESSION['user'] == '2') {
     } else {
 ?>
         <button onclick="location.href='cart.php?id=<?php echo $row['id'] ?>'">Add to cart</button>
-<?php
+    <?php
     }
 } else {
 
@@ -61,6 +65,11 @@ if ($_SESSION['user'] == '2') {
         $line1 = fgets($file1);
         echo $line1 . "<br>";
     }
+    ?>
+    <button onclick="location.href='editCourse.php?id=<?php echo $row['id'] ?>'">edit course</button>
+    <button onclick="location.href='deleteCourse.php?id=<?php echo $row['id'] ?>'">delete course</button>
+
+<?php
 }
 
 ?>
