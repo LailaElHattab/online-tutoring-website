@@ -90,8 +90,16 @@ if ($_SESSION['user'] == '2' || $_SESSION['user'] = "") {
     <button class="btn btn-sm" id="editcbtn" onclick="location.href='editCourse.php?id=<?php echo $row['id'] ?>'">edit course</button>
     <button class="btn btn-sm" id="deletecbtn" onclick="location.href='deleteCourse.php?id=<?php echo $row['id'] ?>'">delete course</button>
    
+    <button onclick="location.href='editCourse.php?id=<?php echo $row['id'] ?>'">edit course</button>
+    <button onclick="location.href='deleteCourse.php?id=<?php echo $row['id'] ?>'">delete course</button>
+
+    <?php
+    if ($row['status'] == 0) {
+    ?>
+        <button onclick="location.href='approveCourse.php?id=<?php echo $row['id'] ?>'">approve course</button>
 
 <?php
+    }
 }
 
 ?>
