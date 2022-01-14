@@ -23,11 +23,13 @@ session_start();
         margin-left: 20px;
     }
 
-    h1 {
-        color: #363EE0;
+    h1{background-color:rgb(17, 16, 16);
+        padding-top:100px;
+        color:whitesmoke;
         font-style: italic;
         text-align: center;
-        margin-left: 20px;
+        vertical-align: top;
+        margin-left: 20px;margin-top:30px;
     }
 
     b {
@@ -35,9 +37,9 @@ session_start();
     }
 
     img {
-        margin-left: 20px;
+        width:300px;
+        margin-left: 900px;
     }
-
     span {
         margin-left: 20px;
     }
@@ -45,6 +47,7 @@ session_start();
 <?php
 //if no content -> coming soon
 include_once 'database.php';
+//include_once($_SERVER['DOCUMENT_ROOT'] . "/online-tutoring-website/server/navbarAdmin.php");
 $sql = "SELECT * FROM course where id='" . $_GET['id'] . "'";
 $result = $conn->query($sql);
 $row = $result->fetch_assoc();
