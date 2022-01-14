@@ -373,3 +373,56 @@ body{
     padding-top: 30px;
     padding-right: 300px;
 }
+/*courses page*/
+.editc{
+    color:var(--primary);
+    font-family: "Open Sans", sans-serif;
+    font-size: 30px;
+    padding-left: 40%;
+    padding-bottom: 3%;
+    
+}
+#editcbtn {
+    color:whitesmoke;
+    background-color: var(--primary);
+    box-shadow: var(--box-shadow);
+    margin-left: 20px;
+    margin-bottom: 30px;
+    margin-top: 20px;
+}
+
+#editcbtn:hover{
+    color: whitesmoke;
+    background-color: var(--active);
+}
+
+#editcbtn:active{
+    background-color: var(--active);
+}
+.delete{
+
+    color:rgb(58, 99, 151);
+    font-family: "Open Sans", sans-serif;
+    
+    text-align: center;
+    font-size: 15px;
+   
+   
+}
+
+#deletecbtn {
+    background-color: var(--active);
+    color:whitesmoke;
+    box-shadow: var(--box-shadow);
+    margin-left: 20px;
+    margin-bottom: 30px;
+    margin-top: 20px;
+}
+#deletecbtn:hover{
+    color: whitesmoke;
+    background-color: var(--primary);
+}
+
+#deletecbtn:active{
+    background-color: var(--active);
+}
