@@ -1,4 +1,4 @@
-﻿HandCode Your Bootstrap Theme 
+HandCode Your Bootstrap Theme 
 Build a custom Wordpress Theme
 Program custom Wordpress Layout
 Learn Bootstrap 3
