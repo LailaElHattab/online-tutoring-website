@@ -3,6 +3,7 @@
     --primary: #5B25FF;
     --dark: rgb(17, 16, 16);
     --body: #363EE0;
+    --dark2: #1c1d1f;
     --box-shadow: 2px 3px 5px grey;
     --active:#FFA700;
     --font:"Open Sans", sans-serif;
@@ -213,13 +214,13 @@
 /*editAccount page*/  
 
 .account{
-    color:rgb(58, 99, 151);
+    color: var(--dark2);
     font-family: "Open Sans", sans-serif;
     font-size: 30px;
     text-align: center;
 }
 #accountContainer{
-    padding-top: 30px;
+    padding-top: 80px;
 }
 .delete{
 
@@ -230,6 +231,7 @@
     font-size: 15px;
 }
 /*editProfile page*/
+
 #deletebtn {
     background-color: var(--active);
 }
@@ -465,3 +467,5 @@ body{
 #approvebtn:active{
     background-color: var(--active);
 }
+
+
