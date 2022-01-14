@@ -25,8 +25,8 @@ $unchecked = 5 - $rating;
 for ($j = 0; $j < $unchecked; $j++) {
     echo "<span class='fa fa-star'></span>";
 }
-
-
+echo "<br>";
+echo "<img src='" . $row['image'] . "'>";
 $path = $row['description'];
 echo "<h3>Course Description</h3>";
 $file = fopen($path, "r");
