@@ -62,158 +62,19 @@
         <div class="tab-content" id="myTabContent">
             <!--Courses tab-->
             <div class="tab-pane fade show active" id="course" role="tabpanel" aria-labelledby="course-tab">
-                <table class="table caption-top ms-3">
-                    <caption>List of Courses</caption>
-                    <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Name</th>
-                            <th scope="col">Status</th>
-                            <th scope="col">Approve</th>
-                            <th scope="col">View</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Web Development</td>
-                            <td class="table-success">Accepted</td>
-                            <td><button type="button" class="btn btn-primary btn-sm px-3">
-                                    <i class="bi bi-check"></i>
-                                </button></td>
-                            <td><button type="button" class="btn btn-primary btn-sm px-3">
-                                    open
-                                </button></td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Python</td>
-                            <td class="table-secondary">Pending</td>
-                            <td><button type="button" class="btn btn-primary btn-sm px-3">
-                                    <i class="bi bi-check"></i>
-                                </button></td>
-                            <td><button type="button" class="btn btn-primary btn-sm px-3">
-                                    open
-                                </button></td>
 
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td>Android Development</td>
-                            <td class="table-danger">Declined</td>
-                            <td><button type="button" class="btn btn-primary btn-sm px-3">
-                                    <i class="bi bi-check"></i>
-                                </button></td>
-                            <td><button type="button" class="btn btn-primary btn-sm px-3">
-                                    open
-                                </button></td>
-
-                        </tr>
-                    </tbody>
-                </table>
             </div>
             <!--Learner tab-->
             <div class="tab-pane fade" id="learner" role="tabpanel" aria-labelledby="learner-tab">
-                <table class="table caption-top ms-3">
-                    <caption>List of Learners</caption>
-                    <thead>
-                        <tr>
-                            <th scope="col">ID</th>
-                            <th scope="col">Name</th>
-                            <th scope="col">Email</th>
-                            <th scope="col">View</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row">
-                                <?php $_SESSION['id']?>
-                            </th>
-                            <td>
-                                <?php $_SESSION['name']?>
-                            </td>
-                            <td>
-                                <?php $_SESSION['email']?>
-                            </td>
-                            <td><button type="button" class="btn btn-primary btn-sm px-3">
-                                    <i class="bi bi-check"></i>
-                                </button></td>
-                            <td><button type="button" class="btn btn-primary btn-sm px-3">
-                                    open
-                                </button></td>
-                        </tr>
 
-                    </tbody>
-                </table>
             </div>
             <!--Tutors tab-->
             <div class="tab-pane fade" id="tutor" role="tabpanel" aria-labelledby="tutor-tab">
-                <table class="table caption-top ms-3">
-                    <caption>List of Tutors</caption>
-                    <thead>
-                        <tr>
-                            <th scope="col">ID</th>
-                            <th scope="col">Name</th>
-                            <th scope="col">Email</th>
-                            <th scope="col">View</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row">
-                                <?php $_SESSION['id']?>
-                            </th>
-                            <td>
-                                <?php $_SESSION['name']?>
-                            </td>
-                            <td>
-                                <?php $_SESSION['name']?>
-                            </td>
-                            <td><button type="button" class="btn btn-primary btn-sm px-3">
-                                    <i class="bi bi-check"></i>
-                                </button></td>
-                            <td><button type="button" class="btn btn-primary btn-sm px-3">
-                                    open
-                                </button></td>
-                        </tr>
-
-                    </tbody>
-                </table>
 
             </div>
             <!--Admins tab-->
             <div class="tab-pane fade" id="admin" role="tabpanel" aria-labelledby="admin-tab">
-                <table class="table caption-top ms-3">
-                    <caption>List of Admins</caption>
-                    <thead>
-                        <tr>
-                            <th scope="col">ID</th>
-                            <th scope="col">Name</th>
-                            <th scope="col">Email</th>
-                            <th scope="col">View</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row">
-                                <?php $_SESSION['id']?>
-                            </th>
-                            <td>
-                                <?php $_SESSION['name']?>
-                            </td>
-                            <td>
-                                <?php $_SESSION['name']?>
-                            </td>
-                            <td><button type="button" class="btn btn-primary btn-sm px-3">
-                                    <i class="bi bi-check"></i>
-                                </button></td>
-                            <td><button type="button" class="btn btn-primary btn-sm px-3">
-                                    open
-                                </button></td>
-                        </tr>
 
-                    </tbody>
-                </table>
             </div>
         </div>
     </div>
