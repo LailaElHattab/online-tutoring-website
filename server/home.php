@@ -8,7 +8,7 @@ session_start();
 //admin
 if ($_SESSION["user"] == 1) {
     //if logged in
-    include_once($_SERVER['DOCUMENT_ROOT'] . "/online-tutoring-website/client/navbarAdmin.html");
+    include_once($_SERVER['DOCUMENT_ROOT'] . "/online-tutoring-website/server/navbarAdmin.php");
     include_once($_SERVER['DOCUMENT_ROOT'] . "/online-tutoring-website/server/homeAdmin.php");
     //learner
 } else if ($_SESSION["user"] == 2) {
