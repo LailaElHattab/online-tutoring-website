@@ -26,7 +26,7 @@ $result = $conn->query($sql);
                 <td> <?php echo $row['fname'] ?></td>
                 <td> <?php echo $row['email'] ?></td>
 
-                <td><button type="button" class="btn btn-primary btn-sm px-3">
+                <td><button type="button" class="btn btn-primary btn-sm px-3" onclick="location.href='tutor.php?id=<?php echo $row['id'] ?>'">
                         <i class="bi bi-check"></i>
                     </button></td>
                 <!-- <td><button type="button" class="btn btn-primary btn-sm px-3">
