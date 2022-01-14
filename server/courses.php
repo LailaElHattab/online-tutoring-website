@@ -23,8 +23,11 @@ session_start();
         margin-left: 20px;}
         h1   {color: #363EE0;
         font-style: italic;
+        text-align: center;
         margin-left: 20px;}
         b{margin-left: 20px;}
+        img{margin-left: 20px;}
+        span{margin-left: 20px;}
 </style>
 <?php
 //if no content -> coming soon
@@ -34,7 +37,7 @@ $result = $conn->query($sql);
 $row = $result->fetch_assoc();
 echo "<h1>" . $row['name'] . "</h1>";
 $rating = $row['rating'];
-echo $rating;
+echo"<b>$rating</b>";
 for ($i = 0; $i < (int)$rating; $i++) {
     echo "<span class='fa fa-star checked'></span>";
 }
@@ -90,13 +93,11 @@ if ($_SESSION['user'] == '2' || $_SESSION['user'] = "") {
     <button class="btn btn-sm" id="editcbtn" onclick="location.href='editCourse.php?id=<?php echo $row['id'] ?>'">edit course</button>
     <button class="btn btn-sm" id="deletecbtn" onclick="location.href='deleteCourse.php?id=<?php echo $row['id'] ?>'">delete course</button>
    
-    <button onclick="location.href='editCourse.php?id=<?php echo $row['id'] ?>'">edit course</button>
-    <button onclick="location.href='deleteCourse.php?id=<?php echo $row['id'] ?>'">delete course</button>
 
     <?php
     if ($row['status'] == 0) {
     ?>
-        <button onclick="location.href='approveCourse.php?id=<?php echo $row['id'] ?>'">approve course</button>
+        <button class="btn btn-sm" id="approvebtn" onclick="location.href='approveCourse.php?id=<?php echo $row['id'] ?>'">approve course</button>
 
 <?php
     }
