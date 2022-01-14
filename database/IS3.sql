@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jan 03, 2022 at 02:15 AM
+-- Generation Time: Jan 14, 2022 at 05:13 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.11
 
@@ -62,7 +62,7 @@ CREATE TABLE `category` (
 
 INSERT INTO `category` (`id`, `name`) VALUES
 (2, 'business'),
-(3, 'desgin'),
+(3, 'design'),
 (1, 'development'),
 (4, 'health and fitness'),
 (5, 'teaching');
@@ -91,13 +91,13 @@ CREATE TABLE `course` (
   `image` varchar(255) NOT NULL,
   `content` varchar(255) NOT NULL,
   `description` varchar(255) NOT NULL,
-  `level` varchar(50) NOT NULL,
+  `level` varchar(255) NOT NULL,
   `price` int(11) NOT NULL,
   `rating` int(11) NOT NULL,
   `status` int(11) NOT NULL,
   `category` int(11) NOT NULL,
   `tutor_id` int(11) NOT NULL,
-  `admin_id` int(11) NOT NULL
+  `admin_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -105,10 +105,10 @@ CREATE TABLE `course` (
 --
 
 INSERT INTO `course` (`id`, `name`, `image`, `content`, `description`, `level`, `price`, `rating`, `status`, `category`, `tutor_id`, `admin_id`) VALUES
-(1, 'The Web Developer Bootcamp 2022', 'images/web.png', '', '', 'beginner', 500, 0, 1, 1, 11, 5),
-(2, 'iOS & Swift - The Complete iOS App Development Bootcamp', 'images/Swift-Development-for-iOS.jpg', 'courseInfo/iOS & Swift - The Complete iOS App Development Bootcamp(content).rtf', 'courseInfo/iOS & Swift - The Complete iOS App Development Bootcamp.rtf', 'Intermediate', 1500, 0, 1, 1, 11, 5),
-(3, 'Learn Python Programming Masterclass', 'images/Learn Python Programming Masterclass.jpg', 'courseInfo/Learn Python Programming Masterclass(content).rtf', 'courseInfo/Learn Python Programming Masterclass.rtf', 'beginner', 3000, 0, 1, 1, 11, 5),
-(4, 'WordPress Development with Bootstrap: The Complete Course', 'images/WordPress Development with Bootstrap- The Complete Course.jpeg', 'courseInfo/WordPress Development with Bootstrap- The Complete Course(content).rtf', 'courseInfo/WordPress Development with Bootstrap- The Complete Course.rtf', 'Beginner', 2500, 0, 1, 1, 11, 5);
+(1, 'The Web Developer Bootcamp 2022', 'images/web.png', 'courseInfo/web(content).txt', 'courseInfo/web.txt', 'beginner', 500, 5, 0, 1, 11, 5),
+(2, 'iOS & Swift - The Complete iOS App Development Bootcamp', 'images/Swift-Development-for-iOS.jpg', 'courseInfo/iOS & Swift - The Complete iOS App Development Bootcamp(content).txt', 'courseInfo/iOS & Swift - The Complete iOS App Development Bootcamp.txt', 'Intermediate', 1500, 0, 1, 1, 11, 5),
+(3, 'Learn Python Programming Masterclass', 'images/Learn Python Programming Masterclass.jpg', 'courseInfo/Learn Python Programming Masterclass(content).txt', 'courseInfo/Learn Python Programming Masterclass.txt', 'beginner', 3000, 3, 1, 1, 11, 5),
+(4, 'WordPress Development with Bootstrap: The Complete Course', 'images/WordPress Development with Bootstrap- The Complete Course.jpeg', 'courseInfo/WordPress Development with Bootstrap- The Complete Course(content).txt', 'courseInfo/WordPress Development with Bootstrap- The Complete Course.txt', 'Beginner', 2500, 0, 1, 1, 11, 5);
 
 -- --------------------------------------------------------
 
@@ -120,6 +120,19 @@ CREATE TABLE `enroll` (
   `learner_id` int(11) NOT NULL,
   `course_id` int(11) NOT NULL,
   `progress` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `feedback`
+--
+
+CREATE TABLE `feedback` (
+  `id` int(11) NOT NULL,
+  `learner_id` int(11) NOT NULL,
+  `course_id` int(11) NOT NULL,
+  `comment` tinytext NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -232,15 +245,18 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `type`, `fname`, `email`, `password`, `security_ans`, `picture`, `tutor_status`, `admin_rank`, `tutor_cv`) VALUES
-(1, 1, 'Salma', 'salma@gmail.com', '123', 'Rusty', 'images/salma.jpg', NULL, 1, NULL),
+(1, 1, 'salma', 'salma@gmail.com', '123', 'Rusty', 'images/salma.jpg', NULL, 1, NULL),
 (2, 1, 'Basma', 'basma@gmail.com', '234', 'King', 'images/basma.jpg', NULL, 1, NULL),
 (3, 1, 'Yosr', 'yosr@gmail.com', '345', 'Oreo', 'images/yosr.jpg', NULL, 1, NULL),
 (4, 1, 'Hagar', 'hagar@gmail.com', '456', 'Koky', 'images/hagar.jpg', NULL, 1, NULL),
-(5, 1, 'Laila', 'laila@gmail.com', 'FQu3wC37', 'Caramel', 'images/laila.jpg', NULL, 1, NULL),
+(5, 1, 'Laila', 'laila@gmail.com', 'H7l2xraq', 'Caramel', 'images/laila.jpg', NULL, 1, NULL),
 (6, 1, 'Mohamed', 'mohamed@gmail.com', '678', 'Copper', 'images/mohamed.jpeg', NULL, 2, NULL),
 (7, 1, 'Mostafa', 'mostafa@gmail.com', '789', 'Max', 'images/mostafa.jpeg', NULL, 2, NULL),
 (8, 1, 'kamal', 'kamal@gmail.com', '342', 'simba', 'images/kamal.png', NULL, 2, NULL),
-(11, 4, 'Kawthar', 'Kawthar@gmail.com', '123', 'koko', NULL, NULL, NULL, NULL);
+(11, 4, 'Kawthar', 'Kawthar@gmail.com', '123', 'koko', NULL, NULL, NULL, NULL),
+(14, 2, 'Suzan', 'Suzan@gmail.com', '123', 'soso', NULL, NULL, NULL, NULL),
+(15, 2, 'mai', 'mai@gmail.com', '345', 'sandy', NULL, NULL, NULL, NULL),
+(16, 2, 'sondos', 'sondos@gmail.com', '345', 'spongy', NULL, NULL, NULL, NULL);
 
 --
 -- Indexes for dumped tables
@@ -287,6 +303,14 @@ ALTER TABLE `course`
 --
 ALTER TABLE `enroll`
   ADD PRIMARY KEY (`learner_id`,`course_id`),
+  ADD KEY `course_id` (`course_id`);
+
+--
+-- Indexes for table `feedback`
+--
+ALTER TABLE `feedback`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `learner_id` (`learner_id`),
   ADD KEY `course_id` (`course_id`);
 
 --
@@ -362,7 +386,13 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT for table `course`
 --
 ALTER TABLE `course`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `feedback`
+--
+ALTER TABLE `feedback`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `message`
@@ -386,7 +416,7 @@ ALTER TABLE `suggestion`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- Constraints for dumped tables
@@ -424,6 +454,13 @@ ALTER TABLE `course`
 ALTER TABLE `enroll`
   ADD CONSTRAINT `enroll_ibfk_1` FOREIGN KEY (`learner_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `enroll_ibfk_2` FOREIGN KEY (`course_id`) REFERENCES `course` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `feedback`
+--
+ALTER TABLE `feedback`
+  ADD CONSTRAINT `feedback_ibfk_1` FOREIGN KEY (`learner_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `feedback_ibfk_2` FOREIGN KEY (`course_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `message`
