@@ -318,6 +318,10 @@ label
     background-color: var(--active);
    
 }
+/*survey*/
+#bad:hover, #good:hover, #poor:hover, #ok:hover, #excellent:hover{
+color: var(--active);
+}
 /*ajaxsearch bar page*/
 body{
     font-family: Arail, sans-serif;
