@@ -66,7 +66,7 @@ $result2 = $conn->query($sql2);
                 <td> <?php echo $row2['fname'] ?></td>
                 <td> <?php echo $row2['email'] ?></td>
 
-                <td><button type="button" class="btn btn-primary btn-sm px-3">
+                <td><button type="button" class="btn btn-primary btn-sm px-3" onclick="location.href='learner.php?id=<?php echo $row2['id'] ?>'">
                         <i class="bi bi-check"></i>
                     </button></td>
                 <!-- <td><button type="button" class="btn btn-primary btn-sm px-3">
