@@ -67,7 +67,7 @@ if ($_SESSION['user'] == '2' || $_SESSION['user'] = "") {
     ?>
     <button onclick="location.href='editCourse.php?id=<?php echo $row['id'] ?>'">edit course</button>
     <button onclick="location.href='deleteCourse.php?id=<?php echo $row['id'] ?>'">delete course</button>
-    <button onclick="location.href='survey.php?id=<?php echo $row['id'] ?>'">Get Certificate</button>
+   
 
 <?php
 }
