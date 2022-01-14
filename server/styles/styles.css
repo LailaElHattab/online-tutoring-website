@@ -171,6 +171,19 @@
 #signupbtn:active{
     background-color: var(--active);
 }
+#cancelbtn{
+    color:whitesmoke;
+    background-color:var(--primary);
+    box-shadow: var(--box-shadow);
+}
+#cancelbtn:hover{
+    color: var(--dark);
+    background-color: var(--active);
+}
+#cancelpbtn:active{
+    background-color: var(--primary);
+}
+
 
 /*editpwd page css*/  
 .forgotpass{
