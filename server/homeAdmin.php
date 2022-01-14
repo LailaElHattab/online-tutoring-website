@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <html>
 <?php
 include_once 'database.php';
@@ -86,7 +89,6 @@ $result3 = $conn->query($sql3);
             <th scope="col">#</th>
             <th scope="col">Name</th>
             <th scope="col">Status</th>
-            <th scope="col">Approve</th>
             <th scope="col">View</th>
         </tr>
     </thead>
@@ -108,9 +110,6 @@ $result3 = $conn->query($sql3);
                 <?php
                 }
                 ?>
-                <td><button type="button" class="btn btn-primary btn-sm px-3" onclick="location.href='courses.php?id=<?php echo $row3['id'] ?>'">
-                        <i class="bi bi-check"></i>
-                    </button></td>
                 <td><button type="button" class="btn btn-primary btn-sm px-3" onclick="location.href='courses.php?id=<?php echo $row3['id'] ?>'">
                         open
                     </button></td>
