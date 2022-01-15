@@ -10,7 +10,7 @@ if (isset($_POST['signup'])) {
     if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL) === false) {
 
         //Search the tables for a similar email
-        $sql1 = "Select email from learner where email ='" . $_POST["email"] . "'";
+        $sql1 = "Select email from user where email ='" . $_POST["email"] . "'";
         $result1 = $conn->query($sql1);
 
         if ($result1->num_rows > 0) {
@@ -46,7 +46,7 @@ if (isset($_POST['signup'])) {
         }
     }
 }
-include_once($_SERVER['DOCUMENT_ROOT'] . "/online-tutoring-website/client/navigationBar.html");
+
 include_once($_SERVER['DOCUMENT_ROOT'] . "/online-tutoring-website/client/signup.html");
 
 ?>

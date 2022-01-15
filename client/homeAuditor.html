@@ -32,59 +32,85 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-5" id="title">
-                    <h2>Start your Teaching Journey</h2>
-                    <button onclick="location.href='addCourse.php'" id="link" class="btn ">Add Course</button>
+                    <h2>Dashboard</h2>
                 </div>
+
             </div>
         </div>
     </div>
-    <!--my courses tab-->
-    <ul class="nav nav-tabs" id="myTab" role="tablist">
-        <li class="nav-item" role="presentation">
-            <button class="nav-link active" id="courses-tab" data-bs-toggle="tab" data-bs-target="#courses"
-                type="button" role="tab" aria-controls="courses" aria-selected="true">My Courses</button>
-        </li>
-    </ul>
-    <div class="tab-content mb-5" id="myTabContent">
-        <div class="tab-pane fade show active" id="course" role="tabpanel" aria-labelledby="courses-tab">
-            <table class="table caption-top ms-3">
-                <caption>List of Courses</caption>
-                <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Select Course</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Web Development</td>
-                        <td><button type="button" class="btn btn-primary btn-sm px-3">
-                                <i class="bi bi-check"></i>
-                            </button></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Python</td>
-                        <td><button type="button" class="btn btn-primary btn-sm px-3">
-                                <i class="bi bi-check"></i>
-                            </button></td>
+    <!--tabs-->
+    <div class="tabs row mb-5">
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="learner-tab" data-bs-toggle="tab" data-bs-target="#learner" type="button"
+                    role="tab" aria-controls="learner" aria-selected="false">Learners</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="admin-tab" data-bs-toggle="tab" data-bs-target="#admin" type="button"
+                    role="tab" aria-controls="admin" aria-selected="false">Admins</button>
+            </li>
+        </ul>
+        <div class="tab-content" id="myTabContent">
 
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>Android Development</td>
-                        <td><button type="button" class="btn btn-primary btn-sm px-3">
-                                <i class="bi bi-check"></i>
-                            </button></td>
+            <!--Learner tab-->
+            <div class="tab-pane fade" id="learner" role="tabpanel" aria-labelledby="learner-tab">
+                <table class="table caption-top ms-3">
+                    <caption>List of Learners</caption>
+                    <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">View Messages</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">
+                                <?php $_SESSION['id']?>
+                            </th>
+                            <td>
+                                <?php $_SESSION['name']?>
+                            </td>
+                            <td><button type="button" onclick="location.href='Conversations.php'"
+                                    class="btn btn-primary btn-sm px-3">
+                                    Messages
+                                </button></td>
+                        </tr>
 
-                    </tr>
-                </tbody>
-            </table>
+                    </tbody>
+                </table>
+            </div>
+
+            <!--Admins tab-->
+            <div class="tab-pane fade" id="admin" role="tabpanel" aria-labelledby="admin-tab">
+                <table class="table caption-top ms-3">
+                    <caption>List of Admins</caption>
+                    <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">View Messages</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">
+                                <?php $_SESSION['id']?>
+                            </th>
+                            <td>
+                                <?php $_SESSION['name']?>
+                            </td>
+                            <td><button type="button" onclick="location.href='Conversations.php'"
+                                    class="btn btn-primary btn-sm px-3">
+                                    Messages
+                                </button></td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
-
 
 
     <!--Footer-->
