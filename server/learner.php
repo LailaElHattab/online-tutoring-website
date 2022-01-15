@@ -20,13 +20,20 @@ session_start();
        background-color: white;
        padding-right: 150px;
    }
+   #learnerbody{
+    background-image: url(../images/loginbackground.png);
+    background-repeat: no-repeat;
+    background-position-x: left;
+    background-position-y: 150px;
+    background-size: 400px;
+   }
 
     </style>
 
 
 </head>
 
-<body>
+<body id="learnerbody">
   <?php
   include_once 'navbarAdmin.php';
   include_once 'database.php';
