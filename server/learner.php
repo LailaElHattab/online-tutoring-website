@@ -2,91 +2,92 @@
 session_start();
 ?>
 <html>
+
 <head>
-    <meta name="viewport" content="width=device-width , initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="styles/styles.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <meta name="viewport" content="width=device-width , initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="styles/styles.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 
-    
+
 </head>
 
 <body>
-<?php
-include_once 'database.php';
-$sql = "SELECT * FROM user WHERE id='" . $_GET['id'] . "'";
-$result = $conn->query($sql);
-$row = $result->fetch_assoc();
-?>
+  <?php
+  include_once 'database.php';
+  $sql = "SELECT * FROM user WHERE id='" . $_GET['id'] . "'";
+  $result = $conn->query($sql);
+  $row = $result->fetch_assoc();
 
-<section class="vh-100" style="background-color: #eee;">
-  <div class="container py-5 h-100">
-    <div class="row d-flex justify-content-center align-items-center h-100">
-      <div class="col-md-12 col-xl-4">
+  ?>
 
-        <div class="card" style="border-radius: 15px;">
-          <div class="card-body text-center">
-            <div class="mt-3 mb-4">
+  <section class="vh-100" style="background-color: #eee;">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-md-12 col-xl-4">
+
+          <div class="card" style="border-radius: 15px;">
+            <div class="card-body text-center">
+              <div class="mt-3 mb-4">
                 <?php
-               if ($row['picture'] != "") {
-                   ?>
-              <img src="<?php  $row['picture'] ?>" class="rounded-circle img-fluid" style="width: 100px;"/>
-              <?php } ?>
-            </div>
-            <h4 class="mb-2"><?php $row['fname'] ?></h4>
-            <p class="text-muted mb-4"><a href="#!"><?php $row['email'] ?></a></p>
-        
-            <div class="d-flex justify-content-between text-center mt-5 mb-2">
-              <div>
-                <p class="mb-2 h5">Courses purchased:</p>
-                <?php
-                $sql1 = "SELECT * FROM enroll WHERE learner_id='" . $_GET['id'] . "'";
-                $result1 = $conn->query($sql1);
-                if ($result1->num_rows > 0) {
+                if ($row['picture'] != "") {
                 ?>
-                 <table class="table table-hover">
-                 <thead>
-                 <tr style="background-color:rgb(17, 16, 16);">
-                 <th>Course name</th>
-                 </tr>
-                 </thead>
-                 <?php
-                  while ($row1 = $result1->fetch_assoc()) {
-                  $sql2 = "SELECT name FROM course WHERE id='" . $row1['course_id'] . "'";
-                  $result2 = $conn->query($sql2);
-                  $row2 = $result2->fetch_assoc();
-                ?>
-                
-                <tbody>
-                  <tr scope="row">
-                  <td><?php  $row2['name'] ?></td>
-                  </tr>
-                </tbody>
-                <?php
-                }
-            }    
-              else {
-            ?>
-             <p class="text-muted mb-0">Not enrolled in any course</p>
-             <?php
-            }
-            ?>
-    
-    </table>
-              
+                  <img src="<?php echo $row['picture'] ?>" class="rounded-circle img-fluid" style="width: 100px;" />
+                <?php } ?>
+              </div>
+              <h4 class="mb-2"><?php echo $row['fname'] ?></h4>
+              <p class="text-muted mb-4"><a href="#!"><?php echo $row['email'] ?></a></p>
+
+              <div class="d-flex justify-content-between text-center mt-5 mb-2">
+                <div>
+                  <p class="mb-2 h5">Courses purchased:</p>
+                  <?php
+                  $sql1 = "SELECT * FROM enroll WHERE learner_id='" . $_GET['id'] . "'";
+                  $result1 = $conn->query($sql1);
+                  if ($result1->num_rows > 0) {
+                  ?>
+                    <table class="table table-hover">
+                      <thead>
+                        <tr style="background-color:rgb(17, 16, 16);">
+                          <th>Course name</th>
+                        </tr>
+                      </thead>
+                      <?php
+                      while ($row1 = $result1->fetch_assoc()) {
+                        $sql2 = "SELECT name FROM course WHERE id='" . $row1['course_id'] . "'";
+                        $result2 = $conn->query($sql2);
+                        $row2 = $result2->fetch_assoc();
+                      ?>
+
+                        <tbody>
+                          <tr scope="row">
+                            <td><?php echo $row2['name'] ?></td>
+                          </tr>
+                        </tbody>
+                      <?php
+                      }
+                    } else {
+                      ?>
+                      <p class="text-muted mb-0">Not enrolled in any course</p>
+                    <?php
+                    }
+                    ?>
+
+                    </table>
+
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
 
 
