@@ -337,9 +337,7 @@ label
    
 }
 /*survey*/
-/*#bad:hover, #good:hover, #poor:hover, #ok:hover, #excellent:hover{
-color: var(--active);
-}*/
+
 #feedbackbackg{
     background-color: var(--primary);
 }
