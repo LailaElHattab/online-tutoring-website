@@ -24,9 +24,9 @@ if (isset($_POST['signup'])) {
                 $type = $_POST['type'];
                 $fname = $_POST['fname'];
                 $email = $_POST['email'];
-                $password = $_POST['password'];
+                $encrypt_pass = md5($password);
                 $security = $_POST['security'];
-                $sql2 = "INSERT INTO user(type,fname,email,password,security_ans) VALUES('$type','$fname','$email','$password','$security')";
+                $sql2 = "INSERT INTO user(type,fname,email,password,security_ans) VALUES('$type','$fname','$email','$encrypt_pass','$security')";
                 $result2 = $conn->query($sql2);
 
 
