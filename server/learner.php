@@ -12,12 +12,23 @@ session_start();
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+    <style>
+   #learnerView{
+       width: 500px;
+   }
+   #backg{
+       background-color: white;
+       padding-right: 150px;
+   }
+
+    </style>
 
 
 </head>
 
 <body>
   <?php
+  include_once 'navbarAdmin.php';
   include_once 'database.php';
   $sql = "SELECT * FROM user WHERE id='" . $_GET['id'] . "'";
   $result = $conn->query($sql);
@@ -25,12 +36,12 @@ session_start();
 
   ?>
 
-  <section class="vh-100" style="background-color: #eee;">
+  <section class="vh-100" id="backg">
     <div class="container py-5 h-100">
-      <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100" >
         <div class="col-md-12 col-xl-4">
 
-          <div class="card" style="border-radius: 15px;">
+          <div class="card" style="border-radius: 20px;" id="learnerView">
             <div class="card-body text-center">
               <div class="mt-3 mb-4">
                 <?php
@@ -42,7 +53,7 @@ session_start();
               <h4 class="mb-2"><?php echo $row['fname'] ?></h4>
               <p class="text-muted mb-4"><a href="#!"><?php echo $row['email'] ?></a></p>
 
-              <div class="d-flex justify-content-between text-center mt-5 mb-2">
+              <div class="d-flex justify-content-center text-center mt-5 mb-2">
                 <div>
                   <p class="mb-2 h5">Courses purchased:</p>
                   <?php
@@ -52,7 +63,7 @@ session_start();
                   ?>
                     <table class="table table-hover">
                       <thead>
-                        <tr style="background-color:rgb(17, 16, 16);">
+                        <tr>
                           <th>Course name</th>
                         </tr>
                       </thead>
