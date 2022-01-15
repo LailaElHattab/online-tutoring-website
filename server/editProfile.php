@@ -14,7 +14,8 @@ if ($row['picture'] == '') {
     <script>
         el1 = document.createElement("img");
         el1.setAttribute("src", "images/pic.png");
-        el1.setAttribute("style", "width:200px; height:170px;");
+        el1.setAttribute("style", "width:170px; height:170px;");
+        el1.setAttribute("class", "rounded-circle");
         document.getElementById("pic").prepend(el1);
     </script>
 <?php
@@ -24,7 +25,8 @@ if ($row['picture'] == '') {
     <script>
         el1 = document.createElement("img");
         el1.setAttribute("src", '<?php echo $row['picture'] ?>');
-        el1.setAttribute("style", "width:200px; height:170px;");
+        el1.setAttribute("style", "width:170px; height:170px;");
+        el1.setAttribute("class", "rounded-circle");
         document.getElementById("pic").prepend(el1);
     </script>
     <?php
