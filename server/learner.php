@@ -37,7 +37,11 @@ session_start();
                 if ($row['picture'] != "") {
                 ?>
                   <img src="<?php echo $row['picture'] ?>" class="rounded-circle img-fluid" style="width: 100px;" />
-                <?php } ?>
+                <?php } else {
+                ?>
+                  <img src="images/pic.png" class="rounded-circle img-fluid" style="width: 100px;" />
+                <?php
+                } ?>
               </div>
               <h4 class="mb-2"><?php echo $row['fname'] ?></h4>
               <p class="text-muted mb-4"><a href="#!"><?php echo $row['email'] ?></a></p>
