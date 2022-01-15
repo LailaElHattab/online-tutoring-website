@@ -78,7 +78,6 @@
             include_once 'database.php';
             if (isset($_POST['ok'])) {
                 $q = "insert into contact_us (fname,lname,email,phone,message) VALUES('" . $_POST['fname'] . "','" . $_POST['lname'] . "','" . $_POST['email'] . "','" . $_POST['phone'] . "', '" . $_POST['message'] . "')";
-                echo $q;
                 $data = $conn->query($q);
             }
             ?>
