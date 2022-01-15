@@ -14,13 +14,13 @@ include_once($_SERVER['DOCUMENT_ROOT'] . "/online-tutoring-website/client/login.
 
 if (isset($_POST['login'])) {
     if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL) === false) {
-        $user_pass = md5($_POST['password'] );
+        $user_pass = md5($_POST['password']);
         $sql = "Select * from user where email ='" . $_POST["email"] . "' and password='" . $user_pass . "'";
+        echo $sql;
         $result = $conn->query($sql);
         if ($result->num_rows > 0) {
             $status = "Active now";
             $sql2 = mysqli_query($conn, "UPDATE users SET status = '{$status}' WHERE id = {$row['id']}");
-            $conn->query($sql2);
             $row = $result->fetch_assoc();
             $_SESSION["id"] = $row["id"];
             $_SESSION["name"] = $row["fname"];
