@@ -6,6 +6,7 @@ session_start();
 
 <?php
 include 'database.php';
+include_once($_SERVER['DOCUMENT_ROOT'] . "/online-tutoring-website/client/signup.html");
 if (isset($_POST['signup'])) {
     if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL) === false) {
 
@@ -24,7 +25,7 @@ if (isset($_POST['signup'])) {
                 $type = $_POST['type'];
                 $fname = $_POST['fname'];
                 $email = $_POST['email'];
-                $encrypt_pass = md5($password);
+                $encrypt_pass = md5($_POST['password']);
                 $security = $_POST['security'];
                 $sql2 = "INSERT INTO user(type,fname,email,password,security_ans) VALUES('$type','$fname','$email','$encrypt_pass','$security')";
                 $result2 = $conn->query($sql2);
@@ -32,7 +33,13 @@ if (isset($_POST['signup'])) {
 
                 if ($result2) {
             ?>
-                    <label><strong>Success!</strong> Your account is now created and you can login.</label>
+                    <script>
+                        el1 = document.createElement("div");
+                        el1.setAttribute("class", "alert alert-danger col-md-4 ");
+                        el1.setAttribute("style", "width:400px;");
+                        el1.innerHTML = "<strong>Success!</strong> Your account is now created and you can login";
+                        document.getElementById("head").append(el1);
+                    </script>
                 <?php
 
                 }
@@ -47,7 +54,7 @@ if (isset($_POST['signup'])) {
     }
 }
 
-include_once($_SERVER['DOCUMENT_ROOT'] . "/online-tutoring-website/client/signup.html");
+
 
 ?>
 
