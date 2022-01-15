@@ -471,4 +471,28 @@ body{
     background-color: var(--active);
 }
 
+/*addAdmin page and addTutor page*/
+#addAdminBody, #addAdmin{
+    color:var(--primary);
+}
+
+#addTutorbtn {
+    color:var(--dark);
+    background-color: var(--active);
+    box-shadow: var(--box-shadow);
+}
+
+#addTutorbtn:hover{
+    color: whitesmoke;
+    background-color: var(--primary);
+}
+
+#addTutorbtn:active{
+    background-color: var(--active);
+}
+
+#tutorbtn{
+    padding-top: 10px;
+}
+
 
