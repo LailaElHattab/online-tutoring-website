@@ -17,7 +17,7 @@ include_once 'database.php';
     <!--navbar-->
     <nav class="navbar navbar-expand-md navbar-light bg-faded justify-content-center" id="navbar">
         <div class="container">
-            <a href="#intro" class="navbar-brand d-flex justify-content-center w=50 me-auto">Edupedia</a>
+            <a href="home.php" class="navbar-brand d-flex justify-content-center w=50 me-auto">Edupedia</a>
 
 
             <!--toggle button-->
