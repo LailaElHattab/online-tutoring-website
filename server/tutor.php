@@ -48,6 +48,6 @@ if ($result1->num_rows > 0) {
     <?php
     }
     ?>
-    <button onclick="location.href='deleteTutor.php?id=<?php echo $row['id'] ?>'">delete tutor</button>
+    <button onclick="location.href='deleteUser.php?id=<?php echo $row['id'] ?>'">delete tutor</button>
 
 </html>

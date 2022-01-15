@@ -140,7 +140,7 @@ $result4 = $conn->query($sql4);
                 <td> <?php echo $row4['fname'] ?></td>
                 <td> <?php echo $row4['email'] ?></td>
 
-                <td><button type="button" class="btn btn-primary btn-sm px-3">
+                <td><button type="button" class="btn btn-primary btn-sm px-3" onclick="location.href='admin.php?id=<?php echo $row4['id'] ?>'">
                         <i class="bi bi-check"></i>
                     </button></td>
                 <!-- <td><button type="button" class="btn btn-primary btn-sm px-3">
