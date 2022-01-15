@@ -31,5 +31,12 @@
     ?>
 
     </table>
+    <br>
+
+    <form method="post" action="addAdmin.php">
+        <input type="submit" value="Add Admin">
+    </form>
+    
+        <!-- <button name="button" onclick='addAdmin.php'>Add Admin</button> -->
     </body>
 </html>
