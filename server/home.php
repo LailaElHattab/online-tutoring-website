@@ -6,28 +6,30 @@ session_start();
 <?php
 
 //admin
-if ($_SESSION["user"] == 1) {
-    //if logged in
-    include_once 'navbarAdmin.php';
-    include_once 'homeAdmin.php';
+if (!empty($_SESSION['user'])) {
+    if ($_SESSION["user"] == 1) {
+        //if logged in
+        include_once 'navbarAdmin.php';
+        include_once 'homeAdmin.php';
 
-    //include_once($_SERVER['DOCUMENT_ROOT'] . "/online-tutoring-website/server/navbarAdmin.php");
-    //include_once($_SERVER['DOCUMENT_ROOT'] . "/online-tutoring-website/server/homeAdmin.php");
-    //learner
-} else if ($_SESSION["user"] == 2) {
-    //include_once($_SERVER['DOCUMENT_ROOT'] . "/online-tutoring-website/client/.html");
-    include_once($_SERVER['DOCUMENT_ROOT'] . "/online-tutoring-website/client/navbarLearner.html");
-    include_once 'slideshow.php';
-    //include_once($_SERVER['DOCUMENT_ROOT'] . "/online-tutoring-website/client/home.html");
-    //auditor
-} else if ($_SESSION["user"] == 3) {
-    include_once($_SERVER['DOCUMENT_ROOT'] . "/online-tutoring-website/client/navbarLearner.html");
-    include_once 'slideshow.php';
-    //include_once($_SERVER['DOCUMENT_ROOT'] . "/online-tutoring-website/client/home.html");
-    //tutor
-} else if ($_SESSION["user"] == 4) {
-    include_once($_SERVER['DOCUMENT_ROOT'] . "/online-tutoring-website/client/navbarLearner.html");
-    include_once($_SERVER['DOCUMENT_ROOT'] . "/online-tutoring-website/client/hometutor.html");
+        //include_once($_SERVER['DOCUMENT_ROOT'] . "/online-tutoring-website/server/navbarAdmin.php");
+        //include_once($_SERVER['DOCUMENT_ROOT'] . "/online-tutoring-website/server/homeAdmin.php");
+        //learner
+    } else if ($_SESSION["user"] == 2) {
+        //include_once($_SERVER['DOCUMENT_ROOT'] . "/online-tutoring-website/client/.html");
+        include_once($_SERVER['DOCUMENT_ROOT'] . "/online-tutoring-website/client/navbarLearner.html");
+        include_once 'slideshow.php';
+        //include_once($_SERVER['DOCUMENT_ROOT'] . "/online-tutoring-website/client/home.html");
+        //auditor
+    } else if ($_SESSION["user"] == 3) {
+        include_once($_SERVER['DOCUMENT_ROOT'] . "/online-tutoring-website/client/navbarLearner.html");
+        include_once 'slideshow.php';
+        //include_once($_SERVER['DOCUMENT_ROOT'] . "/online-tutoring-website/client/home.html");
+        //tutor
+    } else if ($_SESSION["user"] == 4) {
+        include_once($_SERVER['DOCUMENT_ROOT'] . "/online-tutoring-website/client/navbarLearner.html");
+        include_once($_SERVER['DOCUMENT_ROOT'] . "/online-tutoring-website/client/hometutor.html");
+    }
 } else {
     //if not logged in
     include_once 'navbar.php';
