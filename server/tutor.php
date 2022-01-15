@@ -9,6 +9,10 @@ $result = $conn->query($sql);
 $row = $result->fetch_assoc();
 if ($row['picture'] != "") {
     echo "<img src='" . $row['picture'] . "' width='300' height='300'>";
+} else {
+?>
+    <img src="images/pic.png" class="rounded-circle img-fluid" style="width: 100px;" />
+<?php
 }
 echo "<h3>Name: " . $row['fname'] . "</h3>";
 echo "<h3>Email: " . $row['email'] . "</h3>";
@@ -42,7 +46,7 @@ if ($result1->num_rows > 0) {
     </table>
     <br>
     <?php
-    if ($row['status'] == 0) {
+    if ($row['tutor_status'] == 0) {
     ?>
         <button onclick="location.href='approveTutor.php?id=<?php echo $row['id'] ?>'">approve tutor</button>
     <?php
