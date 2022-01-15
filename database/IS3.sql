@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jan 15, 2022 at 11:30 AM
+-- Generation Time: Jan 15, 2022 at 05:06 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.11
 
@@ -234,27 +234,34 @@ CREATE TABLE `user` (
   `picture` varchar(255) DEFAULT NULL,
   `tutor_status` int(11) DEFAULT NULL,
   `admin_rank` int(11) DEFAULT NULL,
-  `tutor_cv` varchar(255) DEFAULT NULL
+  `tutor_cv` varchar(255) DEFAULT NULL,
+  `status` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id`, `type`, `fname`, `email`, `password`, `security_ans`, `picture`, `tutor_status`, `admin_rank`, `tutor_cv`) VALUES
-(1, 1, 'salma', 'salma@gmail.com', '123', 'Rusty', 'images/salma.jpg', NULL, 1, NULL),
-(2, 1, 'Basma', 'basma@gmail.com', '234', 'King', 'images/basma.jpg', NULL, 1, NULL),
-(3, 1, 'Yosr', 'yosr@gmail.com', '345', 'Oreo', 'images/yosr.jpg', NULL, 1, NULL),
-(4, 1, 'Hagar', 'hagar@gmail.com', '456', 'Koky', 'images/hagar.jpg', NULL, 1, NULL),
-(5, 1, 'Laila', 'laila@gmail.com', 'H7l2xraq', 'Caramel', 'images/laila.jpg', NULL, 1, NULL),
-(6, 1, 'Mohamed', 'mohamed@gmail.com', '678', 'Copper', 'images/mohamed.jpeg', NULL, 2, NULL),
-(7, 1, 'Mostafa', 'mostafa@gmail.com', '789', 'Max', 'images/mostafa.jpeg', NULL, 2, NULL),
-(8, 1, 'kamal', 'kamal@gmail.com', '342', 'simba', 'images/kamal.png', NULL, 2, NULL),
-(11, 4, 'Kawthar', 'Kawthar@gmail.com', '123', 'koko', NULL, NULL, NULL, NULL),
-(14, 2, 'Suzan', 'Suzan@gmail.com', '123', 'soso', 'images/suzan.jpeg', NULL, NULL, NULL),
-(15, 2, 'mai', 'mai@gmail.com', '345', 'sandy', NULL, NULL, NULL, NULL),
-(16, 2, 'sondos', 'sondos@gmail.com', '345', 'spongy', NULL, NULL, NULL, NULL),
-(18, 4, 'kariman', 'kariman@gmail.com', '345', 'jojo', NULL, 1, NULL, NULL);
+INSERT INTO `user` (`id`, `type`, `fname`, `email`, `password`, `security_ans`, `picture`, `tutor_status`, `admin_rank`, `tutor_cv`, `status`) VALUES
+(1, 1, 'salma', 'salma@gmail.com', '202cb962ac59075b964b07152d234b70', 'Rusty', 'images/salma.jpg', NULL, 1, NULL, ''),
+(2, 1, 'Basma', 'basma@gmail.com', '289dff07669d7a23de0ef88d2f7129e7', 'King', 'images/basma.jpg', NULL, 1, NULL, ''),
+(3, 1, 'Yosr', 'yosr@gmail.com', 'd81f9c1be2e08964bf9f24b15f0e4900', 'Oreo', 'images/yosr.jpg', NULL, 1, NULL, ''),
+(4, 1, 'Hagar', 'hagar@gmail.com', '250cf8b51c773f3f8dc8b4be867a9a02', 'Koky', 'images/hagar.jpg', NULL, 1, NULL, ''),
+(5, 1, 'Laila', 'laila@gmail.com', '202cb962ac59075b964b07152d234b70', 'Caramel', 'images/laila.jpg', NULL, 1, NULL, ''),
+(6, 1, 'Mohamed', 'mohamed@gmail.com', '9fe8593a8a330607d76796b35c64c600', 'Copper', 'images/mohamed.jpeg', NULL, 2, NULL, ''),
+(7, 1, 'Mostafa', 'mostafa@gmail.com', '68053af2923e00204c3ca7c6a3150cf7', 'Max', 'images/mostafa.jpeg', NULL, 2, NULL, ''),
+(8, 1, 'kamal', 'kamal@gmail.com', '58238e9ae2dd305d79c2ebc8c1883422', 'simba', 'images/kamal.png', NULL, 2, NULL, ''),
+(11, 4, 'Kawthar', 'Kawthar@gmail.com', '202cb962ac59075b964b07152d234b70', 'koko', NULL, NULL, NULL, NULL, ''),
+(14, 2, 'Suzan', 'Suzan@gmail.com', '202cb962ac59075b964b07152d234b70', 'soso', 'images/suzan.jpeg', NULL, NULL, NULL, ''),
+(15, 2, 'mai', 'mai@gmail.com', 'd81f9c1be2e08964bf9f24b15f0e4900', 'sandy', NULL, NULL, NULL, NULL, ''),
+(16, 2, 'sondos', 'sondos@gmail.com', 'd81f9c1be2e08964bf9f24b15f0e4900', 'spongy', NULL, NULL, NULL, NULL, ''),
+(18, 4, 'kariman', 'kariman@gmail.com', 'd81f9c1be2e08964bf9f24b15f0e4900', 'jojo', NULL, 1, NULL, NULL, ''),
+(21, 2, 'karim', 'Karim@gmail.com', 'd41d8cd98f00b204e9800998ecf8427e', 'Lola', NULL, NULL, NULL, NULL, NULL),
+(22, 2, 'ather', 'ather@gmail.com', 'd41d8cd98f00b204e9800998ecf8427e', 'soka', NULL, NULL, NULL, NULL, NULL),
+(23, 2, 'fatima', 'fatima@gmail.com', 'd41d8cd98f00b204e9800998ecf8427e', 'mocha', NULL, NULL, NULL, NULL, NULL),
+(24, 2, 'mariam', 'mariam@gmail.com', 'd41d8cd98f00b204e9800998ecf8427e', 'Caramel', NULL, NULL, NULL, NULL, NULL),
+(25, 2, 'faten', 'faten@gmail.com', 'd41d8cd98f00b204e9800998ecf8427e', 'koko', NULL, NULL, NULL, NULL, NULL),
+(26, 2, 'Ibrahim', 'Ibrahim@gmail.com', 'd81f9c1be2e08964bf9f24b15f0e4900', 'soty', NULL, NULL, NULL, NULL, NULL);
 
 --
 -- Indexes for dumped tables
@@ -408,7 +415,7 @@ ALTER TABLE `suggestion`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- Constraints for dumped tables
