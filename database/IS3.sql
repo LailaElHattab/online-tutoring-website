@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jan 14, 2022 at 05:13 PM
+-- Generation Time: Jan 15, 2022 at 11:30 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.11
 
@@ -32,17 +32,6 @@ CREATE TABLE `answer` (
   `learner_id` int(11) NOT NULL,
   `ques_id` int(11) NOT NULL,
   `content` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `cart`
---
-
-CREATE TABLE `cart` (
-  `learner_id` int(11) NOT NULL,
-  `items` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -105,7 +94,7 @@ CREATE TABLE `course` (
 --
 
 INSERT INTO `course` (`id`, `name`, `image`, `content`, `description`, `level`, `price`, `rating`, `status`, `category`, `tutor_id`, `admin_id`) VALUES
-(1, 'The Web Developer Bootcamp 2022', 'images/web.png', 'courseInfo/web(content).txt', 'courseInfo/web.txt', 'beginner', 500, 5, 0, 1, 11, 5),
+(1, 'The Web Developer Bootcamp 2022', 'images/web.png', 'courseInfo/web(content).txt', 'courseInfo/web.txt', 'beginner', 500, 5, 1, 1, 11, 5),
 (2, 'iOS & Swift - The Complete iOS App Development Bootcamp', 'images/Swift-Development-for-iOS.jpg', 'courseInfo/iOS & Swift - The Complete iOS App Development Bootcamp(content).txt', 'courseInfo/iOS & Swift - The Complete iOS App Development Bootcamp.txt', 'Intermediate', 1500, 0, 1, 1, 11, 5),
 (3, 'Learn Python Programming Masterclass', 'images/Learn Python Programming Masterclass.jpg', 'courseInfo/Learn Python Programming Masterclass(content).txt', 'courseInfo/Learn Python Programming Masterclass.txt', 'beginner', 3000, 3, 1, 1, 11, 5),
 (4, 'WordPress Development with Bootstrap: The Complete Course', 'images/WordPress Development with Bootstrap- The Complete Course.jpeg', 'courseInfo/WordPress Development with Bootstrap- The Complete Course(content).txt', 'courseInfo/WordPress Development with Bootstrap- The Complete Course.txt', 'Beginner', 2500, 0, 1, 1, 11, 5);
@@ -121,6 +110,14 @@ CREATE TABLE `enroll` (
   `course_id` int(11) NOT NULL,
   `progress` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `enroll`
+--
+
+INSERT INTO `enroll` (`learner_id`, `course_id`, `progress`) VALUES
+(14, 1, 0),
+(14, 2, 0);
 
 -- --------------------------------------------------------
 
@@ -254,9 +251,10 @@ INSERT INTO `user` (`id`, `type`, `fname`, `email`, `password`, `security_ans`, 
 (7, 1, 'Mostafa', 'mostafa@gmail.com', '789', 'Max', 'images/mostafa.jpeg', NULL, 2, NULL),
 (8, 1, 'kamal', 'kamal@gmail.com', '342', 'simba', 'images/kamal.png', NULL, 2, NULL),
 (11, 4, 'Kawthar', 'Kawthar@gmail.com', '123', 'koko', NULL, NULL, NULL, NULL),
-(14, 2, 'Suzan', 'Suzan@gmail.com', '123', 'soso', NULL, NULL, NULL, NULL),
+(14, 2, 'Suzan', 'Suzan@gmail.com', '123', 'soso', 'images/suzan.jpeg', NULL, NULL, NULL),
 (15, 2, 'mai', 'mai@gmail.com', '345', 'sandy', NULL, NULL, NULL, NULL),
-(16, 2, 'sondos', 'sondos@gmail.com', '345', 'spongy', NULL, NULL, NULL, NULL);
+(16, 2, 'sondos', 'sondos@gmail.com', '345', 'spongy', NULL, NULL, NULL, NULL),
+(18, 4, 'kariman', 'kariman@gmail.com', '345', 'jojo', NULL, 1, NULL, NULL);
 
 --
 -- Indexes for dumped tables
@@ -269,12 +267,6 @@ ALTER TABLE `answer`
   ADD PRIMARY KEY (`id`),
   ADD KEY `learner_id` (`learner_id`),
   ADD KEY `ques_id` (`ques_id`);
-
---
--- Indexes for table `cart`
---
-ALTER TABLE `cart`
-  ADD PRIMARY KEY (`learner_id`);
 
 --
 -- Indexes for table `category`
@@ -416,7 +408,7 @@ ALTER TABLE `suggestion`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- Constraints for dumped tables
@@ -428,12 +420,6 @@ ALTER TABLE `user`
 ALTER TABLE `answer`
   ADD CONSTRAINT `answer_ibfk_1` FOREIGN KEY (`learner_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `answer_ibfk_2` FOREIGN KEY (`ques_id`) REFERENCES `question` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `cart`
---
-ALTER TABLE `cart`
-  ADD CONSTRAINT `cart_ibfk_1` FOREIGN KEY (`learner_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `comment`

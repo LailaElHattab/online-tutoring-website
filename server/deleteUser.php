@@ -14,7 +14,7 @@ session_start();
 </head>
 <?php
 include_once 'database.php';
-$sql = "DELETE FROM course WHERE id='" . $_GET['id'] . "'";
+$sql = "DELETE FROM user WHERE id='" . $_GET['id'] . "'";
 $result = $conn->query($sql);
 ?>
 <div style='width:400px; text-align: center' class="alert alert-success" role="alert">
