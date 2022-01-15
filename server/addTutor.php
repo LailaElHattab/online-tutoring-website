@@ -43,19 +43,19 @@
         <!--Tutor name-->
 
             <div class="form-outline mb-4" id="emailInput">
-                 <label for="TutorName" class="form-label" id="label">Enter Tutor's name: </label>
+                 <label for="TutorName" class="form-label" id="label">Tutor's name: </label>
                  <input type="text" class="form-control" id="TutorName" placeholder="Tutor name" name="name">
             </div>
 
         <!--Tutor email-->
             <div class="form-outline mb-4" id="emailInput">
-                 <label for="TutorEmail" class="form-label" id="label">Enter Tutor's email: </label>
+                 <label for="TutorEmail" class="form-label" id="label">Tutor's email: </label>
                  <input type="text" class="form-control" id="TutorEmail" placeholder="Tutor email" name="email">
             </div>
 
          <!--Tutor password-->
             <div class="form-outline mb-4" id="emailInput">
-                 <label for="TutorPwd" class="form-label" id="label">Enter Tutor's password: </label>
+                 <label for="TutorPwd" class="form-label" id="label">Tutor's password: </label>
                  <input type="password" class="form-control" id="TutorPwd" placeholder="Tutor password" name="password">
             </div>
 
