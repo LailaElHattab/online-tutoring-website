@@ -25,14 +25,14 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="form_name">Firstname *</label>
-                                <input id="form_name" type="text" name="name" class="form-control" placeholder="Please enter your firstname *" required="required" data-error="Firstname is required.">
+                                <input id="form_name" type="text" name="fname" class="form-control" placeholder="Please enter your firstname *" required="required" data-error="Firstname is required.">
                                 <div class="help-block with-errors"></div>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="form_lastname">Lastname *</label>
-                                <input id="form_lastname" type="text" name="surname" class="form-control" placeholder="Please enter your lastname *" required="required" data-error="Lastname is required.">
+                                <input id="form_lastname" type="text" name="lname" class="form-control" placeholder="Please enter your lastname *" required="required" data-error="Lastname is required.">
                                 <div class="help-block with-errors"></div>
                             </div>
                         </div>
@@ -75,15 +75,11 @@
 
             </form>
             <?php
+            include_once 'database.php';
             if (isset($_POST['ok'])) {
-                include_once 'DBconnection.php';
-                $obj = new Contact();
-                $res = $obj->contact($_POST);
-                if ($res == true) {
-                    echo "<script>alert('Query successfully Submitted.Thank you')</script>";
-                } else {
-                    echo "<script>alert('Something Went wrong!!')</script>";
-                }
+                $q = "insert into contact_us (fname,lname,email,phone,message) VALUES('" . $_POST['fname'] . "','" . $_POST['lname'] . "','" . $_POST['email'] . "','" . $_POST['phone'] . "', '" . $_POST['message'] . "')";
+                echo $q;
+                $data = $conn->query($q);
             }
             ?>
         </div>
