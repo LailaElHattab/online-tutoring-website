@@ -22,6 +22,13 @@ include_once 'navbar.php';
 $sql1 = "SELECT * FROM course WHERE category=". $_GET['id'];
 $query = $conn->query($sql1);
 
+$sql2 = "SELECT * FROM category WHERE category=". $_GET['id'];
+$query2 = $conn->query($sql2);
+
+$row1 = $query2;
+  ?>
+ <h4><?php echo $row1['name'] ?></h4>
+ <?php
 while($row = $query->fetch_assoc()){
 ?>
 
