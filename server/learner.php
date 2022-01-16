@@ -12,27 +12,27 @@ session_start();
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <style>
-  
-   @media (min-width:768px) {
-    #learnerView {
-      display: flex;
-      width: 500px;
+  <style>
+    @media (min-width:768px) {
+      #learnerView {
+        display: flex;
+        width: 500px;
+      }
     }
-  }
-   #backg{
-       background-color: white;
-       padding-right: 150px;
-   }
-   #learnerbody{
-    background-image: url(../images/loginbackground.png);
-    background-repeat: no-repeat;
-    background-position-x: left;
-    background-position-y: 150px;
-    background-size: 400px;
-   }
 
-    </style>
+    #backg {
+      background-color: white;
+      padding-right: 150px;
+    }
+
+    #learnerbody {
+      background-image: url(../images/loginbackground.png);
+      background-repeat: no-repeat;
+      background-position-x: left;
+      background-position-y: 150px;
+      background-size: 400px;
+    }
+  </style>
 
 
 </head>
@@ -49,7 +49,7 @@ session_start();
 
   <section class="vh-100" id="backg">
     <div class="container py-5 h-100">
-      <div class="row d-flex justify-content-center align-items-center h-100" >
+      <div class="row d-flex justify-content-center align-items-center h-100">
         <div class="col-md-12 col-xl-4">
 
           <div class="card" style="border-radius: 20px;" id="learnerView">

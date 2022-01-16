@@ -13,12 +13,9 @@ session_start();
 
 </head>
 <?php
-include_once 'database.php';
+include_once 'functions.php';
 $sql = "DELETE FROM user WHERE id='" . $_GET['id'] . "'";
-$result = $conn->query($sql);
+deleteData($sql);
 ?>
-<div style='width:400px; text-align: center' class="alert alert-success" role="alert">
-    Deleted successfully
-</div>
 
 </html>

@@ -56,34 +56,34 @@ session_start();
             <div class="card-body">
               <div class="text-center">
                 <img src="<?php echo $row['image'] ?>" class="img-fluid rounded" style="width: 400px; height: 200px" />
-              
-                <div class="mt-3 mb-4">
-                <h4 class="mb-2"><?php echo $row['name'] ?></h4>
-                <?php
-                $rating = $row['rating'];
 
-                for ($i = 0; $i < (int)$rating; $i++) {
-                ?>
-                  <span class='fa fa-star checked'></span>
+                <div class="mt-3 mb-4">
+                  <h4 class="mb-2"><?php echo $row['name'] ?></h4>
+                  <?php
+                  $rating = $row['rating'];
+
+                  for ($i = 0; $i < (int)$rating; $i++) {
+                  ?>
+                    <span class='fa fa-star checked'></span>
+                  <?php
+                  }
+                  $unchecked = 5 - $rating;
+                  for ($j = 0; $j < $unchecked; $j++) {
+                  ?>
+                    <span class='fa fa-star'></span>
+                  <?php
+                  }
+                  ?>
+                </div>
+
                 <?php
-                }
-                $unchecked = 5 - $rating;
-                for ($j = 0; $j < $unchecked; $j++) {
+                $sql0 = "SELECT fname FROM user where id='" . $row['tutor_id'] . "'";
+                $result0 = $conn->query($sql0);
+                $row0 = $result0->fetch_assoc();
                 ?>
-                  <span class='fa fa-star'></span>
-                <?php
-                }
-                ?>
-              </div>
-               
-                    <?php
-                    $sql0 = "SELECT fname FROM user where id='" . $row['tutor_id'] . "'";
-                    $result0 = $conn->query($sql0);
-                    $row0 = $result0->fetch_assoc();
-                    ?>
-                    <p class="mb-2">Created by <?php echo $row0['fname'] ?> </p> 
-                    <div class="d-flex justify-content-center text-start mt-5 mb-2">
-                   <div>
+                <p class="mb-2">Created by <?php echo $row0['fname'] ?> </p>
+                <div class="d-flex justify-content-center text-start mt-5 mb-2">
+                  <div>
 
                     <?php
                     $path = $row['description'];
@@ -99,7 +99,7 @@ session_start();
                     }
                     fclose($file);
                     ?>
- <hr>
+                    <hr>
                     <?php
                     if ($_SESSION['user'] == '2' || $_SESSION['user'] == "") {
                       $sql1 = "SELECT * FROM enroll WHERE learner_id='" . $_SESSION['id'] . "' and course_id='" . $row['id'] . "'";
@@ -143,7 +143,7 @@ session_start();
 
 
                       <?php
-                      if ($row['status'] == 0) {
+                      if ($row['status'] == 0 && $_SESSION['id'] == 1) {
                       ?>
                         <button class="btn btn-sm" id="editcbtn" onclick="location.href='approveCourse.php?id=<?php echo $row['id'] ?>'">approve course</button>
 
@@ -156,10 +156,10 @@ session_start();
                 </div>
 
               </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
   </section>
 </body>
 

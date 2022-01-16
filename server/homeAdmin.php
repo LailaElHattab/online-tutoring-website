@@ -107,7 +107,7 @@ $result3 = $conn->query($sql3);
                 <?php
                 }
                 ?>
-             <td><button type="button" class="btn btn-primary btn-sm px-3" onclick="location.href='courses.php?id=<?php echo $row3['id'] ?>'">
+                <td><button type="button" class="btn btn-primary btn-sm px-3" onclick="location.href='courses.php?id=<?php echo $row3['id'] ?>'">
                         open
                     </button></td>
 
