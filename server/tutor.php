@@ -104,12 +104,12 @@ session_start();
                     if ($row['tutor_status'] == 0) {
                     ?>
                     </table>
-                    <input type="submit" class="btn mx-2" id="loginbtn" name="submit" value="Approve Tutor" onclick="location.href='approveTutor.php?id=<?php echo $row['id'] ?>'">
+                    <input type="submit" class="btn mx-2 btn-sm" id="loginbtn" name="submit" value="Approve Tutor" onclick="location.href='approveTutor.php?id=<?php echo $row['id'] ?>'">
 
                   <?php
                     }
                   ?>
-                  <input type="submit" class="btn" id="loginbtn" name="submit" value="Delete Tutor" onclick="location.href='deleteUser.php?id=<?php echo $row['id'] ?>'">
+                  <input type="submit" class="btn btn-sm" id="loginbtn" name="submit" value="Delete Tutor" onclick="location.href='deleteUser.php?id=<?php echo $row['id'] ?>'">
 
 
 
