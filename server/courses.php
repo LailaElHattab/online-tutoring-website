@@ -53,9 +53,11 @@ session_start();
         <div class="col-md-12">
 
           <div class="card" style="border-radius: 20px;" id="learnerView">
-            <div class="card-body text-center">
-              <img src="<?php echo $row['image'] ?>" class="img-fluid rounded" style="width: 400px; height: 200px" />
-              <div class="mt-3 mb-4">
+            <div class="card-body">
+              <div class="text-center">
+                <img src="<?php echo $row['image'] ?>" class="img-fluid rounded" style="width: 400px; height: 200px" />
+              
+                <div class="mt-3 mb-4">
                 <h4 class="mb-2"><?php echo $row['name'] ?></h4>
                 <?php
                 $rating = $row['rating'];
@@ -72,14 +74,16 @@ session_start();
                 <?php
                 }
                 ?>
-                <div class="d-flex justify-content-center text-center mt-5 mb-2">
-                  <div>
+              </div>
+               
                     <?php
                     $sql0 = "SELECT fname FROM user where id='" . $row['tutor_id'] . "'";
                     $result0 = $conn->query($sql0);
                     $row0 = $result0->fetch_assoc();
                     ?>
-                    <p class="mb-2">Created by <?php echo $row0['fname'] ?> </p>
+                    <p class="mb-2">Created by <?php echo $row0['fname'] ?> </p> 
+                    <div class="d-flex justify-content-center text-start mt-5 mb-2">
+                   <div>
 
                     <?php
                     $path = $row['description'];
@@ -90,12 +94,12 @@ session_start();
                     while (!feof($file)) {
                       $line = fgets($file);
                     ?>
-                      <p class="mb-2"><b><?php echo $line ?></b></p>
+                      <p class="mb-2"><?php echo $line ?></p>
                     <?php
                     }
                     fclose($file);
                     ?>
-
+ <hr>
                     <?php
                     if ($_SESSION['user'] == '2' || $_SESSION['user'] == "") {
                       $sql1 = "SELECT * FROM enroll WHERE learner_id='" . $_SESSION['id'] . "' and course_id='" . $row['id'] . "'";
@@ -110,7 +114,7 @@ session_start();
                         while (!feof($file1)) {
                           $line1 = fgets($file1);
                         ?>
-                          <p class="mb-2"><b><?php echo $line1 ?></b></p>
+                          <p class="mb-2"><?php echo $line1 ?></p>
                         <?php
                         }
                       } else {
@@ -129,7 +133,7 @@ session_start();
                       while (!feof($file1)) {
                         $line1 = fgets($file1);
                       ?>
-                        <p class="mb-2"><b><?php echo $line1 ?></b></p>
+                        <p class="mb-2"><?php echo $line1 ?></p>
                       <?php
                       }
                       ?>
@@ -152,7 +156,6 @@ session_start();
                 </div>
 
               </div>
-            </div>
           </div>
         </div>
       </div>
