@@ -2,7 +2,7 @@
 session_start();
 
 include('database.php');
-include('navbar.php');
+// include('navbar.php');
 ?>
 <html>
 
@@ -127,8 +127,8 @@ include('navbar.php');
 
                                                         <button type="button" class="btn btn-lg btn-block" id="checkout" onclick=location.href='checkout.php?total=<?php echo $total ?>' style="
                                                             color:white;
-                                                            text-decoration:none;>">
-                                                        Go to checkout
+                                                            text-decoration:none;">
+                                                            Go to checkout
                                                         </button>
                                                     </div>
                                                 </div>
