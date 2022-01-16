@@ -69,7 +69,6 @@
 
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                        <a class="dropdown-item" href="#">Profile</a>
                                         <a class="dropdown-item" href="#">Messages</a>
                                         <a class="dropdown-item" href="editAccount.php">Edit Account</a>
                                         <a class="dropdown-item" href="editProfile.php">Edit Profile</a>
