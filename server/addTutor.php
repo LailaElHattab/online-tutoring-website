@@ -18,12 +18,14 @@
        background-color: white;
        padding-right: 150px;
    }
-   #learnerbody{
-    background-image: url(../images/loginbackground.png);
+  
+   #addAdminbody{
+    background-image: url(../images/background4.png);
     background-repeat: no-repeat;
-    background-position-x: left;
-    background-position-y: 150px;
-    background-size: 400px;
+    background-position-x: right;
+    background-position-y: 10ch;
+    background-size: 290px;
+
    }
 
     </style>
