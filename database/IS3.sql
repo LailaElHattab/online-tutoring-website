@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jan 16, 2022 at 11:33 AM
+-- Generation Time: Jan 16, 2022 at 07:47 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.11
 
@@ -110,8 +110,24 @@ CREATE TABLE `course` (
 INSERT INTO `course` (`id`, `name`, `image`, `content`, `description`, `level`, `price`, `rating`, `status`, `category`, `tutor_id`, `admin_id`) VALUES
 (1, 'The Web Developer Bootcamp 2022', 'images/web.png', 'courseInfo/web(content).txt', 'courseInfo/web.txt', 'beginner', 500, 5, 1, 1, 11, 5),
 (2, 'iOS & Swift - The Complete iOS App Development Bootcamp', 'images/Swift-Development-for-iOS.jpg', 'courseInfo/iOS & Swift - The Complete iOS App Development Bootcamp(content).txt', 'courseInfo/iOS & Swift - The Complete iOS App Development Bootcamp.txt', 'Intermediate', 1500, 0, 1, 1, 11, 5),
-(3, 'Learn Python Programming Masterclass', 'images/Learn Python Programming Masterclass.jpg', 'courseInfo/Learn Python Programming Masterclass(content).txt', 'courseInfo/Learn Python Programming Masterclass.txt', 'beginner', 3000, 3, 1, 1, 11, 5),
-(4, 'WordPress Development with Bootstrap: The Complete Course', 'images/WordPress Development with Bootstrap- The Complete Course.jpeg', 'courseInfo/WordPress Development with Bootstrap- The Complete Course(content).txt', 'courseInfo/WordPress Development with Bootstrap- The Complete Course.txt', 'Beginner', 2500, 0, 1, 1, 11, 5);
+(3, 'Learn Python Programming Masterclass', 'images/Python.jpg', 'courseInfo/Learn Python Programming Masterclass(content).txt', 'courseInfo/Learn Python Programming Masterclass.txt', 'beginner', 3000, 3, 1, 1, 11, 5),
+(4, 'WordPress Development with Bootstrap: The Complete Course', 'images/WordPress.jpeg', 'courseInfo/WordPress Development with Bootstrap- The Complete Course(content).txt', 'courseInfo/WordPress Development with Bootstrap- The Complete Course.txt', 'Beginner', 2500, 0, 1, 1, 11, 5),
+(8, 'The Business Intelligence Analyst Course 2022', 'images/intelligence.jpeg', 'courseInfo/intelligence(content).txt', 'courseInfo/intelligence.txt', 'intermediate', 500, 5, 1, 2, 24, NULL),
+(9, 'Teach English Online: find students and start teaching now', 'images/teaching.jpeg', 'courseInfo/teaching(content).txt', 'courseInfo/teaching.txt', 'Beginner', 200, 3, 1, 5, 23, NULL),
+(10, 'Teaching English as a Foreign Language TEFL', 'images/teaching2.jpeg', 'courseInfo/teaching2(content).txt', 'courseInfo/teaching2.txt', 'Advanced', 3000, 5, 1, 5, 23, NULL),
+(11, 'Reasonable Teaching: The 13x4 to Master The Art of Teaching', 'images/teaching3.jpeg', 'courseInfo/teaching3(content).txt', 'courseInfo/teaching3.txt', 'Intermediate', 250, 3, 1, 5, 23, NULL),
+(12, 'Learn Teaching Tools For Effective On Line Teaching', 'images/teaching4.jpeg', 'courseInfo/teaching4(content).txt', 'courseInfo/teaching4.txt', 'intermediate', 3560, 4, 1, 5, 22, NULL),
+(13, 'Microsoft Power BI Desktop for Business Intelligence', 'images/business2.jpeg', 'courseInfo/business2(content).txt', 'courseInfo/business2.txt', 'advanced', 3000, 3, 1, 2, 21, NULL),
+(14, 'PMP Exam Prep Seminar - 2021 Exam Content with 35 PDUs', 'images/business3.jpeg', 'courseInfo/business3(content).txt', 'courseInfo/business3.txt', 'advanced', 300, 4, 1, 2, 18, NULL),
+(15, 'Tableau 2020 A-Z: Hands-On Tableau Training for Data Science', 'images/business4.jpeg', 'courseInfo/business4(content).txt', 'courseInfo/business4.txt', 'intermediate', 300, 0, 0, 2, 18, NULL),
+(16, 'The Complete Fitness & Health Masterclass - 21 Courses in 1', 'images/fitness1.jpeg', 'courseInfo/fitness1(content).txt', 'courseInfo/fitness1.txt', 'beginner', 300, 4, 1, 4, 21, NULL),
+(17, 'A Total Beginners Guide to Wellness, Health and Fitness', 'images/fitness2.jpeg', 'courseInfo/fitness2(content).txt', 'courseInfo/fitness2.txt', 'intermediate', 3000, 0, 0, 4, 21, NULL),
+(18, 'Use Your Health & Fitness Expertise to Earn A Living Online', 'images/fitness3.jpeg', 'courseInfo/fitness3(content).txt', 'courseInfo/fitness3.txt', 'advanced', 300, 0, 0, 4, 21, NULL),
+(19, 'Working With Seniors In Health and Fitness Related Fields', 'images/fitness4.jpeg', 'courseInfo/fitness4(content).txt', 'courseInfo/fitness4.txt', 'beginner', 300, 4, 1, 4, 21, NULL),
+(20, 'Figma UI UX Design Essentials', 'images/desgin1.jpeg', 'courseInfo/desgin1(content).txt', 'courseInfo/desgin1.txt', 'beginner', 1000, 4, 1, 3, 11, NULL),
+(21, 'The Complete Graphic Design Theory for Beginners Course', 'images/desgin2.jpeg', 'courseInfo/desgin2(content).txt', 'courseInfo/desgin2.txt', 'beginner', 3000, 0, 0, 3, 11, NULL),
+(22, 'Master Digital Product Design: UX Research & UI Design', 'images/desgin3.jpeg', 'courseInfo/desgin3(content).txt', 'courseInfo/desgin3.txt', 'beginner', 5500, 0, 0, 3, 11, NULL),
+(23, 'UX Design & User Experience Design Course - Theory Only', 'images/desgin4.png', 'courseInfo/desgin4(content).txt', 'courseInfo/desgin4.txt', 'advanced', 3000, 5, 1, 3, 11, NULL);
 
 -- --------------------------------------------------------
 
@@ -399,7 +415,7 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT for table `course`
 --
 ALTER TABLE `course`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `feedback`
