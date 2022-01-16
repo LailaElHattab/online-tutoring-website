@@ -18,8 +18,19 @@
     background-position-y: top;
     background-size: 260px;
 
-    
 }
+#bodyAdmin{
+    font-family: "Open Sans", sans-serif;
+    line-height: 1.7;
+    color: var(--dark);
+    background-image: url(../images/Background4.png);
+    background-repeat: no-repeat;
+    background-position-x: right;
+    background-position-y: 10ch;
+    background-size: 290px;
+
+}
+
 #link{
     background-color: var(--active);
     
@@ -36,6 +47,13 @@
     background-position-x:30ch;
     background-position-y: bottom;
     background-size: 260px;
+}
+#introAdmin{
+    background-image: url(../images/Background3.png);
+    background-repeat: no-repeat;
+    background-position-x:80ch;
+    background-position-y: 10ch;
+    background-size: 270px;
 }
 #illustration{
     height: 300px;
