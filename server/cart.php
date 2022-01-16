@@ -1,5 +1,8 @@
 <?php
 session_start();
+
+include('database.php');
+include('navbar.php');
 ?>
 <html>
 
@@ -21,7 +24,6 @@ session_start();
 
 </head>
 
-
 <body id="body">
 
     <!--Title-->
@@ -40,8 +42,6 @@ session_start();
                                 </div>
                                 <div class="card-body" id="items">
                                     <?php
-                                    include_once 'database.php';
-                                    include_once 'navigationBar.php';
                                     if (isset($_GET['id'])) {
 
                                         $_SESSION['items'][] = $_GET['id'];
@@ -123,8 +123,10 @@ session_start();
                                                             </li>
                                                         </ul>
 
-                                                        <button type="button" class="btn btn-lg btn-block" id="checkout">
-                                                            Go to checkout
+                                                        <button type="button" class="btn btn-lg btn-block" id="checkout" onclick=location.href='checkout.php?total=<?php echo $total ?>' style="
+                                                            color:white;
+                                                            text-decoration:none;>">
+                                                        Go to checkout
                                                         </button>
                                                     </div>
                                                 </div>

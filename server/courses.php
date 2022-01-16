@@ -1,5 +1,6 @@
 <?php
 session_start();
+include('database.php');
 ?>
 <html>
 
@@ -49,9 +50,9 @@ session_start();
 </style>
 <?php
 //if no content -> coming soon
-include_once 'database.php';
+
 //include_once($_SERVER['DOCUMENT_ROOT'] . "/online-tutoring-website/server/navbarAdmin.php");
-$sql = "SELECT * FROM course where id='" . $_GET['id'] . "'";
+$sql = "SELECT * FROM course WHERE id ='".$_SESSION['id']."'";
 $result = $conn->query($sql);
 $row = $result->fetch_assoc();
 echo "<h1>" . $row['name'] . "</h1>";
@@ -66,7 +67,7 @@ for ($j = 0; $j < $unchecked; $j++) {
 }
 echo "<br>";
 echo "<img src='" . $row['image'] . "'>";
-$sql0 = "SELECT fname FROM user where id='" . $row['tutor_id'] . "'";
+$sql0 = "SELECT fname FROM user WHERE id='" . $row['tutor_id'] . "'";
 $result0 = $conn->query($sql0);
 $row0 = $result0->fetch_assoc();
 echo "<p><b><i>Created by " . $row0['fname'] . "</i></b></p>";
