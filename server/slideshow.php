@@ -70,14 +70,17 @@
 
             <div id="car" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
+
                     <div class="carousel-item active">
                         <div class="row gx-1 justify-content-center">
-
+                         <hr>
                             <?php
                             while ($row = $query->fetch_assoc()) {
+                              
                             ?>
-                                <div class="col-lg-3 col-md-6">
-                                    <div class="card h-100">
+                                <div class="col-lg-3 col-md-6 my-3">
+                                
+                                    <div class="card h-100 ">
                                         <div class="img-fluid">
                                             <img src=<?php echo $row['image'] ?> class="img-fluid" id="img">
                                         </div>
@@ -97,8 +100,6 @@
                                                     ?>
                                                     e£
                                                     <?php echo  $row['price'] ?>
-
-
                                                 </b>
                                             </p>
                                             <a href="courses.php?id=<?php echo $row['id'] ?>" class="btn btn-primary btn-sm">Go to course</a>
