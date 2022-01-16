@@ -43,15 +43,17 @@ session_start();
                                     include_once 'database.php';
                                     include_once 'navigationBar.php';
                                     if (isset($_GET['id'])) {
+                                        if (!in_array($_GET['id'], $_SESSION['items'])) {
 
-                                        $_SESSION['items'][] = $_GET['id'];
+                                            $_SESSION['items'][] = $_GET['id'];
+                                        }
                                     }
                                     if (empty($_SESSION['items'])) {
                                         echo "Your cart is empty..";
                                     } else {
                                         for ($k = 0; $k < count($_SESSION['items']); $k++) {
                                             $total += $row2['price'];
-                                            $sql2 = "SELECT * FROM course WHERE id='".$_SESSION['items'][$k]."'";
+                                            $sql2 = "SELECT * FROM course WHERE id='" . $_SESSION['items'][$k] . "'";
                                             $result2 = $conn->query($sql2);
                                             $row2 = $result2->fetch_assoc();
 
@@ -74,7 +76,7 @@ session_start();
                                                         <p><strong><?php echo $row2['name']; ?></strong></p>
 
                                                         <button type="button" class="btn btn-primary btn-sm me-1 mb-2" data-mdb-toggle="tooltip" title="Remove item">
-                                                            <i class="bi bi-trash"></i>
+                                                            <i class=" bi bi-trash"></i>
                                                         </button>
                                                         <!-- Data -->
                                                     </div>

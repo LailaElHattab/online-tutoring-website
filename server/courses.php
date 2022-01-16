@@ -23,7 +23,7 @@ session_start();
     }
 
     #learnerbody {
-      background-image: url(../images/loginbackground.png);
+      background-image: url(images/loginbackground.png);
       background-repeat: no-repeat;
       background-position-x: left;
       background-position-y: 150px;
@@ -57,8 +57,7 @@ session_start();
                 <h4 class="mb-2"><?php echo $row['name'] ?></h4>
                 <?php
                 $rating = $row['rating'];
-                ?>
-                <?php
+
                 for ($i = 0; $i < (int)$rating; $i++) {
                 ?>
                   <span class='fa fa-star checked'></span>
@@ -155,6 +154,7 @@ session_start();
           </div>
         </div>
       </div>
+    </div>
   </section>
 </body>
 
