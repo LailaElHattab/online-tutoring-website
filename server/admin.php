@@ -14,9 +14,13 @@ include "database.php";
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <style>
-   #learnerView{
-       width: 500px;
-   }
+
+   @media (min-width:768px) {
+    #learnerView {
+      display: flex;
+      width: 500px;
+    }
+  }
    #backg{
        background-color: white;
        padding-right: 150px;
