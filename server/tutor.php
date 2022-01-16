@@ -38,6 +38,7 @@ session_start();
 
   <?php
   include_once 'database.php';
+  include_once 'navbarAdmin.php';
   $sql = "SELECT * FROM user WHERE id='" . $_GET['id'] . "'";
   $result = $conn->query($sql);
   $row = $result->fetch_assoc();

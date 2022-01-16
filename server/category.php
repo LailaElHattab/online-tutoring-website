@@ -2,6 +2,7 @@
 session_start();
 ?>
 <html>
+
 <head>
   <meta name="viewport" content="width=device-width , initial-scale=1">
   <link rel="stylesheet" type="text/css" href="styles/styles.css">
@@ -15,40 +16,42 @@ session_start();
 include_once 'database.php';
 include_once 'navbar.php';
 ?>
-<body >
 
-<?php
+<body>
 
-$sql1 = "SELECT * FROM course WHERE category=". $_GET['id'];
-$query = $conn->query($sql1);
+  <?php
 
-$sql2 = "SELECT * FROM category WHERE category=". $_GET['id'];
-$query2 = $conn->query($sql2);
+  $sql1 = "SELECT * FROM course WHERE category='" . $_GET['id'] . "'";
+  $result = $conn->query($sql1);
 
-$row1 = $query2;
+  $sql2 = "SELECT * FROM category WHERE id=" . $_GET['id'];
+  $result2 = $conn->query($sql2);
+  $row1 = $result2->fetch_assoc();
   ?>
- <h4><?php echo $row1['name'] ?></h4>
- <?php
-while($row = $query->fetch_assoc()){
-?>
+  <h3><?php echo $row1['name']; ?></h3>
+  <?php
+  while ($row = $result->fetch_assoc()) {
+  ?>
 
-<div class="card my-3" style="width: 1000px; height: 200px">
-  <div class="row ">
-    <div class="col-md-4">
-      <img src=<?php echo $row['image']?>  class="img-fluid rounded"/>
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title"><?php echo $row['name']?></h5>
-        <input type="submit" class="btn" id="loginbtn" name="submit" value="View" onclick="location.href='courses.php?id=<?php echo $row['id'] ?>'">
+
+    <div class="card my-3" style="width: 1000px; height: 200px">
+      <div class="row ">
+        <div class="col-md-4">
+          <img src=<?php echo $row['image'] ?> class="img-fluid rounded" />
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title"><?php echo $row['name'] ?></h5>
+            <input type="submit" class="btn" id="loginbtn" name="submit" value="View" onclick="location.href='courses.php?id=<?php echo $row['id'] ?>'">
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</div>
 
-      
-<?php
-}
-?>
+
+  <?php
+  }
+  ?>
 </body>
+
 </html>
