@@ -13,12 +13,10 @@ session_start();
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
   <style>
-      
-   
     @media (min-width:768px) {
-    #learnerView {
-      display: flex;
-      width: 1240px;
+      #learnerView {
+        display: flex;
+        width: 1240px;
       }
     }
 
@@ -28,7 +26,7 @@ session_start();
     }
 
     #learnerbody {
-      background-image: url(../images/loginbackground.png);
+      background-image: url(images/loginbackground.png);
       background-repeat: no-repeat;
       background-position-x: left;
       background-position-y: 150px;
@@ -44,7 +42,6 @@ session_start();
 
 <body id="learnerbody">
   <?php
-  include_once 'navbarAdmin.php';
   include_once 'database.php';
   $sql = "SELECT * FROM course where id='" . $_GET['id'] . "'";
   $result = $conn->query($sql);
@@ -62,8 +59,7 @@ session_start();
                 <h4 class="mb-2"><?php echo $row['name'] ?></h4>
                 <?php
                 $rating = $row['rating'];
-                ?>
-                <?php
+
                 for ($i = 0; $i < (int)$rating; $i++) {
                 ?>
                   <span class='fa fa-star checked'></span>
@@ -94,7 +90,7 @@ session_start();
                     while (!feof($file)) {
                       $line = fgets($file);
                     ?>
-                      <p class="mb-2"><b><?php $line ?></b></p>
+                      <p class="mb-2"><b><?php echo $line ?></b></p>
                     <?php
                     }
                     fclose($file);
@@ -114,7 +110,7 @@ session_start();
                         while (!feof($file1)) {
                           $line1 = fgets($file1);
                         ?>
-                          <p class="mb-2"><b><?php $line1 ?></b></p>
+                          <p class="mb-2"><b><?php echo $line1 ?></b></p>
                         <?php
                         }
                       } else {
@@ -133,7 +129,7 @@ session_start();
                       while (!feof($file1)) {
                         $line1 = fgets($file1);
                       ?>
-                        <p class="mb-2"><b><?php $line1 ?></b></p>
+                        <p class="mb-2"><b><?php echo $line1 ?></b></p>
                       <?php
                       }
                       ?>
@@ -160,6 +156,7 @@ session_start();
           </div>
         </div>
       </div>
+    </div>
   </section>
 </body>
 

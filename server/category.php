@@ -14,7 +14,6 @@ session_start();
 </head>
 <?php
 include_once 'database.php';
-include_once 'navbar.php';
 ?>
 
 <body>
@@ -28,7 +27,12 @@ include_once 'navbar.php';
   $result2 = $conn->query($sql2);
   $row1 = $result2->fetch_assoc();
   ?>
-  <h3><?php echo $row1['name']; ?></h3>
+  <br>
+  <h2><?php echo $row1['name']; ?> Courses</h2>
+  <br>
+  <h5>Courses to get you started</h5>
+
+
   <?php
   while ($row = $result->fetch_assoc()) {
   ?>
