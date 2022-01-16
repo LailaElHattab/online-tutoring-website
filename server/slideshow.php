@@ -72,7 +72,7 @@
                             while ($row = $query->fetch_assoc()) {
                             ?>
                                 <div class="col-lg-3 col-md-6">
-                                    <div class="card">
+                                    <div class="card h-100" >
                                         <div class="img-fluid">
                                             <img src=<?php echo $row['image'] ?> class="img-fluid" id="img">
                                         </div>
@@ -82,7 +82,7 @@
                                                     $<?php echo $row['price'] ?>
                                                 </b>
                                             </p>
-                                            <a href="#" class="btn btn-primary">Go to course</a>
+                                            <a href="#" class="btn btn-primary ">Go to course</a>
                                         </div>
                                     </div>
                                 </div>

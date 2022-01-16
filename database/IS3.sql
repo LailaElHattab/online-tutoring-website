@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jan 15, 2022 at 05:06 PM
+-- Generation Time: Jan 16, 2022 at 11:33 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.11
 
@@ -66,6 +66,20 @@ CREATE TABLE `comment` (
   `msg_id` int(11) NOT NULL,
   `auditor_id` int(11) NOT NULL,
   `content` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `contact_us`
+--
+
+CREATE TABLE `contact_us` (
+  `fname` text NOT NULL,
+  `lname` text NOT NULL,
+  `email` text NOT NULL,
+  `phone` int(50) NOT NULL,
+  `message` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -251,15 +265,15 @@ INSERT INTO `user` (`id`, `type`, `fname`, `email`, `password`, `security_ans`, 
 (6, 1, 'Mohamed', 'mohamed@gmail.com', '9fe8593a8a330607d76796b35c64c600', 'Copper', 'images/mohamed.jpeg', NULL, 2, NULL, ''),
 (7, 1, 'Mostafa', 'mostafa@gmail.com', '68053af2923e00204c3ca7c6a3150cf7', 'Max', 'images/mostafa.jpeg', NULL, 2, NULL, ''),
 (8, 1, 'kamal', 'kamal@gmail.com', '58238e9ae2dd305d79c2ebc8c1883422', 'simba', 'images/kamal.png', NULL, 2, NULL, ''),
-(11, 4, 'Kawthar', 'Kawthar@gmail.com', '202cb962ac59075b964b07152d234b70', 'koko', NULL, NULL, NULL, NULL, ''),
+(11, 4, 'Kawthar', 'Kawthar@gmail.com', '202cb962ac59075b964b07152d234b70', 'koko', 'images/kawthar.png', NULL, NULL, NULL, ''),
 (14, 2, 'Suzan', 'Suzan@gmail.com', '202cb962ac59075b964b07152d234b70', 'soso', 'images/suzan.jpeg', NULL, NULL, NULL, ''),
-(15, 2, 'mai', 'mai@gmail.com', 'd81f9c1be2e08964bf9f24b15f0e4900', 'sandy', NULL, NULL, NULL, NULL, ''),
-(16, 2, 'sondos', 'sondos@gmail.com', 'd81f9c1be2e08964bf9f24b15f0e4900', 'spongy', NULL, NULL, NULL, NULL, ''),
-(18, 4, 'kariman', 'kariman@gmail.com', 'd81f9c1be2e08964bf9f24b15f0e4900', 'jojo', NULL, 1, NULL, NULL, ''),
-(21, 2, 'karim', 'Karim@gmail.com', 'd41d8cd98f00b204e9800998ecf8427e', 'Lola', NULL, NULL, NULL, NULL, NULL),
-(22, 2, 'ather', 'ather@gmail.com', 'd41d8cd98f00b204e9800998ecf8427e', 'soka', NULL, NULL, NULL, NULL, NULL),
-(23, 2, 'fatima', 'fatima@gmail.com', 'd41d8cd98f00b204e9800998ecf8427e', 'mocha', NULL, NULL, NULL, NULL, NULL),
-(24, 2, 'mariam', 'mariam@gmail.com', 'd41d8cd98f00b204e9800998ecf8427e', 'Caramel', NULL, NULL, NULL, NULL, NULL),
+(15, 2, 'mai', 'mai@gmail.com', 'd81f9c1be2e08964bf9f24b15f0e4900', 'sandy', 'images/mai.jpeg', NULL, NULL, NULL, ''),
+(16, 2, 'sondos', 'sondos@gmail.com', 'd81f9c1be2e08964bf9f24b15f0e4900', 'spongy', 'images/sondos.jpeg', NULL, NULL, NULL, ''),
+(18, 4, 'kariman', 'kariman@gmail.com', 'd81f9c1be2e08964bf9f24b15f0e4900', 'jojo', 'images/kariman.jpeg', 1, NULL, NULL, ''),
+(21, 4, 'karim', 'Karim@gmail.com', 'd41d8cd98f00b204e9800998ecf8427e', 'Lola', 'images/karim.jpeg', 0, NULL, NULL, NULL),
+(22, 4, 'ather', 'ather@gmail.com', 'd41d8cd98f00b204e9800998ecf8427e', 'soka', 'images/ather.jpeg', 1, NULL, NULL, NULL),
+(23, 4, 'fatima', 'fatima@gmail.com', 'd41d8cd98f00b204e9800998ecf8427e', 'mocha', NULL, 0, NULL, NULL, NULL),
+(24, 4, 'mariam', 'mariam@gmail.com', 'd41d8cd98f00b204e9800998ecf8427e', 'Caramel', NULL, 0, NULL, NULL, NULL),
 (25, 2, 'faten', 'faten@gmail.com', 'd41d8cd98f00b204e9800998ecf8427e', 'koko', NULL, NULL, NULL, NULL, NULL),
 (26, 2, 'Ibrahim', 'Ibrahim@gmail.com', 'd81f9c1be2e08964bf9f24b15f0e4900', 'soty', NULL, NULL, NULL, NULL, NULL);
 
