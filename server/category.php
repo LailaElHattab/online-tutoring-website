@@ -14,7 +14,6 @@ session_start();
 </head>
 <?php
 include_once 'database.php';
-include_once 'navbar.php';
 ?>
 
 <body>
