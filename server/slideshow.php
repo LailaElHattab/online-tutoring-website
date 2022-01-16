@@ -17,6 +17,11 @@
 
 
 </head>
+<style>
+    .checked {
+        color: orange;
+    }
+</style>
 
 <body id="body">
 
@@ -43,7 +48,7 @@
 
     include_once 'database.php';
 
-    $sql1 = "SELECT * FROM course";
+    $sql1 = "SELECT * FROM course WHERE status=1";
     $query = $conn->query($sql1);
     ?>
 
@@ -72,17 +77,31 @@
                             while ($row = $query->fetch_assoc()) {
                             ?>
                                 <div class="col-lg-3 col-md-6">
-                                    <div class="card h-100" >
+                                    <div class="card h-100">
                                         <div class="img-fluid">
                                             <img src=<?php echo $row['image'] ?> class="img-fluid" id="img">
                                         </div>
                                         <div class="card-body">
                                             <h5 class="card-title"><?php echo $row['name'] ?></h5>
                                             <p class="card-text"><b>
-                                                    $<?php echo $row['price'] ?>
+                                                    <?php
+                                                    $rating = $row['rating'];
+                                                    for ($i = 0; $i < (int)$rating; $i++) {
+                                                        echo "<span class='fa fa-star checked'></span>";
+                                                    }
+                                                    $unchecked = 5 - $rating;
+                                                    for ($j = 0; $j < $unchecked; $j++) {
+                                                        echo "<span class='fa fa-star'></span>";
+                                                    }
+                                                    echo "<br>";
+                                                    ?>
+                                                    e£
+                                                    <?php echo  $row['price'] ?>
+
+
                                                 </b>
                                             </p>
-                                            <a href="#" class="btn btn-primary ">Go to course</a>
+                                            <a href="courses.php?id=<?php echo $row['id'] ?>" class="btn btn-primary btn-sm">Go to course</a>
                                         </div>
                                     </div>
                                 </div>

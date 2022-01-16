@@ -1,0 +1,14 @@
+Become an expert in Statistics, SQL, Tableau, and problem solving
+Boost your resume with in-demand skills
+Gather, organize, analyze and visualize data
+Use data for improved business decision-making
+Present information in the form of metrics, KPIs, reports, and dashboards
+Perform quantitative and qualitative business analysis
+Analyze current and historical data
+Discover how to find trends, market conditions, and research competitor positioning
+Understand the fundamentals of database theory
+Use SQL to create, design, and manipulate SQL databases
+Extract data from a database writing your own queries
+Create powerful professional visualizations in Tableau
+Combine SQL and Tableau to visualize data from the source
+Solve real-world business analysis tasks in SQL and Tableau 
