@@ -6,7 +6,7 @@ session_start();
 
 <?php
 include 'database.php';
-include_once($_SERVER['DOCUMENT_ROOT'] . "/online-tutoring-website/client/courseAdd.html");
+include_once($_SERVER['DOCUMENT_ROOT'] . "/online-tutoring-website/client/addCourse.html");
 if ($_SESSION['user'] == 1) {
 ?>
     <script>

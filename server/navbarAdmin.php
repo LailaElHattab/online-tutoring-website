@@ -1,7 +1,10 @@
-<html> 
-    <?php
-    include_once 'database.php';
-    ?>
+<?php
+session_start();
+?>
+<html>
+<?php
+include_once 'database.php';
+?>
 
 <head>
     <meta name="viewport" content="width=device-width , initial-scale=1">
@@ -12,10 +15,6 @@
 </head>
 
 <body>
-   
-    <?php
-    include_once 'database.php';
-    ?>
     <!--navbar-->
     <nav class="navbar navbar-expand-md navbar-light bg-faded justify-content-center" id="navbar">
         <div class="container">
@@ -69,7 +68,6 @@
 
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                        <a class="dropdown-item" href="#">Profile</a>
                                         <a class="dropdown-item" href="#">Messages</a>
                                         <a class="dropdown-item" href="editAccount.php">Edit Account</a>
                                         <a class="dropdown-item" href="editProfile.php">Edit Profile</a>
