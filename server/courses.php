@@ -1,6 +1,5 @@
 <?php
 session_start();
-include('database.php');
 ?>
 <html>
 
@@ -118,58 +117,6 @@ include('database.php');
                         ?>
                         <button class="btn btn-sm" id="editcbtn" onclick="location.href='cart.php?id=<?php echo $row['id'] ?>'">Add to cart</button>
 
-<<<<<<< HEAD
-    span {
-        margin-left: 20px;
-    }
-</style>
-<?php
-//if no content -> coming soon
-
-//include_once($_SERVER['DOCUMENT_ROOT'] . "/online-tutoring-website/server/navbarAdmin.php");
-$sql = "SELECT * FROM course WHERE id ='".$_SESSION['id']."'";
-$result = $conn->query($sql);
-$row = $result->fetch_assoc();
-echo "<h1>" . $row['name'] . "</h1>";
-$rating = $row['rating'];
-echo "<b>$rating</b>";
-for ($i = 0; $i < (int)$rating; $i++) {
-    echo "<span class='fa fa-star checked'></span>";
-}
-$unchecked = 5 - $rating;
-for ($j = 0; $j < $unchecked; $j++) {
-    echo "<span class='fa fa-star'></span>";
-}
-echo "<br>";
-echo "<img src='" . $row['image'] . "'>";
-$sql0 = "SELECT fname FROM user WHERE id='" . $row['tutor_id'] . "'";
-$result0 = $conn->query($sql0);
-$row0 = $result0->fetch_assoc();
-echo "<p><b><i>Created by " . $row0['fname'] . "</i></b></p>";
-$path = $row['description'];
-echo "<h3>Course Description</h3>";
-$file = fopen($path, "r");
-while (!feof($file)) {
-    $line = fgets($file);
-    echo "<b>$line</b>" . "<br>";
-}
-fclose($file);
-if ($_SESSION['user'] == '2' || $_SESSION['user'] == "") {
-    $sql1 = "SELECT * FROM enroll WHERE learner_id='" . $_SESSION['id'] . "' and course_id='" . $row['id'] . "'";
-    $result1 = $conn->query($sql1);
-    $row1 = $result1->fetch_assoc();
-    if ($result1->num_rows > 0) {
-        $content = $row1['content'];
-        echo "<h3>Course content</h3>";
-        $file1 = fopen($content, "r");
-        while (!feof($file1)) {
-            $line1 = fgets($file1);
-            echo "<b>$line1</b>" . "<br>";
-        }
-    } else {
-?>
-        <button class="btn btn-sm" id="editcbtn" onclick="location.href='cart.php?id=<?php echo $row['id'] ?>'">Add to cart</button>
-=======
                       <?php
                       }
                     } else {
@@ -189,7 +136,6 @@ if ($_SESSION['user'] == '2' || $_SESSION['user'] == "") {
 
                       <button class="btn btn-sm" id="editcbtn" onclick="location.href='editCourse.php?id=<?php echo $row['id'] ?>'">edit course</button>
                       <button class="btn btn-sm" id="editcbtn" onclick="location.href='deleteCourse.php?id=<?php echo $row['id'] ?>'">delete course</button>
->>>>>>> fc473b837b57c0bb81d164344f01d43935e4bf1b
 
 
                       <?php
