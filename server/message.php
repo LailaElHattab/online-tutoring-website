@@ -15,6 +15,14 @@
     <script type='text/javascript' src='https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js'></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
+    <style>
+    @media (min-width:768px) {
+      #chat {
+        display: flex;
+        width: 700;
+      }
+    }
+    </style>
 
 </head>
 
@@ -46,18 +54,15 @@
         ?>
 
 
-        <section style="background-color: #eee;">
+        <section >
             <div class="container py-5">
 
-                <div class="row">
-
-
+                <div class="row d-flex justify-content-center align-items-center">
                     <div class="col-md-6 col-lg-7 col-xl-8">
-
                         <ul class="list-unstyled">
-                            <li class="d-flex justify-content-between mb-4">
+                            <li class="d-flex justify-content-left  mb-4">
                                 <img src=<?php echo $row['picture'] ?> alt="avatar" class="rounded-circle d-flex align-self-start me-3 shadow-1-strong" width="60">
-                                <div class="card">
+                                <div class="card" id="chat">
                                     <div class="card-header d-flex justify-content-between p-3">
                                         <p class="fw-bold mb-0"><?php echo $row['fname'] ?></p>
                                     </div>
@@ -70,7 +75,7 @@
                                             if ($row2['received_by'] == $_SESSION['id']) {
                                     ?>
                                                 <div class="card-body">
-                                                    <p class="mb-0"><?php echo $row2['message'] ?></p>
+                                                    <p class="mb-0" style="text-align:left;font-size:20px;"><?php echo $row2['message'] ?></p>
                                                 </div>
 
                                                 <?php
@@ -108,10 +113,10 @@
 
                             <li class="bg-white mb-3">
                                 <div class="form-outline">
-                                    <textarea class="form-control" name="message" id="textAreaExample2" rows="4" placeholder="Type your message here" required></textarea>
+                                    <textarea class="form-control" name="message" id="textAreaExample2" rows="2" placeholder="Type your message here" required></textarea>
                                 </div>
                             </li>
-                            <button type="submit" name='submit' class="btn btn-info btn-rounded float-end">Send</button>
+                            <button type="submit" name='submit' class="btn btn-rounded float-end" id="editcbtn">Send</button>
                         </ul>
 
                     </div>
