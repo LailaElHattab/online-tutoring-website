@@ -4,11 +4,12 @@ session_start();
 <html>
 <?php
 include 'functions.php';
-$sql = "SELECT * FROM user WHERE id='2'";
+$_SESSION['reciever'] = 5;
+$sql = "SELECT * FROM user WHERE id='" . $_SESSION['reciever'] . "'";
 $row = printUser($sql);
 echo $row['fname'];
-$_SESSION['reciever'] = 5;
+
 ?>
-<button onclick="location.href='message.php?receiver=5'">Basma</button>
+<button onclick="location.href='message.php?receiver=<?php echo $_SESSION['reciever']; ?>'">Laila</button>
 
 </html>
