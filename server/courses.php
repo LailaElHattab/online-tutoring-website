@@ -43,6 +43,7 @@ session_start();
 <body id="learnerbody">
   <?php
   include_once 'database.php';
+  include_once 'functions.php';
   $sql = "SELECT * FROM course where id='" . $_GET['id'] . "'";
   $result = $conn->query($sql);
   $row = $result->fetch_assoc();
@@ -106,7 +107,7 @@ session_start();
                       $result1 = $conn->query($sql1);
                       $row1 = $result1->fetch_assoc();
                       if ($result1->num_rows > 0) {
-                        $content = $row1['content'];
+                        $content = $row['content'];
                     ?>
                         <p class="mb-2 h5">Course content</p>
                         <?php
@@ -117,8 +118,13 @@ session_start();
                           <p class="mb-2"><?php echo $line1 ?></p>
                         <?php
                         }
-                      } else {
+                        echo "<hr>";
                         ?>
+
+                        <button class="btn btn-sm" id="editcbtn" onclick="location.href='survey.php'">review</button>
+                      <?php
+                      } else {
+                      ?>
                         <button class="btn btn-sm" id="editcbtn" onclick="location.href='cart.php?id=<?php echo $row['id'] ?>'">Add to cart</button>
 
                       <?php
@@ -147,11 +153,26 @@ session_start();
                       ?>
                         <button class="btn btn-sm" id="editcbtn" onclick="location.href='approveCourse.php?id=<?php echo $row['id'] ?>'">approve course</button>
 
-                    <?php
+                      <?php
                       }
                     }
 
+                    $reviews = readReviews($row['id']);
+
+                    if ($reviews) {
+                      $user = searchUser($reviews['learner_id']);
+                      echo $user['fname'];
+                      echo "<br>";
+                      echo $reviews['comment'];
+                      ?>
+                      <button class="btn btn-sm">reply</button>
+                    <?php
+                    } else {
+
+                      echo "No reviews yet";
+                    }
                     ?>
+
                   </div>
                 </div>
 

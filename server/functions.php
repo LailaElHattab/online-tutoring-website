@@ -28,6 +28,12 @@ function printUser($sql)
     $result = $conn->query($sql);
     return $result->fetch_assoc();
 }
+function printCourse($sql)
+{
+    include 'database.php';
+    $result = $conn->query($sql);
+    return $result;
+}
 //Function to generate a new password
 function generatePwd()
 {
@@ -54,5 +60,34 @@ function emailPwd($id, $email)
     // send email
     mail($email, "reset password", $msg);
 }
+function searchCourse($id)
+{
+    include 'database.php';
+    $sql2 = "SELECT * FROM course WHERE id='" . $id . "'";
+    $result = $conn->query($sql2);
+    $row = $result->fetch_assoc();
+    return $row;
+}
+function readReviews($id)
+{
+    include 'database.php';
+    $sql2 = "SELECT * FROM feedback WHERE course_id='" . $id . "'";
+    $result = $conn->query($sql2);
+    $row = $result->fetch_assoc();
+    return $row;
+}
+function searchUser($id)
+{
+    include 'database.php';
+    $sql2 = "SELECT * FROM user WHERE id='" . $id . "'";
+    $result = $conn->query($sql2);
+    $row = $result->fetch_assoc();
+    return $row;
+}
+function addReview()
+{
 
+?>
+<?php
+}
 ?>
