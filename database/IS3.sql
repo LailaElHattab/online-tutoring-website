@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jan 16, 2022 at 07:47 PM
+-- Generation Time: Jan 17, 2022 at 09:39 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.11
 
@@ -169,11 +169,23 @@ CREATE TABLE `feedback` (
 --
 
 CREATE TABLE `message` (
-  `msg_id` int(11) NOT NULL,
-  `user1_id` int(11) NOT NULL,
-  `user2_id` int(11) NOT NULL,
-  `content` varchar(255) NOT NULL
+  `id` int(11) NOT NULL,
+  `sent_by` int(11) NOT NULL,
+  `received_by` int(11) NOT NULL,
+  `message` varchar(255) NOT NULL,
+  `createdAt` varchar(255) NOT NULL,
+  `seen` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `message`
+--
+
+INSERT INTO `message` (`id`, `sent_by`, `received_by`, `message`, `createdAt`, `seen`) VALUES
+(77, 2, 5, 'hello laila', '2022-01-17 03:35:03pm', 1),
+(80, 5, 2, 'hello basma', '2022-01-17 03:48:41pm', 1),
+(88, 2, 5, 'i hope you are fine', '2022-01-17 06:31:36pm', 1),
+(89, 5, 2, 'I\'m doing great thank you', '2022-01-17 06:34:25pm', 1);
 
 -- --------------------------------------------------------
 
@@ -346,9 +358,10 @@ ALTER TABLE `feedback`
 -- Indexes for table `message`
 --
 ALTER TABLE `message`
-  ADD PRIMARY KEY (`msg_id`),
-  ADD KEY `user1_id` (`user1_id`),
-  ADD KEY `user2_id` (`user2_id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `user1_id` (`sent_by`),
+  ADD KEY `user2_id` (`received_by`),
+  ADD KEY `received_by` (`received_by`);
 
 --
 -- Indexes for table `purchase`
@@ -427,7 +440,7 @@ ALTER TABLE `feedback`
 -- AUTO_INCREMENT for table `message`
 --
 ALTER TABLE `message`
-  MODIFY `msg_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=97;
 
 --
 -- AUTO_INCREMENT for table `question`
@@ -445,7 +458,7 @@ ALTER TABLE `suggestion`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- Constraints for dumped tables
@@ -462,7 +475,7 @@ ALTER TABLE `answer`
 -- Constraints for table `comment`
 --
 ALTER TABLE `comment`
-  ADD CONSTRAINT `comment_ibfk_1` FOREIGN KEY (`msg_id`) REFERENCES `message` (`msg_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `comment_ibfk_1` FOREIGN KEY (`msg_id`) REFERENCES `message` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `comment_ibfk_2` FOREIGN KEY (`auditor_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
@@ -489,8 +502,8 @@ ALTER TABLE `feedback`
 -- Constraints for table `message`
 --
 ALTER TABLE `message`
-  ADD CONSTRAINT `message_ibfk_1` FOREIGN KEY (`user1_id`) REFERENCES `course` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `message_ibfk_2` FOREIGN KEY (`user2_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `message_ibfk_2` FOREIGN KEY (`received_by`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `message_ibfk_3` FOREIGN KEY (`sent_by`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `purchase`
