@@ -47,7 +47,7 @@
     <?php
 
     include_once 'database.php';
-    include_once 'functions.php';
+    include_once 'functions.php'
 
     $sql1 = "SELECT * FROM course WHERE status=1";
     $query = $conn->query($sql1);
@@ -118,7 +118,7 @@
     </div>
 
    <?php
-   footer();
+   footer()
    ?>
 </body>
 
