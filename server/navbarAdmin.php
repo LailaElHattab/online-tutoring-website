@@ -68,7 +68,7 @@ include_once 'database.php';
 
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                        <a class="dropdown-item" href="messages.php">Messages</a>
+                                        <a class="dropdown-item" href="messages.php">Inbox</a>
                                         <a class="dropdown-item" href="editAccount.php">Edit Account</a>
                                         <a class="dropdown-item" href="editProfile.php">Edit Profile</a>
                                         <a class="dropdown-item" href="SignOut.php">Log Out</a>

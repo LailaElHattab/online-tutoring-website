@@ -5,6 +5,7 @@ ob_start();
 ?>
 <html>
 <script src="validations.js"></script>
+<body>
 <?php
 
 include_once 'database.php';
@@ -66,5 +67,8 @@ if (isset($_POST['login'])) {
 
 ?>
 
+
+
+</body>
 
 </html>

@@ -40,10 +40,14 @@ session_start();
 
 </head>
 
-<body id="learnerbody">
+<body class="d-flex flex-column min-vh-100" id="learnerbody">
   <?php
   include_once 'database.php';
+<<<<<<< HEAD
   include_once 'functions.php';
+=======
+
+>>>>>>> 3b812dc3f929dfea5f2a8d63a5e2b5ec2331b030
   $sql = "SELECT * FROM course where id='" . $_GET['id'] . "'";
   $result = $conn->query($sql);
   $row = $result->fetch_assoc();
@@ -60,6 +64,7 @@ session_start();
 
                 <div class="mt-3 mb-4">
                   <h4 class="mb-2"><?php echo $row['name'] ?></h4>
+                  <hr>
                   <?php
                   $rating = $row['rating'];
 
@@ -181,7 +186,11 @@ session_start();
           </div>
         </div>
       </div>
+      
   </section>
+
+
 </body>
+
 
 </html>
