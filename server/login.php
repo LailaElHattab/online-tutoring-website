@@ -9,18 +9,19 @@ ob_start();
 
 include_once 'database.php';
 include_once($_SERVER['DOCUMENT_ROOT'] . "/online-tutoring-website/client/login.html");
+include_once 'errorHandling.php';
 
-
-
+// set_error_handler("customError");
 if (isset($_POST['login'])) {
     if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL) === false) {
         $user_pass = md5($_POST['password']);
-        $sql = "Select * from user where email ='" . $_POST["email"] . "' and password='" . $user_pass . "'";
-        $result = $conn->query($sql);
+        $sql = "SELECT * FROM user WHERE email ='" . $_POST["email"] . "' and password='" . $user_pass . "'";
+        $result = result($conn, $sql);
         if ($result->num_rows > 0) {
             $status = "Active now";
-            $sql2 = mysqli_query($conn, "UPDATE users SET status = '{$status}' WHERE id = {$row['id']}");
             $row = $result->fetch_assoc();
+            $sql2 = "UPDATE users SET status = '{$status}' WHERE id = {$row['id']}";
+            $result2 = $conn->query($sql2);
             $_SESSION["id"] = $row["id"];
             $_SESSION["name"] = $row["fname"];
             $_SESSION["email"] = $row["email"];
