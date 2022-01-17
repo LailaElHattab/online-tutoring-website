@@ -8,8 +8,7 @@
 session_start();
 include 'database.php';
 
-//$receiver = $_GET['receiver'];
-$receiver = 5;
+$receiver = $_SESSION['reciever'];
 $getReceiver = "SELECT * FROM user WHERE id = '$receiver'";
 $result = $conn->query($getReceiver);
 $row = $result->fetch_assoc();
@@ -49,16 +48,26 @@ $row = $result->fetch_assoc();
 
                 </div>
 
-            <?php } else {
-            ?>
+                <?php
+                $seen = "UPDATE message SET seen=1 WHERE id='" . $row2['id'] . "'";
+                $conn->query($seen);
+            } else {
+                if ($row2['seen'] == '1') {
 
-                <!-- <div style="margin: 10;left:300px;"> -->
+                ?>
 
-                <p style="text-align:right;font-size:20px"><?php echo $row2['message'] . "<br>" ?></p>
+                    <!-- <div style="margin: 10;left:300px;"> -->
 
-                <!-- </div> -->
+                    <p style="text-align:right;font-size:20px;font-style: italic;"><?php echo $row2['message'] . "<br>" ?></p>
 
+                    <!-- </div> -->
+
+                <?php
+                } else {
+                ?>
+                    <p style="text-align:right;font-size:20px;font-style:bold;text-decoration: underline;"><?php echo $row2['message'] . "<br>" ?></p>
     <?php
+                }
             }
         }
     } else {
