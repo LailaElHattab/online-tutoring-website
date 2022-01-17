@@ -4,6 +4,7 @@ session_start();
 <html>
 <?php
 include_once 'database.php';
+include_once 'ajaxsearchbar.php';
 ?>
 
 <head>
