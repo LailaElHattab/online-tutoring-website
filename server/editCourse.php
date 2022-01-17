@@ -5,6 +5,7 @@ session_start();
 
 <?php
 include_once 'database.php';
+include 'nav.php';
 $sql = "SELECT * FROM course WHERE id='" . $_GET['id'] . "'";
 $result = $conn->query($sql);
 $row = $result->fetch_assoc();

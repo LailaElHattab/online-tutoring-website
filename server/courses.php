@@ -42,6 +42,7 @@ session_start();
 
 <body class="d-flex flex-column min-vh-100" id="learnerbody">
   <?php
+  include 'nav.php';
   include_once 'database.php';
   include_once 'functions.php';
 
@@ -162,12 +163,13 @@ session_start();
                     $reviews = readReviews($row['id']);
 
                     if ($reviews) {
+                      echo "<br>";
                       $user = searchUser($reviews['learner_id']);
                       echo $user['fname'];
                       echo "<br>";
                       echo $reviews['comment'];
                       ?>
-                      <button class="btn btn-sm">reply</button>
+                      <!-- <button class="btn btn-sm">reply</button> -->
                     <?php
                     } else {
 

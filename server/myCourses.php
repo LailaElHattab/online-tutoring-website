@@ -2,13 +2,17 @@
 session_start();
 ?>
 <html>
-<h1>My Learning</h1>
-<hr>
+
 <?php
 include 'functions.php';
 include 'database.php';
+include 'nav.php';
 $sql = "SELECT course_id FROM enroll WHERE learner_id='" . $_SESSION['id'] . "'";
 $result = $conn->query($sql);
+?>
+<h1>My Learning</h1>
+<hr>
+<?php
 if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
         $id = $row['course_id'];

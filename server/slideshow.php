@@ -74,13 +74,13 @@
 
                     <div class="carousel-item active">
                         <div class="row gx-1 justify-content-center">
-                         <hr>
+                            <hr>
                             <?php
                             while ($row = $query->fetch_assoc()) {
-                              
+
                             ?>
                                 <div class="col-lg-3 col-md-6 my-3">
-                                
+
                                     <div class="card h-100 ">
                                         <div class="img-fluid">
                                             <img src=<?php echo $row['image'] ?> class="img-fluid" id="img">
@@ -117,9 +117,9 @@
         </div>
     </div>
 
-   <?php
-   footer()
-   ?>
+    <?php
+    footer();
+    ?>
 </body>
 
 </html>

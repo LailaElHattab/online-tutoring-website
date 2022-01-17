@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <html>
 
 <head>
@@ -30,6 +33,9 @@
     }
   </style>
 </head>
+<?php
+include 'nav.php';
+?>
 
 <body id="addAdminbody">
   <section class="vh-100" id="backg">

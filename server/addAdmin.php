@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <html>
 
 <head>
@@ -30,7 +33,9 @@
   </style>
 </head>
 
-
+<?php
+include_once 'nav.php';
+?>
 
 <body id="addAdminbody">
 

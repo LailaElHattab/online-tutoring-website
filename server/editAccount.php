@@ -5,6 +5,7 @@ session_start();
 
 <?php
 include_once 'database.php';
+include 'nav.php';
 include_once($_SERVER['DOCUMENT_ROOT'] . "/online-tutoring-website/client/editAccount.html");
 
 if (isset($_POST['emailbtn'])) {

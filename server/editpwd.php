@@ -17,6 +17,7 @@ session_start();
     <?php
     include_once 'database.php';
     include_once 'functions.php';
+    include 'nav.php';
     include_once $_SERVER['DOCUMENT_ROOT'] . "/online-tutoring-website/client/editpwd.html";
 
 

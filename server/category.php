@@ -14,12 +14,13 @@ session_start();
 </head>
 <?php
 include_once 'database.php';
-include_once 'navbar.php';
+include_once 'nav.php';
 ?>
 
 <body>
 
   <?php
+
 
   $sql1 = "SELECT * FROM course WHERE category='" . $_GET['id'] . "'";
   $result = $conn->query($sql1);
