@@ -70,7 +70,7 @@
                                     <?php
                                     $getMessage = "SELECT  message.* ,user.fname FROM message INNER JOIN user on sent_by=user.id  WHERE sent_by = '$receiver' AND received_by = " . $_SESSION['id'] . " OR sent_by = " . $_SESSION['id'] . " AND received_by = '$receiver' ORDER BY createdAt asc";
                                     $result2 = $conn->query($getMessage);
-                                    if ($result2->num_rows > 0) {
+                                    if ($result2 !==false && $result2->num_rows > 0) {
                                         while ($row2 = $result2->fetch_assoc()) {
                                             if ($row2['received_by'] == $_SESSION['id']) {
                                     ?>
