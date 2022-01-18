@@ -156,10 +156,13 @@ session_start();
                       ?>
                         <button class="btn btn-sm" id="editcbtn" onclick="location.href='approveCourse.php?id=<?php echo $row['id'] ?>'">approve course</button>
 
-                      <?php
+                    <?php
                       }
                     }
-
+                    ?>
+                    <h2 class="my-5 ms-5" style="font-family: Open Sans, sans-serif; font-size:20px;"><b>Reviews</b></h2>
+                    <hr>
+                    <?php
                     $reviews = readReviews($row['id']);
 
                     if ($reviews) {
@@ -169,7 +172,7 @@ session_start();
 
                       echo "<br>";
 
-                      ?>
+                    ?>
                       <div class="d-flex flex-start mb-4">
                         <img class="rounded-circle shadow-1-strong me-3" src="<?php echo $user['picture']; ?>" alt="avatar" width="65" height="65" />
                         <div class="card w-100">
