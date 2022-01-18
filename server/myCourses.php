@@ -21,7 +21,7 @@ include 'nav.php';
 $sql = "SELECT course_id FROM enroll WHERE learner_id='" . $_SESSION['id'] . "'";
 $result = $conn->query($sql);
 ?>
-<h1>My Learning</h1>
+<h1 class="ms-5">My Learning</h1>
 <hr>
 <?php
 if ($result->num_rows > 0) {
@@ -31,7 +31,7 @@ if ($result->num_rows > 0) {
 ?>
 
 
-<div class="card my-3" style="width: 1000px; height: 200px">
+<div class="card my-3 ms-5" style="width: 1000px; height: 200px">
       <div class="row ">
         <div class="col-md-4">
         <img src=<?php echo $result1['image'] ?> class="img-fluid rounded" />
