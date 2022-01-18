@@ -144,7 +144,7 @@ include('navbar.php');
                                             $sql="SELECT * FROM user WHERE id='".$_SESSION['id'];
                                             $result = result($conn, $sql);
 
-                                            $sql2="insert into enroll(learner_id, course-id, progress) values('".$_SESSION['id']."','".$_SESSION['course_id']."',0)";
+                                            $sql2="insert into enroll(learner_id, course_id, progress) values('".$_SESSION['id']."','".$_SESSION['course_id']."',0)";
                                             $result2 = result($conn, $sql);
                                         }
 
