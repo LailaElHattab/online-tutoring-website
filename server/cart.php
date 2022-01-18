@@ -2,7 +2,7 @@
 session_start();
 
 include('database.php');
-// include('navbar.php');
+include('navbar.php');
 ?>
 <html>
 
@@ -51,6 +51,7 @@ include('database.php');
                                     if (empty($_SESSION['items'])) {
                                         echo "Your cart is empty..";
                                     } else {
+                                        $total=0;
                                         $counter=0;
                                         for ($k = 0; $k < count($_SESSION['items']); $k++) {
                                             $total += $row2['price'];

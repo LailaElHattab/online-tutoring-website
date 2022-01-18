@@ -159,7 +159,7 @@ include('navbar.php');
                                                         <ul class="list-group list-group-flush">
                                                             <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3">
                                                                 Products
-                                                                <span><?php echo $counter; ?></span>
+                                                                <span><?php include_once 'functions.php'; ?></span>
                                                             </li>
                                                             <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3">
                                                                 <div>
@@ -168,7 +168,7 @@ include('navbar.php');
                                                                         <p class="mb-0">(including VAT)</p>
                                                                     </strong>
                                                                 </div>
-                                                                <span><strong> <?php echo $total; ?></strong></span>
+                                                                <span><strong> <?php include_once 'functions.php'; ?></strong></span>
                                                             </li>
                                                         </ul>
                                                     </div>

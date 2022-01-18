@@ -91,6 +91,18 @@ function addReview()
 <?php
 }
 
+function getTotal()
+{
+    include 'cart.php';
+    return $total;
+}
+
+function getCounter()
+{
+    include 'cart.php';
+    return $counter;
+}
+
 function footer()
 {
 ?>
