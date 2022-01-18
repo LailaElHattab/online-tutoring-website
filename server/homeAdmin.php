@@ -6,7 +6,7 @@ $sql = "SELECT id,fname,email,tutor_status FROM user WHERE type='4'";
 $result = $conn->query($sql);
 ?>
 
-<table class="table caption-top ms-3" id="tutorData">
+<table class="table caption-top ms-3 table-hover table-hover" id="tutorData">
     <caption>List of Tutors</caption>
     <thead>
         <tr>
@@ -55,7 +55,7 @@ $sql2 = "SELECT id,fname,email FROM user WHERE type='2'";
 $result2 = $conn->query($sql2);
 ?>
 </table>
-<table class="table caption-top ms-3" id="learnerData">
+<table class="table caption-top ms-3 table-hover" id="learnerData">
     <caption>List of Learners</caption>
     <thead>
         <tr>
@@ -91,7 +91,7 @@ $result2 = $conn->query($sql2);
 $sql3 = "SELECT id,name,status FROM course";
 $result3 = $conn->query($sql3);
 ?>
-<table class="table caption-top ms-3" id="courseData">
+<table class="table caption-top ms-3 table-hover" id="courseData">
     <caption>List of Courses</caption>
     <thead>
         <tr>
@@ -131,10 +131,10 @@ $result3 = $conn->query($sql3);
     </tbody>
 </table>
 <?php
-$sql4 = "SELECT id,fname,email FROM user WHERE type='1'";
+$sql4 = "SELECT id,fname,email,admin_rank FROM user WHERE type='1'";
 $result4 = $conn->query($sql4);
 ?>
-<table class="table caption-top ms-3" id="adminData">
+<table class="table caption-top ms-3 table-hover" id="adminData">
     <caption>List of Admins</caption>
     <thead>
         <tr>
@@ -147,23 +147,31 @@ $result4 = $conn->query($sql4);
     <tbody>
         <?php
         while ($row4 = $result4->fetch_assoc()) {
-        ?>
-            <tr>
+            if ($row4['admin_rank'] == 1) {
 
+
+        ?>
+                <tr class="table-primary">
+                <?php
+            } else {
+                ?>
+                <tr>
+                <?php
+            }
+                ?>
                 <td> <?php echo $row4['id'] ?></td>
                 <td> <?php echo $row4['fname'] ?></td>
                 <td> <?php echo $row4['email'] ?></td>
-
-                <td><button type="button" class="btn btn-primary btn-sm px-3" onclick="location.href='admin.php?id=<?php echo $row4['id'] ?>'">
+                <td><button type=" button" class="btn btn-primary btn-sm px-3" onclick="location.href='admin.php?id=<?php echo $row4['id'] ?>'">
                         <i class="bi bi-check"></i>
                     </button></td>
                 <!-- <td><button type="button" class="btn btn-primary btn-sm px-3">
                         open
                     </button></td> -->
-            </tr>
-        <?php
+                </tr>
+            <?php
         }
-        ?>
+            ?>
     </tbody>
 </table>
 <script>
