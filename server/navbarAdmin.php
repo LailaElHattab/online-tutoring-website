@@ -1,6 +1,4 @@
-<?php
-session_start();
-?>
+
 <html>
 <?php
 include_once 'database.php';
