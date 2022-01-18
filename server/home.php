@@ -24,7 +24,7 @@ if (!empty($_SESSION['user'])) {
     } else if ($_SESSION["user"] == 3) {
         // include_once 'navbarAdmin.php';
       //  include_once 'slideshow.php';
-        include_once($_SERVER['DOCUMENT_ROOT'] . "/online-tutoring-website/client/homeAuditor.html");
+        include_once($_SERVER['DOCUMENT_ROOT'] . "/online-tutoring-website/server/homeAuditor.php");
         //include_once($_SERVER['DOCUMENT_ROOT'] . "/online-tutoring-website/client/home.html");
         //tutor
     } else if ($_SESSION["user"] == 4) {
