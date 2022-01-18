@@ -25,7 +25,7 @@
 
 </head>
 
-<body id="body">
+<body id="bodyAdmin">
 
     <!--Heading-->
     <div class="intro vh-100 d-flex align-items-center" id="intro">
@@ -54,60 +54,12 @@
 
             <!--Learner tab-->
             <div class="tab-pane fade" id="learner" role="tabpanel" aria-labelledby="learner-tab">
-                <table class="table caption-top ms-3">
-                    <caption>List of Learners</caption>
-                    <thead>
-                        <tr>
-                            <th scope="col">ID</th>
-                            <th scope="col">Name</th>
-                            <th scope="col">View Messages</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row">
-                                <?php $_SESSION['id']?>
-                            </th>
-                            <td>
-                                <?php $_SESSION['name']?>
-                            </td>
-                            <td><button type="button" onclick="location.href='Conversations.php'"
-                                    class="btn btn-primary btn-sm px-3">
-                                    Messages
-                                </button></td>
-                        </tr>
 
-                    </tbody>
-                </table>
             </div>
 
             <!--Admins tab-->
             <div class="tab-pane fade" id="admin" role="tabpanel" aria-labelledby="admin-tab">
-                <table class="table caption-top ms-3">
-                    <caption>List of Admins</caption>
-                    <thead>
-                        <tr>
-                            <th scope="col">ID</th>
-                            <th scope="col">Name</th>
-                            <th scope="col">View Messages</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row">
-                                <?php $_SESSION['id']?>
-                            </th>
-                            <td>
-                                <?php $_SESSION['name']?>
-                            </td>
-                            <td><button type="button" onclick="location.href='Conversations.php'"
-                                    class="btn btn-primary btn-sm px-3">
-                                    Messages
-                                </button></td>
-                        </tr>
 
-                    </tbody>
-                </table>
             </div>
         </div>
     </div>
