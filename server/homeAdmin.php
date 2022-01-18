@@ -2,7 +2,7 @@
 <?php
 include_once 'database.php';
 include_once($_SERVER['DOCUMENT_ROOT'] . "/online-tutoring-website/client/homeAdmin.html");
-$sql = "SELECT id,fname,email FROM user WHERE type='4'";
+$sql = "SELECT id,fname,email,tutor_status FROM user WHERE type='4'";
 $result = $conn->query($sql);
 ?>
 
@@ -13,6 +13,7 @@ $result = $conn->query($sql);
             <th scope="col">ID</th>
             <th scope="col">Name</th>
             <th scope="col">Email</th>
+            <th scope="col">Status</th>
             <th scope="col">View</th>
         </tr>
     </thead>
@@ -25,7 +26,18 @@ $result = $conn->query($sql);
                 <td> <?php echo $row['id'] ?></td>
                 <td> <?php echo $row['fname'] ?></td>
                 <td> <?php echo $row['email'] ?></td>
+                <?php
+                if ($row['tutor_status'] == 0) {
+                ?>
+                    <td class="table-danger">Pending</td>
+                <?php
+                } else {
+                ?>
+                    <td class="table-success">Approved</td>
+                <?php
+                }
 
+                ?>
                 <td><button type="button" class="btn btn-primary btn-sm px-3" onclick="location.href='tutor.php?id=<?php echo $row['id'] ?>'">
                         <i class="bi bi-check"></i>
                     </button></td>
@@ -103,7 +115,7 @@ $result3 = $conn->query($sql3);
                 <?php
                 } else {
                 ?>
-                    <td class="table-success">Accepted</td>
+                    <td class="table-success">Approved</td>
                 <?php
                 }
                 ?>
