@@ -36,7 +36,7 @@ $result2 = $conn->query($sql2);
     </tbody>
 </table>
 <?php
-$sql4 = "SELECT id,fname,email FROM user WHERE type='1'";
+$sql4 = "SELECT id,fname,email,admin_rank FROM user WHERE type='1'";
 $result4 = $conn->query($sql4);
 ?>
 <table class="table caption-top ms-3" id="adminData">
@@ -52,9 +52,18 @@ $result4 = $conn->query($sql4);
     <tbody>
         <?php
         while ($row4 = $result4->fetch_assoc()) {
-        ?>
-            <tr>
+            if ($row4['admin_rank'] == 1) {
 
+
+        ?>
+                <tr class="table-primary">
+                <?php
+            } else {
+                ?>
+                <tr>
+                <?php
+            }
+                ?>
                 <td> <?php echo $row4['id'] ?></td>
                 <td> <?php echo $row4['fname'] ?></td>
                 <td> <?php echo $row4['email'] ?></td>
@@ -64,10 +73,10 @@ $result4 = $conn->query($sql4);
                 <!-- <td><button type="button" class="btn btn-primary btn-sm px-3">
                         open
                     </button></td> -->
-            </tr>
-        <?php
+                </tr>
+            <?php
         }
-        ?>
+            ?>
     </tbody>
 </table>
 <script>
