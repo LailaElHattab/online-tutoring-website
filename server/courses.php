@@ -75,7 +75,6 @@ session_start();
   include_once 'functions.php';
   if ($_GET['id'] == "") {
   ?>
-<<<<<<< HEAD
   <div class="container-fluid" id="con">
                 <img src="<?php echo $row['image'] ?>" class="img-fluid rounded" style="width: 400px; height: 200px" />
 
@@ -121,36 +120,27 @@ session_start();
                     }
                     fclose($file);
                     ?>
-=======
     <h4 style="text-align: center;">No course to show</h4>
+                  </div>
   <?php
   } else {
     $sql = "SELECT * FROM course where id='" . $_GET['id'] . "'";
     $result = $conn->query($sql);
     $row = $result->fetch_assoc();
   ?>
-    <section class="vh-100" id="backg">
-      <div class="container py-5 h-100">
-        <div class="row d-flex justify-content-center align-items-center h-100">
-          <div class="col-md-12">
-
-            <div class="card" style="border-radius: 20px;" id="learnerView">
-              <div class="card-body">
-                <div class="text-center">
+    <div class="container-fluid" id="con">
+  
                   <img src="<?php echo $row['image'] ?>" class="img-fluid rounded" style="width: 400px; height: 200px" />
 
                   <div class="mt-3 mb-4">
                     <h4 class="mb-2"><?php echo $row['name'] ?></h4>
->>>>>>> d016c3329cc5fc2954b7b61a79af8a754f9cfd82
                     <hr>
                     <?php
                     $rating = $row['rating'];
 
                     for ($i = 0; $i < (int)$rating; $i++) {
                     ?>
-<<<<<<< HEAD
                         <p id="cDesc" class="mb-2 h5">Course content</p>
-=======
                       <span class='fa fa-star checked'></span>
                     <?php
                     }
@@ -220,7 +210,6 @@ session_start();
                         $content = $row['content'];
                         ?>
                         <p class="mb-2 h5">Course content</p>
->>>>>>> d016c3329cc5fc2954b7b61a79af8a754f9cfd82
                         <?php
                         $file1 = fopen($content, "r");
                         while (!feof($file1)) {
@@ -241,23 +230,7 @@ session_start();
                           <button class="btn btn-sm" id="editcbtn" onclick="location.href='approveCourse.php?id=<?php echo $row['id'] ?>'">approve course</button>
 
                       <?php
-<<<<<<< HEAD
-                      }
-                    } else {
-
-                      $content = $row['content'];
-                      ?>
-                      <p id="cDesc" class="mb-2 h5">Course content</p>
-                      <?php
-                      $file1 = fopen($content, "r");
-                      while (!feof($file1)) {
-                        $line1 = fgets($file1);
-                      ?>
-                        <p class="mb-2"><?php echo $line1 ?></p>
-                      <?php
-=======
                         }
->>>>>>> d016c3329cc5fc2954b7b61a79af8a754f9cfd82
                       }
                       ?>
                       <h2 class="my-5 ms-5" style="font-family: Open Sans, sans-serif; font-size:20px;"><b>Reviews</b></h2>
@@ -320,20 +293,8 @@ session_start();
                       }
                       ?>
 
-<<<<<<< HEAD
 </div>
-=======
-                    </div>
-                  </div>
 
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
->>>>>>> d016c3329cc5fc2954b7b61a79af8a754f9cfd82
-
-    </section>
 
   <?php
   }
