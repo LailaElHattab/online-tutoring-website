@@ -7,7 +7,7 @@ $sql2 = "SELECT id,fname,email FROM user WHERE type='2'";
 $result2 = $conn->query($sql2);
 ?>
 </table>
-<table class="table caption-top ms-3" id="learnerData">
+<table class="table caption-top ms-3 table-hover" id="learnerData">
     <caption>List of Learners</caption>
     <thead>
         <tr>
@@ -36,10 +36,10 @@ $result2 = $conn->query($sql2);
     </tbody>
 </table>
 <?php
-$sql4 = "SELECT id,fname,email FROM user WHERE type='1'";
+$sql4 = "SELECT id,fname,email,admin_rank FROM user WHERE type='1'";
 $result4 = $conn->query($sql4);
 ?>
-<table class="table caption-top ms-3" id="adminData">
+<table class="table caption-top ms-3 table-hover" id="adminData">
     <caption>List of Admins</caption>
     <thead>
         <tr>
@@ -52,9 +52,18 @@ $result4 = $conn->query($sql4);
     <tbody>
         <?php
         while ($row4 = $result4->fetch_assoc()) {
-        ?>
-            <tr>
+            if ($row4['admin_rank'] == 1) {
 
+
+        ?>
+                <tr class="table-primary">
+                <?php
+            } else {
+                ?>
+                <tr>
+                <?php
+            }
+                ?>
                 <td> <?php echo $row4['id'] ?></td>
                 <td> <?php echo $row4['fname'] ?></td>
                 <td> <?php echo $row4['email'] ?></td>
@@ -64,15 +73,16 @@ $result4 = $conn->query($sql4);
                 <!-- <td><button type="button" class="btn btn-primary btn-sm px-3">
                         open
                     </button></td> -->
-            </tr>
-        <?php
+                </tr>
+            <?php
         }
-        ?>
+            ?>
     </tbody>
 </table>
 <script>
     table1 = document.getElementById('learnerData');
     document.getElementById('learner').append(table1);
+    console.log(document.getElementById('learner'));
     table2 = document.getElementById('adminData');
     document.getElementById('admin').append(table2);
 </script>
