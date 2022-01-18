@@ -34,7 +34,7 @@ include('nav.php');
                                     <div class="card-header py-3">
                                         <h5 class="mb-0">Payment details</h5>
                                     </div>
-                                    <form>
+                                    <form method="post">
                                         <div class="row mb-4">
                                             <div class="col">
                                                 <div class="form-outline">
@@ -132,23 +132,12 @@ include('nav.php');
                                             </div>
                                         </div>
 
-                                        <button class="btn btn-primary btn-lg btn-block" type="submit" style="
-                                                            color:white;
-                                                            text-decoration:none;">
-                                            Pay Now
-                                        </button>
+                                        <input class="btn btn-primary btn-lg btn-block" type="submit" style="color:white;text-decoration:none;" name="submit" value="Pay Now">
+
+
                                     </form>
 
-                                    <?php
-                                    if (isset($_POST['submit'])) {
-                                        $sql = "SELECT * FROM user WHERE id='" . $_SESSION['id'];
-                                        $result = result($conn, $sql);
 
-                                        $sql2 = "insert into enroll(learner_id, course_id, progress) values('" . $_SESSION['id'] . "','" . $_SESSION['course_id'] . "',0)";
-                                        $result2 = result($conn, $sql);
-                                    }
-
-                                    ?>
                                     <div class="row" id="summary">
                                         <div class="container mt-4">
                                             <div class="card mb-4 mb-lg-0">
@@ -177,6 +166,18 @@ include('nav.php');
                                         </div>
 
                                     </div>
+                                    <?php
+                                    if (isset($_POST['submit'])) {
+
+                                        $sql = "SELECT * FROM user WHERE id='" . $_SESSION['id'];
+                                        $result = $conn->query($sql);
+                                        for ($k = 0; $k < count($_SESSION['items']); $k++) {
+                                            $sql2 = "insert into enroll(learner_id, course_id, progress) values('" . $_SESSION['id'] . "','" . $_SESSION['items'][$k] . "',0)";
+                                            $result2 = $conn->query($sql2);
+                                        }
+                                    }
+
+                                    ?>
                                 </div>
                             </div>
                         </div>
