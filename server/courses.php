@@ -132,7 +132,7 @@ session_start();
 
                       <?php
                       }
-                    } else {
+                    } else if ($_SESSION['user'] == '1' || $_SESSION['user'] == '4') {
 
                       $content = $row['content'];
                       ?>

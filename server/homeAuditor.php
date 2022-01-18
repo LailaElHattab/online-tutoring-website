@@ -73,6 +73,7 @@ $result4 = $conn->query($sql4);
 <script>
     table1 = document.getElementById('learnerData');
     document.getElementById('learner').append(table1);
+    console.log(document.getElementById('learner'));
     table2 = document.getElementById('adminData');
     document.getElementById('admin').append(table2);
 </script>
