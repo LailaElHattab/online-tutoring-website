@@ -7,7 +7,7 @@ $sql2 = "SELECT id,fname,email FROM user WHERE type='2'";
 $result2 = $conn->query($sql2);
 ?>
 </table>
-<table class="table caption-top ms-3" id="learnerData">
+<table class="table caption-top ms-3 table-hover" id="learnerData">
     <caption>List of Learners</caption>
     <thead>
         <tr>
@@ -39,7 +39,7 @@ $result2 = $conn->query($sql2);
 $sql4 = "SELECT id,fname,email,admin_rank FROM user WHERE type='1'";
 $result4 = $conn->query($sql4);
 ?>
-<table class="table caption-top ms-3" id="adminData">
+<table class="table caption-top ms-3 table-hover" id="adminData">
     <caption>List of Admins</caption>
     <thead>
         <tr>
