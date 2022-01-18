@@ -128,7 +128,7 @@ include('nav.php');
                                                             </li>
                                                         </ul>
 
-                                                        <button type="button" class="btn btn-lg btn-block" id="checkout" onclick="location.href='checkout.php?total=<?php echo $total; ?>'" style="
+                                                        <button type="button" class="btn btn-lg btn-block" id="checkout" onclick="location.href='checkout.php?total=<?php echo $total;?>'" style="
                                                             color:white;
                                                             text-decoration:none;">
                                                             Go to checkout
