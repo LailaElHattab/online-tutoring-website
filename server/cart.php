@@ -51,11 +51,13 @@ include('database.php');
                                     if (empty($_SESSION['items'])) {
                                         echo "Your cart is empty..";
                                     } else {
+                                        $counter=0;
                                         for ($k = 0; $k < count($_SESSION['items']); $k++) {
                                             $total += $row2['price'];
                                             $sql2 = "SELECT * FROM course WHERE id='" . $_SESSION['items'][$k] . "'";
                                             $result2 = $conn->query($sql2);
                                             $row2 = $result2->fetch_assoc();
+                                            $counter++;
 
                                     ?>
                                             <div id="cartData">
@@ -125,7 +127,7 @@ include('database.php');
                                                             </li>
                                                         </ul>
 
-                                                        <button type="button" class="btn btn-lg btn-block" id="checkout" onclick=location.href='checkout.php?total=<?php echo $total ?>' style="
+                                                        <button type="button" class="btn btn-lg btn-block" id="checkout" onclick=location.href='checkout.php' style="
                                                             color:white;
                                                             text-decoration:none;">
                                                             Go to checkout
