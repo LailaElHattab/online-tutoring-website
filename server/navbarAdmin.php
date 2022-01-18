@@ -61,12 +61,14 @@ include_once 'database.php';
                     <div class="col-4">
                         <div class="collapse navbar-collapse  justify-content-center" id="navbar-list-4">
                             <ul class="navbar-nav">
+
                                 <li class="nav-item dropdown">
 
                                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         <?php echo $_SESSION['name']; ?>
 
                                     </a>
+
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                         <a class="dropdown-item" href="messages.php">Inbox</a>
                                         <a class="dropdown-item" href="editAccount.php">Edit Account</a>
@@ -74,6 +76,7 @@ include_once 'database.php';
                                         <a class="dropdown-item" href="SignOut.php">Log Out</a>
                                     </div>
                                 </li>
+                                <img class="rounded-circle shadow-1-strong me-3" src="<?php echo $_SESSION['picture']; ?>" alt="avatar" width="65" height="65" />
                             </ul>
                         </div>
                     </div>

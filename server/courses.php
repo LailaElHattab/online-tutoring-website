@@ -156,32 +156,61 @@ session_start();
                       ?>
                         <button class="btn btn-sm" id="editcbtn" onclick="location.href='approveCourse.php?id=<?php echo $row['id'] ?>'">approve course</button>
 
-                      <?php
+                    <?php
                       }
                     }
-
+                    ?>
+                    <h2 class="my-5 ms-5" style="font-family: Open Sans, sans-serif; font-size:20px;"><b>Reviews</b></h2>
+                    <hr>
+                    <?php
                     $reviews = readReviews($row['id']);
 
                     if ($reviews) {
-                      echo "<br>";
                       $user = searchUser($reviews['learner_id']);
-                      echo $user['fname'];
-                      echo "<br>";
                       $rating2 = $reviews['rating'];
 
-                      for ($i = 0; $i < (int)$rating2; $i++) {
-                      ?>
-                        <span class='fa fa-star checked'></span>
-                      <?php
-                      }
-                      $unchecked2 = 5 - $rating2;
-                      for ($j = 0; $j < $unchecked2; $j++) {
-                      ?>
-                        <span class='fa fa-star'></span>
-                      <?php
-                      }
+
                       echo "<br>";
-                      echo $reviews['comment'];
+
+                    ?>
+                      <div class="d-flex flex-start mb-4">
+                        <img class="rounded-circle shadow-1-strong me-3" src="<?php echo $user['picture']; ?>" alt="avatar" width="65" height="65" />
+                        <div class="card w-100">
+                          <div class="card-body p-4">
+                            <div class="">
+                              <h5> <?php echo $user['fname']; ?></h5>
+                              <?php
+                              for ($i = 0; $i < (int)$rating2; $i++) {
+                              ?>
+                                <span class='fa fa-star checked'></span>
+                              <?php
+                              }
+                              $unchecked2 = 5 - $rating2;
+                              for ($j = 0; $j < $unchecked2; $j++) {
+                              ?>
+                                <span class='fa fa-star'></span>
+                              <?php
+                              }
+                              ?>
+                              <p>
+                                <?php
+                                echo $reviews['comment'];
+                                ?>
+                              </p>
+
+                              <div class="d-flex justify-content-between align-items-center">
+                                <div class="d-flex align-items-center">
+                                  <a href="#!" class="link-muted me-2"><i class="bi bi-hand-thumbs-up"></i>
+                                    <a href="#!" class="link-muted"><i class="bi bi-hand-thumbs-down"></i>
+                                </div>
+                                <a href="#!" class="link-muted"><i class="bi bi-reply"></i></i> Reply</a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <?php
+
                       ?>
                       <!-- <button class="btn btn-sm">reply</button> -->
                     <?php
