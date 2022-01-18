@@ -134,7 +134,6 @@ session_start();
 
                   <div class="mt-3 mb-4">
                     <h4 class="mb-2"><?php echo $row['name'] ?></h4>
-                    <hr>
                     <?php
                     $rating = $row['rating'];
 
@@ -165,7 +164,7 @@ session_start();
                       <?php
                       $path = $row['description'];
                       ?>
-                      <p class="mb-2 h5">Course Description</p>
+                      <p id="cDesc" class="mb-2 h5">Course Description</p>
                       <?php
                       $file = fopen($path, "r");
                       while (!feof($file)) {
