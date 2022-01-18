@@ -10,7 +10,7 @@ if (!empty($_SESSION['user'])) {
         include_once 'navbarAdmin.php';
     } else if ($_SESSION["user"] == 2) {
 
-        include_once($_SERVER['DOCUMENT_ROOT'] . "/online-tutoring-website/client/navbarLearner.html");
+        include_once 'navbarLearner.php';
     } else if ($_SESSION["user"] == 3) {
         include_once 'navbarAdmin.php';
     } else if ($_SESSION["user"] == 4) {
