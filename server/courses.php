@@ -124,7 +124,7 @@ session_start();
                         echo "<hr>";
                         ?>
 
-                        <button class="btn btn-sm" id="editcbtn" onclick="location.href='survey.php'">review</button>
+                        <button class="btn btn-sm" id="editcbtn" onclick="location.href='survey.php?id=<?php echo $row['id'] ?>'">review</button>
                       <?php
                       } else {
                       ?>

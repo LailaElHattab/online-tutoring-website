@@ -46,7 +46,8 @@
             color: #9e9e9e;
         }
 
-        #s {
+
+        span {
             font-size: 0;
             /* trick to remove inline-element's margin */
         }
@@ -55,7 +56,7 @@
             color: #9e9e9e !important;
         }
 
-        #s.active a.active~a:after {
+        span.active a.active~a:after {
             color: #9e9e9e;
         }
 
@@ -70,14 +71,7 @@
     </style>
 
 
-    <script>
-        $('.stars a').on('click', function () {
-            $('.stars span, .stars a').removeClass('active');
 
-            $(this).addClass('active');
-            $('.stars span').addClass('active');
-        }); 
-    </script>
 
 </head>
 
@@ -111,17 +105,19 @@
 
                     <hr />
 
-                    <form class="px-4" action="">
+                    <form method="post" class="px-4" action="">
                         <p class="text-center"><strong>Your rating:</strong></p>
+                        <input type='hidden' name='course' value="<?php echo $_GET['id'] ?>">
+                        <p class="stars" style="text-align: center">
 
-                        <p class="stars">
-                            <span id="s">
-                                <a class="star-1" href="#">1</a>
-                                <a class="star-2" href="#">2</a>
-                                <a class="star-3" href="#">3</a>
-                                <a class="star-4" href="#">4</a>
-                                <a class="star-5" href="#">5</a>
+                            <span>
+                                <a class="star-1" name="star-1" href="#" onclick="$(this).toggleClass('active')">1</a>
+                                <a class="star-2" name="star-2" href="#" onclick="$(this).toggleClass('active')">2</a>
+                                <a class="star-3" name="star-3" href="#" onclick="$(this).toggleClass('active')">3</a>
+                                <a class="star-4" name="star-4" href="#" onclick="$(this).toggleClass('active')">4</a>
+                                <a class="star-5" name="star-5" href="#" onclick="$(this).toggleClass('active')">5</a>
                             </span>
+
                         </p>
 
                         <!-- <div class="form-check mb-2">
@@ -159,18 +155,19 @@
 
                         <!-- Message input -->
                         <div class="form-outline mb-4">
-                            <textarea class="form-control" placeholder="Your feedback.." id="form4Example4"
-                                rows="4"></textarea>
+                            <textarea class="form-control" placeholder="Your feedback.." id="form4Example4" rows="4"
+                                name="content"></textarea>
 
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal">
+                                Close
+                            </button>
+                            <input type="submit" name='submit' class="btn btn-outline-primary">
                         </div>
                     </form>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal">
-                        Close
-                    </button>
-                    <button type="button" class="btn btn-primary" id="subfeed">Submit</button>
-                </div>
+
             </div>
         </div>
     </div>
