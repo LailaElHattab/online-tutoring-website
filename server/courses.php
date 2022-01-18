@@ -165,7 +165,7 @@ session_start();
 
             $content = $row['content'];
             ?>
-            <p class="mb-2 h5">Course content</p>
+            <p class="mb-2 h5" id="cDesc">Course content</p>
             <?php
             $file1 = fopen($content, "r");
             while (!feof($file1)) {
