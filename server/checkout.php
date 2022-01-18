@@ -2,7 +2,7 @@
 session_start();
 
 include('database.php');
-include('navbar.php');
+include('nav.php');
 ?>
 <html>
 
