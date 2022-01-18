@@ -13,6 +13,15 @@ session_start();
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
   <style>
+      :root{
+    --primary: #5B25FF;
+    --dark: rgb(17, 16, 16);
+    --body: #363EE0;
+    --dark2: #1c1d1f;
+    --box-shadow: 2px 3px 5px grey;
+    --active:#FFA700;
+    --font:"Open Sans", sans-serif;
+}
     @media (min-width:768px) {
       #learnerView {
         display: flex;
@@ -26,21 +35,40 @@ session_start();
     }
 
     #learnerbody {
-      background-image: url(images/loginbackground.png);
-      background-repeat: no-repeat;
-      background-position-x: left;
-      background-position-y: 150px;
-      background-size: 400px;
-    }
-
+    background-image: url(images/wave.png);
+    background-repeat: no-repeat;
+    background-position-y: 0px;
+    background-size: contain; 
+ 
+  }
+  
     .checked {
       color: orange;
+    }
+    
+    #cName{
+        font-family: var(--font);
+        color: var(--dark);
+        font-weight: bold;
+    }
+    #cDesc{
+        font-family: var(--font);
+        color: var(--primary);
+        font-weight: bold;
+        font-size: 20px;
+    }
+    #con{
+    background-image: url(images/Background5.png);
+    background-repeat: no-repeat;
+    background-position-x: 900px;
+    background-position-y: 300px;
+    background-size: 350px;
     }
   </style>
 
 </head>
 
-<body class="d-flex flex-column min-vh-100" id="learnerbody">
+<body class="d-flex flex-column min-vh-100" id="learnerbody" >
   <?php
   include 'nav.php';
   include_once 'database.php';
@@ -50,19 +78,12 @@ session_start();
   $result = $conn->query($sql);
   $row = $result->fetch_assoc();
   ?>
-  <section class="vh-100" id="backg">
-    <div class="container py-5 h-100">
-      <div class="row d-flex justify-content-center align-items-center h-100">
-        <div class="col-md-12">
-
-          <div class="card" style="border-radius: 20px;" id="learnerView">
-            <div class="card-body">
-              <div class="text-center">
+  <div class="container-fluid" id="con">
                 <img src="<?php echo $row['image'] ?>" class="img-fluid rounded" style="width: 400px; height: 200px" />
 
                 <div class="mt-3 mb-4">
-                  <h4 class="mb-2"><?php echo $row['name'] ?></h4>
-                  <hr>
+                  <h4 class="mb-2" id="cName"><?php echo $row['name'] ?></h4>
+                  
                   <?php
                   $rating = $row['rating'];
 
@@ -79,7 +100,6 @@ session_start();
                   }
                   ?>
                 </div>
-
                 <?php
                 $sql0 = "SELECT fname FROM user where id='" . $row['tutor_id'] . "'";
                 $result0 = $conn->query($sql0);
@@ -92,7 +112,7 @@ session_start();
                     <?php
                     $path = $row['description'];
                     ?>
-                    <p class="mb-2 h5">Course Description</p>
+                    <p id="cDesc" class="mb-2 h5">Course Description</p>
                     <?php
                     $file = fopen($path, "r");
                     while (!feof($file)) {
@@ -112,7 +132,7 @@ session_start();
                       if ($result1->num_rows > 0) {
                         $content = $row['content'];
                     ?>
-                        <p class="mb-2 h5">Course content</p>
+                        <p id="cDesc" class="mb-2 h5">Course content</p>
                         <?php
                         $file1 = fopen($content, "r");
                         while (!feof($file1)) {
@@ -136,7 +156,7 @@ session_start();
 
                       $content = $row['content'];
                       ?>
-                      <p class="mb-2 h5">Course content</p>
+                      <p id="cDesc" class="mb-2 h5">Course content</p>
                       <?php
                       $file1 = fopen($content, "r");
                       while (!feof($file1)) {
@@ -220,16 +240,7 @@ session_start();
                     }
                     ?>
 
-                  </div>
-                </div>
-
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-  </section>
+</div>
 
 
 </body>
