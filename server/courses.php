@@ -38,7 +38,7 @@ session_start();
     #learnerbody {
       background-image: url(images/wave.png);
       background-repeat: no-repeat;
-      background-position-y: 0px;
+      background-position-y: 90px;
       background-size: contain;
 
     }
@@ -66,6 +66,8 @@ session_start();
       background-position-x: 900px;
       background-position-y: 300px;
       background-size: 350px;
+      padding-top: 170px;
+      padding-left: 160px;
     }
   </style>
 
@@ -86,7 +88,7 @@ session_start();
     $row = $result->fetch_assoc();
   ?>
 
-    <div class="container-fluid" id="con">
+    <div class="container-fluid mt-5" id="con">
 
       <img src="<?php echo $row['image'] ?>" class="img-fluid rounded" style="width: 400px; height: 200px" />
 
