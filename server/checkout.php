@@ -2,7 +2,7 @@
 session_start();
 
 include('database.php');
-include('navbar.php');
+include('nav.php');
 ?>
 <html>
 
@@ -140,48 +140,49 @@ include('navbar.php');
                                     </form>
 
                                     <?php
-                                        if(isset($_POST['submit'])){
-                                            $sql="SELECT * FROM user WHERE id='".$_SESSION['id'];
-                                            $result = result($conn, $sql);
+                                    if (isset($_POST['submit'])) {
+                                        $sql = "SELECT * FROM user WHERE id='" . $_SESSION['id'];
+                                        $result = result($conn, $sql);
 
-                                            $sql2="insert into enroll(learner_id, course_id, progress) values('".$_SESSION['id']."','".$_SESSION['course_id']."',0)";
-                                            $result2 = result($conn, $sql);
-                                        }
+                                        $sql2 = "insert into enroll(learner_id, course_id, progress) values('" . $_SESSION['id'] . "','" . $_SESSION['course_id'] . "',0)";
+                                        $result2 = result($conn, $sql);
+                                    }
 
                                     ?>
                                     <div class="row" id="summary">
-                                            <div class="container mt-4">
-                                                <div class="card mb-4 mb-lg-0">
-                                                    <div class="card-header py-3">
-                                                        <h5 class="mb-0">Summary</h5>
-                                                    </div>
-                                                    <div class="card-body">
-                                                        <ul class="list-group list-group-flush">
-                                                            <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3">
-                                                                Products
-                                                                <span><?php echo $counter; ?></span>
-                                                            </li>
-                                                            <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3">
-                                                                <div>
-                                                                    <strong>Total amount</strong>
-                                                                    <strong>
-                                                                        <p class="mb-0">(including VAT)</p>
-                                                                    </strong>
-                                                                </div>
-                                                                <span><strong> <?php echo $total; ?></strong></span>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
+                                        <div class="container mt-4">
+                                            <div class="card mb-4 mb-lg-0">
+                                                <div class="card-header py-3">
+                                                    <h5 class="mb-0">Summary</h5>
                                                 </div>
-
+                                                <div class="card-body">
+                                                    <ul class="list-group list-group-flush">
+                                                        <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3">
+                                                            Products
+                                                            <span><?php echo $counter; ?></span>
+                                                        </li>
+                                                        <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3">
+                                                            <div>
+                                                                <strong>Total amount</strong>
+                                                                <strong>
+                                                                    <p class="mb-0">(including VAT)</p>
+                                                                </strong>
+                                                            </div>
+                                                            <span><strong> <?php echo $total; ?></strong></span>
+                                                        </li>
+                                                    </ul>
+                                                </div>
                                             </div>
+
+                                        </div>
                                     </div>
-                                </div> 
+                                </div>
                             </div>
                         </div>
-                </div>
+                    </div>
             </div>
-        </div>      
+        </div>
     </section>
 </body>
+
 </html>
