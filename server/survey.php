@@ -24,22 +24,11 @@ include_once 'database.php';
 include_once($_SERVER['DOCUMENT_ROOT'] . "/online-tutoring-website/client/survey.html");
 
 if (isset($_POST['submit'])) {
-    // $rate = 0;
-    // for ($i = 5; $i > 0; $i--) {
-    //     $name = "star-" . $i;
-    //     if ($_POST[$name]) {
-    //         $rate = $i;
-    //         break;
-    //     }
-    // }
-    echo $rate;
+
+    $rate = $_POST['rating'];
     $textareaValue = trim($_POST['content']);
     $sql = "INSERT INTO feedback (learner_id,course_id,comment,rating) VALUES ('" . $_SESSION['id'] . "','" . $_POST['course'] . "','" . $textareaValue . "','" . $rate . "')";
     $conn->query($sql);
-    // $affectedRows = mysqli_affected_rows($conn);
-    // if ($affectedRows == 1) {
-    //     $successMsg = "Record has been saved successfully";
-    // }
 }
 ?>
 
