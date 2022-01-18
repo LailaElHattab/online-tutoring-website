@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jan 18, 2022 at 02:52 AM
+-- Generation Time: Jan 17, 2022 at 09:39 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.11
 
@@ -159,17 +159,8 @@ CREATE TABLE `feedback` (
   `id` int(11) NOT NULL,
   `learner_id` int(11) NOT NULL,
   `course_id` int(11) NOT NULL,
-  `comment` varchar(255) NOT NULL,
-  `rating` int(11) NOT NULL
+  `comment` tinytext NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `feedback`
---
-
-INSERT INTO `feedback` (`id`, `learner_id`, `course_id`, `comment`, `rating`) VALUES
-(1, 14, 1, 'This course is great', 5),
-(12, 14, 2, 'The course is really helpful', 4);
 
 -- --------------------------------------------------------
 
@@ -194,11 +185,7 @@ INSERT INTO `message` (`id`, `sent_by`, `received_by`, `message`, `createdAt`, `
 (77, 2, 5, 'hello laila', '2022-01-17 03:35:03pm', 1),
 (80, 5, 2, 'hello basma', '2022-01-17 03:48:41pm', 1),
 (88, 2, 5, 'i hope you are fine', '2022-01-17 06:31:36pm', 1),
-(89, 5, 2, 'I\'m doing great thank you', '2022-01-17 06:34:25pm', 1),
-(97, 2, 5, 'heuwhf', '2022-01-17 09:43:53pm', NULL),
-(98, 2, 5, 'hi\r\n', '2022-01-17 11:23:46pm', NULL),
-(99, 2, 5, 'you there', '2022-01-17 11:23:54pm', NULL),
-(100, 2, 5, 'hey', '2022-01-17 11:40:32pm', NULL);
+(89, 5, 2, 'I\'m doing great thank you', '2022-01-17 06:34:25pm', 1);
 
 -- --------------------------------------------------------
 
@@ -447,13 +434,13 @@ ALTER TABLE `course`
 -- AUTO_INCREMENT for table `feedback`
 --
 ALTER TABLE `feedback`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `message`
 --
 ALTER TABLE `message`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=101;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=97;
 
 --
 -- AUTO_INCREMENT for table `question`
@@ -509,7 +496,7 @@ ALTER TABLE `enroll`
 --
 ALTER TABLE `feedback`
   ADD CONSTRAINT `feedback_ibfk_1` FOREIGN KEY (`learner_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `feedback_ibfk_2` FOREIGN KEY (`course_id`) REFERENCES `course` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `feedback_ibfk_2` FOREIGN KEY (`course_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `message`

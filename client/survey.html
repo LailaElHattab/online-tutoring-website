@@ -25,43 +25,53 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <style>
-        .rating {
-            display: flex;
-            flex-direction: row-reverse;
-            justify-content: center
-        }
-
-        .rating>input {
-            display: none
-        }
-
-        .rating>label {
-            position: relative;
-            width: 1em;
-            font-size: 30px;
-            color: #FFD600;
-            cursor: pointer
-        }
-
-        .rating>label::before {
-            content: "\2605";
+        .stars input {
             position: absolute;
-            opacity: 0
+            left: -999999px;
         }
 
-        .rating>label:hover:before,
-        .rating>label:hover~label:before {
-            opacity: 1 !important
+        .stars a {
+            display: inline-block;
+            padding-right: 4px;
+            text-decoration: none;
+            margin: 0;
         }
 
-        .rating>input:checked~label:before {
-            opacity: 1
+        .stars a:after {
+            position: relative;
+            font-size: 18px;
+            font-family: 'FontAwesome', serif;
+            display: block;
+            content: "\f005";
+            color: #9e9e9e;
         }
 
-        .rating:hover>input:checked~label:before {
-            opacity: 0.4
+
+        span {
+            font-size: 0;
+            /* trick to remove inline-element's margin */
+        }
+
+        .stars a:hover~a:after {
+            color: #9e9e9e !important;
+        }
+
+        span.active a.active~a:after {
+            color: #9e9e9e;
+        }
+
+        span:hover a:after {
+            color: blue !important;
+        }
+
+        span.active a:after,
+        .stars a.active:after {
+            color: blue;
         }
     </style>
+
+
+
 
 </head>
 
@@ -100,12 +110,14 @@
                         <input type='hidden' name='course' value="<?php echo $_GET['id'] ?>">
                         <p class="stars" style="text-align: center">
 
-                        <div class="rating"> <input type="radio" name="rating" value="5" id="5"><label for="5">☆</label>
-                            <input type="radio" name="rating" value="4" id="4"><label for="4">☆</label> <input
-                                type="radio" name="rating" value="3" id="3"><label for="3">☆</label> <input type="radio"
-                                name="rating" value="2" id="2"><label for="2">☆</label> <input type="radio"
-                                name="rating" value="1" id="1"><label for="1">☆</label>
-                        </div>
+                            <span>
+                                <a class="star-1" name="star-1" href="#" onclick="$(this).toggleClass('active')">1</a>
+                                <a class="star-2" name="star-2" href="#" onclick="$(this).toggleClass('active')">2</a>
+                                <a class="star-3" name="star-3" href="#" onclick="$(this).toggleClass('active')">3</a>
+                                <a class="star-4" name="star-4" href="#" onclick="$(this).toggleClass('active')">4</a>
+                                <a class="star-5" name="star-5" href="#" onclick="$(this).toggleClass('active')">5</a>
+                            </span>
+
                         </p>
 
                         <!-- <div class="form-check mb-2">

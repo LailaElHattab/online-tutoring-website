@@ -3,7 +3,6 @@ session_start();
 
 include('database.php');
 include('nav.php');
-
 ?>
 <html>
 
@@ -52,9 +51,9 @@ include('nav.php');
                                     if (empty($_SESSION['items'])) {
                                         echo "Your cart is empty..";
                                     } else {
+                                        $total = 0;
                                         $counter = 0;
                                         for ($k = 0; $k < count($_SESSION['items']); $k++) {
-
                                             $sql2 = "SELECT * FROM course WHERE id='" . $_SESSION['items'][$k] . "'";
                                             $result2 = $conn->query($sql2);
                                             $row2 = $result2->fetch_assoc();

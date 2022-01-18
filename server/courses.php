@@ -167,20 +167,6 @@ session_start();
                       $user = searchUser($reviews['learner_id']);
                       echo $user['fname'];
                       echo "<br>";
-                      $rating2 = $reviews['rating'];
-
-                      for ($i = 0; $i < (int)$rating2; $i++) {
-                      ?>
-                        <span class='fa fa-star checked'></span>
-                      <?php
-                      }
-                      $unchecked2 = 5 - $rating2;
-                      for ($j = 0; $j < $unchecked2; $j++) {
-                      ?>
-                        <span class='fa fa-star'></span>
-                      <?php
-                      }
-                      echo "<br>";
                       echo $reviews['comment'];
                       ?>
                       <!-- <button class="btn btn-sm">reply</button> -->
