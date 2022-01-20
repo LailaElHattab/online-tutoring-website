@@ -3,6 +3,7 @@ session_start();
 
 include('database.php');
 include('nav.php');
+include_once 'functions.php';
 ?>
 <html>
 
@@ -187,5 +188,8 @@ include('nav.php');
         </div>
     </section>
 </body>
+<?php
+footer();
+?>
 
 </html>
