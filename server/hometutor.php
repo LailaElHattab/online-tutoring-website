@@ -1,6 +1,7 @@
 <html>
 <?php
 include_once 'database.php';
+include_once 'functions.php';
 
 $sql = "SELECT * FROM course WHERE tutor_id='" . $_SESSION['id'] . "'";
 $result = $conn->query($sql);

@@ -1,6 +1,7 @@
 <html>
 <?php
 include_once 'database.php';
+include_once 'functions.php';
 include_once($_SERVER['DOCUMENT_ROOT'] . "/online-tutoring-website/client/homeAuditor.html");
 
 $sql2 = "SELECT id,fname,email FROM user WHERE type='2'";

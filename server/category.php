@@ -15,6 +15,7 @@ session_start();
 <?php
 include_once 'database.php';
 include_once 'nav.php';
+include_once 'functions.php';
 ?>
 
 <body>
@@ -56,6 +57,7 @@ include_once 'nav.php';
 
   <?php
   }
+  footer();
   ?>
 </body>
 
