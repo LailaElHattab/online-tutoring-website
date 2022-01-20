@@ -32,6 +32,7 @@ include_once 'functions.php';
   ?>
   <br>
   <h3><?php echo $row1['name']; ?> Courses</h3>
+  <hr align="left" width="50%">
   <br>
   <h5>Courses to get you started</h5>
 
