@@ -1,4 +1,5 @@
 <html>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <?php
 include_once 'database.php';
 include_once 'functions.php';
@@ -180,6 +181,7 @@ $sql5 = "SELECT * FROM purchase";
 $result5 = $conn->query($sql5);
 ?>
 <table class="table caption-top ms-3 table-hover" id="orderData">
+
     <caption>List of Orders</caption>
     <thead>
         <tr>

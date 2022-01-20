@@ -1,31 +1,28 @@
 <?php
 include 'database.php';
 $output = '';
+
 if (isset($_POST["query"])) {
+	$id = 1;
 	$search = mysqli_real_escape_string($conn, $_POST["query"]);
 	$query = "
-	SELECT * FROM course WHERE name LIKE '%$search%';
+	SELECT * FROM course WHERE name LIKE '$search%';
 	";
 } else {
+	$id = -1;
 	$query = "
-	SELECT * FROM course ORDER BY id";
+	SELECT * FROM course WHRERE id=-1";
 }
-$result = mysqli_query($conn, $query);
-if ($result->num_rows > 0) {
-	$output .= '<div class="table-responsive">
-					<table class="table table bordered">
-						<tr>
-							<th>Course Name</th>
-						</tr>';
-	while ($row = mysqli_fetch_array($result)) {
-		$output .= '
-			<tr>
-				<td>' . $row["name"] . '</td>
-				
-			</tr>
-		';
+if ($id == 1) {
+	$result = mysqli_query($conn, $query);
+	if ($result->num_rows > 0) {
+		$output .= '<div class="dropdown"> <div class="dropdown-content">';
+		while ($row = mysqli_fetch_array($result)) {
+			$output .=  "<a href='courses.php?id=" . $row['id'] . "'>" . $row['name'] . "</a>";
+		}
+		$output .= '</div></div>';
+		echo $output;
+	} else {
+		echo 'Data Not Found';
 	}
-	echo $output;
-} else {
-	echo 'Data Not Found';
 }
