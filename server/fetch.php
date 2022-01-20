@@ -18,7 +18,7 @@ if ($id == 1) {
 	if ($result->num_rows > 0) {
 		$output .= '<div class="dropdown"> <div class="dropdown-content">';
 		while ($row = mysqli_fetch_array($result)) {
-			$output .=  "<a href='courses.php?id=" . $row['id'] . "'>" . $row['name'] . "</a>";
+			$output .=  "<a style='text-decoration:none; color:black; display: inline-block;margin:0.01em' href='courses.php?id=" . $row['id'] . "'>" . $row['name'] . "</a><hr style='width:40px'>";
 		}
 		$output .= '</div></div>';
 		echo $output;
