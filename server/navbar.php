@@ -41,7 +41,7 @@ include_once 'database.php';
                     </div> -->
                     <form class="w-auto">
                         <input type="text" class="form-control" name="search_text" placeholder="Search" id="search_text" aria-label="Search" />
-                        <div id="result" class="dropdown-content"></div>
+
                     </form>
 
 
@@ -92,6 +92,7 @@ include_once 'database.php';
 
 
 </body>
+<div id="result" class="dropdown-content"></div>
 
 </html>
 <script>
