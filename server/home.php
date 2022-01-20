@@ -4,8 +4,9 @@ session_start();
 <html>
 
 <?php
-include 'nav.php';
 include 'functions.php';
+include 'nav.php';
+
 //admin
 if (!empty($_SESSION['user'])) {
     if ($_SESSION["user"] == 1) {

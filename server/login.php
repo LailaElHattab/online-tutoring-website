@@ -31,7 +31,12 @@ ob_start();
                 $_SESSION["email"] = $row["email"];
                 $_SESSION["password"] = $row["password"];
                 $_SESSION["user"] = $row["type"];
-                $_SESSION["picture"] = $row["picture"];
+                if ($row["picture"] != '') {
+                    $_SESSION["picture"] = $row["picture"];
+                } else {
+                    $_SESSION["picture"] = "images/pic.png";
+                }
+
                 $_SESSION['items'] = array();
                 if (isset($_POST['remember'])) {
                     $_SESSION['start'] = time();

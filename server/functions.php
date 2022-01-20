@@ -22,15 +22,16 @@ function addData($conn, $sql)
     </div>
 <?php
 }
-function printUser($sql)
+function select($sql)
 {
-    include 'database.php';
+    include_once 'database.php';
     $result = $conn->query($sql);
     return $result->fetch_assoc();
 }
+
 function printCourse($sql)
 {
-    include 'database.php';
+    include_once 'database.php';
     $result = $conn->query($sql);
     return $result;
 }

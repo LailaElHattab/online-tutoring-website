@@ -174,7 +174,9 @@ include_once 'functions.php';
                                         $result = $conn->query($sql);
                                         for ($k = 0; $k < count($_SESSION['items']); $k++) {
                                             $sql2 = "insert into enroll(learner_id, course_id, progress) values('" . $_SESSION['id'] . "','" . $_SESSION['items'][$k] . "',0)";
+                                            $sql3 = "insert into purchase(learner_id, course_id,details,createdAt) values('" . $_SESSION['id'] . "','" . $_SESSION['items'][$k] . "','" . $_GET['total'] . "','" . date("Y-m-d h:i:sa") . "')";
                                             $result2 = $conn->query($sql2);
+                                            $result3 = $conn->query($sql3);
                                         }
                                     }
 
