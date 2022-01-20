@@ -16,12 +16,13 @@ session_start();
     #learnerView {
       width: 500px;
     }
+
     @media (min-width:768px) {
-    #learnerView {
-      display: flex;
-      width: 500px;
+      #learnerView {
+        display: flex;
+        width: 500px;
+      }
     }
-  }
 
     #backg {
       background-color: white;

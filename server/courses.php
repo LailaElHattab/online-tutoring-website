@@ -256,6 +256,7 @@ session_start();
 
     <?php
   }
+
     ?>
 </body>
 

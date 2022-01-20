@@ -7,6 +7,7 @@ session_start();
 <?php
 include 'database.php';
 include_once($_SERVER['DOCUMENT_ROOT'] . "/online-tutoring-website/client/signup.html");
+include 'functions.php';
 if (isset($_POST['signup'])) {
     if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL) === false) {
 
@@ -53,6 +54,8 @@ if (isset($_POST['signup'])) {
         }
     }
 }
+
+
 
 
 

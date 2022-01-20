@@ -1,6 +1,6 @@
 <?php
 //Function to delete data e.g delete user, delete account
-function deleteData($conn, $sql)
+function deleteData($sql)
 {
     include_once 'database.php';
     $conn->query($sql);
@@ -22,15 +22,16 @@ function addData($conn, $sql)
     </div>
 <?php
 }
-function printUser($sql)
+function select($sql)
 {
-    include 'database.php';
+    include_once 'database.php';
     $result = $conn->query($sql);
     return $result->fetch_assoc();
 }
+
 function printCourse($sql)
 {
-    include 'database.php';
+    include_once 'database.php';
     $result = $conn->query($sql);
     return $result;
 }
@@ -106,24 +107,7 @@ function getCounter()
 function footer()
 {
 ?>
-    <html>
-
-    <head>
-        <meta name="viewport" content="width=device-width , initial-scale=1">
-        <link rel="stylesheet" type="text/css" href="styles/styles.css">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
-        <script src="https://code.jquery.com/jquery-3.6.0.slim.js" integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>
-        <link href='https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css' rel='stylesheet'>
-        <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css' rel='stylesheet'>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-        <script type='text/javascript' src=''></script>
-        <script type='text/javascript' src='https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js'></script>
-        <script type='text/javascript' src='https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js'></script>
-    </head>
-    <!--Footer-->
-    <footer class="bg-dark text-center text-white mt-auto">
+    <footer class="bg-dark text-center text-white">
         <!-- Grid container -->
         <div class="container p-4 pb-0">
             <!-- Section: Form -->
@@ -168,12 +152,11 @@ function footer()
         <!-- Copyright -->
         <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
             © 2022 Copyright:
-            <a class="text-white" href="https://edupedia.com/">Edupedia.com</a>
+            <a class="text-white" href="home.php">Edupedia.com</a>
         </div>
         <!-- Copyright -->
     </footer>
 
-    </html>
 <?php
 }
 ?>

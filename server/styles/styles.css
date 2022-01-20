@@ -251,22 +251,26 @@
 }
 /*editProfile page*/
 
-#deletebtn {
+#deletebtn,#emailbtn{
     background-color: var(--active);
 }
 #deletebtn:hover{
-    color: whitesmoke;
+    /* color: whitesmoke; */
+    background-color: var(--primary);
+}
+#emailbtn:hover{
+    /* color: whitesmoke; */
     background-color: var(--primary);
 }
 
-#deletebtn:active{
+#deletebtn,#emailbtn:active{
     background-color: var(--active);
 }
 #emailbtn,#pwdbtn,#deletebtn {
     color:whitesmoke;
     box-shadow: var(--box-shadow);
 }
-#emailbtn,#pwdbtn{
+#pwdbtn{
     background-color: var(--primary);
 }
 #editpbtn{

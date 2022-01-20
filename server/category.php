@@ -15,6 +15,7 @@ session_start();
 <?php
 include_once 'database.php';
 include_once 'nav.php';
+include_once 'functions.php';
 ?>
 
 <body>
@@ -30,7 +31,8 @@ include_once 'nav.php';
   $row1 = $result2->fetch_assoc();
   ?>
   <br>
-  <h3 class="ms-5"><?php echo $row1['name']; ?> Courses</h3>
+  <h3><?php echo $row1['name']; ?> Courses</h3>
+  <hr align="left" width="50%">
   <br>
   <h5 class="ms-5">Courses to get you started</h5>
 
@@ -56,6 +58,7 @@ include_once 'nav.php';
 
   <?php
   }
+  footer();
   ?>
 </body>
 

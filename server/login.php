@@ -2,6 +2,7 @@
 session_start();
 //The header function didn't redirect - header is stored in buffer and afterwards the buffer is flushed
 ob_start();
+
 ?>
 <html>
 <script src="validations.js"></script>
@@ -12,6 +13,7 @@ ob_start();
     include_once 'database.php';
     include_once($_SERVER['DOCUMENT_ROOT'] . "/online-tutoring-website/client/login.html");
     include_once 'errorHandling.php';
+
 
     // set_error_handler("customError");
     if (isset($_POST['login'])) {
@@ -29,7 +31,12 @@ ob_start();
                 $_SESSION["email"] = $row["email"];
                 $_SESSION["password"] = $row["password"];
                 $_SESSION["user"] = $row["type"];
-                $_SESSION["picture"] = $row["picture"];
+                if ($row["picture"] != '') {
+                    $_SESSION["picture"] = $row["picture"];
+                } else {
+                    $_SESSION["picture"] = "images/pic.png";
+                }
+
                 $_SESSION['items'] = array();
                 if (isset($_POST['remember'])) {
                     $_SESSION['start'] = time();

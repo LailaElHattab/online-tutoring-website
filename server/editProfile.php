@@ -7,31 +7,18 @@ session_start();
 include_once "database.php";
 include 'nav.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . "/online-tutoring-website/client/editProfile.html";
-$sql = "SELECT fname,picture FROM user WHERE id='" . $_SESSION['id'] . "'";
-$result = $conn->query($sql);
-$row = $result->fetch_assoc();
-if ($row['picture'] == '') {
-?>
-    <script>
-        el1 = document.createElement("img");
-        el1.setAttribute("src", "images/pic.png");
-        el1.setAttribute("style", "width:170px; height:170px;");
-        el1.setAttribute("class", "rounded-circle");
-        document.getElementById("pic").prepend(el1);
-    </script>
-<?php
-} else {
+
 
 ?>
-    <script>
-        el1 = document.createElement("img");
-        el1.setAttribute("src", '<?php echo $row['picture'] ?>');
-        el1.setAttribute("style", "width:170px; height:170px;");
-        el1.setAttribute("class", "rounded-circle");
-        document.getElementById("pic").prepend(el1);
-    </script>
-    <?php
-}
+<script>
+    el1 = document.createElement("img");
+    el1.setAttribute("src", "<?php echo $_SESSION['picture']; ?>");
+    el1.setAttribute("style", "width:170px; height:170px;");
+    el1.setAttribute("class", "rounded-circle");
+    document.getElementById("pic").prepend(el1);
+</script>
+<?php
+
 $answer = true;
 if (isset($_POST['save'])) {
     $newstr = filter_var($_POST['name'], FILTER_SANITIZE_STRING);
@@ -42,7 +29,7 @@ if (isset($_POST['save'])) {
             $_SESSION['name'] = $_POST['name'];
         }
     } else {
-    ?>
+?>
         <label>please remove illegal characters e.g numbers, special characters </label>
         <?php
         $answer = false;
