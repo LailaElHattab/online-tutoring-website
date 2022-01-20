@@ -34,14 +34,14 @@ include_once 'functions.php';
   <h3><?php echo $row1['name']; ?> Courses</h3>
   <hr align="left" width="50%">
   <br>
-  <h5>Courses to get you started</h5>
+  <h5 class="ms-5">Courses to get you started</h5>
 
   <?php
   while ($row = $result->fetch_assoc()) {
   ?>
 
 
-    <div class="card my-3" style="width: 1000px; height: 200px">
+    <div class="card my-3 ms-5" style="width: 1000px; height: 200px">
       <div class="row ">
         <div class="col-md-4">
           <img src=<?php echo $row['image'] ?> class="img-fluid rounded" />
