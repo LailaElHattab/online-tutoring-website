@@ -33,12 +33,6 @@ include_once 'database.php';
             <div class="collapse navbar-collapse col-3 mx-5 mt-1" id="main-nav">
                 <!--Search bar -->
                 <div class="col-3 mx-5 mt-1">
-                    <!-- <div class="form-group">
-                        <div class="input-group">
-                            <span class="input-group-addon">Search</span>
-                            <input type="text" name="search_text" id="search_text" placeholder="Search by Customer Details" class="form-control" />
-                        </div>
-                    </div> -->
                     <form class="w-auto">
                         <input type="text" class="form-control" name="search_text" placeholder="Search" id="search_text" aria-label="Search" />
 
