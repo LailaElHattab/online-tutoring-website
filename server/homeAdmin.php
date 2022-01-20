@@ -175,6 +175,41 @@ $result4 = $conn->query($sql4);
             ?>
     </tbody>
 </table>
+<?php
+$sql5 = "SELECT id,learner_id,details FROM purchase";
+$result5 = $conn->query($sql5);
+?>
+<table class="table caption-top ms-3 table-hover" id="orderData">
+    <caption>List of Orders</caption>
+    <thead>
+        <tr>
+            <th scope=" col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Amount</th>
+            <th scope="col">View</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        <?php
+        while ($row5 = $result5->fetch_assoc()) {
+            $result6 = select("SELECT email FROM user WHERE id='" . $row5['learner_id'] . "'");
+        ?>
+
+            <tr>
+                <td><?php echo $row5['id'] ?></td>
+                <td><?php echo $result6['email']; ?></td>
+                <td><?php echo "E£" . $row5['details'] ?></td>
+                <td><button type="button" class="btn btn-primary btn-sm px-3" onclick="location.href='orders.php?id=<?php echo $row5['id'] ?>'">
+                        view
+                    </button></td>
+            </tr>
+        <?php
+        }
+        ?>
+
+    </tbody>
+</table>
 <script>
     table1 = document.getElementById('tutorData');
     document.getElementById('tutor').append(table1);
@@ -184,6 +219,8 @@ $result4 = $conn->query($sql4);
     document.getElementById('learner').append(table3);
     table4 = document.getElementById('courseData');
     document.getElementById('course').append(table4);
+    table5 = document.getElementById('orderData');
+    document.getElementById('order').append(table5);
 </script>
 
 </html>

@@ -168,15 +168,23 @@ include_once 'functions.php';
 
                                     </div>
                                     <?php
+                                    $id = 0;
                                     if (isset($_POST['submit'])) {
-
-                                        $sql = "SELECT * FROM user WHERE id='" . $_SESSION['id'];
-                                        $result = $conn->query($sql);
+                                        $sql0 = "SELECT MAX(id) AS max_id FROM purchase";
+                                        $result0 = $conn->query($sql0);
+                                        $row = $result0->fetch_assoc();
+                                        if ($row['max_id'] != '') {
+                                            $id = $row['max_id'] + 1;
+                                        } else {
+                                            $id = 0;
+                                        }
+                                        $sql1 = "insert into purchase(id,learner_id, details) values('" . $id . "','" . $_SESSION['id'] . "','" . $_GET['total'] . "')";
+                                        $result1 = $conn->query($sql1);
                                         for ($k = 0; $k < count($_SESSION['items']); $k++) {
-                                            $sql2 = "insert into enroll(learner_id, course_id, progress) values('" . $_SESSION['id'] . "','" . $_SESSION['items'][$k] . "',0)";
-                                            $sql3 = "insert into purchase(learner_id, course_id,details,createdAt) values('" . $_SESSION['id'] . "','" . $_SESSION['items'][$k] . "','" . $_GET['total'] . "','" . date("Y-m-d h:i:sa") . "')";
-                                            $result2 = $conn->query($sql2);
+                                            $sql3 = "insert into enroll(learner_id, course_id) values('" . $_SESSION['id'] . "','" . $_SESSION['items'][$k] . "')";
+                                            $sql4 = "insert into purchaseItem(purchase_id,course_id) values('" . $id . "','" . $_SESSION['items'][$k] . "')";
                                             $result3 = $conn->query($sql3);
+                                            $result4 = $conn->query($sql4);
                                         }
                                     }
 

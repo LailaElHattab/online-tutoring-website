@@ -24,7 +24,7 @@ function addData($conn, $sql)
 }
 function select($sql)
 {
-    include_once 'database.php';
+    include 'database.php';
     $result = $conn->query($sql);
     return $result->fetch_assoc();
 }
