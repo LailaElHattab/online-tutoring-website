@@ -178,7 +178,7 @@ include_once 'functions.php';
                                         } else {
                                             $id = 0;
                                         }
-                                        $sql1 = "insert into purchase(id,learner_id, details) values('" . $id . "','" . $_SESSION['id'] . "','" . $_GET['total'] . "')";
+                                        $sql1 = "insert into purchase(id,learner_id,createdAt, details) values('" . $id . "','" . $_SESSION['id'] . "','" . date("Y-m-d h:i:sa") . "''" . $_GET['total'] . "')";
                                         $result1 = $conn->query($sql1);
                                         for ($k = 0; $k < count($_SESSION['items']); $k++) {
                                             $sql3 = "insert into enroll(learner_id, course_id) values('" . $_SESSION['id'] . "','" . $_SESSION['items'][$k] . "')";

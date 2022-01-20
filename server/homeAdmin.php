@@ -176,7 +176,7 @@ $result4 = $conn->query($sql4);
     </tbody>
 </table>
 <?php
-$sql5 = "SELECT id,learner_id,details FROM purchase";
+$sql5 = "SELECT * FROM purchase";
 $result5 = $conn->query($sql5);
 ?>
 <table class="table caption-top ms-3 table-hover" id="orderData">
@@ -186,6 +186,7 @@ $result5 = $conn->query($sql5);
             <th scope=" col">ID</th>
             <th scope="col">Name</th>
             <th scope="col">Amount</th>
+            <th scope="col">Date</th>
             <th scope="col">View</th>
         </tr>
     </thead>
@@ -200,6 +201,7 @@ $result5 = $conn->query($sql5);
                 <td><?php echo $row5['id'] ?></td>
                 <td><?php echo $result6['email']; ?></td>
                 <td><?php echo "E£" . $row5['details'] ?></td>
+                <td><?php echo $row5['createdAt'] ?></td>
                 <td><button type="button" class="btn btn-primary btn-sm px-3" onclick="location.href='orders.php?id=<?php echo $row5['id'] ?>'">
                         view
                     </button></td>
