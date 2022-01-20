@@ -26,7 +26,7 @@ include 'functions.php';
 include 'nav.php';
 $_SESSION['reciever'] = 5;
 $sql = "SELECT * FROM user WHERE id='" . $_SESSION['reciever'] . "'";
-$row = printUser($sql);
+$row = select($sql);
 ?>
 
 <body>

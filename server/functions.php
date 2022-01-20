@@ -1,6 +1,6 @@
 <?php
 //Function to delete data e.g delete user, delete account
-function deleteData($conn, $sql)
+function deleteData($sql)
 {
     include_once 'database.php';
     $conn->query($sql);
