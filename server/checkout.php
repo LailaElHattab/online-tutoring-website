@@ -124,7 +124,7 @@ include_once 'functions.php';
                                     if (isset($_POST['submit'])) {
 
 
-                                        filter_var($_POST['formNameOnCard'], FILTER_SANITIZE_STRING);
+                                        $name = filter_var($_POST['formNameOnCard'], FILTER_SANITIZE_STRING);
                                         if (!filter_var($_POST['formCardNumber'], FILTER_VALIDATE_INT) == false && !filter_var($_POST['formCVV'], FILTER_VALIDATE_INT) === false && !filter_var($_POST['formExpiration'], FILTER_VALIDATE_INT) === false) {
                                             $sql0 = "SELECT MAX(id) AS max_id FROM purchase";
                                             $result0 = $conn->query($sql0);
