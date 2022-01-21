@@ -191,66 +191,115 @@ session_start();
             }
           }
           ?>
-          <h2 class="my-5 ms-5" style="font-family: Open Sans, sans-serif; font-size:20px;"><b>Reviews</b></h2>
-          <hr>
+          <h2 class="my-5 ms-5" style="font-family: Open Sans, sans-serif; font-size:30px;">Students Feedback</h2>
+          <hr style="position:relative;left:40px;width:300px">
           <?php
-          $reviews = readReviews($row['id']);
+          $rate = getRating($row['id']);
+          echo "<div style='display:inline'><p style='font-size: 5.5rem;position:relative;left:4.5%;color:#b4690e;margin-bottom: 0px;padding: 0; '>" . $rate . "</p>";
+          for ($i = 0; $i < (int)$rate; $i++) {
+          ?>
+            <span class='fa fa-star checked' style='position:relative;left:5%;'></span>
+          <?php
+          }
+          $uncheck = 5 - $rate;
+          for ($j = 0; $j < $uncheck; $j++) {
+          ?>
+            <span class='fa fa-star' style='position:relative;left:5%;'></span>
+          <?php
+          }
+          echo "</div>";
+          ?>
 
-          if ($reviews) {
-            $user = searchUser($reviews['learner_id']);
-            $rating2 = $reviews['rating'];
+          <br>
+          <?php
+          echo "<div style='display:inline'>";
+          $ratings = rateCount($row['id']);
+          for ($i = 0; $i <= 5; $i++) {
 
-
-            echo "<br>";
+            for ($j = 0; $j < $i; $j++) {
 
           ?>
-            <div class="d-flex flex-start mb-4">
-              <img class="rounded-circle shadow-1-strong me-3" src="<?php echo $user['picture']; ?>" alt="avatar" width="65" height="65" />
-              <div class="card w-100">
-                <div class="card-body p-4">
-                  <div class="">
-                    <h5> <?php echo $user['fname']; ?></h5>
-                    <?php
-                    for ($i = 0; $i < (int)$rating2; $i++) {
-                    ?>
-                      <span class='fa fa-star checked'></span>
-                    <?php
-                    }
-                    $unchecked2 = 5 - $rating2;
-                    for ($j = 0; $j < $unchecked2; $j++) {
-                    ?>
-                      <span class='fa fa-star'></span>
-                    <?php
-                    }
-                    ?>
-                    <p>
-                      <?php
-                      echo $reviews['comment'];
-                      ?>
-                    </p>
+              <span class='fa fa-star checked' style='position:relative;left:5%;'></span>
+          <?php
+            }
+            echo "<b style='color:#5624d0;position:relative;left:7%;top:1%;text-align:center'>" . $ratings[$i] . "</b>";
+            echo "<br>";
+          }
+          echo "</div>";
+          ?>
 
-                    <div class="d-flex justify-content-between align-items-center">
-                      <div class="d-flex align-items-center">
-                        <a href="#!" class="link-muted me-2"><i class="bi bi-hand-thumbs-up"></i>
-                          <a href="#!" class="link-muted"><i class="bi bi-hand-thumbs-down"></i>
+          <hr style="position:relative;left:40px;width:300px">
+          <?php
+          $sql2 = "SELECT * FROM feedback WHERE course_id='" . $row['id'] . "'";
+          $result3 = $conn->query($sql2);
+
+
+
+          if ($result3->num_rows > 0) {
+            while ($reviews = $result3->fetch_assoc()) {
+              $user = searchUser($reviews['learner_id']);
+              $rating2 = $reviews['rating'];
+
+
+              echo "<br>";
+
+          ?>
+              <div class="d-flex flex-start mb-4">
+                <?php
+                if ($user['picture'] == '') {
+                  $user['picture'] = 'images/pic.png';
+                }
+                ?>
+                <img class="rounded-circle shadow-1-strong me-3" src="<?php echo $user['picture']; ?>" alt="avatar" width="65" height="65" />
+                <div class="card w-100">
+                  <div class="card-body p-4" style="background-color:#E6DAEA">
+                    <div class="">
+                      <h5> <?php echo $user['fname']; ?></h5>
+                      <?php
+                      for ($i = 0; $i < (int)$rating2; $i++) {
+                      ?>
+                        <span class=' fa fa-star checked'></span>
+                      <?php
+                      }
+                      $unchecked2 = 5 - $rating2;
+                      for ($j = 0; $j < $unchecked2; $j++) {
+                      ?>
+                        <span class='fa fa-star'></span>
+                      <?php
+                      }
+                      ?>
+                      <p>
+                        <?php
+                        echo $reviews['comment'];
+                        ?>
+                      </p>
+
+                      <div class="d-flex justify-content-between align-items-center">
+                        <div class="d-flex align-items-center">
+                          <a href="#!" class="link-muted me-2"><i class="bi bi-hand-thumbs-up"></i>
+                            <a href="#!" class="link-muted"><i class="bi bi-hand-thumbs-down"></i>
+                        </div>
+                        <a href="#!" class="link-muted"><i class="bi bi-reply"></i></i> Reply</a>
                       </div>
-                      <a href="#!" class="link-muted"><i class="bi bi-reply"></i></i> Reply</a>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <?php
+              <?php
 
-            ?>
-            <!-- <button class="btn btn-sm">reply</button> -->
+              ?>
+              <!-- <button class="btn btn-sm">reply</button> -->
           <?php
+            }
           } else {
 
-            echo "No reviews yet";
+            echo "<h5 style='position:absolute;left:29%'>No reviews yet &#129488;</h5>";
           }
           ?>
-
+          <br>
+          <br>
+          <br>
+          <br>
         </div>
       </div>
 

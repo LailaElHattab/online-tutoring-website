@@ -30,10 +30,12 @@ include_once 'database.php';
                 <!--search bar-->
                 <div class="col-4 mx-5 mt-1">
                     <form class="w-auto">
-                        <input type="search" class="form-control" placeholder="Search" aria-label="Search" />
-                    </form>
-                </div>
+                        <input type="text" class="form-control" name="search_text" placeholder="Search" id="search_text" aria-label="Search" />
 
+                    </form>
+
+
+                </div>
                 <ul class="navbar-nav d-flex flex-row me-1">
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -83,5 +85,33 @@ include_once 'database.php';
     </nav>
 
 </body>
+<div id="result" class="dropdown"></div>
 
 </html>
+<script>
+    $(document).ready(function() {
+        load_data();
+
+        function load_data(query) {
+            $.ajax({
+                url: "fetch.php",
+                method: "post",
+                data: {
+                    query: query
+                },
+                success: function(data) {
+                    $('#result').html(data);
+                }
+            });
+        }
+
+        $('#search_text').keyup(function() {
+            var search = $(this).val();
+            if (search != '') {
+                load_data(search);
+            } else {
+                load_data();
+            }
+        });
+    });
+</script>

@@ -24,7 +24,7 @@ function addData($conn, $sql)
 }
 function select($sql)
 {
-    include_once 'database.php';
+    include 'database.php';
     $result = $conn->query($sql);
     return $result->fetch_assoc();
 }
@@ -69,14 +69,15 @@ function searchCourse($id)
     $row = $result->fetch_assoc();
     return $row;
 }
-function readReviews($id)
-{
-    include 'database.php';
-    $sql2 = "SELECT * FROM feedback WHERE course_id='" . $id . "'";
-    $result = $conn->query($sql2);
-    $row = $result->fetch_assoc();
-    return $row;
-}
+// function readReviews($id)
+// {
+//     include 'database.php';
+//     $sql2 = "SELECT * FROM feedback WHERE course_id='" . $id . "'";
+//     $result = $conn->query($sql2);
+//     $row = $result->fetch_assoc();
+//     return $row;
+// }
+
 function searchUser($id)
 {
     include 'database.php';
@@ -85,24 +86,27 @@ function searchUser($id)
     $row = $result->fetch_assoc();
     return $row;
 }
-function addReview()
+function getRating($id)
 {
-
-?>
-<?php
+    include 'database.php';
+    $sql = "SELECT AVG(rating) as avg FROM feedback WHERE course_id='" . $id . "'";
+    $result = $conn->query($sql);
+    $row = $result->fetch_assoc();
+    return round($row['avg'], 1);
+}
+function rateCount($id)
+{
+    include 'database.php';
+    $ratings = array();
+    for ($i = 1; $i <= 5; $i++) {
+        $sql = "SELECT count(rating) as count FROM feedback WHERE course_id='" . $id . "' and rating='" . $i . "'";
+        $result = $conn->query($sql);
+        $row = $result->fetch_assoc();
+        array_push($ratings, $row['count']);
+    }
+    return $ratings;
 }
 
-function getTotal()
-{
-    include 'cart.php';
-    return $total;
-}
-
-function getCounter()
-{
-    include 'cart.php';
-    return $counter;
-}
 
 function footer()
 {

@@ -32,7 +32,7 @@ session_start();
   ?>
 
 
-      <div class="card my-3" style="width: 1000px; height: 200px">
+      <div class="card my-3" style="width: 1000px; height: 200px;background-color:#F7F1FF;">
         <div class="row ">
           <div class="col-md-4">
             <img src=<?php echo $result1['image'] ?> class="img-fluid rounded" />

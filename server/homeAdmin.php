@@ -1,4 +1,5 @@
 <html>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <?php
 include_once 'database.php';
 include_once 'functions.php';
@@ -40,7 +41,7 @@ $result = $conn->query($sql);
 
                 ?>
                 <td><button type="button" class="btn btn-primary btn-sm px-3" onclick="location.href='tutor.php?id=<?php echo $row['id'] ?>'">
-                        <i class="bi bi-check"></i>
+                        view
                     </button></td>
                 <!-- <td><button type="button" class="btn btn-primary btn-sm px-3">
                         open
@@ -77,7 +78,7 @@ $result2 = $conn->query($sql2);
                 <td> <?php echo $row2['email'] ?></td>
 
                 <td><button type="button" class="btn btn-primary btn-sm px-3" onclick="location.href='learner.php?id=<?php echo $row2['id'] ?>'">
-                        <i class="bi bi-check"></i>
+                        view
                     </button></td>
                 <!-- <td><button type="button" class="btn btn-primary btn-sm px-3">
                         open
@@ -164,7 +165,7 @@ $result4 = $conn->query($sql4);
                 <td> <?php echo $row4['fname'] ?></td>
                 <td> <?php echo $row4['email'] ?></td>
                 <td><button type=" button" class="btn btn-primary btn-sm px-3" onclick="location.href='admin.php?id=<?php echo $row4['id'] ?>'">
-                        <i class="bi bi-check"></i>
+                        view
                     </button></td>
                 <!-- <td><button type="button" class="btn btn-primary btn-sm px-3">
                         open
@@ -173,6 +174,44 @@ $result4 = $conn->query($sql4);
             <?php
         }
             ?>
+    </tbody>
+</table>
+<?php
+$sql5 = "SELECT * FROM purchase";
+$result5 = $conn->query($sql5);
+?>
+<table class="table caption-top ms-3 table-hover" id="orderData">
+
+    <caption>List of Orders</caption>
+    <thead>
+        <tr>
+            <th scope=" col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Amount</th>
+            <th scope="col">Date</th>
+            <th scope="col">View</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        <?php
+        while ($row5 = $result5->fetch_assoc()) {
+            $result6 = select("SELECT email FROM user WHERE id='" . $row5['learner_id'] . "'");
+        ?>
+
+            <tr>
+                <td><?php echo $row5['id'] ?></td>
+                <td><?php echo $result6['email']; ?></td>
+                <td><?php echo "E£" . $row5['details'] ?></td>
+                <td><?php echo $row5['createdAt'] ?></td>
+                <td><button type="button" class="btn btn-primary btn-sm px-3" onclick="location.href='orders.php?id=<?php echo $row5['id'] ?>'">
+                        view
+                    </button></td>
+            </tr>
+        <?php
+        }
+        ?>
+
     </tbody>
 </table>
 <script>
@@ -184,6 +223,8 @@ $result4 = $conn->query($sql4);
     document.getElementById('learner').append(table3);
     table4 = document.getElementById('courseData');
     document.getElementById('course').append(table4);
+    table5 = document.getElementById('orderData');
+    document.getElementById('order').append(table5);
 </script>
 
 </html>

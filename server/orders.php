@@ -17,20 +17,39 @@ session_start();
     <script type='text/javascript' src='https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js'></script>
     <script type='text/javascript' src='https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js'></script>
 
+    <title>Orders</title>
+
 </head>
 <?php
-include_once 'database.php';
-include_once($_SERVER['DOCUMENT_ROOT'] . "/online-tutoring-website/client/survey.html");
-
-if (isset($_POST['submit'])) {
-
-    $rate = $_POST['rating'];
-    $textareaValue = trim($_POST['content']);
-    $sql = "INSERT INTO feedback (learner_id,course_id,comment,rating) VALUES ('" . $_SESSION['id'] . "','" . $_POST['course'] . "','" . $textareaValue . "','" . $rate . "')";
-    $conn->query($sql);
-}
+include 'database.php';
+include 'nav.php';
+include 'functions.php';
+$sql = "SELECT * FROM purchaseItem WHERE purchase_id='" . $_GET['id'] . "'";
+$result = $conn->query($sql);
 ?>
 
-
+<table class="table caption-top ms-3 table-hover">
+    <caption>List of Orders</caption>
+    <thead>
+        <tr>
+            <th scope="col">Course ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Amount</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php
+        while ($row = $result->fetch_assoc()) {
+            $course = select("SELECT * FROM course WHERE id='" . $row['course_id'] . "'");
+        ?>
+            <tr>
+                <td><?php echo $row['id'] ?></td>
+                <td><?php echo $course['name']; ?></td>
+                <td><?php echo "E£" . $course['price'] ?></td>
+            </tr>
+        <?php
+        }
+        ?>
+</table>
 
 </html>
