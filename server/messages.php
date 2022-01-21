@@ -25,8 +25,12 @@ session_start();
 include 'functions.php';
 include 'nav.php';
 include 'database.php';
-
-$sql = "SELECT * FROM message WHERE sent_by='" . $_SESSION['id'] . "'or received_by='" . $_SESSION['id'] . "'";
+if (isset($_GET['id'])) {
+    $user = $_GET['id'];
+} else {
+    $user = $_SESSION['id'];
+}
+$sql = "SELECT * FROM message WHERE sent_by='" . $user  . "'or received_by='" . $user  . "'";
 $result = $conn->query($sql);
 $inbox = array();
 
@@ -48,7 +52,7 @@ $inbox = array();
                 <?php
                 while ($row = $result->fetch_assoc()) {
 
-                    if ($row['sent_by'] == $_SESSION['id']) {
+                    if ($row['sent_by'] == $user) {
                         $sql1 = "SELECT * FROM user WHERE id='" . $row['received_by'] . "'";
                         $result1 = select($sql1);
                         if (!in_array($row['received_by'], $inbox)) {
@@ -73,25 +77,50 @@ $inbox = array();
                     ?>
                     <div class="card">
                         <div class="card-body" style="background-color:#F7F1FF;">
+                            <?php
+                            if ($user == $_SESSION['id']) {
+                            ?>
+                                <ul class="list-unstyled mb-0">
+                                    <li class="p-2 ">
+                                        <a href="#!" class="d-flex justify-content-between">
+                                            <div class="d-flex flex-row">
+                                                <img src=<?php echo $result1['picture'] ?> alt="avatar" class="rounded-circle d-flex align-self-center me-3 shadow-1-strong" width="60" height="60">
+                                                <div class="pt-1">
+                                                    <p class="fw-bold mb-0" onclick="location.href='message.php?receiver=<?php echo $result1['id']; ?>'"><?php echo $result1['fname'] ?></p>
 
-                            <ul class="list-unstyled mb-0">
-                                <li class="p-2 ">
-                                    <a href="#!" class="d-flex justify-content-between">
-                                        <div class="d-flex flex-row">
-                                            <img src=<?php echo $result1['picture'] ?> alt="avatar" class="rounded-circle d-flex align-self-center me-3 shadow-1-strong" width="60" height="60">
+                                                </div>
+                                            </div>
                                             <div class="pt-1">
-                                                <p class="fw-bold mb-0" onclick="location.href='message.php?receiver=<?php echo $result1['id']; ?>'"><?php echo $result1['fname'] ?></p>
+                                                <span class="badge bg-danger float-end">1</span>
 
                                             </div>
-                                        </div>
-                                        <div class="pt-1">
-                                            <span class="badge bg-danger float-end">1</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            <?php
+                            } else {
+                            ?>
+                                <ul class="list-unstyled mb-0">
+                                    <li class="p-2 ">
 
-                                        </div>
-                                    </a>
-                                </li>
-                            </ul>
+                                        <a href="commenting.php?receiver=<?php echo $result1['id']; ?>&user=<?php echo $user; ?>" class="d-flex justify-content-between">
+                                            <div class="d-flex flex-row">
+                                                <img src=<?php echo $result1['picture'] ?> alt="avatar" class="rounded-circle d-flex align-self-center me-3 shadow-1-strong" width="60" height="60">
+                                                <div class="pt-1">
+                                                    <p class="fw-bold mb-0"><?php echo $result1['fname'] ?></p>
 
+                                                </div>
+                                            </div>
+                                            <div class="pt-1">
+                                                <span class="badge bg-danger float-end">1</span>
+
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            <?php
+                            }
+                            ?>
                         </div>
                     </div>
                     <br>
@@ -106,9 +135,6 @@ $inbox = array();
     <div class="col-md-6">
         <img id="illustration" src="../server/images/backgroundtutor.png" class="img-fluid" style="width: 500px;position:absolute;left:50%;top:40%" alt="Responsive image">
     </div>
-    <?php
-    footer();
-    ?>
 
 </html>
 <script>

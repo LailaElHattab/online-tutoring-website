@@ -6,7 +6,9 @@ $output = '';
 if (isset($_POST["query"])) {
 	$search = mysqli_real_escape_string($connect, $_POST["query"]);
 	$query = "
-	SELECT * from user where fname '%" . $search . "%'";
+	SELECT * from user where fname '%" . $search . "%'
+	OR email Like '%".$search."%'
+	";
 } else {
 	echo 'Data not found';
 }

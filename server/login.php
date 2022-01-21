@@ -25,10 +25,7 @@ ob_start();
             $sql = "SELECT * FROM user WHERE email ='" . $_POST["email"] . "' and password='" . $user_pass . "'";
             $result = result($conn, $sql);
             if ($result->num_rows > 0) {
-                $status = "Active now";
                 $row = $result->fetch_assoc();
-                $sql2 = "UPDATE users SET status = '{$status}' WHERE id = {$row['id']}";
-                $result2 = $conn->query($sql2);
                 $_SESSION["id"] = $row["id"];
                 $_SESSION["name"] = $row["fname"];
                 $_SESSION["email"] = $row["email"];
