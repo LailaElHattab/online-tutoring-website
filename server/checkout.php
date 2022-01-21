@@ -36,52 +36,8 @@ include_once 'functions.php';
                                         <h5 class="mb-0">Payment details</h5>
                                     </div>
                                     <form method="post" class="mx-3">
-                                        <div class="row mb-4">
-                                            <div class="col">
-                                                <div class="form-outline">
-                                                    <label class="form-label" for="form6Example1">First name</label>
-                                                    <input type="text" id="form6Example1" class="form-control" />
-                                                </div>
-                                            </div>
-                                            <div class="col">
-                                                <div class="form-outline">
-                                                    <label class="form-label" for="form6Example2">Last name</label>
-                                                    <input type="text" id="form6Example2" class="form-control" />
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <!-- Text input -->
-                                        <div class="form-outline mb-4">
-                                            <label class="form-label" for="form6Example4">Country</label>
-                                            <input type="text" id="form6Example4" class="form-control" />
-                                        </div>
-
-                                        <!-- Email input -->
-                                        <div class="form-outline mb-4">
-                                            <label class="form-label" for="form6Example5">Email</label>
-                                            <input type="email" id="form6Example5" class="form-control" />
-                                        </div>
-
-                                        <!-- Number input -->
-                                        <div class="form-outline mb-4">
-                                            <label class="form-label" for="form6Example6">Phone</label>
-                                            <input type="number" id="form6Example6" class="form-control" />
-                                        </div>
 
                                         <hr class="my-4" />
-
-                                        <div class="form-check mb-4">
-                                            <input class="form-check-input" type="checkbox" value="" id="checkoutForm2" checked />
-                                            <label class="form-check-label" for="checkoutForm2">
-                                                Save this information for next time
-                                            </label>
-                                        </div>
-
-                                        <hr class="my-4" />
-
-                                        <h5 class="mb-4">Payment</h5>
-
                                         <div class="form-check">
                                             <input class="form-check-input" type="radio" name="flexRadioDefault" id="checkoutForm3" checked />
                                             <label class="form-check-label" for="checkoutForm3">
