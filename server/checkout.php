@@ -114,8 +114,6 @@ include_once 'functions.php';
 
                                             </div>
                                         </div>
-<<<<<<< HEAD
-=======
 
                                         <div class="row mb-4">
                                             <div class="col-3">
@@ -162,7 +160,6 @@ include_once 'functions.php';
 
                                         </div>
 
->>>>>>> 6d9c3ae8ae8c61ed8cb8951db2faad7b499fa176
                                     </div>
                                     <?php
                                     $id = 0;
