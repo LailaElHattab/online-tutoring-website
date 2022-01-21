@@ -21,7 +21,7 @@ include_once 'functions.php';
     <script type='text/javascript' src='https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js'></script>
 </head>
 
-<body>
+<body id="body">
     <section>
         <div class="row">
             <div class="col-lg-5">
@@ -88,7 +88,7 @@ include_once 'functions.php';
                                             </div>
                                         </div>
 
-                                        <input class="btn btn-primary btn-lg btn-block" type="submit" style="color:white;text-decoration:none;" name="submit" value="Pay Now">
+                                        <input class="btn btn-primary btn-lg btn-block" type="submit" id="checkout" style="color:white;text-decoration:none;" name="submit" value="Pay Now">
 
 
                                     </form>
