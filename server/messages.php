@@ -33,7 +33,9 @@ if (isset($_GET['id'])) {
 $sql = "SELECT * FROM message WHERE sent_by='" . $user  . "'or received_by='" . $user  . "'";
 $result = $conn->query($sql);
 $inbox = array();
-
+if ($result->num_rows == 0) {
+    echo "<h3 style='position:absolute;left:5%;top:30%;'>No messages yet!</h3>";
+}
 ?>
 
 <body>
