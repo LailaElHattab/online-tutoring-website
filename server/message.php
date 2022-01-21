@@ -72,6 +72,9 @@ session_start();
                                     <div class="card-header d-flex justify-content-between p-3" style="background-color:#F7F1FF;">
                                         <p class="fw-bold mb-0"><?php echo $row['fname'] ?></p>
                                     </div>
+                                    <div class="col-md-6">
+                                        <img id="illustration" src="../server/images/Background2.png" class="img-fluid" style="width: 300px;position:absolute;left:100%;top:0%" alt="Responsive image">
+                                    </div>
 
                                     <?php
                                     $getMessage = "SELECT  message.* ,user.fname FROM message INNER JOIN user on sent_by=user.id  WHERE sent_by = '" . $_SESSION['receiver'] . "' AND received_by = " . $_SESSION['id'] . " OR sent_by = " . $_SESSION['id'] . " AND received_by = '" . $_SESSION['receiver'] . "' ORDER BY createdAt asc";
