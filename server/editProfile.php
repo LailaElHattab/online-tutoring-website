@@ -30,7 +30,10 @@ if (isset($_POST['save'])) {
         }
     } else {
 ?>
-        <label>please remove illegal characters e.g numbers, special characters </label>
+        <div class='alert alert-danger col-md-4' style='text-align:center;width:350px;position:absolute;top:15%;left:35%'>
+            <label>please remove illegal characters e.g numbers, special characters </label>
+        </div>
+
         <?php
         $answer = false;
     }
@@ -43,7 +46,10 @@ if (isset($_POST['save'])) {
             $allowed = array('image/gif', 'image/png', 'image/jpg', 'image/jpeg');
             if (!in_array($_FILES["imageToUpload"]["type"], $allowed)) {
         ?>
-                <label>please upload a file of image type e.g jpeg,png </label>
+                <div class='alert alert-danger col-md-4' style='text-align:center;width:350px;position:absolute;top:15%;left:35%'>
+                    <label>please upload a file of image type e.g jpeg,png </label>
+                </div>
+
         <?php
                 $answer = false;
             } else {
@@ -56,7 +62,10 @@ if (isset($_POST['save'])) {
     }
     if ($answer) {
         ?>
-        <label>Your profile has been changed successfully</label>
+        <div class='alert alert-success col-md-4' style='text-align:center;width:350px;position:absolute;top:15%;left:35%'>
+            <label>Your profile has been changed successfully</label>
+        </div>
+
 <?php
     }
 }

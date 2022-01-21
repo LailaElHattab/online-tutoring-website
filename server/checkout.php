@@ -114,13 +114,62 @@ include_once 'functions.php';
 
                                             </div>
                                         </div>
+<<<<<<< HEAD
+=======
+
+                                        <div class="row mb-4">
+                                            <div class="col-3">
+                                                <div class="form-outline">
+                                                    <label class="form-label" for="formExpiration">Expiration</label>
+                                                    <input type="text" id="formExpiration" class="form-control" required />
+                                                </div>
+                                            </div>
+                                            <div class="col-3">
+                                                <div class="form-outline">
+                                                    <label class="form-label" for="formCVV">CVV</label>
+                                                    <input type="text" id="formCVV" class="form-control" required />
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <input class="btn btn-lg btn-block" type="submit" id="checkout" style="color:white;text-decoration:none;" name="submit" value="Pay Now">
+
+
+                                    </form>
+
+
+                                    <div class="row" id="summary">
+                                        <div class="container mt-4">
+                                            <div class="card mb-4 mb-lg-0">
+                                                <div class="card-header py-3">
+                                                    <h5 class="mb-0">Summary</h5>
+                                                </div>
+                                                <div class="card-body">
+                                                    <ul class="list-group list-group-flush">
+                                                        <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3">
+                                                            Products
+                                                            <span><?php echo $_GET['count'] . " Courses"; ?></span>
+                                                        </li>
+                                                        <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3">
+                                                            <div>
+                                                                <strong>Total amount</strong>
+                                                            </div>
+                                                            <span><strong> <?php echo "E£" . $_GET['total']; ?></strong></span>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+>>>>>>> 6d9c3ae8ae8c61ed8cb8951db2faad7b499fa176
                                     </div>
                                     <?php
                                     $id = 0;
                                     if (isset($_POST['submit'])) {
 
 
-                                        filter_var($_POST['formNameOnCard'], FILTER_SANITIZE_STRING);
+                                        $name = filter_var($_POST['formNameOnCard'], FILTER_SANITIZE_STRING);
                                         if (!filter_var($_POST['formCardNumber'], FILTER_VALIDATE_INT) == false && !filter_var($_POST['formCVV'], FILTER_VALIDATE_INT) === false && !filter_var($_POST['formExpiration'], FILTER_VALIDATE_INT) === false) {
                                             $sql0 = "SELECT MAX(id) AS max_id FROM purchase";
                                             $result0 = $conn->query($sql0);
