@@ -229,6 +229,22 @@ session_start();
           ?>
 
           <hr style="position:relative;left:40px;width:300px">
+
+          <ul class="nav nav-tabs" id="myTab" >
+            <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="review-tab" data-bs-toggle="tab" data-bs-target="#review"
+                        type="button" role="tab" aria-controls="review" aria-selected="true">Reviews</button>
+            </li>
+
+            <li class="nav-item" role="presentation">
+            <button class="nav-link" id="qa-tab" data-bs-toggle="tab" data-bs-target="#qa" type="button"
+                        role="tab" aria-controls="qa" aria-selected="false">Q/A</button>
+            </li>
+  
+          </ul>
+          <!--Reviews tab-->
+             <div class="tab-content" id="myTabContent">
+             <div class="tab-pane fade show active" id="review" role="tabpanel" aria-labelledby="review-tab">
           <?php
           $sql2 = "SELECT * FROM feedback WHERE course_id='" . $row['id'] . "'";
           $result3 = $conn->query($sql2);
@@ -293,9 +309,16 @@ session_start();
             }
           } else {
 
-            echo "<h5 style='position:absolute;left:29%'>No reviews yet &#129488;</h5>";
+            echo "<h5 class='mt-3' style='position:absolute;left:29%'>No reviews yet &#129488;</h5>";
           }
           ?>
+
+           </div>
+           <!--Q/A tab-->
+             <div class="tab-pane fade" id="qa" role="tabpanel" aria-labelledby="qa-tab"> 
+            
+             </div>
+        </div>
           <br>
           <br>
           <br>
@@ -303,6 +326,7 @@ session_start();
         </div>
       </div>
 
+   
     <?php
   }
 
