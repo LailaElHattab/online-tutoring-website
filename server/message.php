@@ -15,7 +15,7 @@ session_start();
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <script type='text/javascript' src=''></script>
     <script type='text/javascript' src='https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js'></script>
-    <script type='text/javascript' src='https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js'></script>
+    <!-- <script type='text/javascript' src='https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js'></script> -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <style>
@@ -69,7 +69,7 @@ session_start();
                             <li class="d-flex justify-content-left  mb-4">
                                 <img src=<?php echo $row['picture'] ?> alt="avatar" class="rounded-circle d-flex align-self-start me-3 shadow-1-strong" width="60">
                                 <div class="card" id="chat">
-                                    <div class="card-header d-flex justify-content-between p-3">
+                                    <div class="card-header d-flex justify-content-between p-3" style="background-color:#F7F1FF;">
                                         <p class="fw-bold mb-0"><?php echo $row['fname'] ?></p>
                                     </div>
 
@@ -81,7 +81,9 @@ session_start();
                                             if ($row2['received_by'] == $_SESSION['id']) {
                                     ?>
                                                 <div class="card-body">
-                                                    <p class="mb-0" style="text-align:left;font-size:20px;"><?php echo $row2['message'] ?></p>
+                                                    <div class="float-left" style="background-color:#F8E0CD;box-sizing:border-box;border-radius: 35px;border: solid #FFF;">
+                                                        <p class="mb-0" style="text-align:left;font-size:20px;"><?php echo $row2['message'] ?></p>
+                                                    </div>
                                                 </div>
 
                                                 <?php
@@ -92,14 +94,18 @@ session_start();
 
                                                 ?>
                                                     <div class="card-body">
-                                                        <p class="mb-0" style="text-align:right;font-size:20px;font-style: italic;"><?php echo $row2['message'] ?></p>
+                                                        <div class="float-right" style="background-color:#F8E0CD;box-sizing:border-box;border-radius: 35px;border: solid #FFF;">
+                                                            <p class="mb-0" style="text-align:right;font-size:20px;font-style: italic;"><?php echo $row2['message'] ?></p>
+                                                        </div>
                                                     </div>
 
                                                 <?php
                                                 } else {
                                                 ?>
                                                     <div class="card-body">
-                                                        <p class="mb-0" style="text-align:right;font-size:20px;font-style:bold;text-decoration: underline;"><?php echo $row2['message'] ?></p>
+                                                        <div class="float-right" style="background-color:#F8E0CD;box-sizing:border-box;border-radius: 35px;border: solid #FFF;">
+                                                            <p class="mb-0" style="text-align:right;font-size:20px;font-style:bold;text-decoration: underline;"><?php echo $row2['message'] ?></p>
+                                                        </div>
                                                     </div>
 
                                         <?php
@@ -108,7 +114,7 @@ session_start();
                                         }
                                     } else {
                                         ?>
-                                        <div class="card-body">
+                                        <div class="card-body" style="background-color:#F8E0CD">
                                             <p class="mb-0">No messages yet! Say 'Hi'</p>
                                         </div>
                                     <?php
