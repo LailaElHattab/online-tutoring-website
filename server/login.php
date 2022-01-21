@@ -10,18 +10,19 @@ ob_start();
 <body>
     <?php
 
-    include_once 'database.php'; 
+    include_once 'database.php';
     include_once 'navbar.php';
     include_once($_SERVER['DOCUMENT_ROOT'] . "/online-tutoring-website/client/login.html");
     include_once 'errorHandling.php';
     include_once 'functions.php';
-   
+
 
 
     // set_error_handler("customError");
     if (isset($_POST['login'])) {
         if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL) === false) {
-            $user_pass = md5($_POST['password']);
+            $pass = filter_var($_POST['password'], FILTER_SANITIZE_STRING);
+            $user_pass = md5($pass);
             $sql = "SELECT * FROM user WHERE email ='" . $_POST["email"] . "' and password='" . $user_pass . "'";
             $result = result($conn, $sql);
             if ($result->num_rows > 0) {
@@ -42,7 +43,6 @@ ob_start();
                     $_SESSION['start'] = time();
                     $_SESSION['expire'] = $_SESSION['start'] + (3 * 24 * 60 * 60);
                 }
-                //more if conditions when other pages get added
                 if ($_SESSION["user"] == 2 || $_SESSION["user"] == 1 || $_SESSION["user"] == 3 || $_SESSION["user"] == 4) {
                     header("Location:home.php");
                 }
