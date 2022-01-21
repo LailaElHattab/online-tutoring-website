@@ -9,7 +9,7 @@ if (!empty($_SESSION['user'])) {
         //if logged in
         include_once 'navbarAdmin.php';
     } else if ($_SESSION["user"] == 2) {
-
+        
         include_once 'navbarLearner.php';
     } else if ($_SESSION["user"] == 3) {
         include_once 'navbarAdmin.php';
