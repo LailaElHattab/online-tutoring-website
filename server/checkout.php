@@ -35,7 +35,7 @@ include_once 'functions.php';
                                     <div class="card-header py-3">
                                         <h5 class="mb-0">Payment details</h5>
                                     </div>
-                                    <form method="post">
+                                    <form method="post" class="mx-3">
                                         <div class="row mb-4">
                                             <div class="col">
                                                 <div class="form-outline">
