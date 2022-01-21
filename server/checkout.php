@@ -34,84 +34,42 @@ include_once 'functions.php';
                                     <div class="card-header py-3">
                                         <h5 class="mb-0">Payment details</h5>
                                     </div>
-                                    <div class="card-body" id="items">
-                                        <form method="post" class="mx-3">
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="checkoutForm3" checked />
-                                                <label class="form-check-label" for="checkoutForm3">
-                                                    Credit card
-                                                </label>
-                                            </div>
-
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="checkoutForm4" />
-                                                <label class="form-check-label" for="checkoutForm4">
-                                                    Debit card
-                                                </label>
-                                            </div>
-
-                                            <div class="form-check mb-4">
-                                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="checkoutForm5" />
-                                                <label class="form-check-label" for="checkoutForm5">
-                                                    Paypal
-                                                </label>
-                                            </div>
-
-                                            <div class="row mb-4">
-                                                <div class="col">
-                                                    <div class="form-outline">
-                                                        <label class="form-label" for="formNameOnCard">Name on card</label>
-                                                        <input type="text" id="formNameOnCard" class="form-control" required />
-                                                    </div>
-                                                </div>
-                                                <div class="col">
-                                                    <div class="form-outline">
-                                                        <label class="form-label" for="formCardNumber">Credit card number</label>
-                                                        <input type="text" id="formCardNumber" class="form-control" required />
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="row mb-4">
-                                                <div class="col-3">
-                                                    <div class="form-outline">
-                                                        <label class="form-label" for="formExpiration">Expiration</label>
-                                                        <input type="text" id="formExpiration" class="form-control" required />
-                                                    </div>
-                                                </div>
-                                                <div class="col-3">
-                                                    <div class="form-outline">
-                                                        <label class="form-label" for="formCVV">CVV</label>
-                                                        <input type="text" id="formCVV" class="form-control" required />
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </form>
+                                    <form method="post" class="mx-3">
 
                                         <hr class="my-4" />
-                                        <div class="row" id="summary">
-                                            <div class="container mt-4">
-                                                <div class="card mb-4 mb-lg-0">
-                                                    <div class="card-header py-3">
-                                                        <h5 class="mb-0">Summary</h5>
-                                                    </div>
-                                                    <div class="card-body">
-                                                        <ul class="list-group list-group-flush">
-                                                            <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3">
-                                                                Products
-                                                                <span><?php echo $_GET['count'] . " Courses"; ?></span>
-                                                            </li>
-                                                            <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3">
-                                                                <div>
-                                                                    <strong>Total amount</strong>
-                                                                </div>
-                                                                <span><strong> <?php echo "E£" . $_GET['total']; ?></strong></span>
-                                                            </li>
-                                                        </ul>
-                                                        <input class="btn btn-primary btn-lg btn-block" type="submit" id="checkout" style="color:white;text-decoration:none;" name="submit" value="Pay Now">
-                                                    </div>
-                                                </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="checkoutForm3" checked />
+                                            <label class="form-check-label" for="checkoutForm3">
+                                                Credit card
+                                            </label>
+                                        </div>
 
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="checkoutForm4" />
+                                            <label class="form-check-label" for="checkoutForm4">
+                                                Debit card
+                                            </label>
+                                        </div>
+
+                                        <div class="form-check mb-4">
+                                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="checkoutForm5" />
+                                            <label class="form-check-label" for="checkoutForm5">
+                                                Paypal
+                                            </label>
+                                        </div>
+
+                                        <div class="row mb-4">
+                                            <div class="col">
+                                                <div class="form-outline">
+                                                    <label class="form-label" for="formNameOnCard">Name on card</label>
+                                                    <input type="text" id="formNameOnCard" class="form-control" required />
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="form-outline">
+                                                    <label class="form-label" for="formCardNumber">Credit card number</label>
+                                                    <input type="text" id="formCardNumber" class="form-control" required />
+                                                </div>
                                             </div>
                                         </div>
 
