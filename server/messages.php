@@ -106,9 +106,6 @@ $inbox = array();
     <div class="col-md-6">
         <img id="illustration" src="../server/images/backgroundtutor.png" class="img-fluid" style="width: 500px;position:absolute;left:50%;top:40%" alt="Responsive image">
     </div>
-    <?php
-    footer();
-    ?>
 
 </html>
 <script>
