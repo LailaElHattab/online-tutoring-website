@@ -26,7 +26,7 @@ session_start();
     }
 
     #learnerbody {
-      background-image: url(../images/loginbackground.png);
+      /* background-image: url(../images/loginbackground.png); */
       background-repeat: no-repeat;
       background-position-x: left;
       background-position-y: 150px;
