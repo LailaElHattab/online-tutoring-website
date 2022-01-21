@@ -37,9 +37,9 @@ if (isset($_POST['emailbtn'])) {
     }
 }
 if (isset($_POST['pwdbtn'])) {
-    $sql = "UPDATE user SET password='" . $_POST['password'] . "' WHERE id='" . $_SESSION['id'] . "'";
+    $sql = "UPDATE user SET password='" . md5($_POST['password']) . "' WHERE id='" . $_SESSION['id'] . "'";
     $conn->query($sql);
-    $_SESSION['password'] = $_POST['password'];
+    $_SESSION['password'] = md5($_POST['password']);
     ?>
     <script>
         el1 = document.createElement("div");
