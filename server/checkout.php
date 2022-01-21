@@ -1,6 +1,6 @@
 <?php
 session_start();
-
+ob_start();
 include('database.php');
 include('nav.php');
 include_once 'functions.php';
@@ -149,14 +149,11 @@ include_once 'functions.php';
                                                     <ul class="list-group list-group-flush">
                                                         <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3">
                                                             Products
-                                                            <span><?php echo $counter; ?></span>
+                                                            <span><?php echo $_GET['count'] . " Courses"; ?></span>
                                                         </li>
                                                         <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3">
                                                             <div>
                                                                 <strong>Total amount</strong>
-                                                                <strong>
-                                                                    <p class="mb-0">(including VAT)</p>
-                                                                </strong>
                                                             </div>
                                                             <span><strong> <?php echo "E£" . $_GET['total']; ?></strong></span>
                                                         </li>
@@ -178,7 +175,7 @@ include_once 'functions.php';
                                         } else {
                                             $id = 0;
                                         }
-                                        $sql1 = "insert into purchase(id,learner_id,createdAt, details) values('" . $id . "','" . $_SESSION['id'] . "','" . date("Y-m-d h:i:sa") . "''" . $_GET['total'] . "')";
+                                        $sql1 = "insert into purchase(id,learner_id,createdAt, details) values('" . $id . "','" . $_SESSION['id'] . "','" . date("Y-m-d h:i:sa") . "','" . $_GET['total'] . "')";
                                         $result1 = $conn->query($sql1);
                                         for ($k = 0; $k < count($_SESSION['items']); $k++) {
                                             $sql3 = "insert into enroll(learner_id, course_id) values('" . $_SESSION['id'] . "','" . $_SESSION['items'][$k] . "')";
@@ -186,6 +183,9 @@ include_once 'functions.php';
                                             $result3 = $conn->query($sql3);
                                             $result4 = $conn->query($sql4);
                                         }
+                                        $_SESSION['items'] = array();
+                                        header("Location:home.php");
+                                        ob_end_flush();
                                     }
 
                                     ?>
