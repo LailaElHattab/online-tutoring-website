@@ -54,41 +54,42 @@ include_once 'nav.php';
                 <!--Admin name-->
                 <div class="form-outline mb-4" id="emailInput">
                   <label for="adminName" class="form-label" id="label">Admin's name: </label>
-                  <input type="text" class="form-control" id="adminName" placeholder="admin name" name="name">
+                  <input type="text" class="form-control" id="adminName" placeholder="admin name" name="name" required>
                 </div>
                 <!--Admin email-->
                 <div class="form-outline mb-4" id="emailInput">
                   <label for="adminEmail" class="form-label" id="label"> Admin's email: </label>
-                  <input type="text" class="form-control" id="adminEmail" placeholder="admin email" name="email">
+                  <input type="email" class="form-control" id="adminEmail" placeholder="admin email" name="email" required>
                 </div>
 
                 <!--Admin password-->
 
                 <div class="form-outline mb-4" id="emailInput">
                   <label for="adminPwd" class="form-label" id="label"> Admin's password: </label>
-                  <input type="password" class="form-control" id="adminPwd" placeholder="admin password" name="password">
+                  <input type="password" class="form-control" id="adminPwd" placeholder="admin password" name="password" required>
                 </div>
 
                 <!--Admin security answer-->
                 <div class="form-outline mb-4" id="emailInput">
                   <label for="adminSecurity" class="form-label" id="label">Enter Admin's security answer: </label>
-                  <input type="text" class="form-control" id="adminSecurity" placeholder="security answer" name="security">
+                  <input type="text" class="form-control" id="adminSecurity" placeholder="security answer" name="security" required>
                 </div>
 
                 <!--Choose rank-->
                 <div class="form-outline mb-4" id="emailInput">
                   <label class="form-label" id="label">Choose Rank </label>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="rank" id="rank1" value=1>
+                    <label class="form-check-label" for="rank1">1</label>
+                  </div>
+
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="rank" id="rank2" value=2 checked>
+                    <label class="form-check-label" for="rank2">2</label>
+                  </div>
                 </div>
 
-                <div class="form-check">
-                  <input class="form-check-input" type="radio" name="rank" id="rank1">
-                  <label class="form-check-label" for="rank1">1</label>
-                </div>
 
-                <div class="form-check">
-                  <input class="form-check-input" type="radio" name="rank" id="rank2" checked>
-                  <label class="form-check-label" for="rank2">2</label>
-                </div>
 
                 <!--Submit button-->
                 <input type="submit" class="btn" id="loginbtn" name="submit" value="Add Admin">
@@ -107,8 +108,23 @@ include_once 'nav.php';
 
   include_once 'database.php';
   if (isset($_POST['submit'])) {
-    $sql = "INSERT INTO user(type,fname,email,password,security_ans,admin_rank) VALUES('1','" . $_POST['name'] . "','" . $_POST['email'] . "','" . $_POST['password'] . "','" . $_POST['security'] . "','" . $_POST['rank'] . "')";
+    $sql = "SELECT email FROM user WHERE email='" . $_POST['email'] . "'";
     $result = $conn->query($sql);
+    if ($result->num_rows > 0) {
+  ?>
+      <div class='alert alert-danger col-md-4' style='width:300px;position:absolute;left:69%;top:43%'>
+        <label> There's another user with the same email </label>
+      </div>
+    <?php
+    } else {
+      $sql1 = "INSERT INTO user(type,fname,email,password,security_ans,admin_rank) VALUES('1','" . $_POST['name'] . "','" . $_POST['email'] . "','" . $_POST['password'] . "','" . $_POST['security'] . "','" . $_POST['rank'] . "')";
+      $result1 = $conn->query($sql1);
+    ?>
+      <div class='alert alert-success col-md-4' style='text-align:center;width:350px;position:absolute;top:10%;left:35%'>
+        <label> The admin has been added successfully </label>
+      </div>
+  <?php
+    }
   }
   ?>
   </div>
