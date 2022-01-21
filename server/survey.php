@@ -20,7 +20,6 @@ session_start();
 </head>
 <?php
 include_once 'database.php';
-
 include_once($_SERVER['DOCUMENT_ROOT'] . "/online-tutoring-website/client/survey.html");
 
 if (isset($_POST['submit'])) {
