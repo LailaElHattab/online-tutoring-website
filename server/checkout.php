@@ -88,7 +88,7 @@ include_once 'functions.php';
                                             </div>
                                         </div>
 
-                                        <input class="btn btn-primary btn-lg btn-block" type="submit" id="checkout" style="color:white;text-decoration:none;" name="submit" value="Pay Now">
+                                        <input class="btn btn-lg btn-block" type="submit" id="checkout" style="color:white;text-decoration:none;" name="submit" value="Pay Now">
 
 
                                     </form>
