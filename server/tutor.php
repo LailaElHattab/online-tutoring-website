@@ -56,7 +56,7 @@ session_start();
       <div class="row d-flex justify-content-center align-items-center h-100">
         <div class="col-md-12 col-xl-4">
 
-          <div class="card" style="border-radius: 20px;" id="learnerView">
+          <div class="card" style="border-radius: 20px; background-color:#F7F1FF;" id="learnerView">
             <div class="card-body text-center">
               <div class="mt-3 mb-4">
                 <?php
@@ -72,7 +72,7 @@ session_start();
                 ?>
               </div>
               <h4 class="mb-2"><?php echo $row['fname'] ?></h4>
-              <p class="text-muted mb-4"><a href="#!"><?php echo $row['email'] ?></a></p>
+              <p class="text-muted mb-4"><?php echo $row['email'] ?></p>
 
               <div class="d-flex justify-content-center text-center mt-5 mb-2">
                 <div>
@@ -109,16 +109,19 @@ session_start();
                     <?php
                     }
 
-                    if ($row['tutor_status'] == 0) {
+                    if ($row['tutor_status'] == 0 && $_SESSION['user'] == 1) {
                     ?>
                     </table>
                     <input type="submit" class="btn mx-2 btn-sm" id="loginbtn" name="submit" value="Approve Tutor" onclick="location.href='approveTutor.php?id=<?php echo $row['id'] ?>'">
 
                   <?php
                     }
+                    if ($_SESSION['user'] == 1) {
                   ?>
-                  <input type="submit" class="btn btn-sm" id="loginbtn" name="submit" value="Delete Tutor" onclick="location.href='deleteUser.php?id=<?php echo $row['id'] ?>'">
-
+                    <input type="submit" class="btn btn-sm" id="loginbtn" name="submit" value="Delete Tutor" onclick="location.href='deleteUser.php?id=<?php echo $row['id'] ?>'">
+                  <?php
+                    }
+                  ?>
 
 
                 </div>
