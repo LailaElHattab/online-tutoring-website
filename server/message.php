@@ -36,14 +36,17 @@ session_start();
 
     include 'database.php';
     include 'nav.php';
-    $receiver = $_SESSION['reciever'];
-    $getReceiver = "SELECT * FROM user WHERE id = '$receiver'";
+    if (isset($_GET['receiver'])) {
+        $_SESSION['receiver'] = $_GET['receiver'];
+    }
+
+    $getReceiver = "SELECT * FROM user WHERE id = '" . $_SESSION['receiver'] . "'";
     $result = $conn->query($getReceiver);
     $row = $result->fetch_assoc();
     ?>
     <form class="form-inline" action="message.php" method="POST">
         <input type="hidden" name="sent_by" value="<?php echo $_SESSION['id'] ?>" />
-        <input type="hidden" name="received_by" value="<?php echo $receiver ?>" />
+        <input type="hidden" name="received_by" value="<?php echo $_SESSION['receiver'] ?>" />
 
         <?php
         if (isset($_POST['submit'])) {
@@ -51,7 +54,7 @@ session_start();
             $sent_by = $_POST['sent_by'];
             $receiver = $_POST['received_by'];
             $message = $_POST['message'];
-            $sendMessage = "INSERT INTO message(sent_by,received_by,message,createdAt) VALUES('$sent_by','$receiver','$message','$createdAt')";
+            $sendMessage = "INSERT INTO message(sent_by,received_by,message,createdAt) VALUES('$sent_by','" . $_SESSION['receiver'] . "','$message','$createdAt')";
             mysqli_query($conn, $sendMessage) or die(mysqli_error($conn));
         }
         ?>
@@ -71,7 +74,7 @@ session_start();
                                     </div>
 
                                     <?php
-                                    $getMessage = "SELECT  message.* ,user.fname FROM message INNER JOIN user on sent_by=user.id  WHERE sent_by = '$receiver' AND received_by = " . $_SESSION['id'] . " OR sent_by = " . $_SESSION['id'] . " AND received_by = '$receiver' ORDER BY createdAt asc";
+                                    $getMessage = "SELECT  message.* ,user.fname FROM message INNER JOIN user on sent_by=user.id  WHERE sent_by = '" . $_SESSION['receiver'] . "' AND received_by = " . $_SESSION['id'] . " OR sent_by = " . $_SESSION['id'] . " AND received_by = '" . $_SESSION['receiver'] . "' ORDER BY createdAt asc";
                                     $result2 = $conn->query($getMessage);
                                     if ($result2 !== false && $result2->num_rows > 0) {
                                         while ($row2 = $result2->fetch_assoc()) {
