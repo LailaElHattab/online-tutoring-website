@@ -52,25 +52,25 @@ include 'nav.php';
 
                 <div class="form-outline mb-4" id="emailInput">
                   <label for="TutorName" class="form-label" id="label">Tutor's name: </label>
-                  <input type="text" class="form-control" id="TutorName" placeholder="Tutor name" name="name">
+                  <input type="text" class="form-control" id="TutorName" placeholder="Tutor name" name="name" required>
                 </div>
 
                 <!--Tutor email-->
                 <div class="form-outline mb-4" id="emailInput">
                   <label for="TutorEmail" class="form-label" id="label">Tutor's email: </label>
-                  <input type="text" class="form-control" id="TutorEmail" placeholder="Tutor email" name="email">
+                  <input type="email" class="form-control" id="TutorEmail" placeholder="Tutor email" name="email" required>
                 </div>
 
                 <!--Tutor password-->
                 <div class="form-outline mb-4" id="emailInput">
                   <label for="TutorPwd" class="form-label" id="label">Tutor's password: </label>
-                  <input type="password" class="form-control" id="TutorPwd" placeholder="Tutor password" name="password">
+                  <input type="password" class="form-control" id="TutorPwd" placeholder="Tutor password" name="password" required>
                 </div>
 
                 <!--Tutor security answer-->
                 <div class="form-outline mb-4" id="emailInput">
                   <label for="TutorSecurity" class="form-label" id="label">Enter Tutor's security answer: </label>
-                  <input type="text" class="form-control" id="TutorSecurity" placeholder="security answer" name="security">
+                  <input type="text" class="form-control" id="TutorSecurity" placeholder="security answer" name="security" required>
                 </div>
 
                 <!--Submit button-->
@@ -90,8 +90,23 @@ include 'nav.php';
   <?php
   include_once 'database.php';
   if (isset($_POST['submit'])) {
-    $sql = "INSERT INTO user(type,fname,email,password,security_ans,tutor_status) VALUES('1','" . $_POST['name'] . "','" . $_POST['email'] . "','" . $_POST['password'] . "','" . $_POST['security'] . "','1')";
+    $sql = "SELECT email FROM user WHERE email='" . $_POST['email'] . "'";
     $result = $conn->query($sql);
+    if ($result->num_rows > 0) {
+  ?>
+      <div class='alert alert-danger col-md-4' style='width:300px;position:absolute;left:69%;top:43%'>
+        <label> There's another user with the same email </label>
+      </div>
+    <?php
+    } else {
+      $sql = "INSERT INTO user(type,fname,email,password,security_ans,tutor_status) VALUES('1','" . $_POST['name'] . "','" . $_POST['email'] . "','" . $_POST['password'] . "','" . $_POST['security'] . "','1')";
+      $result = $conn->query($sql);
+    ?>
+      <div class='alert alert-success col-md-4' style='text-align:center;width:350px;position:absolute;top:10%;left:35%'>
+        <label> The tutor has been added successfully </label>
+      </div>
+  <?php
+    }
   }
   ?>
   </div>
