@@ -54,8 +54,9 @@ if (isset($_POST["add"])) {
         } else {
 
     ?>
-
-            <label> Oops, This tutor is not registered </label><br><br>
+            <div class='alert alert-danger col-md-4' style='width:300px;position:absolute;left:70%;top:78%'>
+                <label> Oops, This tutor is not registered </label><br><br>
+            </div>
         <?php
             $found = false;
         }
@@ -64,13 +65,17 @@ if (isset($_POST["add"])) {
     $result = $conn->query($sql);
     if ($result->num_rows > 0) {
         ?>
-        <label> Oops, another course has the same name </label><br><br>
+        <div class='alert alert-danger col-md-4' style='width:300px;position:absolute;left:70%;top:30%;'>
+            <label> Oops, another course has the same name </label><br><br>
+        </div>
         <?php
     } else {
         if ($_POST["price"] <= 0 || is_numeric($_POST["price"]) == false) {
             $answer = false;
         ?>
-            <label> Price should be a number above 0 </label><br><br>
+            <div class='alert alert-danger col-md-4' style='width:300px;position:absolute;left:70%;top:45%;'>
+                <label> Price should be a number above 0 </label><br><br>
+            </div>
         <?php
         }
     }
@@ -80,7 +85,9 @@ if (isset($_POST["add"])) {
     $allowed = array('image/gif', 'image/png', 'image/jpg', 'image/jpeg');
     if (!in_array($_FILES["imageToUpload"]["type"], $allowed)) {
         ?>
-        <label> please upload a file of image type e.g jpeg, png </label>
+        <div class='alert alert-danger col-md-4' style='width:300px;position:absolute;left:70%;top:95%'>
+            <label> please upload a file of image type e.g jpeg, png </label>
+        </div>
     <?php
         $answer = false;
     }
@@ -90,7 +97,9 @@ if (isset($_POST["add"])) {
     $allowed1 = array('text/plain', 'text/rtf');
     if (!in_array($_FILES["contentToUpload"]["type"], $allowed1)) {
     ?>
-        <label> please upload a file of text type e.g plain, rtf </label>
+        <div class='alert alert-danger col-md-4' style='width:300px;position:absolute;left:70%;top:125%'>
+            <label> please upload a file of text type e.g plain, rtf </label>
+        </div>
     <?php
         $answer = false;
     }
@@ -99,7 +108,9 @@ if (isset($_POST["add"])) {
 
     if (!in_array($_FILES["desToUpload"]["type"], $allowed1)) {
     ?>
-        <label> please upload a file of text type e.g plain, rtf </label>
+        <div class='alert alert-danger col-md-4' style='width:300px;position:absolute;left:70%;top:110%'>
+            <label> please upload a file of text type e.g plain, rtf </label>
+        </div>
     <?php
         $answer = false;
     }
@@ -137,7 +148,10 @@ if (isset($_POST["add"])) {
 
         $conn->query($sql4);
     ?>
-        <label> The course has been added successfully </label>
+        <div class='alert alert-success col-md-4' style='text-align:center;width:350px;position:absolute;top:10%;left:35%'>
+            <label> The course has been added successfully </label>
+        </div>
+
 <?php
     }
 }
