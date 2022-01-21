@@ -10,9 +10,12 @@ ob_start();
 <body>
     <?php
 
-    include_once 'database.php';
+    include_once 'database.php'; 
+    include_once 'navbar.php';
     include_once($_SERVER['DOCUMENT_ROOT'] . "/online-tutoring-website/client/login.html");
     include_once 'errorHandling.php';
+    include_once 'functions.php';
+   
 
 
     // set_error_handler("customError");
@@ -70,7 +73,7 @@ ob_start();
     <?php
         }
     }
-
+    footer();
 
     ?>
 
