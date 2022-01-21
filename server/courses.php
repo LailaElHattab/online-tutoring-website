@@ -116,7 +116,7 @@ session_start();
       $result0 = $conn->query($sql0);
       $row0 = $result0->fetch_assoc();
       ?>
-      <p class="mb-2">Created by <?php echo $row0['fname'] ?> </p>
+      <p class="mb-2">Created by <a href="tutor.php?id=<?php echo $row['tutor_id'] ?>"> <?php echo $row0['fname'] ?></a> </p>
       <div class="d-flex justify-content-center text-start mt-5 mb-2">
         <div>
 
@@ -230,95 +230,93 @@ session_start();
 
           <hr style="position:relative;left:40px;width:300px">
 
-          <ul class="nav nav-tabs" id="myTab" >
+          <ul class="nav nav-tabs" id="myTab">
             <li class="nav-item" role="presentation">
-            <button class="nav-link active" id="review-tab" data-bs-toggle="tab" data-bs-target="#review"
-                        type="button" role="tab" aria-controls="review" aria-selected="true">Reviews</button>
+              <button class="nav-link active" id="review-tab" data-bs-toggle="tab" data-bs-target="#review" type="button" role="tab" aria-controls="review" aria-selected="true">Reviews</button>
             </li>
 
             <li class="nav-item" role="presentation">
-            <button class="nav-link" id="qa-tab" data-bs-toggle="tab" data-bs-target="#qa" type="button"
-                        role="tab" aria-controls="qa" aria-selected="false">Q/A</button>
+              <button class="nav-link" id="qa-tab" data-bs-toggle="tab" data-bs-target="#qa" type="button" role="tab" aria-controls="qa" aria-selected="false">Q/A</button>
             </li>
-  
+
           </ul>
           <!--Reviews tab-->
-             <div class="tab-content" id="myTabContent">
-             <div class="tab-pane fade show active" id="review" role="tabpanel" aria-labelledby="review-tab">
-          <?php
-          $sql2 = "SELECT * FROM feedback WHERE course_id='" . $row['id'] . "'";
-          $result3 = $conn->query($sql2);
+          <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="review" role="tabpanel" aria-labelledby="review-tab">
+              <?php
+              $sql2 = "SELECT * FROM feedback WHERE course_id='" . $row['id'] . "'";
+              $result3 = $conn->query($sql2);
 
 
 
-          if ($result3->num_rows > 0) {
-            while ($reviews = $result3->fetch_assoc()) {
-              $user = searchUser($reviews['learner_id']);
-              $rating2 = $reviews['rating'];
+              if ($result3->num_rows > 0) {
+                while ($reviews = $result3->fetch_assoc()) {
+                  $user = searchUser($reviews['learner_id']);
+                  $rating2 = $reviews['rating'];
 
 
-              echo "<br>";
+                  echo "<br>";
 
-          ?>
-              <div class="d-flex flex-start mb-4">
-                <?php
-                if ($user['picture'] == '') {
-                  $user['picture'] = 'images/pic.png';
-                }
-                ?>
-                <img class="rounded-circle shadow-1-strong me-3" src="<?php echo $user['picture']; ?>" alt="avatar" width="65" height="65" />
-                <div class="card w-100">
-                  <div class="card-body p-4" style="background-color:#E6DAEA">
-                    <div class="">
-                      <h5> <?php echo $user['fname']; ?></h5>
-                      <?php
-                      for ($i = 0; $i < (int)$rating2; $i++) {
-                      ?>
-                        <span class=' fa fa-star checked'></span>
-                      <?php
-                      }
-                      $unchecked2 = 5 - $rating2;
-                      for ($j = 0; $j < $unchecked2; $j++) {
-                      ?>
-                        <span class='fa fa-star'></span>
-                      <?php
-                      }
-                      ?>
-                      <p>
-                        <?php
-                        echo $reviews['comment'];
-                        ?>
-                      </p>
+              ?>
+                  <div class="d-flex flex-start mb-4">
+                    <?php
+                    if ($user['picture'] == '') {
+                      $user['picture'] = 'images/pic.png';
+                    }
+                    ?>
+                    <img class="rounded-circle shadow-1-strong me-3" src="<?php echo $user['picture']; ?>" alt="avatar" width="65" height="65" />
+                    <div class="card w-100">
+                      <div class="card-body p-4" style="background-color:#E6DAEA">
+                        <div class="">
+                          <h5> <?php echo $user['fname']; ?></h5>
+                          <?php
+                          for ($i = 0; $i < (int)$rating2; $i++) {
+                          ?>
+                            <span class=' fa fa-star checked'></span>
+                          <?php
+                          }
+                          $unchecked2 = 5 - $rating2;
+                          for ($j = 0; $j < $unchecked2; $j++) {
+                          ?>
+                            <span class='fa fa-star'></span>
+                          <?php
+                          }
+                          ?>
+                          <p>
+                            <?php
+                            echo $reviews['comment'];
+                            ?>
+                          </p>
 
-                      <div class="d-flex justify-content-between align-items-center">
-                        <div class="d-flex align-items-center">
-                          <a href="#!" class="link-muted me-2"><i class="bi bi-hand-thumbs-up"></i>
-                            <a href="#!" class="link-muted"><i class="bi bi-hand-thumbs-down"></i>
+                          <div class="d-flex justify-content-between align-items-center">
+                            <div class="d-flex align-items-center">
+                              <a href="#!" class="link-muted me-2"><i class="bi bi-hand-thumbs-up"></i>
+                                <a href="#!" class="link-muted"><i class="bi bi-hand-thumbs-down"></i>
+                            </div>
+                            <a href="#!" class="link-muted"><i class="bi bi-reply"></i></i> Reply</a>
+                          </div>
                         </div>
-                        <a href="#!" class="link-muted"><i class="bi bi-reply"></i></i> Reply</a>
                       </div>
                     </div>
                   </div>
-                </div>
-              </div>
+                  <?php
+
+                  ?>
+                  <!-- <button class="btn btn-sm">reply</button> -->
               <?php
+                }
+              } else {
 
+                echo "<h5 class='mt-3' style='position:absolute;left:29%'>No reviews yet &#129488;</h5>";
+              }
               ?>
-              <!-- <button class="btn btn-sm">reply</button> -->
-          <?php
-            }
-          } else {
 
-            echo "<h5 class='mt-3' style='position:absolute;left:29%'>No reviews yet &#129488;</h5>";
-          }
-          ?>
+            </div>
+            <!--Q/A tab-->
+            <div class="tab-pane fade" id="qa" role="tabpanel" aria-labelledby="qa-tab">
 
-           </div>
-           <!--Q/A tab-->
-             <div class="tab-pane fade" id="qa" role="tabpanel" aria-labelledby="qa-tab"> 
-            
-             </div>
-        </div>
+            </div>
+          </div>
           <br>
           <br>
           <br>
@@ -326,7 +324,7 @@ session_start();
         </div>
       </div>
 
-   
+
     <?php
   }
 
