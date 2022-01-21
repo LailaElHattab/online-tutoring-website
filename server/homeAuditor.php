@@ -28,7 +28,7 @@ $result2 = $conn->query($sql2);
                 <td> <?php echo $row2['fname'] ?></td>
                 <td> <?php echo $row2['email'] ?></td>
 
-                <td><button type="button" class="btn btn-primary btn-sm px-3" onclick="location.href='learner.php?id=<?php echo $row2['id'] ?>'">View inbox
+                <td><button type="button" class="btn btn-primary btn-sm px-3" onclick="location.href='messages.php?id=<?php echo $row2['id'] ?>'">View inbox
                     </button></td>
             </tr>
         <?php
@@ -69,7 +69,7 @@ $result4 = $conn->query($sql4);
                 <td> <?php echo $row4['fname'] ?></td>
                 <td> <?php echo $row4['email'] ?></td>
 
-                <td><button type="button" class="btn btn-primary btn-sm px-3" onclick="location.href='admin.php?id=<?php echo $row4['id'] ?>'">View inbox
+                <td><button type="button" class="btn btn-primary btn-sm px-3" onclick="location.href='messages.php?id=<?php echo $row4['id'] ?>'">View inbox
                     </button></td>
                 <!-- <td><button type="button" class="btn btn-primary btn-sm px-3">
                         open
