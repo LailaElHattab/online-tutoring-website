@@ -17,7 +17,6 @@ include_once 'functions.php';
     <link href='https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css' rel='stylesheet'>
     <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-    <script type='text/javascript' src=''></script>
     <script type='text/javascript' src='https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js'></script>
     <script type='text/javascript' src='https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js'></script>
 </head>
@@ -63,13 +62,13 @@ include_once 'functions.php';
                                             <div class="col">
                                                 <div class="form-outline">
                                                     <label class="form-label" for="formNameOnCard">Name on card</label>
-                                                    <input type="text" id="formNameOnCard" class="form-control" />
+                                                    <input type="text" id="formNameOnCard" class="form-control" required />
                                                 </div>
                                             </div>
                                             <div class="col">
                                                 <div class="form-outline">
                                                     <label class="form-label" for="formCardNumber">Credit card number</label>
-                                                    <input type="text" id="formCardNumber" class="form-control" />
+                                                    <input type="text" id="formCardNumber" class="form-control" required />
                                                 </div>
                                             </div>
                                         </div>
@@ -78,13 +77,13 @@ include_once 'functions.php';
                                             <div class="col-3">
                                                 <div class="form-outline">
                                                     <label class="form-label" for="formExpiration">Expiration</label>
-                                                    <input type="text" id="formExpiration" class="form-control" />
+                                                    <input type="text" id="formExpiration" class="form-control" required />
                                                 </div>
                                             </div>
                                             <div class="col-3">
                                                 <div class="form-outline">
                                                     <label class="form-label" for="formCVV">CVV</label>
-                                                    <input type="text" id="formCVV" class="form-control" />
+                                                    <input type="text" id="formCVV" class="form-control" required />
                                                 </div>
                                             </div>
                                         </div>
@@ -123,25 +122,36 @@ include_once 'functions.php';
                                     <?php
                                     $id = 0;
                                     if (isset($_POST['submit'])) {
-                                        $sql0 = "SELECT MAX(id) AS max_id FROM purchase";
-                                        $result0 = $conn->query($sql0);
-                                        $row = $result0->fetch_assoc();
-                                        if ($row['max_id'] != '') {
-                                            $id = $row['max_id'] + 1;
+
+
+                                        filter_var($_POST['formNameOnCard'], FILTER_SANITIZE_STRING);
+                                        if (!filter_var($_POST['formCardNumber'], FILTER_VALIDATE_INT) == false && !filter_var($_POST['formCVV'], FILTER_VALIDATE_INT) === false && !filter_var($_POST['formExpiration'], FILTER_VALIDATE_INT) === false) {
+                                            $sql0 = "SELECT MAX(id) AS max_id FROM purchase";
+                                            $result0 = $conn->query($sql0);
+                                            $row = $result0->fetch_assoc();
+                                            if ($row['max_id'] != '') {
+                                                $id = $row['max_id'] + 1;
+                                            } else {
+                                                $id = 0;
+                                            }
+                                            $sql1 = "insert into purchase(id,learner_id,createdAt, details) values('" . $id . "','" . $_SESSION['id'] . "','" . date("Y-m-d h:i:sa") . "','" . $_GET['total'] . "')";
+                                            $result1 = $conn->query($sql1);
+                                            for ($k = 0; $k < count($_SESSION['items']); $k++) {
+                                                $sql3 = "insert into enroll(learner_id, course_id) values('" . $_SESSION['id'] . "','" . $_SESSION['items'][$k] . "')";
+                                                $sql4 = "insert into purchaseItem(purchase_id,course_id) values('" . $id . "','" . $_SESSION['items'][$k] . "')";
+                                                $result3 = $conn->query($sql3);
+                                                $result4 = $conn->query($sql4);
+                                            }
+                                            $_SESSION['items'] = array();
+                                            header("Location:home.php");
+                                            ob_end_flush();
                                         } else {
-                                            $id = 0;
+                                    ?>
+                                            <div class='alert alert-danger col-md-4' style='text-align:center;width:350px;position:absolute;top:15%;left:35%'>
+                                                <label> Please enter a valid data</label>
+                                            </div>
+                                    <?php
                                         }
-                                        $sql1 = "insert into purchase(id,learner_id,createdAt, details) values('" . $id . "','" . $_SESSION['id'] . "','" . date("Y-m-d h:i:sa") . "','" . $_GET['total'] . "')";
-                                        $result1 = $conn->query($sql1);
-                                        for ($k = 0; $k < count($_SESSION['items']); $k++) {
-                                            $sql3 = "insert into enroll(learner_id, course_id) values('" . $_SESSION['id'] . "','" . $_SESSION['items'][$k] . "')";
-                                            $sql4 = "insert into purchaseItem(purchase_id,course_id) values('" . $id . "','" . $_SESSION['items'][$k] . "')";
-                                            $result3 = $conn->query($sql3);
-                                            $result4 = $conn->query($sql4);
-                                        }
-                                        $_SESSION['items'] = array();
-                                        header("Location:home.php");
-                                        ob_end_flush();
                                     }
 
                                     ?>
