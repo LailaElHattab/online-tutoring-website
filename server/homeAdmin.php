@@ -201,7 +201,7 @@ $result5 = $conn->query($sql5);
 
             <tr>
                 <td><?php echo $row5['id'] ?></td>
-                <td><?php echo $result6['email']; ?></td>
+                <td><a href="learner.php?id=<?php echo $row5['learner_id']; ?>"><?php echo $result6['email']; ?></a></td>
                 <td><?php echo "E£" . $row5['details'] ?></td>
                 <td><?php echo $row5['createdAt'] ?></td>
                 <td><button type="button" class="btn btn-primary btn-sm px-3" onclick="location.href='orders.php?id=<?php echo $row5['id'] ?>'">
