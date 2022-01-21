@@ -293,10 +293,13 @@ session_start();
             }
           } else {
 
-            echo "No reviews yet";
+            echo "<h5 style='position:absolute;left:29%'>No reviews yet &#129488;</h5>";
           }
           ?>
-
+          <br>
+          <br>
+          <br>
+          <br>
         </div>
       </div>
 
