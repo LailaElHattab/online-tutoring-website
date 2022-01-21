@@ -26,7 +26,7 @@ echo "<textarea name='des' rows='50' cols='100'>" . file_get_contents($path) . "
 $content = $row['content'];
 echo "<h3>Course content</h3>";
 echo "<textarea name='cont' rows='50' cols='100'>" . file_get_contents($content) . "</textarea>";
-echo "<input type='submit' name='submit' value='apply'>";
+echo "<br><input type='submit' name='submit' value='apply'>";
 
 echo "</form>";
 ?>
