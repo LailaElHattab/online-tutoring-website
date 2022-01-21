@@ -55,17 +55,17 @@
                                 <!--Course name-->
                                 <div class=" form-outline mb-4" id="name">
                                     <label for="email" class="form-label" id="label1"><b>Course Name:</b> </label>
-                                    <input type="text" class="form-control" name="name" placeholder="name">
+                                    <input type="text" class="form-control" name="name" placeholder="name" required>
                                 </div>
                                 <!--Course price-->
                                 <div class="form-outline mb-4" id="emailInput">
                                     <label for="email" class="form-label" id="label1"><b>Course Price:</b> </label>
-                                    <input type="text" class="form-control" name="price" placeholder="price">
+                                    <input type="text" class="form-control" name="price" placeholder="price" required>
                                 </div>
 
                                 <div class="form-outline mb-4" id="category">
                                     <label for="category"><b>Course Category:</b></label>
-                                    <select name="category" id="category">
+                                    <select name="category" id="category" required>
                                         <option value="development">Development</option>
                                         <option value="business">Business</option>
                                         <option value="desgin">Desgin</option>
@@ -102,20 +102,23 @@
                                 <!--Course image-->
                                 <div class="form-outline mb-4">
                                     <label class="form-label" for="imageToUpload">Course image:</label>
-                                    <input class="form-control" type="file" name="imageToUpload" id="imageToUpload">
+                                    <input class="form-control" type="file" name="imageToUpload" id="imageToUpload"
+                                        required>
                                 </div>
 
                                 <!--Course Description-->
                                 <div class="form-outline mb-4">
                                     <label class="form-label" for="desToUpload">Course Description:</label>
-                                    <input class="form-control" type="file" name="desToUpload" id="desToUpload">
+                                    <input class="form-control" type="file" name="desToUpload" id="desToUpload"
+                                        required>
                                 </div>
 
 
                                 <!--Course Content File-->
                                 <div class="form-outline mb-4">
                                     <label class="form-label" for="contentToUpload">Course Content File:</label>
-                                    <input class="form-control" type="file" name="contentToUpload" id="contentToUpload">
+                                    <input class="form-control" type="file" name="contentToUpload" id="contentToUpload"
+                                        required>
                                 </div>
                                 <!--Submit button-->
                                 <input type="submit" class="btn" id="deletebtn" name="add" value="add course">
