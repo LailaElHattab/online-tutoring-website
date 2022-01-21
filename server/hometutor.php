@@ -23,13 +23,13 @@ $result = $conn->query($sql);
             <tr>
                 <td><?php echo $row['id']; ?></td>
                 <td><?php echo $row['name']; ?></td>
-                <td><?php
-                    if ($row['status'] == 1) {
-                        echo "Approved by admin";
-                    } else {
-                        echo "Still not Approved by admin";
-                    }
-                    ?></td>
+                <?php
+                if ($row['status'] == 1) {
+                    echo "<td class='table-success'>Approved by admin</td>";
+                } else {
+                    echo "<td class='table-danger'>Still not Approved by admin</td>";
+                }
+                ?>
                 <td><button type="button" class="btn btn-primary btn-sm px-3" onclick="location.href='courses.php?id=<?php echo $row['id'] ?>'">
                         open
                     </button></td>
