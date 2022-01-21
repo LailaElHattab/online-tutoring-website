@@ -52,7 +52,7 @@ include 'nav.php';
       <div class="row d-flex justify-content-center align-items-center h-100">
         <div class="col-md-12 col-xl-4">
 
-          <div class="card" style="border-radius: 20px;" id="learnerView">
+          <div class="card" style="border-radius: 20px; background-color:#F7F1FF;" id="learnerView">
             <div class="card-body text-center">
               <div class="mt-3 mb-4">
                 <?php
@@ -67,7 +67,7 @@ include 'nav.php';
                 } ?>
               </div>
               <h4 class="mb-2"><?php echo $row['fname'] ?></h4>
-              <p class="text-muted mb-4"><a href="#!"><?php echo $row['email'] ?></a></p>
+              <p class="text-muted mb-4"><?php echo $row['email'] ?></p>
 
               <div class="d-flex justify-content-center text-center mt-5 mb-2">
                 <div>
