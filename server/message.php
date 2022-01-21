@@ -73,7 +73,7 @@ session_start();
                                         <p class="fw-bold mb-0"><?php echo $row['fname'] ?></p>
                                     </div>
                                     <div class="col-md-6">
-                                        <img id="illustration" src="../server/images/Background2.png" class="img-fluid" style="width: 300px;position:absolute;left:100%;top:0%" alt="Responsive image">
+                                        <img id="illustration" src="../server/images/Background2.png" class="img-fluid" style="width: 100px;height:100px;position:absolute;left:120%;top:0%" alt="Responsive image">
                                     </div>
 
                                     <?php
