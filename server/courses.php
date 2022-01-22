@@ -99,6 +99,8 @@ session_start();
   include 'nav.php';
   include_once 'database.php';
   include_once 'functions.php';
+  include_once 'errorHandling.php';
+  set_error_handler("customError");
   if ($_GET['id'] == "") {
   ?>
     <h4 style="text-align: center;">No course to show</h4>
@@ -146,14 +148,23 @@ session_start();
           ?>
           <p class="mb-2 h5" id="cDesc">Course Description</p>
           <?php
-          $file = fopen($path, "r");
-          while (!feof($file)) {
-            $line = fgets($file);
+
+
+
+          if (!file_exists($path)) {
+            trigger_error("Something went wrong");
+          } else {
+            $file = fopen($path, "r");
+
+
+            while (!feof($file)) {
+              $line = fgets($file);
           ?>
-            <p class="mb-2"><?php echo $line ?></p>
+              <p class="mb-2"><?php echo $line ?></p>
           <?php
+            }
+            fclose($file);
           }
-          fclose($file);
           ?>
           <hr>
           <?php
@@ -166,20 +177,25 @@ session_start();
           ?>
               <p class="mb-2 h5" id="cDesc">Course content</p>
               <?php
-              $file1 = fopen($content, "r");
-              while (!feof($file1)) {
-                $line1 = fgets($file1);
+              if (!file_exists($content)) {
+                trigger_error("Something went wrong");
+              } else {
+
+                $file1 = fopen($content, "r");
+                while (!feof($file1)) {
+                  $line1 = fgets($file1);
               ?>
-                <p class="mb-2"><?php echo $line1 ?></p>
+                  <p class="mb-2"><?php echo $line1 ?></p>
+                <?php
+                }
+                echo "<hr>";
+                ?>
+
+                <button class="btn btn-sm" id="editcbtn" onclick="location.href='survey.php?id=<?php echo $row['id'] ?>'">Get certificate</button>
               <?php
               }
-              echo "<hr>";
-              ?>
-
-              <button class="btn btn-sm" id="editcbtn" onclick="location.href='survey.php?id=<?php echo $row['id'] ?>'">Get certificate</button>
-            <?php
             } else {
-            ?>
+              ?>
               <button class="btn btn-sm" id="editcbtn" onclick="location.href='cart.php?id=<?php echo $row['id'] ?>'">Add to cart</button>
 
             <?php
@@ -235,7 +251,7 @@ session_start();
           <?php
           echo "<div style='display:inline'>";
           $ratings = rateCount($row['id']);
-          for ($i = 0; $i <= 5; $i++) {
+          for ($i = 1; $i <= 5; $i++) {
 
             for ($j = 0; $j < $i; $j++) {
 
@@ -243,7 +259,8 @@ session_start();
               <span class='fa fa-star checked' style='position:relative;left:5%;'></span>
           <?php
             }
-            echo "<b style='color:#5624d0;position:relative;left:7%;top:1%;text-align:center'>" . $ratings[$i] . "</b>";
+
+            echo "<b style='color:#5624d0;position:relative;left:7%;top:0%;text-align:center'>" . $ratings[$i] . "</b>";
             echo "<br>";
           }
           echo "</div>";
@@ -315,7 +332,7 @@ session_start();
                             if ($_SESSION['user'] == 1) {
 
                             ?>
-                              <a class="reply" id="<?php echo $user['learner_id']; ?>"> Reply</a>
+                              <a class="reply"> Reply</a>
 
 
                             <?php
