@@ -104,18 +104,22 @@ set_error_handler("customError");
           <div class='alert alert-danger col-md-4' style='width:300px;position:absolute;left:69%;top:43%'>
             <label> There's another user with the same email </label>
           </div>
-        <?php
+          <?php
         } else {
           $name = filter_var($_POST['name'], FILTER_SANITIZE_STRING);
           $pass = filter_var($_POST['password'], FILTER_SANITIZE_STRING);
           $security = filter_var($_POST['security'], FILTER_SANITIZE_STRING);
           $sql = "INSERT INTO user(type,fname,email,password,security_ans,tutor_status) VALUES('1','" . $_POST['name'] . "','" . $email1 . "','" . $pass . "','" .  $security . "','1')";
           $result = $conn->query($sql);
-        ?>
-          <div class='alert alert-success col-md-4' style='text-align:center;width:350px;position:absolute;top:10%;left:35%'>
-            <label> The tutor has been added successfully </label>
-          </div>
+          if (!$result) {
+            trigger_error("Something went wrong");
+          } else {
+          ?>
+            <div class='alert alert-success col-md-4' style='text-align:center;width:350px;position:absolute;top:10%;left:35%'>
+              <label> The tutor has been added successfully </label>
+            </div>
   <?php
+          }
         }
       }
     }
