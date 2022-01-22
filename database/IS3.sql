@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jan 21, 2022 at 06:37 PM
+-- Generation Time: Jan 22, 2022 at 05:06 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.11
 
@@ -33,6 +33,15 @@ CREATE TABLE `answer` (
   `ques_id` int(11) NOT NULL,
   `content` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `answer`
+--
+
+INSERT INTO `answer` (`id`, `learner_id`, `ques_id`, `content`) VALUES
+(1, 16, 1, 'Yes! He even teaches how to interact with students online - you know its corona time!'),
+(2, 16, 2, 'Yes absolutely! Go ahead and buy it!'),
+(4, 15, 4, 'as you can see from my review I mentioned that it is really fun and effective! you should go ahead and buy it! good luck sondos');
 
 -- --------------------------------------------------------
 
@@ -159,7 +168,9 @@ INSERT INTO `enroll` (`learner_id`, `course_id`) VALUES
 (14, 9),
 (14, 10),
 (14, 11),
+(14, 12),
 (14, 13),
+(14, 23),
 (15, 1),
 (15, 9),
 (15, 12),
@@ -229,9 +240,12 @@ INSERT INTO `message` (`id`, `sent_by`, `received_by`, `message`, `createdAt`, `
 (102, 28, 5, 'how are youuu?', '2022-01-18 07:52:18pm', 1),
 (103, 5, 28, 'I am good ', '2022-01-21 04:08:09am', 1),
 (106, 5, 2, 'you crazy', '2022-01-21 04:15:22am', 1),
-(109, 5, 6, 'hi mohamed', '2022-01-21 04:27:07am', NULL),
+(109, 5, 6, 'hi mohamed', '2022-01-21 04:27:07am', 1),
 (111, 5, 28, 'good evening', '2022-01-21 05:05:27am', 1),
-(112, 5, 6, 'how are you', '2022-01-21 05:08:08am', NULL);
+(112, 5, 6, 'how are you', '2022-01-21 05:08:08am', 1),
+(118, 14, 5, 'Hi', '2022-01-22 04:32:21am', NULL),
+(119, 14, 5, 'I would like to take this course', '2022-01-22 04:32:25am', NULL),
+(120, 14, 5, 'https://www.udemy.com/course/the-complete-web-development-bootcamp/', '2022-01-22 04:40:46am', NULL);
 
 -- --------------------------------------------------------
 
@@ -255,7 +269,9 @@ INSERT INTO `purchase` (`id`, `learner_id`, `createdAt`, `details`) VALUES
 (8, 15, '2022-01-21 03:04:00am', '3560'),
 (9, 15, '2022-01-21 03:10:52am', '3000'),
 (10, 15, '2022-01-21 03:14:13am', '500'),
-(11, 15, '2022-01-21 03:16:29am', '300');
+(11, 15, '2022-01-21 03:16:29am', '300'),
+(12, 14, '2022-01-21 09:47:30pm', '3560'),
+(13, 14, '2022-01-21 09:52:17pm', '3000');
 
 -- --------------------------------------------------------
 
@@ -279,7 +295,9 @@ INSERT INTO `purchaseItem` (`id`, `purchase_id`, `course_id`) VALUES
 (7, 8, 12),
 (8, 9, 13),
 (9, 10, 1),
-(10, 11, 16);
+(10, 11, 16),
+(11, 12, 12),
+(12, 13, 23);
 
 -- --------------------------------------------------------
 
@@ -294,32 +312,40 @@ CREATE TABLE `question` (
   `content` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- --------------------------------------------------------
-
 --
--- Table structure for table `review`
+-- Dumping data for table `question`
 --
 
-CREATE TABLE `review` (
-  `id` int(11) NOT NULL,
-  `review` varchar(255) NOT NULL,
-  `rate` int(11) NOT NULL,
-  `learner_id` int(11) NOT NULL,
-  `course_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+INSERT INTO `question` (`id`, `learner_id`, `course_id`, `content`) VALUES
+(1, 14, 9, 'Does the instructor use advanced teaching techniques?'),
+(2, 14, 9, 'Is the course for beginners?'),
+(3, 16, 3, 'Im thinking about purchasing this course! Would you guys recommend it?'),
+(4, 16, 16, 'Is this course really effective? I am struggling with fitness!');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `suggestion`
+-- Table structure for table `reply`
 --
 
-CREATE TABLE `suggestion` (
+CREATE TABLE `reply` (
   `id` int(11) NOT NULL,
-  `learner_id` int(11) NOT NULL,
-  `course_id` int(11) NOT NULL,
-  `description` int(11) NOT NULL
+  `review_id` int(11) NOT NULL,
+  `admin_id` int(11) NOT NULL,
+  `content` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `reply`
+--
+
+INSERT INTO `reply` (`id`, `review_id`, `admin_id`, `content`) VALUES
+(1, 1, 5, 'Thank you very much for your nice review!'),
+(2, 12, 2, 'We hope you come back for more fruitful courses'),
+(3, 16, 3, 'We love your sprite'),
+(4, 18, 4, 'I am sorry to hear that but Please contact us to get a detailed complaint'),
+(5, 19, 1, 'I am sorry to hear that but Please contact us to get a detailed complaint'),
+(6, 17, 4, 'Thank you!');
 
 -- --------------------------------------------------------
 
@@ -386,7 +412,8 @@ INSERT INTO `user` (`id`, `type`, `fname`, `email`, `password`, `security_ans`, 
 (24, 4, 'mariam', 'mariam@gmail.com', '99c5e07b4d5de9d18c350cdf64c5aa3d', 'Caramel', NULL, 0, NULL, NULL, NULL),
 (25, 2, 'faten', 'faten@gmail.com', '99c5e07b4d5de9d18c350cdf64c5aa3d', 'koko', NULL, NULL, NULL, NULL, NULL),
 (26, 2, 'Ibrahim', 'Ibrahim@gmail.com', 'd81f9c1be2e08964bf9f24b15f0e4900', 'soty', NULL, NULL, NULL, NULL, NULL),
-(28, 3, 'Maha', 'maha@gmail.com', '202cb962ac59075b964b07152d234b70', 'soty', 'images/maha.jpeg', NULL, NULL, NULL, NULL);
+(28, 3, 'Maha', 'maha@gmail.com', '202cb962ac59075b964b07152d234b70', 'soty', 'images/maha.jpeg', NULL, NULL, NULL, NULL),
+(40, 4, 'samy', 'samy@gmail.com', '202cb962ac59075b964b07152d234b70', 'koko', NULL, NULL, NULL, NULL, NULL);
 
 --
 -- Indexes for dumped tables
@@ -470,20 +497,12 @@ ALTER TABLE `question`
   ADD KEY `course_id` (`course_id`);
 
 --
--- Indexes for table `review`
+-- Indexes for table `reply`
 --
-ALTER TABLE `review`
+ALTER TABLE `reply`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `learner_id` (`learner_id`),
-  ADD KEY `course_id` (`course_id`);
-
---
--- Indexes for table `suggestion`
---
-ALTER TABLE `suggestion`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `course_id` (`course_id`),
-  ADD KEY `learner_id` (`learner_id`);
+  ADD KEY `review_id` (`review_id`,`admin_id`),
+  ADD KEY `admin_id` (`admin_id`);
 
 --
 -- Indexes for table `type`
@@ -507,7 +526,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `answer`
 --
 ALTER TABLE `answer`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `category`
@@ -519,7 +538,7 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT for table `course`
 --
 ALTER TABLE `course`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
 -- AUTO_INCREMENT for table `feedback`
@@ -531,37 +550,37 @@ ALTER TABLE `feedback`
 -- AUTO_INCREMENT for table `message`
 --
 ALTER TABLE `message`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=118;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=122;
 
 --
 -- AUTO_INCREMENT for table `purchase`
 --
 ALTER TABLE `purchase`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `purchaseItem`
 --
 ALTER TABLE `purchaseItem`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `question`
 --
 ALTER TABLE `question`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `suggestion`
+-- AUTO_INCREMENT for table `reply`
 --
-ALTER TABLE `suggestion`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `reply`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- Constraints for dumped tables
@@ -629,18 +648,11 @@ ALTER TABLE `question`
   ADD CONSTRAINT `question_ibfk_2` FOREIGN KEY (`course_id`) REFERENCES `course` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `review`
+-- Constraints for table `reply`
 --
-ALTER TABLE `review`
-  ADD CONSTRAINT `review_ibfk_1` FOREIGN KEY (`course_id`) REFERENCES `course` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `review_ibfk_2` FOREIGN KEY (`learner_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `suggestion`
---
-ALTER TABLE `suggestion`
-  ADD CONSTRAINT `suggestion_ibfk_1` FOREIGN KEY (`course_id`) REFERENCES `course` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `suggestion_ibfk_2` FOREIGN KEY (`learner_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `reply`
+  ADD CONSTRAINT `reply_ibfk_1` FOREIGN KEY (`admin_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `reply_ibfk_2` FOREIGN KEY (`review_id`) REFERENCES `feedback` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `user`

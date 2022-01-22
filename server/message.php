@@ -85,7 +85,17 @@ session_start();
                                     ?>
                                                 <div class="card-body">
                                                     <div class="float-left" style="background-color:#F8E0CD;box-sizing:border-box;border-radius: 35px;border: solid #FFF;">
-                                                        <p class="mb-0" style="text-align:left;font-size:20px;"><?php echo $row2['message'] ?></p>
+                                                        <?php
+                                                        if (filter_var($row2['message'], FILTER_VALIDATE_URL)) {
+                                                        ?>
+                                                            <p class="mb-0" style="text-align:left;font-size:20px;"><a href="<?php echo $row2['message'] ?>"><?php echo $row2['message'] ?></a></p>
+                                                        <?php
+                                                        } else {
+                                                        ?>
+                                                            <p class="mb-0" style="text-align:left;font-size:20px;"><?php echo $row2['message'] ?></p>
+                                                        <?php
+                                                        }
+                                                        ?>
                                                     </div>
                                                 </div>
 
@@ -98,7 +108,17 @@ session_start();
                                                 ?>
                                                     <div class="card-body">
                                                         <div class="float-right" style="background-color:#F8E0CD;box-sizing:border-box;border-radius: 35px;border: solid #FFF;">
-                                                            <p class="mb-0" style="text-align:right;font-size:20px;font-style: italic;"><?php echo $row2['message'] ?></p>
+                                                            <?php
+                                                            if (filter_var($row2['message'], FILTER_VALIDATE_URL)) {
+                                                            ?>
+                                                                <p class="mb-0" style="text-align:right;font-size:20px;font-style: italic;"><a href="<?php echo $row2['message'] ?>"><?php echo $row2['message'] ?></a></p>
+                                                            <?php
+                                                            } else {
+                                                            ?>
+                                                                <p class="mb-0" style="text-align:right;font-size:20px;font-style: italic;"><?php echo $row2['message'] ?></p>
+                                                            <?php
+                                                            }
+                                                            ?>
                                                         </div>
                                                     </div>
 
@@ -106,8 +126,20 @@ session_start();
                                                 } else {
                                                 ?>
                                                     <div class="card-body">
+
+
                                                         <div class="float-right" style="background-color:#F8E0CD;box-sizing:border-box;border-radius: 35px;border: solid #FFF;">
-                                                            <p class="mb-0" style="text-align:right;font-size:20px;font-style:bold;text-decoration: underline;"><?php echo $row2['message'] ?></p>
+                                                            <?php
+                                                            if (filter_var($row2['message'], FILTER_VALIDATE_URL)) {
+                                                            ?>
+                                                                <p class="mb-0" style="text-align:right;font-size:20px;font-style:bold;text-decoration: underline;"><a href="<?php echo $row2['message'] ?>"><?php echo $row2['message'] ?></a></p>
+                                                            <?php
+                                                            } else {
+                                                            ?>
+                                                                <p class="mb-0" style="text-align:right;font-size:20px;font-style:bold;text-decoration: underline;"><?php echo $row2['message'] ?></p>
+                                                            <?php
+                                                            }
+                                                            ?>
                                                         </div>
                                                     </div>
 

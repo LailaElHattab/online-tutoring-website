@@ -25,6 +25,12 @@ session_start();
         $("#answer").attr('value', $(".ans").attr("name"));
         $(".ans").hide();
       });
+      $(".reply").click(function() {
+        $("#reply").slideDown();
+        $("#reply1").slideDown();
+        $("#reply1").attr('value', $(".reply").attr("name"));
+        $(".reply").hide();
+      });
     });
   </script>
   <style>
@@ -309,7 +315,9 @@ session_start();
                             if ($_SESSION['user'] == 1) {
 
                             ?>
-                              <a href="#!" class="link-muted"><i class="bi bi-reply"></i></i> Reply</a>
+                              <a class="reply" id="<?php echo $user['learner_id']; ?>"> Reply</a>
+
+
                             <?php
                             }
                             ?>
@@ -322,14 +330,44 @@ session_start();
 
                   ?>
                   <!-- <button class="btn btn-sm">reply</button> -->
+                  <?php
+                  $sql19 = "SELECT * FROM reply WHERE review_id='" . $reviews['id'] . "'";
+                  $result19 = $conn->query($sql19);
+                  if ($result19->num_rows > 0) {
+                    while ($row19 = $result19->fetch_assoc()) {
+
+                      $sql20 = "SELECT * FROM user WHERE id='" . $row19['admin_id'] . "'";
+                      $result20 = select($sql20);
+                  ?>
+
+                      <div class="card w-100">
+                        <div class="card-body p-4" style="background-color:#FFD580">
+                          <p><b><?php echo $result20['fname']; ?></b></p>
+                          <img class="rounded-circle shadow-1-strong me-3" src="<?php echo $result20['picture']; ?>" alt="avatar" width="65" height="65" />
+                          <?php echo $row19['content']; ?>
+                        </div>
+                      </div>
               <?php
+
+
+                    }
+                  }
                 }
               } else {
 
                 echo "<h5 class='mt-3' style='position:absolute;left:29%'>No reviews yet &#129488;</h5>";
               }
               ?>
-
+              <form method="post" action="">
+                <input placeholder="type your reply" style="display:none;width:50%;height:50px;" name="reply" id="reply"><br><br>
+                <button class="btn btn-primary btn-sm" type="submit" style="display:none;" name="reply1" id="reply1">reply</button>
+              </form>
+              <?php
+              if (isset($_POST['reply1'])) {
+                $sql15 = "INSERT into reply (review_id,admin_id,content) VALUES ('" . 1 . "','" . $_SESSION['id'] . "','" . $_POST['reply'] . "')";
+                $conn->query($sql15);
+              }
+              ?>
             </div>
             <!--Q/A tab-->
             <div class="tab-pane fade" id="qa" role="tabpanel" aria-labelledby="qa-tab">
