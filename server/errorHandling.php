@@ -1,5 +1,6 @@
 <html>
 <?php
+
 function result($conn, $sql)
 {
     try {
@@ -13,16 +14,14 @@ function result($conn, $sql)
     }
     return $result;
 }
-function customError($errno, $errstr)
+function customError($errno, $errstr, $error_file, $error_line)
 {
-    echo "<b>Error:</b> [$errno] $errstr<br>";
-    echo "Something went wrong";
+    echo "<div  class='alert alert-danger'><b>Error:</b> [$errno] $errstr<br></div>";
+    $error_message = "[$errno] $errstr $error_file $error_line\n";
+    $log_file = "error.txt";
+    error_log($error_message, 3, $log_file);
 }
-function database($errno, $errstr)
-{
-    error_log("Error: [$errno] $errstr", 1, "anmiustudent@gmail.com", "From: is3@gmail.com");
-}
-set_error_handler("database");
+
 ?>
 
 </html>

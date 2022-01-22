@@ -1,1 +1,2 @@
 [1024] Something went wrong /Applications/XAMPP/xamppfiles/htdocs/online-tutoring-website/server/courses.php 155
+Exception

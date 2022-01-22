@@ -462,11 +462,18 @@ session_start();
               <?php
               if (isset($_POST['ask1'])) {
                 $sql12 = "INSERT into question (learner_id,course_id,content) VALUES ('" . $_SESSION['id'] . "','" . $_GET['id'] . "','" . $_POST['content'] . "')";
-                $conn->query($sql12);
+                $result12 = $conn->query($sql12);
+                if (!$result12) {
+                  trigger_error("Something went wrong");
+                }
               }
               if (isset($_POST['anss'])) {
                 $sql13 = "INSERT into answer (learner_id,ques_id,content) VALUES ('" . $_SESSION['id'] . "','" . $_POST['anss'] . "','" . $_POST['content1'] . "')";
-                $conn->query($sql13);
+
+                $result13 = $conn->query($sql13);
+                if (!$result13) {
+                  trigger_error("Something went wrong");
+                }
               }
               ?>
             </div>

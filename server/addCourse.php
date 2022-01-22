@@ -6,6 +6,7 @@ session_start();
 
 <?php
 include 'database.php';
+include 'errorHandling.php';
 include 'nav.php';
 include_once($_SERVER['DOCUMENT_ROOT'] . "/online-tutoring-website/client/addCourse.html");
 if ($_SESSION['user'] == 1) {
@@ -52,36 +53,44 @@ if (isset($_POST["add"])) {
         if (!filter_var($email1, FILTER_VALIDATE_EMAIL) === false) {
             $sql1 = "select email from user where email='" . $email1 . "'";
             $result1 = $conn->query($sql1);
-            if ($result1->num_rows > 0) {
-                $found = true;
+            if (!$result1) {
+                trigger_error("Something went wrong");
             } else {
+                if ($result1->num_rows > 0) {
+                    $found = true;
+                } else {
 
     ?>
-                <div class='alert alert-danger col-md-4' style='width:300px;position:absolute;left:70%;top:78%'>
-                    <label> Oops, This tutor is not registered </label><br><br>
-                </div>
-        <?php
-                $found = false;
+                    <div class='alert alert-danger col-md-4' style='width:300px;position:absolute;left:70%;top:78%'>
+                        <label> Oops, This tutor is not registered </label><br><br>
+                    </div>
+            <?php
+                    $found = false;
+                }
             }
         }
     }
     $courseName = filter_var($_POST['name'], FILTER_SANITIZE_STRING);
     $sql = "select name from course where name='" . $courseName . "'";
     $result = $conn->query($sql);
-    if ($result->num_rows > 0) {
-        ?>
-        <div class='alert alert-danger col-md-4' style='width:300px;position:absolute;left:70%;top:30%;'>
-            <label> Oops, another course has the same name </label><br><br>
-        </div>
-        <?php
+    if (!$result) {
+        trigger_error("Something went wrong");
     } else {
-        if ($_POST["price"] <= 0 || is_numeric($_POST["price"]) == false) {
-            $answer = false;
-        ?>
-            <div class='alert alert-danger col-md-4' style='width:300px;position:absolute;left:70%;top:45%;'>
-                <label> Price should be a number above 0 </label><br><br>
+        if ($result->num_rows > 0) {
+            ?>
+            <div class='alert alert-danger col-md-4' style='width:300px;position:absolute;left:70%;top:30%;'>
+                <label> Oops, another course has the same name </label><br><br>
             </div>
+            <?php
+        } else {
+            if ($_POST["price"] <= 0 || is_numeric($_POST["price"]) == false) {
+                $answer = false;
+            ?>
+                <div class='alert alert-danger col-md-4' style='width:300px;position:absolute;left:70%;top:45%;'>
+                    <label> Price should be a number above 0 </label><br><br>
+                </div>
         <?php
+            }
         }
     }
 
@@ -149,7 +158,10 @@ if (isset($_POST["add"])) {
             $sql4 = "INSERT INTO course (name,image,content,description,level,price,rating,status,category,tutor_id) VALUES ('$courseName','$image','$content','$des','$level','$price','0','$status','$category_id','$tutor_id')";
         }
 
-        $conn->query($sql4);
+        $result90 = $conn->query($sql4);
+        if (!$result90) {
+            trigger_error("Something went wrong");
+        }
     ?>
         <div class='alert alert-success col-md-4' style='text-align:center;width:350px;position:absolute;top:10%;left:35%'>
             <label> The course has been added successfully </label>
