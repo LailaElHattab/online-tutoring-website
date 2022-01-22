@@ -64,45 +64,61 @@ function emailPwd($id, $email)
 function searchCourse($id)
 {
     include 'database.php';
+    include 'errorHandling.php';
+    set_error_handler("customError");
     $sql2 = "SELECT * FROM course WHERE id='" . $id . "'";
     $result = $conn->query($sql2);
-    $row = $result->fetch_assoc();
+    if (!$result) {
+        trigger_error("Something went wrong");
+    } else {
+        $row = $result->fetch_assoc();
+    }
+
     return $row;
 }
-// function readReviews($id)
-// {
-//     include 'database.php';
-//     $sql2 = "SELECT * FROM feedback WHERE course_id='" . $id . "'";
-//     $result = $conn->query($sql2);
-//     $row = $result->fetch_assoc();
-//     return $row;
-// }
-
 function searchUser($id)
 {
     include 'database.php';
+    include 'errorHandling.php';
+    set_error_handler("customError");
     $sql2 = "SELECT * FROM user WHERE id='" . $id . "'";
     $result = $conn->query($sql2);
-    $row = $result->fetch_assoc();
+    if (!$result) {
+        trigger_error("Something went wrong");
+    } else {
+        $row = $result->fetch_assoc();
+    }
     return $row;
 }
 function getRating($id)
 {
     include 'database.php';
+    include 'errorHandling.php';
+    set_error_handler("customError");
     $sql = "SELECT AVG(rating) as avg FROM feedback WHERE course_id='" . $id . "'";
     $result = $conn->query($sql);
-    $row = $result->fetch_assoc();
+    if (!$result) {
+        trigger_error("Something went wrong");
+    } else {
+        $row = $result->fetch_assoc();
+    }
     return round($row['avg'], 1);
 }
 function rateCount($id)
 {
     include 'database.php';
+    include 'errorHandling.php';
+    set_error_handler("customError");
     $ratings = array();
     for ($i = 1; $i <= 5; $i++) {
         $sql = "SELECT count(rating) as count FROM feedback WHERE course_id='" . $id . "' and rating='" . $i . "'";
         $result = $conn->query($sql);
-        $row = $result->fetch_assoc();
-        $ratings[$i] = $row['count'];
+        if (!$result) {
+            trigger_error("Something went wrong");
+        } else {
+            $row = $result->fetch_assoc();
+            $ratings[$i] = $row['count'];
+        }
     }
     return $ratings;
 }
