@@ -109,7 +109,6 @@ if (isset($_POST["add"])) {
     }
 
     $target_file2 = $target_dir1 . basename($_FILES["desToUpload"]["name"]);
-
     if (!in_array($_FILES["desToUpload"]["type"], $allowed1) || $_FILES['desToUpload']['size'] > (2 * (1048576))) {
     ?>
         <div class='alert alert-danger col-md-4' style='width:300px;position:absolute;left:70%;top:110%'>
