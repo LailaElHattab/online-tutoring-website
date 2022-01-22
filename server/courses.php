@@ -304,11 +304,15 @@ session_start();
                           </p>
 
                           <div class="d-flex justify-content-between align-items-center">
-                            <div class="d-flex align-items-center">
-                              <a href="#!" class="link-muted me-2"><i class="bi bi-hand-thumbs-up"></i>
-                                <a href="#!" class="link-muted"><i class="bi bi-hand-thumbs-down"></i>
-                            </div>
-                            <a href="#!" class="link-muted"><i class="bi bi-reply"></i></i> Reply</a>
+
+                            <?php
+                            if ($_SESSION['user'] == 1) {
+
+                            ?>
+                              <a href="#!" class="link-muted"><i class="bi bi-reply"></i></i> Reply</a>
+                            <?php
+                            }
+                            ?>
                           </div>
                         </div>
                       </div>
@@ -382,34 +386,36 @@ session_start();
                   }
                   ?>
 
-            </div>
-          <?php
-                }
-          ?>
 
-          <hr>
-        <?php
+                <?php
+                }
+                ?>
+
+                <hr>
+              <?php
               }
-        ?>
-        <form method="post" action="">
-          <input placeholder="type your answer" style="display:none;width:50%;height:50px;" name="content1" id="answer1"><br><br>
-          <button class="btn btn-primary btn-sm" style="display:none;" name="anss" id="answer">answer</button>
-        </form>
-        <form method="post" action="">
-          <input placeholder="type your question" style="display:none;width:50%;height:50px;" name="content" id="question"><br><br>
-          <button class="btn btn-primary btn-sm" type="submit" style="display:none;" name="ask1" id="ask1">ask question</button>
-        </form>
-        <button class="btn btn-primary btn-sm" id="ask">ask question</button>
-        <?php
-        if (isset($_POST['ask1'])) {
-          $sql12 = "INSERT into question (learner_id,course_id,content) VALUES ('" . $_SESSION['id'] . "','" . $_GET['id'] . "','" . $_POST['content'] . "')";
-          $conn->query($sql12);
-        }
-        if (isset($_POST['anss'])) {
-          $sql13 = "INSERT into answer (learner_id,ques_id,content) VALUES ('" . $_SESSION['id'] . "','" . $_POST['anss'] . "','" . $_POST['content1'] . "')";
-          $conn->query($sql13);
-        }
-        ?>
+              ?>
+              <form method="post" action="">
+                <input placeholder="type your answer" style="display:none;width:50%;height:50px;" name="content1" id="answer1"><br><br>
+                <button class="btn btn-primary btn-sm" style="display:none;" name="anss" id="answer">answer</button>
+              </form>
+              <form method="post" action="">
+                <input placeholder="type your question" style="display:none;width:50%;height:50px;" name="content" id="question"><br><br>
+                <button class="btn btn-primary btn-sm" type="submit" style="display:none;" name="ask1" id="ask1">ask question</button>
+              </form>
+              <button class="btn btn-primary btn-sm" id="ask">ask question</button>
+              <?php
+              if (isset($_POST['ask1'])) {
+                $sql12 = "INSERT into question (learner_id,course_id,content) VALUES ('" . $_SESSION['id'] . "','" . $_GET['id'] . "','" . $_POST['content'] . "')";
+                $conn->query($sql12);
+              }
+              if (isset($_POST['anss'])) {
+                $sql13 = "INSERT into answer (learner_id,ques_id,content) VALUES ('" . $_SESSION['id'] . "','" . $_POST['anss'] . "','" . $_POST['content1'] . "')";
+                $conn->query($sql13);
+              }
+              ?>
+            </div>
+
 
           </div>
         </div>
