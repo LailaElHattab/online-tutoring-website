@@ -119,9 +119,9 @@ include_once 'nav.php';
         </div>
       <?php
       } else {
-        $name = filter_var($_POST['name'], FILTER_SANITIZE_EMAIL);
-        $pass = filter_var($_POST['password'], FILTER_SANITIZE_EMAIL);
-        $security = filter_var($_POST['security'], FILTER_SANITIZE_EMAIL);
+        $name = filter_var($_POST['name'], FILTER_SANITIZE_STRING);
+        $pass = filter_var($_POST['password'], FILTER_SANITIZE_STRING);
+        $security = filter_var($_POST['security'], FILTER_SANITIZE_STRING);
         $sql1 = "INSERT INTO user(type,fname,email,password,security_ans,admin_rank) VALUES('1','" . $name . "','" . $email1 . "','" . $pass . "','" . $security . "','" . $_POST['rank'] . "')";
         $result1 = $conn->query($sql1);
       ?>
