@@ -11,7 +11,22 @@ session_start();
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      $("#ask").click(function() {
+        $("#question").slideDown();
+        $("#ask1").slideDown();
+        $("#ask").hide();
+      });
+      $(".ans").click(function() {
+        $("#answer1").slideDown();
+        $("#answer").slideDown();
+        $("#answer").attr('value', $(".ans").attr("name"));
+        $(".ans").hide();
+      });
+    });
+  </script>
   <style>
     :root {
       --primary: #5B25FF;
@@ -314,21 +329,102 @@ session_start();
             </div>
             <!--Q/A tab-->
             <div class="tab-pane fade" id="qa" role="tabpanel" aria-labelledby="qa-tab">
+              <br>
+              <?php
+              $sql8 = "SELECT * FROM question WHERE course_id='" . $_GET['id'] . "'";
+              $result8 = $conn->query($sql8);
+              while ($row8 = $result8->fetch_assoc()) {
+                $sql10 = "SELECT * FROM user WHERE id='" . $row8['learner_id'] . "'";
+                $result10 = select($sql10);
+              ?>
+                <div class="card w-100">
+                  <div class="card-body p-4" style="background-color:#E6DAEA">
+                    <p><b><?php echo $result10['fname']; ?></b></p>
+                    <img class="rounded-circle shadow-1-strong me-3 float-left" src="<?php echo $result10['picture']; ?>" alt="avatar" width="65" height="65" />
+                    <?php
+                    echo $row8['content'];
+                    ?>
+                    <button style="position:absolute;left:90%; background-color:#5b25ff;color:white;" name="<?php echo $row8['id'] ?>" id="<?php echo $row8['id'] ?>" class="ans">answer</button>
+                  </div>
+                </div>
+                <br>
+                <?php
+
+                ?>
+
+                <?php
+
+                $sql9 = "SELECT * FROM answer WHERE ques_id='" . $row8['id'] . "'";
+                $result9 = $conn->query($sql9);
+                if ($result9->num_rows > 0) {
+                ?>
+
+                  <?php
+                  while ($row9 = $result9->fetch_assoc()) {
+                  ?>
+                    <div class="card w-100">
+                      <div class="card-body p-4" style="background-color:#FFD580;">
+
+                        <?php
+                        $sql11 = "SELECT * FROM user WHERE id='" . $row9['learner_id'] . "'";
+                        $result11 = select($sql11);
+
+                        ?>
+                        <p> <b> <?php echo $result11['fname']; ?></b></p>
+                        <img class="rounded-circle shadow-1-strong me-3" src="<?php echo $result11['picture']; ?>" alt="avatar" width="65" height="65" />
+
+                        <?php
+                        echo $row9['content'];
+                        ?>
+                      </div>
+                    </div>
+                  <?php
+                  }
+                  ?>
 
             </div>
+          <?php
+                }
+          ?>
+
+          <hr>
+        <?php
+              }
+        ?>
+        <form method="post" action="">
+          <input placeholder="type your answer" style="display:none;width:50%;height:50px;" name="content1" id="answer1"><br><br>
+          <button class="btn btn-primary btn-sm" style="display:none;" name="anss" id="answer">answer</button>
+        </form>
+        <form method="post" action="">
+          <input placeholder="type your question" style="display:none;width:50%;height:50px;" name="content" id="question"><br><br>
+          <button class="btn btn-primary btn-sm" type="submit" style="display:none;" name="ask1" id="ask1">ask question</button>
+        </form>
+        <button class="btn btn-primary btn-sm" id="ask">ask question</button>
+        <?php
+        if (isset($_POST['ask1'])) {
+          $sql12 = "INSERT into question (learner_id,course_id,content) VALUES ('" . $_SESSION['id'] . "','" . $_GET['id'] . "','" . $_POST['content'] . "')";
+          $conn->query($sql12);
+        }
+        if (isset($_POST['anss'])) {
+          $sql13 = "INSERT into answer (learner_id,ques_id,content) VALUES ('" . $_SESSION['id'] . "','" . $_POST['anss'] . "','" . $_POST['content1'] . "')";
+          $conn->query($sql13);
+        }
+        ?>
+
           </div>
-          <br>
-          <br>
-          <br>
-          <br>
         </div>
+        <br>
+        <br>
+        <br>
+        <br>
       </div>
+    </div>
 
 
-    <?php
+  <?php
   }
 
-    ?>
+  ?>
 </body>
 
 
