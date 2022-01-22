@@ -102,7 +102,7 @@ function rateCount($id)
         $sql = "SELECT count(rating) as count FROM feedback WHERE course_id='" . $id . "' and rating='" . $i . "'";
         $result = $conn->query($sql);
         $row = $result->fetch_assoc();
-        array_push($ratings, $row['count']);
+        $ratings[$i] = $row['count'];
     }
     return $ratings;
 }
