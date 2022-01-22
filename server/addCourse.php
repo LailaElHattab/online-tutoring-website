@@ -29,6 +29,7 @@ if ($_SESSION['user'] == 1) {
         el4.setAttribute("type", "email");
         el4.setAttribute("class", "form-control");
         el4.setAttribute("name", "email");
+        el4.setAttribute("maxlength", "62");
         el4.setAttribute("placeholder", "email");
 
         inputs = document.getElementById("here");

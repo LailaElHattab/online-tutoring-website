@@ -54,25 +54,25 @@ include_once 'nav.php';
                 <!--Admin name-->
                 <div class="form-outline mb-4" id="emailInput">
                   <label for="adminName" class="form-label" id="label">Admin's name: </label>
-                  <input type="text" class="form-control" id="adminName" placeholder="admin name" name="name" required>
+                  <input type="text" class="form-control" id="adminName" placeholder="admin name" name="name" maxlength="30" required>
                 </div>
                 <!--Admin email-->
                 <div class="form-outline mb-4" id="emailInput">
                   <label for="adminEmail" class="form-label" id="label"> Admin's email: </label>
-                  <input type="email" class="form-control" id="adminEmail" placeholder="admin email" name="email" required>
+                  <input type="email" class="form-control" id="adminEmail" placeholder="admin email" name="email" maxlength="62" required>
                 </div>
 
                 <!--Admin password-->
 
                 <div class="form-outline mb-4" id="emailInput">
                   <label for="adminPwd" class="form-label" id="label"> Admin's password: </label>
-                  <input type="password" class="form-control" id="adminPwd" placeholder="admin password" name="password" required>
+                  <input type="password" class="form-control" id="adminPwd" placeholder="admin password" name="password" maxlength="20" required>
                 </div>
 
                 <!--Admin security answer-->
                 <div class="form-outline mb-4" id="emailInput">
                   <label for="adminSecurity" class="form-label" id="label">Enter Admin's security answer: </label>
-                  <input type="text" class="form-control" id="adminSecurity" placeholder="security answer" name="security" required>
+                  <input type="text" class="form-control" id="adminSecurity" placeholder="security answer" name="security" maxlength="10" required>
                 </div>
 
                 <!--Choose rank-->
