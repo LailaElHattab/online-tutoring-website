@@ -1,2 +1,25 @@
 [1024] Something went wrong /Applications/XAMPP/xamppfiles/htdocs/online-tutoring-website/server/courses.php 155
-Exception
+Exception[2] Undefined array key "user" /Applications/XAMPP/xamppfiles/htdocs/online-tutoring-website/server/courses.php 171
+[2] Undefined array key "user" /Applications/XAMPP/xamppfiles/htdocs/online-tutoring-website/server/courses.php 171
+[2] Undefined array key "id" /Applications/XAMPP/xamppfiles/htdocs/online-tutoring-website/server/courses.php 172
+[2] Undefined array key "id" /Applications/XAMPP/xamppfiles/htdocs/online-tutoring-website/server/courses.php 104
+[2] Undefined array key 0 /Applications/XAMPP/xamppfiles/htdocs/online-tutoring-website/server/courses.php 247
+[2] Undefined array key 0 /Applications/XAMPP/xamppfiles/htdocs/online-tutoring-website/server/courses.php 246
+[2] Undefined array key "user" /Applications/XAMPP/xamppfiles/htdocs/online-tutoring-website/server/courses.php 162
+[2] Undefined array key "user" /Applications/XAMPP/xamppfiles/htdocs/online-tutoring-website/server/courses.php 162
+[2] Undefined array key "id" /Applications/XAMPP/xamppfiles/htdocs/online-tutoring-website/server/courses.php 163
+[2] Undefined array key 0 /Applications/XAMPP/xamppfiles/htdocs/online-tutoring-website/server/courses.php 253
+[1024] Something went wrong /Applications/XAMPP/xamppfiles/htdocs/online-tutoring-website/server/functions.php 83
+[2] Undefined array key "user" /Applications/XAMPP/xamppfiles/htdocs/online-tutoring-website/server/courses.php 322
+[2] Undefined array key 0 /Applications/XAMPP/xamppfiles/htdocs/online-tutoring-website/server/courses.php 253
+[2] Undefined array key 0 /Applications/XAMPP/xamppfiles/htdocs/online-tutoring-website/server/courses.php 253
+[1024] Something went wrong /Applications/XAMPP/xamppfiles/htdocs/online-tutoring-website/server/functions.php 83
+[2] Undefined array key "learner_id" /Applications/XAMPP/xamppfiles/htdocs/online-tutoring-website/server/courses.php 325
+[1024] Something went wrong /Applications/XAMPP/xamppfiles/htdocs/online-tutoring-website/server/functions.php 83
+[2] Undefined array key "learner_id" /Applications/XAMPP/xamppfiles/htdocs/online-tutoring-website/server/courses.php 325
+[1024] Something went wrong /Applications/XAMPP/xamppfiles/htdocs/online-tutoring-website/server/functions.php 83
+[2] Undefined array key "learner_id" /Applications/XAMPP/xamppfiles/htdocs/online-tutoring-website/server/courses.php 325
+[1024] Something went wrong /Applications/XAMPP/xamppfiles/htdocs/online-tutoring-website/server/functions.php 83
+[2] Undefined array key "learner_id" /Applications/XAMPP/xamppfiles/htdocs/online-tutoring-website/server/courses.php 325
+[1024] Something went wrong /Applications/XAMPP/xamppfiles/htdocs/online-tutoring-website/server/functions.php 83
+[2] Undefined array key "learner_id" /Applications/XAMPP/xamppfiles/htdocs/online-tutoring-website/server/courses.php 325

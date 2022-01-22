@@ -100,7 +100,7 @@ session_start();
   include_once 'database.php';
   include_once 'functions.php';
   include_once 'errorHandling.php';
-  set_error_handler("customError");
+  // set_error_handler("customError");
   if ($_GET['id'] == "") {
   ?>
     <h4 style="text-align: center;">No course to show</h4>
@@ -148,15 +148,10 @@ session_start();
           ?>
           <p class="mb-2 h5" id="cDesc">Course Description</p>
           <?php
-
-
-
           if (!file_exists($path)) {
             trigger_error("Something went wrong");
           } else {
             $file = fopen($path, "r");
-
-
             while (!feof($file)) {
               $line = fgets($file);
           ?>
@@ -180,22 +175,21 @@ session_start();
               if (!file_exists($content)) {
                 trigger_error("Something went wrong");
               } else {
-
                 $file1 = fopen($content, "r");
                 while (!feof($file1)) {
                   $line1 = fgets($file1);
               ?>
                   <p class="mb-2"><?php echo $line1 ?></p>
-                <?php
-                }
-                echo "<hr>";
-                ?>
-
-                <button class="btn btn-sm" id="editcbtn" onclick="location.href='survey.php?id=<?php echo $row['id'] ?>'">Get certificate</button>
               <?php
+                }
               }
-            } else {
+              echo "<hr>";
               ?>
+
+              <button class="btn btn-sm" id="editcbtn" onclick="location.href='survey.php?id=<?php echo $row['id'] ?>'">Get certificate</button>
+            <?php
+            } else {
+            ?>
               <button class="btn btn-sm" id="editcbtn" onclick="location.href='cart.php?id=<?php echo $row['id'] ?>'">Add to cart</button>
 
             <?php
@@ -206,12 +200,17 @@ session_start();
             ?>
             <p class="mb-2 h5" id="cDesc">Course content</p>
             <?php
-            $file1 = fopen($content, "r");
-            while (!feof($file1)) {
-              $line1 = fgets($file1);
+            if (!file_exists($content)) {
+              trigger_error("Something went wrong");
+            } else {
+
+              $file1 = fopen($content, "r");
+              while (!feof($file1)) {
+                $line1 = fgets($file1);
             ?>
-              <p class="mb-2"><?php echo $line1 ?></p>
+                <p class="mb-2"><?php echo $line1 ?></p>
             <?php
+              }
             }
             ?>
 
@@ -251,7 +250,7 @@ session_start();
           <?php
           echo "<div style='display:inline'>";
           $ratings = rateCount($row['id']);
-          for ($i = 1; $i <= 5; $i++) {
+          for ($i = 0; $i <= 5; $i++) {
 
             for ($j = 0; $j < $i; $j++) {
 
@@ -259,7 +258,6 @@ session_start();
               <span class='fa fa-star checked' style='position:relative;left:5%;'></span>
           <?php
             }
-
             echo "<b style='color:#5624d0;position:relative;left:7%;top:0%;text-align:center'>" . $ratings[$i] . "</b>";
             echo "<br>";
           }
@@ -332,7 +330,7 @@ session_start();
                             if ($_SESSION['user'] == 1) {
 
                             ?>
-                              <a class="reply"> Reply</a>
+                              <a class="reply" id="<?php echo $user['learner_id']; ?>"> Reply</a>
 
 
                             <?php
@@ -462,18 +460,11 @@ session_start();
               <?php
               if (isset($_POST['ask1'])) {
                 $sql12 = "INSERT into question (learner_id,course_id,content) VALUES ('" . $_SESSION['id'] . "','" . $_GET['id'] . "','" . $_POST['content'] . "')";
-                $result12 = $conn->query($sql12);
-                if (!$result12) {
-                  trigger_error("Something went wrong");
-                }
+                $conn->query($sql12);
               }
               if (isset($_POST['anss'])) {
                 $sql13 = "INSERT into answer (learner_id,ques_id,content) VALUES ('" . $_SESSION['id'] . "','" . $_POST['anss'] . "','" . $_POST['content1'] . "')";
-
-                $result13 = $conn->query($sql13);
-                if (!$result13) {
-                  trigger_error("Something went wrong");
-                }
+                $conn->query($sql13);
               }
               ?>
             </div>
