@@ -63,45 +63,53 @@ session_start();
   include 'database.php';
   include 'nav.php';
   include 'functions.php';
+  include_once 'errorHandling.php';
+  set_error_handler("customError");
   $sql = "SELECT * FROM purchaseItem WHERE purchase_id='" . $_GET['id'] . "'";
   $result = $conn->query($sql);
+  if (!$result) {
+    trigger_error("Something went wrong");
+  } else {
   ?>
-  <section class="vh-100 d-flex justify-content-center" id="backg">
-    <div class="container py-5 h-100">
-      <div class="row d-flex justify-content-center align-items-center h-100">
-        <div class="col-md-12 col-xl-4">
-          <div class="card" style="border-radius: 20px;" id="OrderView">
-            <div class="card-body text-center">
-              <h1 id="orderT">Orders</h1>
-              <div class="mt-3 mb-4">
-                <table class="table caption-top mx-3 table-hover">
-                  <thead>
-                    <tr>
-                      <th scope="col">Course ID</th>
-                      <th scope="col">Name</th>
-                      <th scope="col">Amount</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <?php
-                    while ($row = $result->fetch_assoc()) {
-                      $course = select("SELECT * FROM course WHERE id='" . $row['course_id'] . "'");
-                    ?>
+    <section class="vh-100 d-flex justify-content-center" id="backg">
+      <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+          <div class="col-md-12 col-xl-4">
+            <div class="card" style="border-radius: 20px;" id="OrderView">
+              <div class="card-body text-center">
+                <h1 id="orderT">Orders</h1>
+                <div class="mt-3 mb-4">
+                  <table class="table caption-top mx-3 table-hover">
+                    <thead>
                       <tr>
-                        <td><?php echo $row['id'] ?></td>
-                        <td><a href="courses.php?id=<?php echo $row['id'] ?>"><?php echo $course['name']; ?></a></td>
-                        <td><?php echo "E£" . $course['price'] ?></td>
+                        <th scope="col">Course ID</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Amount</th>
                       </tr>
-                    <?php
-                    }
-                    ?>
-                </table>
+                    </thead>
+                    <tbody>
+                      <?php
+                      while ($row = $result->fetch_assoc()) {
+                        $course = select("SELECT * FROM course WHERE id='" . $row['course_id'] . "'");
+                      ?>
+                        <tr>
+                          <td><?php echo $row['id'] ?></td>
+                          <td><a href="courses.php?id=<?php echo $row['id'] ?>"><?php echo $course['name']; ?></a></td>
+                          <td><?php echo "E£" . $course['price'] ?></td>
+                        </tr>
+                      <?php
+                      }
+                      ?>
+                  </table>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+  <?php
+  }
+  ?>
 
 </html>
