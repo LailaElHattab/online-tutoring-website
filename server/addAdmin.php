@@ -108,22 +108,28 @@ include_once 'nav.php';
 
   include_once 'database.php';
   if (isset($_POST['submit'])) {
-    $sql = "SELECT email FROM user WHERE email='" . $_POST['email'] . "'";
-    $result = $conn->query($sql);
-    if ($result->num_rows > 0) {
+    $email1 = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
+    if (!filter_var($email1, FILTER_VALIDATE_EMAIL) === false) {
+      $sql = "SELECT email FROM user WHERE email='" . $email1 . "'";
+      $result = $conn->query($sql);
+      if ($result->num_rows > 0) {
   ?>
-      <div class='alert alert-danger col-md-4' style='width:300px;position:absolute;left:69%;top:43%'>
-        <label> There's another user with the same email </label>
-      </div>
-    <?php
-    } else {
-      $sql1 = "INSERT INTO user(type,fname,email,password,security_ans,admin_rank) VALUES('1','" . $_POST['name'] . "','" . $_POST['email'] . "','" . $_POST['password'] . "','" . $_POST['security'] . "','" . $_POST['rank'] . "')";
-      $result1 = $conn->query($sql1);
-    ?>
-      <div class='alert alert-success col-md-4' style='text-align:center;width:350px;position:absolute;top:10%;left:35%'>
-        <label> The admin has been added successfully </label>
-      </div>
+        <div class='alert alert-danger col-md-4' style='width:300px;position:absolute;left:69%;top:43%'>
+          <label> There's another user with the same email </label>
+        </div>
+      <?php
+      } else {
+        $name = filter_var($_POST['name'], FILTER_SANITIZE_EMAIL);
+        $pass = filter_var($_POST['password'], FILTER_SANITIZE_EMAIL);
+        $security = filter_var($_POST['security'], FILTER_SANITIZE_EMAIL);
+        $sql1 = "INSERT INTO user(type,fname,email,password,security_ans,admin_rank) VALUES('1','" . $name . "','" . $email1 . "','" . $pass . "','" . $security . "','" . $_POST['rank'] . "')";
+        $result1 = $conn->query($sql1);
+      ?>
+        <div class='alert alert-success col-md-4' style='text-align:center;width:350px;position:absolute;top:10%;left:35%'>
+          <label> The admin has been added successfully </label>
+        </div>
   <?php
+      }
     }
   }
   ?>
